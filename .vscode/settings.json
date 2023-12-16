@@ -1,0 +1,10 @@
+{
+    "cmake.sourceDirectory": "/Users/kartik/Desktop/ERA/RobocupMSL/Simulation/3D/MotionPlanning/controllers/omniwheel_supervisor",
+    "cmake.buildDirectory": "${workspaceRoot}/controllers/omniwheel_supervisor/build/",
+    "cSpell.words": [
+        "webots"
+    ],
+    "files.associations": {
+        "vector": "cpp"
+    }
+}
