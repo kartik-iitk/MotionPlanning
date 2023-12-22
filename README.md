@@ -25,9 +25,10 @@ Note: To use the repository with Visual Studio Code Intellisense, change the nec
 - omniwheel_supervisor
   - `Coordinate.hpp` => It has definitions of `wheel_angular_vel` struct and `Point2D` struct
   - `Motion.hpp` => Has complete description of class `PID` and the class which implements motion control of the robot.
+  - `Robot.hpp` => Provides code needed for interfacing the desired motion from `Motion.hpp` to actual wheel velocities via forward and inverse kinematics with odometry information.
   - `Visualise.hpp` => All the code necessary for the visualization of the current state of the robot.
   - `Icecream.hpp` => Template Library for Debugging.
-  - `PathPlanner.hpp` => Code that needs to be imported in main for generating a set of points.
+  - `PathPlanner.hpp` => Code that needs to be imported in main for generating a set of points. Needs to be split into a corresponding PathPlanner.cpp file.
 
 ## Theory
 
