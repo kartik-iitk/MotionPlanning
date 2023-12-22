@@ -40,7 +40,7 @@ DEF OMNI_WHEELS_4 Robot {
           device [
             RotationalMotor {
               name IS wheel_3
-              maxVelocity 40
+              maxVelocity 3000
             }
             PositionSensor {
               name IS enc_3
@@ -319,7 +319,7 @@ DEF OMNI_WHEELS_4 Robot {
           device [
             RotationalMotor {
               name IS wheel_4
-              maxVelocity 40
+              maxVelocity 3000
             }
             PositionSensor {
               name IS enc_4
@@ -534,7 +534,7 @@ DEF OMNI_WHEELS_4 Robot {
             }
             RotationalMotor {
               name IS wheel_1
-              maxVelocity 40
+              maxVelocity 3000
             }
           ]
           endPoint Solid {
@@ -746,7 +746,7 @@ DEF OMNI_WHEELS_4 Robot {
             }
             RotationalMotor {
               name IS wheel_2
-              maxVelocity 40
+              maxVelocity 3000
             }
           ]
           endPoint Solid {

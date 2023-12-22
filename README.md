@@ -4,8 +4,9 @@ This repository includes the Webots simulation for motion planning (local and gl
 
 ## Requirements
 
-1. OpenCV version 4.8.1 (C++ Version)
-2. Webots version 2023b
+1. OpenCV v4.8.1 (C++ Version)
+2. OMPL v1.6 (C++ Version, python bindings are not required)
+2. Webots v2023b
 3. cmake
 
 ## How to Run
@@ -18,6 +19,15 @@ This repository includes the Webots simulation for motion planning (local and gl
 - Open the world in Webots and run the simulation
 
 Note: To use the repository with Visual Studio Code Intellisense, change the necessary include paths in the `.vscode` folder.
+
+## Code Organisation
+
+- omniwheel_supervisor
+  - `Coordinate.hpp` => It has definitions of `wheel_angular_vel` struct and `Point2D` struct
+  - `Motion.hpp` => Has complete description of class `PID` and the class which implements motion control of the robot.
+  - `Visualise.hpp` => All the code necessary for the visualization of the current state of the robot.
+  - `Icecream.hpp` => Template Library for Debugging.
+  - `PathPlanner.hpp` => Code that needs to be imported in main for generating a set of points.
 
 ## Theory
 

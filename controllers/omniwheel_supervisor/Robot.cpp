@@ -1,6 +1,6 @@
-#include "Kinematik.h"
+#include "Robot.hpp"
 
-using namespace Kinematic;
+using namespace robot;
 
 RobotKinematic *RobotKinematic::instance = 0;
 
@@ -11,25 +11,28 @@ RobotKinematic *RobotKinematic::getInstance() {
     return instance;
 }
 
-void RobotKinematic::setInitialPositon(float x, float y, float theta) {
+void RobotKinematic::setInitialPosition(float x, float y, float theta) {
     pos.x = x;
     pos.y = y;
     pos.theta = theta;
 }
 
-void RobotKinematic::CalculateOdometry(const double ori) {
+void RobotKinematic::calculateOdometry(const double ori) {
     for (int i = 0; i < 4; i++) {
         double tick = (encData[i] - prevEnc[i]);
-        Venc[i] = tick * (circumrefrence / (2 * M_PI));
+        Venc[i] = tick * (circumference / (2 * M_PI));
     }
 
     float b = sqrt(2);
     Point2D output;
+
+    // For encoder:
     // output.x = ((-b * Venc[0]) - (b * Venc[1]) + (b * Venc[2]) + (b *
     // Venc[3])) / 4; output.y = ((b * Venc[0]) - (b * Venc[1]) - (b * Venc[2])
     // + (b * Venc[3])) / 4; output.theta = (Venc[0] + Venc[1] + Venc[2] +
     // Venc[3]) / (4 * L);
-    ForwardKinematic(output, Venc[0], Venc[1], Venc[2], Venc[3]);
+
+    forwardKinematics(output, Venc[0], Venc[1], Venc[2], Venc[3]);
 
     double angleNorm = angleNormalize(pos.theta);
     pos.theta = angleNorm;
@@ -65,30 +68,30 @@ double RobotKinematic::angleNormalize(double angle) {
 
 Point2D RobotKinematic::getPos() { return pos; }
 
-void RobotKinematic::ForwardKinematic(Point2D &outForward, float s1, float s2,
-                                      float s3, float s4) {
+void RobotKinematic::forwardKinematics(Point2D &outForward, float s1, float s2,
+                                       float s3, float s4) {
     float b = sqrt(2);
     outForward.x = ((-b * s1) - (b * s2) + (b * s3) + (b * s4)) / 4;
     outForward.y = ((b * s1) - (b * s2) - (b * s3) + (b * s4)) / 4;
     outForward.theta = (s1 + s2 + s3 + s4) / (4 * L);
 }
 
-void RobotKinematic::inversKinematic(motion &outputInvers, float velglobal_x,
-                                     float velglobal_y, float velglobal_theta,
-                                     const double ori) {
-    outputInvers.w1 =
+void RobotKinematic::inverseKinematics(wheelAngularVel &outputInverse,
+                                       float velglobal_x, float velglobal_y,
+                                       float velglobal_theta) {
+    outputInverse.w1 =
         (-cos(a * M_PI / 180) * velglobal_x +
          sin(a * M_PI / 180) * velglobal_y + L * velglobal_theta) /
         r_wheel;
-    outputInvers.w2 =
+    outputInverse.w2 =
         (-cos(a * M_PI / 180) * velglobal_x -
          sin(a * M_PI / 180) * velglobal_y + L * velglobal_theta) /
         r_wheel;
-    outputInvers.w3 =
+    outputInverse.w3 =
         (cos(a * M_PI / 180) * velglobal_x - sin(a * M_PI / 180) * velglobal_y +
          L * velglobal_theta) /
         r_wheel;
-    outputInvers.w4 =
+    outputInverse.w4 =
         (cos(a * M_PI / 180) * velglobal_x + sin(a * M_PI / 180) * velglobal_y +
          L * velglobal_theta) /
         r_wheel;

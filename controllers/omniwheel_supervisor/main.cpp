@@ -1,9 +1,7 @@
-#include <opencv2/highgui/highgui.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
-#include <opencv2/opencv.hpp>
-
-#include "Kinematik.h"
-#include "Motion.h"
+#include "Motion.hpp"
+#include "PathPlanner.hpp"
+#include "Robot.hpp"
+#include "Visualize.hpp"
 #include "iostream"
 #include "webots/GPS.hpp"
 #include "webots/InertialUnit.hpp"
@@ -22,115 +20,49 @@ InertialUnit *imu_device;
 std::vector<double> prevPulse{0, 0, 0, 0};
 std::vector<double> encData{0, 0, 0, 0};
 
-using namespace Kinematic;
+using namespace robot;
 Motion *mot = new Motion();
 Point2D nowPos(0, 0, 0);
 int count = 0;
 
-Supervisor *robot = new Supervisor();
-Node *my_root = robot->getRoot();
-
-void drawArrow(cv::Mat &image, const cv::Point &pStart, const cv::Point &pEnd,
-               const cv::Scalar &color, int thickness, int line_type, int shift,
-               double tipLength) {
-    const double tipSize = cv::norm(pStart - pEnd) *
-                           tipLength;  // Factor to normalize the arrow size
-
-    cv::line(image, pStart, pEnd, color, thickness, line_type, shift);
-
-    const double angle =
-        std::atan2((double)pStart.y - pEnd.y, (double)pStart.x - pEnd.x);
-    cv::Point p1, p2;
-
-    p1.x = static_cast<int>(pEnd.x + tipSize * std::cos(angle + CV_PI / 4));
-    p1.y = static_cast<int>(pEnd.y + tipSize * std::sin(angle + CV_PI / 4));
-    cv::line(image, pEnd, p1, color, thickness, line_type, shift);
-
-    p2.x = static_cast<int>(pEnd.x + tipSize * std::cos(angle - CV_PI / 4));
-    p2.y = static_cast<int>(pEnd.y + tipSize * std::sin(angle - CV_PI / 4));
-    cv::line(image, pEnd, p2, color, thickness, line_type, shift);
-}
-
-// Function to draw a V shape representing the heading on an OpenCV image
-void drawHeadingV(cv::Mat &image, const cv::Point &center, double headingAngle,
-                  const cv::Scalar &color, int thickness, int line_type,
-                  int shift, double tipLength) {
-    const double tipSize = tipLength;
-
-    const double angle1 = headingAngle + CV_PI / 6;
-    const double angle2 = headingAngle - CV_PI / 6;
-
-    cv::Point p1, p2;
-
-    p1.x = static_cast<int>(center.x + tipSize * std::cos(angle1));
-    p1.y = static_cast<int>(center.y + tipSize * std::sin(angle1));
-    cv::line(image, center, p1, color, thickness, line_type, shift);
-
-    p2.x = static_cast<int>(center.x + tipSize * std::cos(angle2));
-    p2.y = static_cast<int>(center.y + tipSize * std::sin(angle2));
-    cv::line(image, center, p2, color, thickness, line_type, shift);
-}
+Supervisor *robotSup = new Supervisor();
+Node *my_root = robotSup->getRoot();
+Visualize *window = new Visualize(2400);
 
 void get_Trajectory(std::vector<Point2D> &path, Point2D &outputPID,
-                    Point2D &nowPos, motion &outInvers, double yaw) {
-    cv::Mat image(500, 500, CV_8UC3, cv::Scalar(255, 255, 255));
-    // nowPos = RobotKinematic::getInstance()->getPos();
-
-    float centerX = image.cols / 2.0;
-    float centerY = image.rows / 2.0;
-    // IC(circVec[count].x, circVec[count].y);
-    cv::Point robotPose((nowPos.x * 100) + centerX,
-                        -(nowPos.y * 100) + centerY);
-
-    for (auto &it : path) {
-        cv::circle(image,
-                   cv::Point2d(it.x * 100 + centerX, -(it.y * 100) + centerY),
-                   5, cv::Scalar(255, 255, 0), -1);
-    }
-
-    // Draw the robot base (you can replace this with your robot's actual base)
-    cv::circle(image, robotPose, 20, cv::Scalar(0, 0, 255), -1);
-
-    // Draw green line from robot to the destination
-    cv::line(image, robotPose,
-             cv::Point(path[count].x * 100 + centerX,
-                       -(path[count].y * 100) + centerY),
-             cv::Scalar(0, 255, 0), 2);
-
-    drawHeadingV(image, robotPose, -yaw, cv::Scalar(255, 0, 0), 5, 8, 0, 20);
-
+                    Point2D &nowPos, wheelAngularVel &outInvers, double yaw) {
+    window->visualizeGame(path, nowPos, count, yaw);
     double errorX = path[count].x - nowPos.x;
     double errorY = path[count].y - nowPos.y;
 
     double dist = sqrt(errorX * errorX + errorY * errorY);
     double errTheta = path[count].theta - (nowPos.theta * 180 / M_PI);
 
+    // Limit errTheta to -180 to +180 degrees
     if (errTheta > 180) errTheta -= 360;
     if (errTheta < -180) errTheta += 360;
 
     // IF using IMU as orientation
-    mot->PositionAngularControl(errorX, errorY, errTheta, yaw, outputPID);
+    mot->positionAngularControl(errorX, errorY, errTheta, yaw, outputPID);
 
     // If using Odometry orientation
     // mot->PositionAngularControl(errorX, errorY, errTheta, nowPos.theta,
     //                             outputPID);
 
-    RobotKinematic::getInstance()->inversKinematic(
-        outInvers, outputPID.x, outputPID.y, outputPID.theta, yaw);
+    RobotKinematic::getInstance()->inverseKinematics(
+        outInvers, outputPID.x, outputPID.y, outputPID.theta);
     if (dist < 0.07 && fabs(errTheta) < 3) {
-        mot->pid_position->reset();
-        mot->angular->reset();
+        mot->position_pid->reset();
+        mot->yaw_pid->reset();
         count++;
         IC(count);
     }
     if (count > path.size() - 1) {
         count = 0;
     }
-    cv::imshow("Robot 4 omni visual", image);
-    cv::waitKey(1);
 }
 
-void setVel(motion &outMotor) {
+void setVel(wheelAngularVel &outMotor) {
     motor[0]->setVelocity(outMotor.w1);
     motor[1]->setVelocity(outMotor.w2);
     motor[2]->setVelocity(outMotor.w3);
@@ -138,7 +70,7 @@ void setVel(motion &outMotor) {
 }
 
 static void create_line() {
-    Node *existing_line = robot->getFromDef("TRACK");
+    Node *existing_line = robotSup->getFromDef("TRACK");
     // Node *myRobot = super->getFromDef("OMNI_WHEELS");
     // Field *translation_field = myRobot->getField("translation");
 
@@ -175,32 +107,41 @@ static void create_line() {
 }
 
 int main(int argc, char **argv) {
-    motion outInvers;
+    // OMPL Code
+    double runTime = 1.0;
+    optimalPlanner plannerType = PLANNER_RRTSTAR;
+    planningObjective objectiveType = OBJECTIVE_PATHLENGTH;
+    std::string outputFile = "output.txt";
+
+    plan(runTime, plannerType, objectiveType, outputFile);
+    // OMPL Code Ends
+
+    wheelAngularVel outInvers;
     double dt = 0.0;
     Point2D outputPID(0, 0, 0.654);
-    int stepTime = robot->getBasicTimeStep();
+    int stepTime = robotSup->getBasicTimeStep();
     stepTime *= refresh_factor;
 
-    imu_device = robot->getInertialUnit("IMU");
+    imu_device = robotSup->getInertialUnit("IMU");
     imu_device->enable(stepTime);
 
-    GPS *gps_dev = robot->getGPS("gps");
+    GPS *gps_dev = robotSup->getGPS("gps");
     gps_dev->enable(stepTime);
 
     // Motor Initial
     char motorNames[4][8] = {"wheel1", "wheel2", "wheel3", "wheel4"};
 
-    Node *target_line = robot->getFromDef("OMNI_WHEELS_4");
-    // Node *target_robot = robot->getFromDef("field");
+    Node *target_line = robotSup->getFromDef("OMNI_WHEELS_4");
+    // Node *target_robot = robotSup->getFromDef("field");
 
     // SET the first Position our Robot
-    RobotKinematic::getInstance()->setInitialPositon(
+    RobotKinematic::getInstance()->setInitialPosition(
         0, 0, 0);  // Set Position x = 0, y = 0, theta = 0
 
-    // Create Line
+    // Create Line in webots environment to see actual path traced
     create_line();
 
-    Node *trail_line_set = robot->getFromDef("TRACK_LINE_SET");
+    Node *trail_line_set = robotSup->getFromDef("TRACK_LINE_SET");
     Field *coord_field = trail_line_set->getField("coord");
 
     Node *coordinate_node = coord_field->getSFNode();
@@ -213,7 +154,7 @@ int main(int argc, char **argv) {
 
     // set Motor to webots
     for (int i = 0; i < 4; i++) {
-        motor[i] = robot->getMotor(motorNames[i]);
+        motor[i] = robotSup->getMotor(motorNames[i]);
         motor[i]->setPosition(INFINITY);
         motor[i]->setVelocity(0);
     }
@@ -222,25 +163,33 @@ int main(int argc, char **argv) {
     char encNames[4][8] = {"pw1", "pw2", "pw3", "pw4"};
 
     for (int i = 0; i < 4; i++) {
-        enc[i] = robot->getPositionSensor(encNames[i]);
+        enc[i] = robotSup->getPositionSensor(encNames[i]);
         enc[i]->enable(stepTime);
     }
 
-    // std::vector<Point2D> circVec;
-    // for (int i = 0; i < 360; i += 10) {
-    //     float x_ = 1 * cos((float)i * M_PI / 180);
-    //     float y_ = 1 * sin((float)i * M_PI / 180);
-    //     circVec.push_back(Point2D(x_, y_, 0));
-    // }
-    std::vector<Point2D> targetPos = {Point2D(1.5, 0, 0), Point2D(2, -1, 0),
-                                      Point2D(0, -2, 0), Point2D(0, 2, 0)};
+    std::vector<Point2D> circVec;
+    for (int i = 0; i < 360; i += 10) {
+        float x_ = 1 * cos((float)i * M_PI / 180);
+        float y_ = 1 * sin((float)i * M_PI / 180);
+        circVec.push_back(Point2D(x_, y_, 0));
+    }
+
+    std::vector<PointPair> points = readPointsFromFile();
+
+    std::vector<Point2D> targetPos;
+    for (auto &ptr : points) {
+        targetPos.push_back(Point2D(ptr.first, ptr.second, 0));
+    }
+
+    // std::vector<Point2D> targetPos = {Point2D(-10, 0, 0), Point2D(2, -1, 0),
+    //                                   Point2D(0, -2, 0), Point2D(0, 2, 0)};
     Point2D gps_pos{0, 0, 0};
 
-    while (robot->step(stepTime) != -1) {
+    while (robotSup->step(stepTime) != -1) {
         //     std::chrono::high_resolution_clock::time_point start_time =
         //         std::chrono::high_resolution_clock::now();
         //     // Get Current Translation
-        //     double rbtime = robot->getTime();
+        //     double rbtime = robotSup->getTime();
 
         const double *robotTranslations = target_line->getPosition();
         const double *orientation = imu_device->getRollPitchYaw();
@@ -265,7 +214,7 @@ int main(int argc, char **argv) {
         gps_pos.y = gps_raw[1];
         gps_pos.theta = yaw;
 
-        nowPos = Kinematic::RobotKinematic::getInstance()->getPos();
+        nowPos = robot::RobotKinematic::getInstance()->getPos();
         IC(nowPos.x, nowPos.y, nowPos.theta);
 
         get_Trajectory(targetPos, outputPID, nowPos, outInvers, yaw);
@@ -276,20 +225,20 @@ int main(int argc, char **argv) {
         for (int i = 0; i < 4; i++) {
             RobotKinematic::getInstance()->encData[i] = enc[i]->getValue();
         }
-        RobotKinematic::getInstance()->CalculateOdometry(yaw);
+        RobotKinematic::getInstance()->calculateOdometry(yaw);
 
         // unset next indices
         coord_index_field->setMFInt32(3 * index, index);
         coord_index_field->setMFInt32(3 * index + 1, index);
 
-        if (robot->step(robot->getBasicTimeStep()) == -1) break;
+        if (robotSup->step(robotSup->getBasicTimeStep()) == -1) break;
         first_step = false;
         index++;
         index = index % maxNumberCord;
     }
 
-    robot->simulationQuit(EXIT_SUCCESS);
-    delete robot;
+    robotSup->simulationQuit(EXIT_SUCCESS);
+    delete robotSup;
 
     return 0;
 }
