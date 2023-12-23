@@ -54,24 +54,23 @@ enum planningObjective {
 };
 
 struct PointWithRadius {
-    double x;  // x-coordinate
-    double y;  // y-coordinate
-    double R;  // radius
+    double x;   // x-coordinate
+    double y;   // y-coordinate
+    double R;   // radius
 };
 
-PointWithRadius *givepositions() {
-    int size = 10;  // number of obstacles
+std::vector<PointWithRadius> givepositions() {
+    double r = 1; //number of obstacles
     // Dynamically allocate an array of PointWithRadius
-    PointWithRadius *points = new PointWithRadius[size];
+    std::vector<PointWithRadius>  points;
 
     // Fill the array with values
-    for (int i = 0; i < size; ++i) {
-        points[i].x = 2.0 * i;  // Example: x-coordinate based on index
-        points[i].y = 3.0 * i;  // Example: y-coordinate based on index
-        points[i].R = 1.5 * i;  // Example: radius based on index
-    }
-
-    // Return the array
+    points.push_back({4.50, -0.179, r});
+    points.push_back({7.98, -0.116, r});
+    points.push_back({1.46, -2.96, r});
+    points.push_back({1.56, 4.78, r});
+    points.push_back({-4.8, -5.3, r});
+    
     return points;
 }
 
@@ -140,9 +139,14 @@ class ValidityChecker : public ob::StateValidityChecker {
 
         // Distance formula between two points, offset by the circle's
         // radius
-        // Distance formula between two points, offset by the circle's
-        // radius
-        return sqrt((x - 0.5) * (x - 0.5) + (y - 0.5) * (y - 0.5)) - 0.25;
+        std::vector<PointWithRadius> v = givepositions();
+         int count=0;
+         for(auto &ptr :v)
+         {
+            if(sqrt((x-ptr.x)*(x-ptr.x) + (y-ptr.y)*(y-ptr.y)) - ptr.R > 0.0) count++;
+         }
+         if(count==v.size()) return 1.0;
+         else return -1.0;
     }
 };
 
@@ -243,9 +247,16 @@ void plan(double runTime, optimalPlanner plannerType,
     // planning in [0,1]x[0,1], a subset of R^2.
 
     auto space(std::make_shared<ob::RealVectorStateSpace>(2));
-
-    // Set the bounds of space to be in [0,1].
-    space->setBounds(0.0, 1.0);
+  
+     // Set the bounds of space to be in [0,1].
+     // space->setBounds(0.0, 1.0);
+     // Set the bounds of space to be in [-11, 11] for both dimensions.
+    ompl::base::RealVectorBounds bounds(2);
+    bounds.setLow(0, -11.0);
+    bounds.setHigh(0, 11.0);
+    bounds.setLow(1, -7.0);
+    bounds.setHigh(1, 7.0);
+     space->setBounds(bounds);
 
     // Construct a space information instance for this state space
     auto si(std::make_shared<ob::SpaceInformation>(space));
@@ -264,8 +275,8 @@ void plan(double runTime, optimalPlanner plannerType,
     // Set our robot's goal state to be the top-right corner of the
     // environment, or (1,1).
     ob::ScopedState<> goal(space);
-    goal->as<ob::RealVectorStateSpace::StateType>()->values[0] = 1.0;
-    goal->as<ob::RealVectorStateSpace::StateType>()->values[1] = 1.0;
+    goal->as<ob::RealVectorStateSpace::StateType>()->values[0] = 10.0;
+    goal->as<ob::RealVectorStateSpace::StateType>()->values[1] = .0;
 
     // Create a problem instance
     auto pdef(std::make_shared<ob::ProblemDefinition>(si));
