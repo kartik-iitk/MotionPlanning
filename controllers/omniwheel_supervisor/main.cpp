@@ -151,9 +151,9 @@ int main(int argc, char **argv) {
     getOtherPositionYaw("Ball",
                         Ball);  // The proto does not have the DEF in it. You
                                 // need to set it from the Webots scene tree.
-    Point2D Obstacles[5];
+    std::vector<Point2D> obstacles(5);
     for (int i = 0; i < 5; i++) {
-        getOtherPositionYaw("B" + std::to_string(i + 1), Obstacles[i]);
+        getOtherPositionYaw("B" + std::to_string(i + 1), obstacles[i]);
     }
 
     // OMPL Setup Parameter
@@ -161,7 +161,8 @@ int main(int argc, char **argv) {
     optimalPlanner plannerType = PLANNER_RRTSTAR;
     planningObjective objectiveType = OBJECTIVE_PATHLENGTH;
     std::string outputFile = "output.txt";
-    plan(runTime, plannerType, objectiveType, outputFile);
+    plan(runTime, 22, 14, obstacles, plannerType, objectiveType,
+         outputFile);  // Hardcoded field parameters.
 
     // Begin Controller
     wheelAngularVel outInvers;

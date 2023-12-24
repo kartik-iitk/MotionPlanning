@@ -54,25 +54,12 @@ enum planningObjective {
 };
 
 struct PointWithRadius {
-    double x;   // x-coordinate
-    double y;   // y-coordinate
-    double R;   // radius
+    double x;  // x-coordinate
+    double y;  // y-coordinate
+    double R;  // radius
 };
 
-std::vector<PointWithRadius> givepositions() {
-    double r = 1; //number of obstacles
-    // Dynamically allocate an array of PointWithRadius
-    std::vector<PointWithRadius>  points;
-
-    // Fill the array with values
-    points.push_back({4.50, -0.179, r});
-    points.push_back({7.98, -0.116, r});
-    points.push_back({1.46, -2.96, r});
-    points.push_back({1.56, 4.78, r});
-    points.push_back({-4.8, -5.3, r});
-    
-    return points;
-}
+std::vector<Point2D> obstacles;
 
 // Define a pair for the points
 using PointPair = std::pair<double, double>;
@@ -138,15 +125,27 @@ class ValidityChecker : public ob::StateValidityChecker {
         double y = state2D->values[1];
 
         // Distance formula between two points, offset by the circle's
-        // radius
-        std::vector<PointWithRadius> v = givepositions();
-         int count=0;
-         for(auto &ptr :v)
-         {
-            if(sqrt((x-ptr.x)*(x-ptr.x) + (y-ptr.y)*(y-ptr.y)) - ptr.R > 0.0) count++;
-         }
-         if(count==v.size()) return 1.0;
-         else return -1.0;
+        // radius r
+
+        double r = 0.7;
+        // Dynamically allocate an array of PointWithRadius
+        std::vector<PointWithRadius> v;
+
+        for (int i = 0; i < obstacles.size(); i++) {
+            v.push_back({obstacles[i].x, obstacles[i].y, r});
+        }
+
+        int count = 0;
+        for (auto &ptr : v) {
+            if (sqrt((x - ptr.x) * (x - ptr.x) + (y - ptr.y) * (y - ptr.y)) -
+                    ptr.R >
+                0.0)
+                count++;
+        }
+        if (count == v.size())
+            return 1.0;
+        else
+            return -1.0;
     }
 };
 
@@ -241,22 +240,24 @@ ob::OptimizationObjectivePtr allocateObjective(
     }
 }
 
-void plan(double runTime, optimalPlanner plannerType,
-          planningObjective objectiveType, const std::string &outputFile) {
+void plan(double runTime, double A, double B, std::vector<Point2D> &obs,
+          optimalPlanner plannerType, planningObjective objectiveType,
+          const std::string &outputFile) {
     // Construct the robot state space in which we're planning. We're
-    // planning in [0,1]x[0,1], a subset of R^2.
-
+    // planning in the playable field, a subset of R^2 (a rectangle of
+    // dimensions A x B)
+    obstacles = obs;
     auto space(std::make_shared<ob::RealVectorStateSpace>(2));
-  
-     // Set the bounds of space to be in [0,1].
-     // space->setBounds(0.0, 1.0);
-     // Set the bounds of space to be in [-11, 11] for both dimensions.
+
+    // Set the bounds of space to be in [0,1].
+    // space->setBounds(0.0, 1.0);
+    // Set the bounds of space to be in [-11, 11] for both dimensions.
     ompl::base::RealVectorBounds bounds(2);
-    bounds.setLow(0, -11.0);
-    bounds.setHigh(0, 11.0);
-    bounds.setLow(1, -7.0);
-    bounds.setHigh(1, 7.0);
-     space->setBounds(bounds);
+    bounds.setLow(0, -A / 2);
+    bounds.setHigh(0, A / 2);
+    bounds.setLow(1, -B / 2);
+    bounds.setHigh(1, B / 2);
+    space->setBounds(bounds);
 
     // Construct a space information instance for this state space
     auto si(std::make_shared<ob::SpaceInformation>(space));
