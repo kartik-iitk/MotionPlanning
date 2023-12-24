@@ -5,7 +5,7 @@ get_filename_component(PROJECT ${CMAKE_SOURCE_DIR} NAME)
 project(${PROJECT})
 
 # Set CPP Standards to C++20 for ensuring everything compiles correctly.
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED YES)
 
 # Get C or C++ sources in the current directory (only).

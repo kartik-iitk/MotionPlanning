@@ -17,6 +17,7 @@ PROTO OrangePlayer [
   field SFString enc_3 "pw3"
   field SFString enc_4 "pw4"
   
+  field SFString gps "GPS"
   field SFString imu "IMU"
 ]
 {
@@ -25,6 +26,7 @@ DEF OMNI_WHEELS_4 Robot {
   rotation IS rotation
   children [
     GPS {
+      name IS gps
     }
     InertialUnit {
       name IS imu

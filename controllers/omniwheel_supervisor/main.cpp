@@ -106,16 +106,64 @@ static void create_line() {
     field_children->importMFNodeFromString(-1, track_string);
 }
 
+void getOtherPositionYaw(std::string name, Point2D &output) {
+    Node *B1 = robotSup->getFromDef(name);
+    // if (!*B1) {
+    //     return;
+    // }
+    const double *position = B1->getPosition();
+    double x = position[0];
+    double y = position[1];
+
+    const double *q = B1->getOrientation();  // We get the quaternion in {w,
+                                             // x, y, z} format
+
+    // Normalise (in case it already hasn't been)
+    double q_mod =
+        std::sqrt(q[0] * q[0] + q[1] * q[1] + q[2] * q[2] + q[3] * q[3]);
+    double q_norm[4] = {q[0] / q_mod, q[1] / q_mod, q[2] / q_mod, q[3] / q_mod};
+    // Calculate yaw (about x-axis) from -pi to +pi. The reference x axis is
+    // towards the right.
+    double siny_cosp = 2 * (q_norm[0] * q_norm[3] + q_norm[1] * q_norm[2]);
+    double cosy_cosp = 1 - 2 * (q_norm[2] * q_norm[2] + q_norm[3] * q_norm[3]);
+    double yaw = std::atan2(siny_cosp, cosy_cosp);
+
+    if (q[0] <= 0) {
+        if (q[3] >= 0) {
+            // Second Quadrant
+            yaw += M_PI;
+        } else {
+            // Third Quadrant
+            yaw -= M_PI;
+        }
+    }
+
+    yaw = yaw * (180.0 / M_PI);  // Convert radians to degrees
+
+    output.x = x;
+    output.y = y;
+    output.theta = yaw;
+}
+
 int main(int argc, char **argv) {
-    // OMPL Code
+    // Get Ball and Opponent Position
+    Point2D Ball;
+    getOtherPositionYaw("Ball",
+                        Ball);  // The proto does not have the DEF in it. You
+                                // need to set it from the Webots scene tree.
+    Point2D Obstacles[5];
+    for (int i = 0; i < 5; i++) {
+        getOtherPositionYaw("B" + std::to_string(i + 1), Obstacles[i]);
+    }
+
+    // OMPL Setup Parameter
     double runTime = 1.0;
     optimalPlanner plannerType = PLANNER_RRTSTAR;
     planningObjective objectiveType = OBJECTIVE_PATHLENGTH;
     std::string outputFile = "output.txt";
-
     plan(runTime, plannerType, objectiveType, outputFile);
-    // OMPL Code Ends
 
+    // Begin Controller
     wheelAngularVel outInvers;
     double dt = 0.0;
     Point2D outputPID(0, 0, 0.654);
@@ -125,7 +173,7 @@ int main(int argc, char **argv) {
     imu_device = robotSup->getInertialUnit("IMU");
     imu_device->enable(stepTime);
 
-    GPS *gps_dev = robotSup->getGPS("gps");
+    GPS *gps_dev = robotSup->getGPS("GPS");
     gps_dev->enable(stepTime);
 
     // Motor Initial
@@ -167,12 +215,12 @@ int main(int argc, char **argv) {
         enc[i]->enable(stepTime);
     }
 
-    std::vector<Point2D> circVec;
-    for (int i = 0; i < 360; i += 10) {
-        float x_ = 1 * cos((float)i * M_PI / 180);
-        float y_ = 1 * sin((float)i * M_PI / 180);
-        circVec.push_back(Point2D(x_, y_, 0));
-    }
+    // std::vector<Point2D> circVec;
+    // for (int i = 0; i < 360; i += 10) {
+    //     float x_ = 1 * cos((float)i * M_PI / 180);
+    //     float y_ = 1 * sin((float)i * M_PI / 180);
+    //     circVec.push_back(Point2D(x_, y_, 0));
+    // }
 
     std::vector<PointPair> points = readPointsFromFile();
 
@@ -181,7 +229,7 @@ int main(int argc, char **argv) {
         targetPos.push_back(Point2D(ptr.first, ptr.second, 0));
     }
 
-    // std::vector<Point2D> targetPos = {Point2D(-10, 0, 0), Point2D(2, -1, 0),
+    // std::vector<Point2D> targetPos = {Point2D(-10, 0, 0), Point2D(2, -1,0),
     //                                   Point2D(0, -2, 0), Point2D(0, 2, 0)};
     Point2D gps_pos{0, 0, 0};
 
