@@ -1,6 +1,6 @@
 # Motion Planning for RoboCup MSL Robots
 
-This repository includes the Webots simulation for motion planning (local and global) of a RoboCup MSL Robot using a 4-wheel omni-drive.
+This repository includes the Webots simulation for motion planning (local and global) of a RoboCup MSL Robot using a 4-wheel omni-drive. This repository is maintained by team ERA, IITK.
 
 ## Requirements
 
