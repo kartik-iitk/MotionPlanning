@@ -31,7 +31,6 @@
 namespace ob = ompl::base;
 namespace og = ompl::geometric;
 
-
 // OMPL Code uptil main
 // An enum of supported optimal planners, alphabetical order
 enum optimalPlanner {
@@ -128,7 +127,7 @@ class ValidityChecker : public ob::StateValidityChecker {
         // Distance formula between two points, offset by the circle's
         // radius r
 
-        double r = 0.7;
+        double r = 0.8;
         // Dynamically allocate an array of PointWithRadius
         std::vector<PointWithRadius> v;
 

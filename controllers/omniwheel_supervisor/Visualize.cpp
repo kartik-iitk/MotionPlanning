@@ -7,27 +7,27 @@ Visualize::Visualize(float resolutionX) {
     scale = resX / fieldX;
 }
 
-void Visualize::drawArrow(cv::Mat &image, const cv::Point &pStart,
-                          const cv::Point &pEnd, const cv::Scalar &color,
-                          int thickness, int line_type, int shift,
-                          double tipLength) {
-    const double tipSize = cv::norm(pStart - pEnd) *
-                           tipLength;  // Factor to normalize the arrow size
+// void Visualize::drawArrow(cv::Mat &image, const cv::Point &pStart,
+//                           const cv::Point &pEnd, const cv::Scalar &color,
+//                           int thickness, int line_type, int shift,
+//                           double tipLength) {
+//     const double tipSize = cv::norm(pStart - pEnd) *
+//                            tipLength;  // Factor to normalize the arrow size
 
-    cv::line(image, pStart, pEnd, color, thickness, line_type, shift);
+//     cv::line(image, pStart, pEnd, color, thickness, line_type, shift);
 
-    const double angle =
-        std::atan2((double)pStart.y - pEnd.y, (double)pStart.x - pEnd.x);
-    cv::Point p1, p2;
+//     const double angle =
+//         std::atan2((double)pStart.y - pEnd.y, (double)pStart.x - pEnd.x);
+//     cv::Point p1, p2;
 
-    p1.x = static_cast<int>(pEnd.x + tipSize * std::cos(angle + CV_PI / 4));
-    p1.y = static_cast<int>(pEnd.y + tipSize * std::sin(angle + CV_PI / 4));
-    cv::line(image, pEnd, p1, color, thickness, line_type, shift);
+//     p1.x = static_cast<int>(pEnd.x + tipSize * std::cos(angle + CV_PI / 4));
+//     p1.y = static_cast<int>(pEnd.y + tipSize * std::sin(angle + CV_PI / 4));
+//     cv::line(image, pEnd, p1, color, thickness, line_type, shift);
 
-    p2.x = static_cast<int>(pEnd.x + tipSize * std::cos(angle - CV_PI / 4));
-    p2.y = static_cast<int>(pEnd.y + tipSize * std::sin(angle - CV_PI / 4));
-    cv::line(image, pEnd, p2, color, thickness, line_type, shift);
-}
+//     p2.x = static_cast<int>(pEnd.x + tipSize * std::cos(angle - CV_PI / 4));
+//     p2.y = static_cast<int>(pEnd.y + tipSize * std::sin(angle - CV_PI / 4));
+//     cv::line(image, pEnd, p2, color, thickness, line_type, shift);
+// }
 
 // Function to draw a V shape representing the heading on an OpenCV image
 void Visualize::drawHeadingV(cv::Mat &image, const cv::Point &center,
@@ -36,8 +36,8 @@ void Visualize::drawHeadingV(cv::Mat &image, const cv::Point &center,
                              double tipLength) {
     const double tipSize = tipLength;
 
-    const double angle1 = headingAngle + CV_PI / 6;
-    const double angle2 = headingAngle - CV_PI / 6;
+    const double angle1 = headingAngle + CV_PI / 9;
+    const double angle2 = headingAngle - CV_PI / 9;
 
     cv::Point p1, p2;
 
@@ -48,37 +48,15 @@ void Visualize::drawHeadingV(cv::Mat &image, const cv::Point &center,
     p2.x = static_cast<int>(center.x + tipSize * std::cos(angle2));
     p2.y = static_cast<int>(center.y + tipSize * std::sin(angle2));
     cv::line(image, center, p2, color, thickness, line_type, shift);
-} 
+}
 
 void Visualize::visualizeGame(std::vector<Point2D> &path, Point2D &nowPos,
-                              int count, double yaw, std::vector<Point2D> &obstacles, Point2D &ball) {
-    cv::Mat image(resY, resX, CV_8UC3, cv::Scalar(0, 150, 10));
-    // nowPos = RobotKinematic::getInstance()->getPos();
-    // std::cout<<ball.x<<std::endl;
+                              int count, double yaw,
+                              std::vector<Point2D> &obstacles, Point2D &ball) {
+    cv::Mat image(resY, resX, CV_8UC3,
+                  cv::Scalar(20, 170, 30));  // Official Color: (0, 150, 10)
     float centerX = image.cols / 2.0;
     float centerY = image.rows / 2.0;
-    // IC(circVec[count].x, circVec[count].y);
-    cv::Point robotPose((nowPos.x * scale) + centerX,
-                        -(nowPos.y * scale) + centerY);
-
-    //converting obstacles and ball Point2D type to Point type 
-    std::vector<cv::Point> obs;
-    for(auto &it : obstacles)
-    {
-        cv::Point point(it.x*scale + centerX , -it.y * scale + centerY);
-        obs.push_back(point);
-    }
- 
-    cv::Point BALL(ball.x*scale + centerX, ball.y* scale + centerY);
-    // std::cout<<BALL.x<<std::endl;
-
-
-    for (auto &it : path) {
-        cv::circle(
-            image,
-            cv::Point2d(it.x * scale + centerX, -(it.y * scale) + centerY), 5,
-            cv::Scalar(255, 255, 0), -1);
-    }
 
     // drawing arena
     float a = A * scale;
@@ -196,26 +174,51 @@ void Visualize::visualizeGame(std::vector<Point2D> &path, Point2D &nowPos,
     cv::line(image, lineStartLeft, lineEndLeft, color, K * scale);
     cv::line(image, lineStartRight, lineEndRight, color, K * scale);
 
-    // Draw the robot base (you can replace this with your robot's actual base)
-    cv::circle(image, robotPose, 25, cv::Scalar(0, 165, 255), -1);
-    // cv::circle(image, obs[0], 25, cv::Scalar(255, 0, 0), -1);
+    cv::Point robotPose((nowPos.x * scale) + centerX,
+                        -(nowPos.y * scale) + centerY);
 
-    //Draw obstacles
-    for(int i=0; i<5; i++)
-    {
-        cv::circle(image, obs[i], 25, cv::Scalar(255, 0, 0), -1);
-        drawHeadingV(image, obs[i], -obstacles[i].theta, cv::Scalar(0, 255, 0), 5, 8, 0, 20);
+    // converting obstacles and ball Point2D type to Point type
+    std::vector<cv::Point> obs;
+    for (auto &it : obstacles) {
+        cv::Point point(it.x * scale + centerX, -it.y * scale + centerY);
+        obs.push_back(point);
     }
 
-    //draw ball
-    cv::circle(image, BALL, 15, cv::Scalar(255, 255, 255), -1);
+    for (auto &it : path) {
+        cv::circle(
+            image,
+            cv::Point2d(it.x * scale + centerX, -(it.y * scale) + centerY), 5,
+            cv::Scalar(0, 0, 0), -1);
+    }
 
-    // Draw yellow line from robot to the destination
+    // Draw the robot base (you can replace this with your robot's actual base)
+    cv::circle(image, robotPose, 40 * scale / 100, cv::Scalar(0, 150, 255), -1);
+    // cv::circle(image, obs[0], 25, cv::Scalar(255, 0, 0), -1);
+    drawHeadingV(image, robotPose, -yaw, cv::Scalar(60, 60, 180), 5, 8, 0,
+                 40 * scale / 100);
+
+    // Draw obstacles
+    for (int i = 0; i < 5; i++) {
+        cv::circle(image, obs[i], 40 * scale / 100, cv::Scalar(255, 225, 0),
+                   -1);
+        drawHeadingV(image, obs[i], -obstacles[i].theta,
+                     cv::Scalar(128, 0, 128), 5, 8, 0, 40 * scale / 100);
+    }
+
+    cv::Point BALL(ball.x * scale + centerX, ball.y * scale + centerY);
+    // draw ball
+    cv::circle(image, BALL, 11.25 * scale / 100, cv::Scalar(255, 255, 255), -1);
+
+    // Add black outline to the football
+    cv::circle(image, BALL, 11.25 * scale / 100, cv::Scalar(0, 0, 0),
+               4 * scale / 100);  // Draw a black outline
+
+    // Draw black line from robot to the destination
     cv::line(image, robotPose,
              cv::Point(path[count].x * scale + centerX,
                        -(path[count].y * scale) + centerY),
-             cv::Scalar(0, 0, 255), 2);
-    drawHeadingV(image, robotPose, -yaw, cv::Scalar(255, 0, 0), 5, 8, 0, 20);
+             cv::Scalar(0, 0, 0), 2);
+
     cv::imshow("Robot 4 omni visual", image);
     cv::waitKey(1);
 }

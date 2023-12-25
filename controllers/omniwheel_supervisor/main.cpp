@@ -27,11 +27,11 @@ int count = 0;
 
 Supervisor *robotSup = new Supervisor();
 Node *my_root = robotSup->getRoot();
-Visualize *window = new Visualize(2400);
+Visualize *window = new Visualize(1600);
 
 void get_Trajectory(std::vector<Point2D> &path, Point2D &outputPID,
-                    Point2D &nowPos, wheelAngularVel &outInvers, double yaw, std::vector<Point2D> &obstacles, Point2D &ball) {
-
+                    Point2D &nowPos, wheelAngularVel &outInvers, double yaw,
+                    std::vector<Point2D> &obstacles, Point2D &ball) {
     // std::cout<<ball.x<<std::endl;
     window->visualizeGame(path, nowPos, count, yaw, obstacles, ball);
     double errorX = path[count].x - nowPos.x;
@@ -140,7 +140,7 @@ void getOtherPositionYaw(std::string name, Point2D &output) {
         }
     }
 
-    yaw = yaw * (180.0 / M_PI);  // Convert radians to degrees
+    // yaw = yaw * (180.0 / M_PI);  // Convert radians to degrees
 
     output.x = x;
     output.y = y;
@@ -157,6 +157,10 @@ int main(int argc, char **argv) {
     for (int i = 0; i < 5; i++) {
         getOtherPositionYaw("B" + std::to_string(i + 1), obstacles[i]);
     }
+
+    // for (auto &it : obstacles) {
+    //     IC(it.x, it.y, it.theta);
+    // }
 
     // OMPL Setup Parameter
     double runTime = 1.0;
@@ -268,7 +272,8 @@ int main(int argc, char **argv) {
         nowPos = robot::RobotKinematic::getInstance()->getPos();
         IC(nowPos.x, nowPos.y, nowPos.theta);
 
-        get_Trajectory(targetPos, outputPID, nowPos, outInvers, yaw, obstacles, Ball);
+        get_Trajectory(targetPos, outputPID, nowPos, outInvers, yaw, obstacles,
+                       Ball);
 
         setVel(outInvers);
 

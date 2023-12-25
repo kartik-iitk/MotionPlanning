@@ -6,7 +6,7 @@
 #include <opencv2/opencv.hpp>
 
 #include "Coordinate.hpp"
- 
+
 class Visualize {
    private:
     // Field Dimensions
@@ -17,9 +17,10 @@ class Visualize {
     float resX, resY;     // Image Resolution
     float scale;          // Scaling Factor
 
-    void drawArrow(cv::Mat &image, const cv::Point &pStart,
-                   const cv::Point &pEnd, const cv::Scalar &color,
-                   int thickness, int line_type, int shift, double tipLength);
+    //  void drawArrow(cv::Mat &image, const cv::Point &pStart,
+    //                 const cv::Point &pEnd, const cv::Scalar &color,
+    //                 int thickness, int line_type, int shift, double
+    //                 tipLength);
 
     void drawHeadingV(cv::Mat &image, const cv::Point &center,
                       double headingAngle, const cv::Scalar &color,
@@ -29,7 +30,8 @@ class Visualize {
    public:
     Visualize(float resolutionX);
     void visualizeGame(std::vector<Point2D> &path, Point2D &nowPos, int count,
-                       double yaw, std::vector<Point2D> &obstacles, Point2D &ball);
+                       double yaw, std::vector<Point2D> &obstacles,
+                       Point2D &ball);
 };
 
 #endif
