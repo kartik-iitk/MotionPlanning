@@ -31,6 +31,7 @@
 namespace ob = ompl::base;
 namespace og = ompl::geometric;
 
+
 // OMPL Code uptil main
 // An enum of supported optimal planners, alphabetical order
 enum optimalPlanner {
