@@ -48,18 +48,30 @@ void Visualize::drawHeadingV(cv::Mat &image, const cv::Point &center,
     p2.x = static_cast<int>(center.x + tipSize * std::cos(angle2));
     p2.y = static_cast<int>(center.y + tipSize * std::sin(angle2));
     cv::line(image, center, p2, color, thickness, line_type, shift);
-}
+} 
 
 void Visualize::visualizeGame(std::vector<Point2D> &path, Point2D &nowPos,
-                              int count, double yaw) {
+                              int count, double yaw, std::vector<Point2D> &obstacles, Point2D &ball) {
     cv::Mat image(resY, resX, CV_8UC3, cv::Scalar(0, 150, 10));
     // nowPos = RobotKinematic::getInstance()->getPos();
-
+    // std::cout<<ball.x<<std::endl;
     float centerX = image.cols / 2.0;
     float centerY = image.rows / 2.0;
     // IC(circVec[count].x, circVec[count].y);
     cv::Point robotPose((nowPos.x * scale) + centerX,
                         -(nowPos.y * scale) + centerY);
+
+    //converting obstacles and ball Point2D type to Point type 
+    std::vector<cv::Point> obs;
+    for(auto &it : obstacles)
+    {
+        cv::Point point(it.x*scale + centerX , -it.y * scale + centerY);
+        obs.push_back(point);
+    }
+ 
+    cv::Point BALL(ball.x*scale + centerX, ball.y* scale + centerY);
+    // std::cout<<BALL.x<<std::endl;
+
 
     for (auto &it : path) {
         cv::circle(
@@ -186,6 +198,17 @@ void Visualize::visualizeGame(std::vector<Point2D> &path, Point2D &nowPos,
 
     // Draw the robot base (you can replace this with your robot's actual base)
     cv::circle(image, robotPose, 25, cv::Scalar(0, 165, 255), -1);
+    // cv::circle(image, obs[0], 25, cv::Scalar(255, 0, 0), -1);
+
+    //Draw obstacles
+    for(int i=0; i<5; i++)
+    {
+        cv::circle(image, obs[i], 25, cv::Scalar(255, 0, 0), -1);
+        drawHeadingV(image, obs[i], -obstacles[i].theta, cv::Scalar(0, 255, 0), 5, 8, 0, 20);
+    }
+
+    //draw ball
+    cv::circle(image, BALL, 15, cv::Scalar(255, 255, 255), -1);
 
     // Draw yellow line from robot to the destination
     cv::line(image, robotPose,

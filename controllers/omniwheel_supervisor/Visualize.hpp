@@ -6,7 +6,7 @@
 #include <opencv2/opencv.hpp>
 
 #include "Coordinate.hpp"
-
+ 
 class Visualize {
    private:
     // Field Dimensions
@@ -29,7 +29,7 @@ class Visualize {
    public:
     Visualize(float resolutionX);
     void visualizeGame(std::vector<Point2D> &path, Point2D &nowPos, int count,
-                       double yaw);
+                       double yaw, std::vector<Point2D> &obstacles, Point2D &ball);
 };
 
 #endif

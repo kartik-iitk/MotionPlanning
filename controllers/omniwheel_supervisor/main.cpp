@@ -30,8 +30,10 @@ Node *my_root = robotSup->getRoot();
 Visualize *window = new Visualize(2400);
 
 void get_Trajectory(std::vector<Point2D> &path, Point2D &outputPID,
-                    Point2D &nowPos, wheelAngularVel &outInvers, double yaw) {
-    window->visualizeGame(path, nowPos, count, yaw);
+                    Point2D &nowPos, wheelAngularVel &outInvers, double yaw, std::vector<Point2D> &obstacles, Point2D &ball) {
+
+    // std::cout<<ball.x<<std::endl;
+    window->visualizeGame(path, nowPos, count, yaw, obstacles, ball);
     double errorX = path[count].x - nowPos.x;
     double errorY = path[count].y - nowPos.y;
 
@@ -266,7 +268,7 @@ int main(int argc, char **argv) {
         nowPos = robot::RobotKinematic::getInstance()->getPos();
         IC(nowPos.x, nowPos.y, nowPos.theta);
 
-        get_Trajectory(targetPos, outputPID, nowPos, outInvers, yaw);
+        get_Trajectory(targetPos, outputPID, nowPos, outInvers, yaw, obstacles, Ball);
 
         setVel(outInvers);
 
