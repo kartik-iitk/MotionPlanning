@@ -242,7 +242,7 @@ ob::OptimizationObjectivePtr allocateObjective(
 
 void plan(double runTime, double A, double B, std::vector<Point2D> &obs,
           optimalPlanner plannerType, planningObjective objectiveType,
-          const std::string &outputFile) {
+          const std::string &outputFile, Point2D &nowPos) {
     // Construct the robot state space in which we're planning. We're
     // planning in the playable field, a subset of R^2 (a rectangle of
     // dimensions A x B)
@@ -270,8 +270,8 @@ void plan(double runTime, double A, double B, std::vector<Point2D> &obs,
     // Set our robot's starting state to be the bottom-left corner of
     // the environment, or (0,0).
     ob::ScopedState<> start(space);
-    start->as<ob::RealVectorStateSpace::StateType>()->values[0] = 0.0;
-    start->as<ob::RealVectorStateSpace::StateType>()->values[1] = 0.0;
+    start->as<ob::RealVectorStateSpace::StateType>()->values[0] = nowPos.x;
+    start->as<ob::RealVectorStateSpace::StateType>()->values[1] = nowPos.y;
 
     // Set our robot's goal state to be the top-right corner of the
     // environment, or (1,1).

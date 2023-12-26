@@ -148,27 +148,19 @@ void getOtherPositionYaw(std::string name, Point2D &output) {
 }
 
 int main(int argc, char **argv) {
-    // Get Ball and Opponent Position
+    long long temp =0;
     Point2D Ball;
-    getOtherPositionYaw("Ball",
-                        Ball);  // The proto does not have the DEF in it. You
-                                // need to set it from the Webots scene tree.
-    std::vector<Point2D> obstacles(5);
-    for (int i = 0; i < 5; i++) {
-        getOtherPositionYaw("B" + std::to_string(i + 1), obstacles[i]);
-    }
+    long long int  count=0;
 
-    // for (auto &it : obstacles) {
-    //     IC(it.x, it.y, it.theta);
-    // }
+    std::vector<Point2D> obstacles(5);
+    std::vector<Point2D> targetPos;
+
 
     // OMPL Setup Parameter
     double runTime = 1.0;
     optimalPlanner plannerType = PLANNER_RRTSTAR;
     planningObjective objectiveType = OBJECTIVE_PATHLENGTH;
     std::string outputFile = "output.txt";
-    plan(runTime, 22, 14, obstacles, plannerType, objectiveType,
-         outputFile);  // Hardcoded field parameters.
 
     // Begin Controller
     wheelAngularVel outInvers;
@@ -229,12 +221,12 @@ int main(int argc, char **argv) {
     //     circVec.push_back(Point2D(x_, y_, 0));
     // }
 
-    std::vector<PointPair> points = readPointsFromFile();
+    // std::vector<PointPair> points = readPointsFromFile();
 
-    std::vector<Point2D> targetPos;
-    for (auto &ptr : points) {
-        targetPos.push_back(Point2D(ptr.first, ptr.second, 0));
-    }
+    // std::vector<Point2D> targetPos;
+    // for (auto &ptr : points) {
+    //     targetPos.push_back(Point2D(ptr.first, ptr.second, 0));
+    // }
 
     // std::vector<Point2D> targetPos = {Point2D(-10, 0, 0), Point2D(2, -1,0),
     //                                   Point2D(0, -2, 0), Point2D(0, 2, 0)};
@@ -271,6 +263,29 @@ int main(int argc, char **argv) {
 
         nowPos = robot::RobotKinematic::getInstance()->getPos();
         IC(nowPos.x, nowPos.y, nowPos.theta);
+
+        getOtherPositionYaw("Ball",
+                        Ball);  // The proto does not have the DEF in it. You
+                                // need to set it from the Webots scene tree.
+        for (int i = 0; i < 5; i++) {
+            getOtherPositionYaw("B" + std::to_string(i + 1), obstacles[i]);
+        }
+   
+        // std::cout<<count<<std::endl;
+
+        if(count%50==0) {
+            targetPos.resize(0);
+
+        plan(runTime, 22, 14, obstacles, plannerType, objectiveType,
+             outputFile, nowPos);  // Hardcoded field parameters.
+        
+        std::vector<PointPair> points = readPointsFromFile();
+        for (auto &ptr : points) {
+        targetPos.push_back(Point2D(ptr.first, ptr.second, 0));
+        }
+        }
+        count++;
+        count=count%1000000000000000000;
 
         get_Trajectory(targetPos, outputPID, nowPos, outInvers, yaw, obstacles,
                        Ball);
