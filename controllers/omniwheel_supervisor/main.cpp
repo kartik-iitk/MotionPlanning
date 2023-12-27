@@ -39,7 +39,7 @@ bool isok(const Point2D& p1, const Point2D& p2, const Point2D& testPoint)
                                p2.x * p1.y - p2.y * p1.x) /
                       std::sqrt(std::pow(p2.y - p1.y, 2) + std::pow(p2.x - p1.x, 2));
 
-    return distance < 0.8; // Check if the distance is within the extended region
+    return distance < 0.45; // Check if the distance is within the extended region
 }
 
 //function to find the point closest to current position
@@ -308,7 +308,13 @@ int main(int argc, char **argv) {
             int idx = findclosestpoint(targetPos, nowPos);//excluding the last point
             for(auto &it: obstacles)
             {
-                if(idx+1<obstacles.size() && idx-1>-1 && !isok(targetPos[idx], targetPos[idx+1], it) && !isok(targetPos[idx-1], targetPos[idx], it)) count1++;
+                if(idx+1<obstacles.size() && idx-1>-1){
+                    if(!isok(targetPos[idx], targetPos[idx+1], it) && !isok(targetPos[idx-1], targetPos[idx], it)) count1++;
+                }  
+                else if(idx+1 >=obstacles.size()) {
+                    if(!isok(targetPos[idx-1], targetPos[idx], it)) count1++;
+                }
+                
             }
             if(count1!=obstacles.size()) flag=1;
             std::cout<<count1<<std::endl;
