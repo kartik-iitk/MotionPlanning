@@ -65,7 +65,7 @@ std::vector<Point2D> obstacles;
 using PointPair = std::pair<double, double>;
 
 std::vector<PointPair> readPointsFromFile() {
-    std::string filename = "output.txt";
+    std::string filename = "output1.txt";
     std::vector<PointPair> points;
 
     std::ifstream file(filename);
@@ -276,8 +276,8 @@ void plan(double runTime, double A, double B, std::vector<Point2D> &obs,
     // Set our robot's goal state to be the top-right corner of the
     // environment, or (1,1).
     ob::ScopedState<> goal(space);
-    goal->as<ob::RealVectorStateSpace::StateType>()->values[0] = 10.0;
-    goal->as<ob::RealVectorStateSpace::StateType>()->values[1] = .0;
+    goal->as<ob::RealVectorStateSpace::StateType>()->values[0] = -10.0;
+    goal->as<ob::RealVectorStateSpace::StateType>()->values[1] = 2.0;
 
     // Create a problem instance
     auto pdef(std::make_shared<ob::ProblemDefinition>(si));
@@ -318,6 +318,11 @@ void plan(double runTime, double A, double B, std::vector<Point2D> &obs,
             ->printAsMatrix(outFile);
         outFile.close();
         // }
+
+        const char* command = "python3 smooth.py";
+        // Execute the Python script from the C++ program
+        int result = std::system(command);
+
     } else
         std::cout << "No solution found." << std::endl;
 }
