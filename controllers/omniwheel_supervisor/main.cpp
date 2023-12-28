@@ -1,3 +1,5 @@
+#include <cmath>
+
 #include "Motion.hpp"
 #include "PathPlanner.hpp"
 #include "Robot.hpp"
@@ -9,7 +11,6 @@
 #include "webots/PositionSensor.hpp"
 #include "webots/Robot.hpp"
 #include "webots/Supervisor.hpp"
-#include <cmath>
 
 using namespace webots;
 const int maxNumberCord = 10000;
@@ -30,28 +31,34 @@ Supervisor *robotSup = new Supervisor();
 Node *my_root = robotSup->getRoot();
 Visualize *window = new Visualize(1600);
 
-
 // Function to check if a point lies within the extended region of a line
-bool isok(const Point2D& p1, const Point2D& p2, const Point2D& testPoint) 
-{
-    //finds perpendicular isstance between line joining p1 and p2 and the obstacles
-    double distance = std::abs((p2.y - p1.y) * testPoint.x - (p2.x - p1.x) * testPoint.y +
-                               p2.x * p1.y - p2.y * p1.x) /
-                      std::sqrt(std::pow(p2.y - p1.y, 2) + std::pow(p2.x - p1.x, 2));
+bool isok(const Point2D &p1, const Point2D &p2, const Point2D &testPoint) {
+    // finds perpendicular isstance between line joining p1 and p2 and the
+    // obstacles
+    double distance =
+        std::abs((p2.y - p1.y) * testPoint.x - (p2.x - p1.x) * testPoint.y +
+                 p2.x * p1.y - p2.y * p1.x) /
+        std::sqrt(std::pow(p2.y - p1.y, 2) + std::pow(p2.x - p1.x, 2));
 
-    return distance < 0.45; // Check if the distance is within the extended region
+    return distance <
+           0.45;  // Check if the distance is within the extended region
 }
 
-//function to find the point closest to current position
-int findclosestpoint(std::vector<Point2D> &targetPos, Point2D &nowPos)
-{
+// function to find the point closest to current position
+int findclosestpoint(std::vector<Point2D> &targetPos, Point2D &nowPos) {
     double min = 1000000;
-    int idx=0;
-    for(int i = 1; i<targetPos.size()-1; i++)//excluding last point and start
+    int idx = 0;
+    for (int i = 1; i < targetPos.size() - 1;
+         i++)  // excluding last point and start
     {
-        if(sqrt((targetPos[i].x - nowPos.x)*(targetPos[i].x - nowPos.x) + (targetPos[i].y - nowPos.y)*(targetPos[i].y - nowPos.y))<min) 
-        {min = sqrt((targetPos[i].x - nowPos.x)*(targetPos[i].x - nowPos.x) + (targetPos[i].y - nowPos.y)*(targetPos[i].y - nowPos.y));
-        idx=i;}
+        if (sqrt((targetPos[i].x - nowPos.x) * (targetPos[i].x - nowPos.x) +
+                 (targetPos[i].y - nowPos.y) * (targetPos[i].y - nowPos.y)) <
+            min) {
+            min =
+                sqrt((targetPos[i].x - nowPos.x) * (targetPos[i].x - nowPos.x) +
+                     (targetPos[i].y - nowPos.y) * (targetPos[i].y - nowPos.y));
+            idx = i;
+        }
     }
     return idx;
 }
@@ -61,8 +68,9 @@ void get_Trajectory(std::vector<Point2D> &path, Point2D &outputPID,
                     std::vector<Point2D> &obstacles, Point2D &ball) {
     // std::cout<<ball.x<<std::endl;
     window->visualizeGame(path, nowPos, count, yaw, obstacles, ball);
-    
-    path[count].theta = (180.0/3.14159)*atan2((ball.y-path[count].y),(ball.x-path[count].x));
+
+    path[count].theta = (180.0 / 3.14159) * atan2((ball.y - path[count].y),
+                                                  (ball.x - path[count].x));
 
     double errorX = path[count].x - nowPos.x;
     double errorY = path[count].y - nowPos.y;
@@ -83,7 +91,7 @@ void get_Trajectory(std::vector<Point2D> &path, Point2D &outputPID,
 
     RobotKinematic::getInstance()->inverseKinematics(
         outInvers, outputPID.x, outputPID.y, outputPID.theta);
-    if (dist < 0.07 && fabs(errTheta) < 3) {
+    if (dist < 0.15 && fabs(errTheta) < 3) {
         mot->position_pid->reset();
         mot->yaw_pid->reset();
         count++;
@@ -178,16 +186,15 @@ void getOtherPositionYaw(std::string name, Point2D &output) {
 }
 
 int main(int argc, char **argv) {
-    int flag=0;//flag used in while loop for determining if path should be replanned
+    int flag = 0;  // flag used in while loop for determining if path should be
+                   // replanned
     Point2D Ball;
-    long long int  count1=0;
-    long long int  count2=1;
+    long long int count1 = 0;
+    long long int count2 = 1;
 
     std::vector<Point2D> obstacles(5);
     std::vector<Point2D> targetPos;
-    std::vector<PointPair> points;//from output.txt
-    
-
+    std::vector<PointPair> points;  // from output.txt
 
     // OMPL Setup Parameter
     double runTime = 0.5;
@@ -297,61 +304,60 @@ int main(int argc, char **argv) {
         nowPos = robot::RobotKinematic::getInstance()->getPos();
         IC(nowPos.x, nowPos.y, nowPos.theta);
 
-        getOtherPositionYaw("Ball",
-                        Ball);  // The proto does not have the DEF in it. You
-                                // need to set it from the Webots scene tree.
+        getOtherPositionYaw(
+            "Ball",
+            Ball);  // The proto does not have the DEF in it. You
+                    // need to set it from the Webots scene tree.
         for (int i = 0; i < 5; i++) {
             getOtherPositionYaw("B" + std::to_string(i + 1), obstacles[i]);
         }
-   
+
         // std::cout<<count<<std::endl;
-        
-        
-        if(count2%5==0) {
-            int idx = findclosestpoint(targetPos, nowPos);//excluding the last point
-            for(auto &it: obstacles)
-            {
-                if(idx+1<obstacles.size() && idx-1>-1){
-                    if(!isok(targetPos[idx], targetPos[idx+1], it) && !isok(targetPos[idx-1], targetPos[idx], it)) count1++;
-                }  
-                else if(idx+1 >=obstacles.size()) {
-                    if(!isok(targetPos[idx-1], targetPos[idx], it)) count1++;
+
+        if (count2 % 5 == 0) {
+            int idx = findclosestpoint(targetPos,
+                                       nowPos);  // excluding the last point
+            for (auto &it : obstacles) {
+                if (idx + 1 < obstacles.size() && idx - 1 > -1) {
+                    if (!isok(targetPos[idx], targetPos[idx + 1], it) &&
+                        !isok(targetPos[idx - 1], targetPos[idx], it))
+                        count1++;
+                } else if (idx + 1 >= obstacles.size()) {
+                    if (!isok(targetPos[idx - 1], targetPos[idx], it)) count1++;
                 }
-                
             }
-            if(count1!=obstacles.size()) flag=1;
-            std::cout<<count1<<std::endl;
-            count1=0;
-            
-        //     for(auto & it : points){
-        //         for (auto &ptr : obstacles) {
-        //             if (sqrt((it.first - ptr.x) * (it.first - ptr.x) + (it.second - ptr.y) * (it.second - ptr.y)) -
-        //             r >0.0)
-        //                 count1++;
-        //         }
-        // if(count1!=obstacles.size()) {flag=1;}
-        // std::cout<<count1<<std::endl;
-        // count1=0;
+            if (count1 != obstacles.size()) flag = 1;
+            std::cout << count1 << std::endl;
+            count1 = 0;
+
+            //     for(auto & it : points){
+            //         for (auto &ptr : obstacles) {
+            //             if (sqrt((it.first - ptr.x) * (it.first - ptr.x) +
+            //             (it.second - ptr.y) * (it.second - ptr.y)) - r >0.0)
+            //                 count1++;
+            //         }
+            // if(count1!=obstacles.size()) {flag=1;}
+            // std::cout<<count1<<std::endl;
+            // count1=0;
         }
 
-        
-        if(flag || count2==1){
-            plan(runTime, 22, 14, obstacles, plannerType, objectiveType, outputFile, nowPos);  // Hardcoded field parameters.
+        if (flag || count2 == 1) {
+            plan(runTime, 22, 14, obstacles, plannerType, objectiveType,
+                 outputFile, nowPos);  // Hardcoded field parameters.
             points.resize(0);
             targetPos.resize(0);
             points = readPointsFromFile();
 
-        
-            for (auto &ptr : points)
-            {
-                int angle = (180.0/3.14159)*atan2((Ball.y-ptr.second),(Ball.x-ptr.first));
+            for (auto &ptr : points) {
+                int angle = (180.0 / 3.14159) *
+                            atan2((Ball.y - ptr.second), (Ball.x - ptr.first));
                 targetPos.push_back(Point2D(ptr.first, ptr.second, angle));
             }
-            flag=0;
+            flag = 0;
         }
-        
+
         count2++;
-        count2=count2%1000000000000000000;
+        count2 = count2 % 1000000000000000000;
 
         get_Trajectory(targetPos, outputPID, nowPos, outInvers, yaw, obstacles,
                        Ball);

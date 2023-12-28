@@ -89,8 +89,8 @@ void Motion::basicMotion(float vx, float vy, float vtheta, float thetaRobot,
 void Motion::positionAngularControl(double &errorX, double &errorY,
                                     double &errorTheta, double yaw,
                                     Point2D &outMotor) {
-    position_pid->setParam(50, 10, 8);  // Set position_pid
-    yaw_pid->setParam(2, 1, 0);    // Set yaw_pid
+    position_pid->setParam(400, 200, 0);  // Set position_pid
+    yaw_pid->setParam(0.5, 1, 0);         // Set yaw_pid
 
     error[0] = errorX;  // Displacement along global X axis remaining
     error[1] = errorY;  // Displacement global Y axis remaining
