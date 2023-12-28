@@ -61,6 +61,9 @@ void get_Trajectory(std::vector<Point2D> &path, Point2D &outputPID,
                     std::vector<Point2D> &obstacles, Point2D &ball) {
     // std::cout<<ball.x<<std::endl;
     window->visualizeGame(path, nowPos, count, yaw, obstacles, ball);
+    
+    path[count].theta = (180.0/3.14159)*atan2((ball.y-path[count].y),(ball.x-path[count].x));
+
     double errorX = path[count].x - nowPos.x;
     double errorY = path[count].y - nowPos.y;
 
@@ -337,11 +340,15 @@ int main(int argc, char **argv) {
             points.resize(0);
             targetPos.resize(0);
             points = readPointsFromFile();
+
         
-            for (auto &ptr : points) targetPos.push_back(Point2D(ptr.first, ptr.second, 0));
+            for (auto &ptr : points)
+            {
+                int angle = (180.0/3.14159)*atan2((Ball.y-ptr.second),(Ball.x-ptr.first));
+                targetPos.push_back(Point2D(ptr.first, ptr.second, angle));
+            }
             flag=0;
         }
-        
         
         count2++;
         count2=count2%1000000000000000000;
