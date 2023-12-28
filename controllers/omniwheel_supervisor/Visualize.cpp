@@ -205,7 +205,7 @@ void Visualize::visualizeGame(std::vector<Point2D> &path, Point2D &nowPos,
                      cv::Scalar(128, 0, 128), 5, 8, 0, 40 * scale / 100);
     }
 
-    cv::Point BALL(ball.x * scale + centerX, ball.y * scale + centerY);
+    cv::Point BALL(ball.x * scale + centerX, -(ball.y * scale) + centerY);
     // draw ball
     cv::circle(image, BALL, 11.25 * scale / 100, cv::Scalar(255, 255, 255), -1);
 
