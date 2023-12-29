@@ -25,7 +25,7 @@ std::vector<double> encData{0, 0, 0, 0};
 using namespace robot;
 Motion *mot = new Motion();
 Point2D nowPos(0, 0, 0);
-int count = 0;
+int count1 = 0;
 
 Supervisor *robotSup = new Supervisor();
 Node *my_root = robotSup->getRoot();
@@ -67,16 +67,16 @@ void get_Trajectory(std::vector<Point2D> &path, Point2D &outputPID,
                     Point2D &nowPos, wheelAngularVel &outInvers, double yaw,
                     std::vector<Point2D> &obstacles, Point2D &ball) {
     // std::cout<<ball.x<<std::endl;
-    window->visualizeGame(path, nowPos, count, yaw, obstacles, ball);
+    window->visualizeGame(path, nowPos, count1, yaw, obstacles, ball);
 
-    path[count].theta = (180.0 / 3.14159) * atan2((ball.y - path[count].y),
-                                                  (ball.x - path[count].x));
+    path[count1].theta = (180.0 / 3.14159) * atan2((ball.y - path[count1].y),
+                                                  (ball.x - path[count1].x));
 
-    double errorX = path[count].x - nowPos.x;
-    double errorY = path[count].y - nowPos.y;
+    double errorX = path[count1].x - nowPos.x;
+    double errorY = path[count1].y - nowPos.y;
 
     double dist = sqrt(errorX * errorX + errorY * errorY);
-    double errTheta = path[count].theta - (nowPos.theta * 180 / M_PI);
+    double errTheta = path[count1].theta - (nowPos.theta * 180 / M_PI);
 
     // Limit errTheta to -180 to +180 degrees
     if (errTheta > 180) errTheta -= 360;
@@ -94,11 +94,11 @@ void get_Trajectory(std::vector<Point2D> &path, Point2D &outputPID,
     if (dist < 0.15 && fabs(errTheta) < 3) {
         mot->position_pid->reset();
         mot->yaw_pid->reset();
-        count++;
-        IC(count);
+        count1++;
+        IC(count1);
     }
-    if (count > path.size() - 1) {
-        count = 0;
+    if (count1 > path.size() - 1) {
+        count1 = 0;
     }
 }
 
@@ -312,7 +312,7 @@ int main(int argc, char **argv) {
             getOtherPositionYaw("B" + std::to_string(i + 1), obstacles[i]);
         }
 
-        // std::cout<<count<<std::endl;
+        // std::cout<<count1<<std::endl;
 
         if (count2 % 5 == 0) {
             int idx = findclosestpoint(targetPos,
