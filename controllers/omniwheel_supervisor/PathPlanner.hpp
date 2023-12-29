@@ -28,8 +28,20 @@
 #include <fstream>
 #include <memory>
 
+#include <iostream>
+#include <vector>
+#include "spline.h"
+#include <bits/stdc++.h>
+
 namespace ob = ompl::base;
 namespace og = ompl::geometric;
+
+using namespace std;
+
+bool sortbysec(const pair<int,int> &a, const pair<int,int> &b)
+{
+    return (a.second > b.second);
+}
 
 // OMPL Code uptil main
 // An enum of supported optimal planners, alphabetical order
@@ -276,8 +288,8 @@ void plan(double runTime, double A, double B, std::vector<Point2D> &obs,
     // Set our robot's goal state to be the top-right corner of the
     // environment, or (1,1).
     ob::ScopedState<> goal(space);
-    goal->as<ob::RealVectorStateSpace::StateType>()->values[0] = -10.0;
-    goal->as<ob::RealVectorStateSpace::StateType>()->values[1] = 2.0;
+    goal->as<ob::RealVectorStateSpace::StateType>()->values[0] = 7.0;
+    goal->as<ob::RealVectorStateSpace::StateType>()->values[1] = 5.0;
 
     // Create a problem instance
     auto pdef(std::make_shared<ob::ProblemDefinition>(si));
@@ -319,9 +331,75 @@ void plan(double runTime, double A, double B, std::vector<Point2D> &obs,
         outFile.close();
         // }
 
-        const char* command = "python3 smooth.py";
-        // Execute the Python script from the C++ program
-        int result = std::system(command);
+        // const char* command = "python3 smooth.py";
+        // // Execute the Python script from the C++ program
+        // int result = std::system(command);
+
+        // Read waypoints from the "output.txt" file
+        std::ifstream file("output.txt");
+        if (!file.is_open()) {
+            std::cerr << "Error opening file." << std::endl;
+        }
+
+        std::vector<double> x_values, y_values;
+        double x, y;
+        while (file >> x >> y) {
+            x_values.push_back(x);
+            y_values.push_back(y);
+        }
+        file.close();
+
+        std::vector<double> T(x_values.size());
+
+        // std::vector< std::pair<double, std::pair<double, double> > > v;
+        
+        // float start_x=x_values.front(), end_x=x_values.back();
+        
+        // if (start_x > end_x)
+        // {
+        //     std::reverse(x_values.begin(),x_values.end());
+        //     std::reverse(y_values.begin(),y_values.end());
+        // }
+
+        // tk::spline s(x_values,y_values,tk::spline::cspline);
+
+        T[0]=0;
+        for(int i=1; i<x_values.size(); i++)
+        {
+            T[i] = T[i-1] + sqrt( (x_values[i]-x_values[i-1])*(x_values[i]-x_values[i-1]) + (y_values[i]-y_values[i-1])*(y_values[i]-y_values[i-1]) );
+        }
+        // setup splines for x and y coordinate
+        tk::spline sx(T,x_values), sy(T,y_values);
+
+        // Array to store robot positions
+        std::vector<std::pair<double, double>> robot_positions;
+
+        float n=10, diff = T.back()/n;
+        for (int i = 0 ; i < n ; i++ )
+        {
+            float t = diff*i;
+            robot_positions.push_back({sx(t), sy(t)});
+        }
+        robot_positions.push_back({sx(T.back()), sy(T.back())});
+
+        // Display the array of robot positions
+        std::cout << "Robot Positions:\n";
+        for (const auto& pos : robot_positions) {
+            std::cout << "(" << pos.first << ", " << pos.second << ")\n";
+        }
+
+        // Write the array to the text file
+        std::ofstream output_file("output1.txt");
+        if (!output_file.is_open()) {
+            std::cerr << "Error opening output file." << std::endl;
+        }
+
+        for (const auto& pos : robot_positions) {
+            output_file << pos.first << " " << pos.second << "\n";
+        }
+        output_file.close();
+
+        std::cout << "The array has been written to output1.txt\n";
 
     } else
         std::cout << "No solution found." << std::endl;
