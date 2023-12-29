@@ -63,6 +63,44 @@ int findclosestpoint(std::vector<Point2D> &targetPos, Point2D &nowPos) {
     return idx;
 }
 
+// Function to calculate the distance between two points (x1, y1) and (x2, y2)
+double calculateDistance(int x1, int y1, int x2, int y2) {
+    return std::sqrt(std::pow(x2 - x1, 2) + std::pow(y2 - y1, 2));
+}
+
+std::vector<std::pair<int, int>> generateDistinctPoints(double x, double y) {
+    
+    std::vector<int> X;
+    std::vector<int> Y;
+    double r=0.8;
+
+    for (int i = -10; i <= 10; ++i) {
+        X.push_back(i);
+        if(i <7 && i > -7) Y.push_back(i);
+    }
+
+    // Shuffle the vector to get random order
+    std::random_shuffle(X.begin(), X.end());
+     std::random_shuffle(Y.begin(), Y.end());
+
+    std::vector<std::pair<int, int>> points;
+    for(auto &a:X)
+    {
+        for(auto b:Y)
+        {
+            points.push_back({a, b});
+        }
+    } 
+
+    // Take the first 5 elements as distinct points outside the circle
+    for(auto &it : points)
+    {
+        if(calculateDistance(it.first, it.second, x, y) <=r) points.erase(it);
+    }
+
+    return points;
+}
+
 void get_Trajectory(std::vector<Point2D> &path, Point2D &outputPID,
                     Point2D &nowPos, wheelAngularVel &outInvers, double yaw,
                     std::vector<Point2D> &obstacles, Point2D &ball) {
@@ -195,6 +233,8 @@ int main(int argc, char **argv) {
     std::vector<Point2D> obstacles(5);
     std::vector<Point2D> targetPos;
     std::vector<PointPair> points;  // from output.txt
+    std::vector<std::pair<int, int>> randompoints; //for obstacles
+
 
     // OMPL Setup Parameter
     double runTime = 0.5;
@@ -219,6 +259,18 @@ int main(int argc, char **argv) {
     char motorNames[4][8] = {"wheel1", "wheel2", "wheel3", "wheel4"};
 
     Node *target_line = robotSup->getFromDef("OMNI_WHEELS_4");
+    Node *B1 = robotSup->getFromDef("B1");
+    Node *B2 = robotSup->getFromDef("B2");
+    Node *B3 = robotSup->getFromDef("B3");
+    Node *B4 = robotSup->getFromDef("B4");
+    Node *B5 = robotSup->getFromDef("B5");
+
+    // Set the position of the object
+    Field *positionField1 = B1->getField("translation");
+    Field *positionField2 = B2->getField("translation");
+    Field *positionField3 = B3->getField("translation");
+    Field *positionField4 = B4->getField("translation");
+    Field *positionField5 = B5->getField("translation");
     // Node *target_robot = robotSup->getFromDef("field");
 
     // SET the first Position our Robot
@@ -324,11 +376,32 @@ int main(int argc, char **argv) {
                         count1++;
                 } else if (idx + 1 >= obstacles.size()) {
                     if (!isok(targetPos[idx - 1], targetPos[idx], it)) count1++;
-                }
+                }   
             }
             if (count1 != obstacles.size()) flag = 1;
             std::cout << count1 << std::endl;
             count1 = 0;
+
+
+            //setting obs pos
+                randompoints = generateDistinctPoints((double)nowPos.x, (double)nowPos.y);
+
+                const double newPosition[] = {randompoints[0].first, randompoints[0].second, 0};
+                positionField1->setSFVec3f(newPosition);
+
+                const double newPosition1[] = {randompoints[1].first, randompoints[1].second, 0};
+                positionField5->setSFVec3f(newPosition1);
+
+                const double newPosition4[] = {randompoints[2].first, randompoints[2].second, 0};
+                positionField4->setSFVec3f(newPosition4);
+
+                const double newPosition2[] = {randompoints[3].first, randompoints[3].second, 0};
+                positionField3->setSFVec3f(newPosition2);
+
+                const double newPosition3[] = {randompoints[4].first, randompoints[4].second, 0};
+                positionField2->setSFVec3f(newPosition3);
+
+        }
 
             //     for(auto & it : points){
             //         for (auto &ptr : obstacles) {
@@ -339,7 +412,7 @@ int main(int argc, char **argv) {
             // if(count1!=obstacles.size()) {flag=1;}
             // std::cout<<count1<<std::endl;
             // count1=0;
-        }
+        
 
         if (flag || count2 == 1) {
             plan(runTime, 22, 14, obstacles, plannerType, objectiveType,
