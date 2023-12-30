@@ -64,42 +64,42 @@ int findclosestpoint(std::vector<Point2D> &targetPos, Point2D &nowPos) {
 }
 
 // Function to calculate the distance between two points (x1, y1) and (x2, y2)
-double calculateDistance(int x1, int y1, int x2, int y2) {
-    return std::sqrt(std::pow(x2 - x1, 2) + std::pow(y2 - y1, 2));
-}
+// double calculateDistance(int x1, int y1, int x2, int y2) {
+//     return std::sqrt(std::pow(x2 - x1, 2) + std::pow(y2 - y1, 2));
+// }
 
-std::vector<std::pair<int, int>> generateDistinctPoints(double x, double y) {
+// std::vector<std::pair<int, int>> generateDistinctPoints(double x, double y) {
     
-    std::vector<int> X;
-    std::vector<int> Y;
-    double r=0.8;
+//     std::vector<int> X;
+//     std::vector<int> Y;
+//     double r=0.8;
 
-    for (int i = -10; i <= 10; ++i) {
-        X.push_back(i);
-        if(i <7 && i > -7) Y.push_back(i);
-    }
+//     for (int i = -10; i <= 10; ++i) {
+//         X.push_back(i);
+//         if(i <7 && i > -7) Y.push_back(i);
+//     }
 
-    // Shuffle the vector to get random order
-    std::random_shuffle(X.begin(), X.end());
-     std::random_shuffle(Y.begin(), Y.end());
+//     // Shuffle the vector to get random order
+//     std::random_shuffle(X.begin(), X.end());
+//      std::random_shuffle(Y.begin(), Y.end());
 
-    std::vector<std::pair<int, int>> points;
-    for(auto &a:X)
-    {
-        for(auto b:Y)
-        {
-            points.push_back({a, b});
-        }
-    } 
+//     std::vector<std::pair<int, int>> points;
+//     for(auto &a:X)
+//     {
+//         for(auto b:Y)
+//         {
+//             points.push_back({a, b});
+//         }
+//     } 
 
-    // Take the first 5 elements as distinct points outside the circle
-    for(auto &it : points)
-    {
-        if(calculateDistance(it.first, it.second, x, y) <=r) points.erase(it);
-    }
+//     // Take the first 5 elements as distinct points outside the circle
+//     for(auto &it : points)
+//     {
+//         if(calculateDistance(it.first, it.second, x, y) <=r) points.erase(it);
+//     }
 
-    return points;
-}
+//     return points;
+// }
 
 void get_Trajectory(std::vector<Point2D> &path, Point2D &outputPID,
                     Point2D &nowPos, wheelAngularVel &outInvers, double yaw,
@@ -229,6 +229,7 @@ int main(int argc, char **argv) {
     Point2D Ball;
     long long int count1 = 0;
     long long int count2 = 1;
+    long long int c = 0;
 
     std::vector<Point2D> obstacles(5);
     std::vector<Point2D> targetPos;
@@ -266,12 +267,18 @@ int main(int argc, char **argv) {
     Node *B5 = robotSup->getFromDef("B5");
 
     // Set the position of the object
-    Field *positionField1 = B1->getField("translation");
-    Field *positionField2 = B2->getField("translation");
-    Field *positionField3 = B3->getField("translation");
-    Field *positionField4 = B4->getField("translation");
-    Field *positionField5 = B5->getField("translation");
+    // Field *positionField1 = B1->getField("translation");
+    // Field *positionField2 = B2->getField("translation");
+    // Field *positionField3 = B3->getField("translation");
+    // Field *positionField4 = B4->getField("translation");
+    // Field *positionField5 = B5->getField("translation");
     // Node *target_robot = robotSup->getFromDef("field");
+
+    double v1[6] = {4.0, 5.0, 0.0, 0.0, 0.0, 0.0};
+    double v2[6] = {3.0, 5.0, 0.0, 0.0, 0.0, 0.0};
+    double v3[6] = {0.0, 10.0, 0.0, 0.0, 0.0, 0.0};
+     // Set the desired linear velocity (adjust as needed)
+    // B2->setVelocity(velocity);
 
     // SET the first Position our Robot
     RobotKinematic::getInstance()->setInitialPosition(
@@ -365,6 +372,21 @@ int main(int argc, char **argv) {
         }
 
         // std::cout<<count1<<std::endl;
+        if(c%20==0){
+            B1->setVelocity(v1);
+            B2->setVelocity(v1);
+            B3->setVelocity(v2);
+            B4->setVelocity(v2);
+            B5->setVelocity(v3);
+            v2[0] = -v2[0];
+            v2[1] = -v2[1];
+            v1[1] = -v1[1];
+            v1[0] = -v1[0];
+            v3[1]=-v3[1];
+        
+        }
+        c++;
+        c= c%1000000000;
 
         if (count2 % 5 == 0) {
             int idx = findclosestpoint(targetPos,
@@ -384,22 +406,22 @@ int main(int argc, char **argv) {
 
 
             //setting obs pos
-                randompoints = generateDistinctPoints((double)nowPos.x, (double)nowPos.y);
+                // randompoints = generateDistinctPoints((double)nowPos.x, (double)nowPos.y);
 
-                const double newPosition[] = {randompoints[0].first, randompoints[0].second, 0};
-                positionField1->setSFVec3f(newPosition);
+                // const double newPosition[] = {randompoints[0].first, randompoints[0].second, 0};
+                // positionField1->setSFVec3f(newPosition);
 
-                const double newPosition1[] = {randompoints[1].first, randompoints[1].second, 0};
-                positionField5->setSFVec3f(newPosition1);
+                // const double newPosition1[] = {randompoints[1].first, randompoints[1].second, 0};
+                // positionField5->setSFVec3f(newPosition1);
 
-                const double newPosition4[] = {randompoints[2].first, randompoints[2].second, 0};
-                positionField4->setSFVec3f(newPosition4);
+                // const double newPosition4[] = {randompoints[2].first, randompoints[2].second, 0};
+                // positionField4->setSFVec3f(newPosition4);
 
-                const double newPosition2[] = {randompoints[3].first, randompoints[3].second, 0};
-                positionField3->setSFVec3f(newPosition2);
+                // const double newPosition2[] = {randompoints[3].first, randompoints[3].second, 0};
+                // positionField3->setSFVec3f(newPosition2);
 
-                const double newPosition3[] = {randompoints[4].first, randompoints[4].second, 0};
-                positionField2->setSFVec3f(newPosition3);
+                // const double newPosition3[] = {randompoints[4].first, randompoints[4].second, 0};
+                // positionField2->setSFVec3f(newPosition3);
 
         }
 
