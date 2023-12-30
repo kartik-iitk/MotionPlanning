@@ -26,20 +26,18 @@
 #include <boost/algorithm/string.hpp>
 // For std::make_shared
 #include <fstream>
-#include <memory>
-
 #include <iostream>
+#include <memory>
 #include <vector>
+
 #include "spline.h"
-#include <bits/stdc++.h>
 
 namespace ob = ompl::base;
 namespace og = ompl::geometric;
 
 using namespace std;
 
-bool sortbysec(const pair<int,int> &a, const pair<int,int> &b)
-{
+bool sortbysec(const pair<int, int> &a, const pair<int, int> &b) {
     return (a.second > b.second);
 }
 
@@ -352,9 +350,9 @@ void plan(double runTime, double A, double B, std::vector<Point2D> &obs,
         std::vector<double> T(x_values.size());
 
         // std::vector< std::pair<double, std::pair<double, double> > > v;
-        
+
         // float start_x=x_values.front(), end_x=x_values.back();
-        
+
         // if (start_x > end_x)
         // {
         //     std::reverse(x_values.begin(),x_values.end());
@@ -363,28 +361,29 @@ void plan(double runTime, double A, double B, std::vector<Point2D> &obs,
 
         // tk::spline s(x_values,y_values,tk::spline::cspline);
 
-        T[0]=0;
-        for(int i=1; i<x_values.size(); i++)
-        {
-            T[i] = T[i-1] + sqrt( (x_values[i]-x_values[i-1])*(x_values[i]-x_values[i-1]) + (y_values[i]-y_values[i-1])*(y_values[i]-y_values[i-1]) );
+        T[0] = 0;
+        for (int i = 1; i < x_values.size(); i++) {
+            T[i] = T[i - 1] + sqrt((x_values[i] - x_values[i - 1]) *
+                                       (x_values[i] - x_values[i - 1]) +
+                                   (y_values[i] - y_values[i - 1]) *
+                                       (y_values[i] - y_values[i - 1]));
         }
         // setup splines for x and y coordinate
-        tk::spline sx(T,x_values), sy(T,y_values);
+        tk::spline sx(T, x_values), sy(T, y_values);
 
         // Array to store robot positions
         std::vector<std::pair<double, double>> robot_positions;
 
-        float n=10, diff = T.back()/n;
-        for (int i = 0 ; i < n ; i++ )
-        {
-            float t = diff*i;
+        float n = 10, diff = T.back() / n;
+        for (int i = 0; i < n; i++) {
+            float t = diff * i;
             robot_positions.push_back({sx(t), sy(t)});
         }
         robot_positions.push_back({sx(T.back()), sy(T.back())});
 
         // Display the array of robot positions
         std::cout << "Robot Positions:\n";
-        for (const auto& pos : robot_positions) {
+        for (const auto &pos : robot_positions) {
             std::cout << "(" << pos.first << ", " << pos.second << ")\n";
         }
 
@@ -394,7 +393,7 @@ void plan(double runTime, double A, double B, std::vector<Point2D> &obs,
             std::cerr << "Error opening output file." << std::endl;
         }
 
-        for (const auto& pos : robot_positions) {
+        for (const auto &pos : robot_positions) {
             output_file << pos.first << " " << pos.second << "\n";
         }
         output_file.close();
