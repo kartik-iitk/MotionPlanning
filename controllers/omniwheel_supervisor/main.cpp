@@ -48,7 +48,7 @@ bool isok(const Point2D &p1, const Point2D &p2, const Point2D &testPoint) {
 int findclosestpoint(std::vector<Point2D> &targetPos, Point2D &nowPos) {
     double min = 1000000;
     int idx = 0;
-    for (int i = 1; i < targetPos.size() - 1;
+    for (int i = 0; i < targetPos.size() - 1;
          i++)  // excluding last point and start
     {
         if (sqrt((targetPos[i].x - nowPos.x) * (targetPos[i].x - nowPos.x) +
@@ -312,6 +312,8 @@ int main(int argc, char **argv) {
                         count1++;
                 } else if (idx + 1 >= obstacles.size()) {
                     if (!isok(targetPos[idx - 1], targetPos[idx], it)) count1++;
+                } else if(idx-1<-1){
+                    if(!isok(targetPos[idx], targetPos[idx+1], it)) count1++;
                 }
             }
             if (count1 != obstacles.size()) flag = 1;
