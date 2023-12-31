@@ -24,18 +24,18 @@ class PID {
 // Control the Position and Yaw of the robot using PID Controllers.
 class Motion {
    private:
-    std::vector<double> output = {0, 0, 0, 0};
-    std::vector<double> error = {0, 0, 0, 0};
+    std::vector<double> output = {0, 0, 0, 0, 0, 0, 0};
+    std::vector<double> error = {0, 0, 0, 0, 0};
     void basicMotion(float vx, float vy, float vtheta, float thetaRobot,
                      Point2D &output);
     void accelControl(Point2D *out, Point2D &data);
 
    public:
-    PID *position_pid, *yaw_pid;
+    PID *position_pid, *yaw_pid, *velocity_pid;
     Motion();
     void positionAngularControl(double &errorX, double &errorY,
                                 double &errorTheta, double yaw,
-                                Point2D &outMotor);
+                                Point2D &outMotor, int count1, int path_size);
 };
 
 #endif

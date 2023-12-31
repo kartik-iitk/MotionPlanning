@@ -66,13 +66,19 @@ int findclosestpoint(std::vector<Point2D> &targetPos, Point2D &nowPos) {
 void get_Trajectory(std::vector<Point2D> &path, Point2D &outputPID,
                     Point2D &nowPos, wheelAngularVel &outInvers, double yaw,
                     std::vector<Point2D> &obstacles, Point2D &ball) {
-    window->visualizeGame(path, nowPos, count1, yaw, obstacles, ball);
+    window->visualizeGame(path, nowPos, (count1<(path.size()-1)?count1:(path.size()-1)), yaw, obstacles, ball);
 
     path[count1].theta = (180.0 / 3.14159) * atan2((ball.y - path[count1].y),
                                                    (ball.x - path[count1].x));
 
     double errorX = path[count1].x - nowPos.x;
     double errorY = path[count1].y - nowPos.y;
+
+    if (count1 == path.size())
+    {
+        errorX = 0;
+        errorY = 0;
+    }
 
     double dist = sqrt(errorX * errorX + errorY * errorY);
     double errTheta = path[count1].theta - (nowPos.theta * 180 / M_PI);
@@ -82,7 +88,7 @@ void get_Trajectory(std::vector<Point2D> &path, Point2D &outputPID,
     if (errTheta < -180) errTheta += 360;
 
     // IF using IMU as orientation
-    mot->positionAngularControl(errorX, errorY, errTheta, yaw, outputPID);
+    mot->positionAngularControl(errorX, errorY, errTheta, yaw, outputPID, count1, path.size());
 
     // If using Odometry orientation
     // mot->PositionAngularControl(errorX, errorY, errTheta, nowPos.theta,
@@ -97,7 +103,7 @@ void get_Trajectory(std::vector<Point2D> &path, Point2D &outputPID,
         IC(count1);
     }
     if (count1 > path.size() - 1) {
-        count1 = 0;
+        count1 = path.size();
     }
 }
 

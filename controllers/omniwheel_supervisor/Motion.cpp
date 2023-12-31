@@ -42,6 +42,7 @@ void PID::reset() {
 }
 
 Motion::Motion() {
+    velocity_pid = new PID();
     position_pid = new PID();
     yaw_pid = new PID();
 }
@@ -60,6 +61,8 @@ void Motion::accelControl(Point2D *output_vel, Point2D &data) {
     float theta = atan2(delta_v[1], delta_v[0]);
     // limit acceleration magnitude
     if (r > 3) r = 3;
+    
+    std::cout<<"accelaration is "<<r<<std::endl;
 
     // Modify new velocity by converting back to Cartesian Representation
     v_buffer[0] += r * cos(theta);
@@ -88,9 +91,10 @@ void Motion::basicMotion(float vx, float vy, float vtheta, float thetaRobot,
 
 void Motion::positionAngularControl(double &errorX, double &errorY,
                                     double &errorTheta, double yaw,
-                                    Point2D &outMotor) {
+                                    Point2D &outMotor, int count1, int path_size) {
     position_pid->setParam(400, 200, 0);  // Set position_pid
     yaw_pid->setParam(0.5, 1, 0);         // Set yaw_pid
+    velocity_pid->setParam(100,1,10);      // Set velocity_pid
 
     error[0] = errorX;  // Displacement along global X axis remaining
     error[1] = errorY;  // Displacement global Y axis remaining
@@ -103,10 +107,19 @@ void Motion::positionAngularControl(double &errorX, double &errorY,
     // Apply PID on Yaw Error
     output[3] = yaw_pid->calculatePID(error[3] * M_PI / 180.0, 5);
 
+    int max_speed = 70;
+    if (count1 == path_size) max_speed = 0;
+
+    error[4] = output[2] - 50;
+    output[4] = velocity_pid->calculatePID(error[4], max_speed);
+
     // Break into components
     output[0] = output[2] * cos(atan2(error[1], error[0]));
     output[1] = output[2] * sin(atan2(error[1], error[0]));
 
+    output[5] = output[4] * cos(atan2(error[1], error[0]));
+    output[6] = output[4] * sin(atan2(error[1], error[0]));
+
     // IC(output[0], output[1], output[2], output[3]);
-    basicMotion(output[0], output[1], output[3], yaw, outMotor);
+    basicMotion(output[5], output[6], output[3], yaw, outMotor);
 }
