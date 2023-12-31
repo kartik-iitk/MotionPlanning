@@ -1,6 +1,6 @@
 {
-    "cmake.sourceDirectory": "${workspaceRoot}/controllers/omniwheel_supervisor",
-    "cmake.buildDirectory": "${workspaceRoot}/controllers/omniwheel_supervisor/build/",
+    "cmake.sourceDirectory": "/Users/kartik/Desktop/ERA/RobocupMSL/Simulation/3D/MotionPlanning/controllers/o1",
+    "cmake.buildDirectory": "${workspaceRoot}/controllers/o1/build/",
     "cSpell.words": [
         "Odometry",
         "webots"

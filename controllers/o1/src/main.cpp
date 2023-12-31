@@ -312,8 +312,8 @@ int main(int argc, char **argv) {
                         count1++;
                 } else if (idx + 1 >= obstacles.size()) {
                     if (!isok(targetPos[idx - 1], targetPos[idx], it)) count1++;
-                } else if(idx-1<-1){
-                    if(!isok(targetPos[idx], targetPos[idx+1], it)) count1++;
+                } else if (idx - 1 < -1) {
+                    if (!isok(targetPos[idx], targetPos[idx + 1], it)) count1++;
                 }
             }
             if (count1 != obstacles.size()) flag = 1;

@@ -6,7 +6,7 @@ PROTO BluePlayer [
   field SFRotation rotation 0 0 1 0
   field SFString NAME "B1"
   field SFBool supervisor TRUE
-  field SFString controller "omniwheel_supervisor"
+  field SFString controller "b1"
   field SFString wheel_1 "wheel1"
   field SFString wheel_2 "wheel2"
   field SFString wheel_3 "wheel3"

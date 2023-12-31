@@ -1,7 +1,10 @@
-controllers/omni_wheels/build
-controllers/omni_wheels/omni_wheels
-controllers/omniwheel_supervisor/output.txt
-controllers/omniwheel_supervisor/output1.txt
-controllers/omniwheel_supervisor/omniwheel_supervisor
-**/build/**
+controllers/o1/src/output.txt
+controllers/o1/src/output1.txt
+controllers/o1/o1
+controllers/b1/b1
+controllers/b2/b2
+controllers/b3/b3
+controllers/b4/b4
+controllers/b5/b5
+**/build
 **/.DS_Store

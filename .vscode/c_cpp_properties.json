@@ -4,8 +4,7 @@
             "name": "Mac",
             "includePath": [
                 "${workspaceFolder}/**",
-                // "/Applications/Webots.app/Contents/include/controller/cpp",
-                // "/opt/homebrew/Cellar/opencv/4.8.1_5/include/opencv4"
+                "${workspaceFolder}/controllers/o1/include"
             ],
             "defines": [],
             "macFrameworkPath": [
