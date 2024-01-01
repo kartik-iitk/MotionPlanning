@@ -88,19 +88,27 @@ void Motion::basicMotion(float vx, float vy, float vtheta, float thetaRobot,
 
 void Motion::positionAngularControl(double &errorX, double &errorY,
                                     double &errorTheta, double yaw,
-                                    Point2D &outMotor, double nearestX, double nearestY, 
-                                    double minDistance, double currentX, double currentY, Point2D targetPos) {
+                                    Point2D &outMotor, double nearestX,
+                                    double nearestY, double minDistance,
+                                    double currentX, double currentY,
+                                    Point2D targetPos) {
+    double proprotionalFactor = 50, speed = 70,
+           normalSpeed = (speed < minDistance * proprotionalFactor)
+                             ? speed
+                             : minDistance * proprotionalFactor,
+           tangentialSpeed =
+               std::sqrt(0 > (speed * speed - normalSpeed * normalSpeed)
+                             ? 0
+                             : (speed * speed - normalSpeed * normalSpeed));
 
-    double proprotionalFactor = 20, speed = 70, normalSpeed = (speed<minDistance*proprotionalFactor)?speed:minDistance*proprotionalFactor, 
-           tangentialSpeed = std::sqrt(0>(speed*speed - normalSpeed*normalSpeed)?0:(speed*speed - normalSpeed*normalSpeed));
-    
-    std::cout<<"normalSpeed = "<<normalSpeed<<std::endl;
-    std::cout<<"tangentialSpeed = "<<tangentialSpeed<<std::endl;    
+    std::cout << "normalSpeed = " << normalSpeed << std::endl;
+    std::cout << "tangentialSpeed = " << tangentialSpeed << std::endl;
 
     position_pid->setParam(400, 200, 0);  // Set position_pid
-    yaw_pid->setParam(0.5, 1, 0);         // Set yaw_pid
+    yaw_pid->setParam(2, 1, 0);           // Set yaw_pid
 
-    error[0] = nearestX - currentX;  // Displacement along global X axis remaining
+    error[0] =
+        nearestX - currentX;  // Displacement along global X axis remaining
     error[1] = nearestY - currentY;  // Displacement global Y axis remaining
     error[2] = sqrt(error[0] * error[0] +
                     error[1] * error[1]);  // Net Displacement Magnitude
@@ -110,16 +118,23 @@ void Motion::positionAngularControl(double &errorX, double &errorY,
     output[2] = position_pid->calculatePID(error[2], 100);
     // Apply PID on Yaw Error
     output[3] = yaw_pid->calculatePID(error[3] * M_PI / 180.0, 5);
-    
-    float dotProduct = (cos(M_PI/2 + atan2(error[1], error[0])) * cos(atan2(targetPos.y - currentY, targetPos.x - currentX)) + sin(M_PI/2 + atan2(error[1], error[0])) * sin(atan2(targetPos.y - currentY, targetPos.x - currentX)));
-    int dir = (dotProduct >= 0)?1:-1;
+
+    float dotProduct =
+        (cos(M_PI / 2 + atan2(error[1], error[0])) *
+             cos(atan2(targetPos.y - currentY, targetPos.x - currentX)) +
+         sin(M_PI / 2 + atan2(error[1], error[0])) *
+             sin(atan2(targetPos.y - currentY, targetPos.x - currentX)));
+    int dir = (dotProduct >= 0) ? 1 : -1;
 
     // Break into components
-    output[0] = normalSpeed * cos(atan2(error[1], error[0])) + tangentialSpeed * cos(dir * M_PI/2 + atan2(error[1], error[0]));
-    output[1] = normalSpeed * sin(atan2(error[1], error[0])) + tangentialSpeed * sin(dir * M_PI/2 + atan2(error[1], error[0]));
+    output[0] =
+        normalSpeed * cos(atan2(error[1], error[0])) +
+        tangentialSpeed * cos(dir * M_PI / 2 + atan2(error[1], error[0]));
+    output[1] =
+        normalSpeed * sin(atan2(error[1], error[0])) +
+        tangentialSpeed * sin(dir * M_PI / 2 + atan2(error[1], error[0]));
 
-    if (std::abs(dotProduct) < 0.3)
-    {
+    if (std::abs(dotProduct) < 0.3) {
         output[0] = normalSpeed * cos(atan2(error[1], error[0]));
         output[1] = normalSpeed * sin(atan2(error[1], error[0]));
     }

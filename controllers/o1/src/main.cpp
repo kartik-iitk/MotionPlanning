@@ -81,12 +81,12 @@ void get_Trajectory(std::vector<Point2D> &path, Point2D &outputPID,
     if (errTheta > 180) errTheta -= 360;
     if (errTheta < -180) errTheta += 360;
 
-    double nearestX, nearestY, minDistance = std::numeric_limits<double>::infinity();
-    for (auto i : path)
-    {
-        double dist = std::sqrt((i.x - nowPos.x)*(i.x - nowPos.x) + (i.y - nowPos.y)*(i.y - nowPos.y));
-        if (dist < minDistance)
-        {
+    double nearestX, nearestY,
+        minDistance = std::numeric_limits<double>::infinity();
+    for (auto i : path) {
+        double dist = std::sqrt((i.x - nowPos.x) * (i.x - nowPos.x) +
+                                (i.y - nowPos.y) * (i.y - nowPos.y));
+        if (dist < minDistance) {
             minDistance = dist;
             nearestX = i.x;
             nearestY = i.y;
@@ -94,8 +94,9 @@ void get_Trajectory(std::vector<Point2D> &path, Point2D &outputPID,
     }
 
     // IF using IMU as orientation
-    mot->positionAngularControl(errorX, errorY, errTheta, yaw, outputPID, nearestX,
-                                nearestY, minDistance, nowPos.x, nowPos.y, path.back());
+    mot->positionAngularControl(errorX, errorY, errTheta, yaw, outputPID,
+                                nearestX, nearestY, minDistance, nowPos.x,
+                                nowPos.y, path.back());
 
     // If using Odometry orientation
     // mot->PositionAngularControl(errorX, errorY, errTheta, nowPos.theta,
@@ -329,7 +330,7 @@ int main(int argc, char **argv) {
                     if (!isok(targetPos[idx], targetPos[idx + 1], it)) count1++;
                 }
             }
-            if (count1 != obstacles.size()) flag = 1;
+            // if (count1 != obstacles.size()) flag = 1;
             std::cout << count1 << std::endl;
             count1 = 0;
         }
