@@ -35,7 +35,9 @@ class Motion {
     Motion();
     void positionAngularControl(double &errorX, double &errorY,
                                 double &errorTheta, double yaw,
-                                Point2D &outMotor);
+                                Point2D &outMotor,  double nearestX, 
+                                double nearestY, double minDistance,
+                                double currentX, double currentY, Point2D targetPos);
 };
 
 #endif

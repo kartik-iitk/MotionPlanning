@@ -96,9 +96,9 @@ std::vector<PointPair> readPointsFromFile() {
         points.clear();  // Clear vector on error
     }
 
-    for (const auto &p : points) {
-        std::cout << p.first << " " << p.second << std::endl;
-    }
+    // for (const auto &p : points) {
+    //     std::cout << p.first << " " << p.second << std::endl;
+    // }
 
     return points;
 }
@@ -374,7 +374,7 @@ void plan(double runTime, double A, double B, std::vector<Point2D> &obs,
         // Array to store robot positions
         std::vector<std::pair<double, double>> robot_positions;
 
-        float n = 10, diff = T.back() / n;
+        float n = 200, diff = T.back() / n;
         for (int i = 0; i < n; i++) {
             float t = diff * i;
             robot_positions.push_back({sx(t), sy(t)});
@@ -382,10 +382,10 @@ void plan(double runTime, double A, double B, std::vector<Point2D> &obs,
         robot_positions.push_back({sx(T.back()), sy(T.back())});
 
         // Display the array of robot positions
-        std::cout << "Robot Positions:\n";
-        for (const auto &pos : robot_positions) {
-            std::cout << "(" << pos.first << ", " << pos.second << ")\n";
-        }
+        // std::cout << "Robot Positions:\n";
+        // for (const auto &pos : robot_positions) {
+        //     std::cout << "(" << pos.first << ", " << pos.second << ")\n";
+        // }
 
         // Write the array to the text file
         std::ofstream output_file("output1.txt");
