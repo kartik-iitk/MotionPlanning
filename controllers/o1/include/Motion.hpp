@@ -37,7 +37,8 @@ class Motion {
                                 double &errorTheta, double yaw,
                                 Point2D &outMotor,  double nearestX, 
                                 double nearestY, double minDistance,
-                                double currentX, double currentY, Point2D targetPos);
+                                double currentX, double currentY, Point2D targetPos,
+                                int count, std::vector<Point2D> &path);
 };
 
 #endif

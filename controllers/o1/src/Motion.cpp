@@ -91,13 +91,33 @@ void Motion::positionAngularControl(double &errorX, double &errorY,
                                     Point2D &outMotor, double nearestX,
                                     double nearestY, double minDistance,
                                     double currentX, double currentY,
-                                    Point2D targetPos) {
-    double proprotionalFactor = 50, speed = 70,
+                                    Point2D targetPos, int count, std::vector<Point2D> &path) {
+    
+    double angle = M_PI, speed = 80;
+    int considered_point = 10;
+    if (count+considered_point-1 >= 0 && count+considered_point+1 <= path.size()-1) 
+    {
+        angle = acos( ((path[count+considered_point+1].x-path[count+considered_point].x)*(path[count+considered_point-1].x-path[count+considered_point].x) + 
+        (path[count+considered_point+1].y-path[count+considered_point].y)*(path[count+considered_point-1].y-path[count+considered_point].y))/
+        ( std::sqrt((path[count+considered_point+1].x-path[count+considered_point].x)*(path[count+considered_point+1].x-path[count+considered_point].x) + 
+        (path[count+considered_point+1].y-path[count+considered_point].y)*(path[count+considered_point+1].y-path[count+considered_point].y)) 
+        * std::sqrt((path[count+considered_point-1].x-path[count+considered_point].x)*(path[count+considered_point-1].x-path[count+considered_point].x) + 
+        (path[count+considered_point-1].y-path[count+considered_point].y)*(path[count+considered_point-1].y-path[count+considered_point].y)) ));
+
+        double sharpest_angle = 3, min_vel = 30, max_vel = 100;
+        speed = min_vel + (max_vel - min_vel)*((angle - sharpest_angle)/(M_PI-sharpest_angle));
+    }
+    std::cout<<angle<<std::endl;
+
+    
+    if (count >= path.size()-30) speed = 10;
+
+    double proprotionalFactor = 80,
            normalSpeed = (speed < minDistance * proprotionalFactor)
                              ? speed
                              : minDistance * proprotionalFactor,
            tangentialSpeed =
-               std::sqrt(0 > (speed * speed - normalSpeed * normalSpeed)
+               std::sqrt((0 > (speed * speed - normalSpeed * normalSpeed))
                              ? 0
                              : (speed * speed - normalSpeed * normalSpeed));
 
@@ -105,7 +125,7 @@ void Motion::positionAngularControl(double &errorX, double &errorY,
     std::cout << "tangentialSpeed = " << tangentialSpeed << std::endl;
 
     position_pid->setParam(400, 200, 0);  // Set position_pid
-    yaw_pid->setParam(2, 1, 0);           // Set yaw_pid
+    yaw_pid->setParam(1, 0, 0);           // Set yaw_pid
 
     error[0] =
         nearestX - currentX;  // Displacement along global X axis remaining
@@ -121,9 +141,9 @@ void Motion::positionAngularControl(double &errorX, double &errorY,
 
     float dotProduct =
         (cos(M_PI / 2 + atan2(error[1], error[0])) *
-             cos(atan2(targetPos.y - currentY, targetPos.x - currentX)) +
+             cos(atan2(path[ (count+1<path.size()-1)?count+1:path.size()-1].y - currentY, path[ (count+1<path.size()-1)?count+1:path.size()-1].x - currentX)) +
          sin(M_PI / 2 + atan2(error[1], error[0])) *
-             sin(atan2(targetPos.y - currentY, targetPos.x - currentX)));
+             sin(atan2(path[ (count+1<path.size()-1)?count+1:path.size()-1].y - currentY, path[ (count+1<path.size()-1)?count+1:path.size()-1].x - currentX)));
     int dir = (dotProduct >= 0) ? 1 : -1;
 
     // Break into components
@@ -134,10 +154,10 @@ void Motion::positionAngularControl(double &errorX, double &errorY,
         normalSpeed * sin(atan2(error[1], error[0])) +
         tangentialSpeed * sin(dir * M_PI / 2 + atan2(error[1], error[0]));
 
-    if (std::abs(dotProduct) < 0.3) {
-        output[0] = normalSpeed * cos(atan2(error[1], error[0]));
-        output[1] = normalSpeed * sin(atan2(error[1], error[0]));
-    }
+    // if (std::abs(dotProduct) < 0.3) {
+    //     output[0] = normalSpeed * cos(atan2(error[1], error[0]));
+    //     output[1] = normalSpeed * sin(atan2(error[1], error[0]));
+    // }
 
     // IC(output[0], output[1], output[2], output[3]);
     basicMotion(output[0], output[1], output[3], yaw, outMotor);

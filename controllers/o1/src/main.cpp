@@ -83,20 +83,22 @@ void get_Trajectory(std::vector<Point2D> &path, Point2D &outputPID,
 
     double nearestX, nearestY,
         minDistance = std::numeric_limits<double>::infinity();
-    for (auto i : path) {
+    for (int j=0 ; j < path.size() ; j++) {
+        auto i = path[j];
         double dist = std::sqrt((i.x - nowPos.x) * (i.x - nowPos.x) +
                                 (i.y - nowPos.y) * (i.y - nowPos.y));
         if (dist < minDistance) {
             minDistance = dist;
             nearestX = i.x;
             nearestY = i.y;
+            count1 = j;
         }
     }
 
     // IF using IMU as orientation
     mot->positionAngularControl(errorX, errorY, errTheta, yaw, outputPID,
                                 nearestX, nearestY, minDistance, nowPos.x,
-                                nowPos.y, path.back());
+                                nowPos.y, path.back(), count1, path);
 
     // If using Odometry orientation
     // mot->PositionAngularControl(errorX, errorY, errTheta, nowPos.theta,
@@ -104,12 +106,13 @@ void get_Trajectory(std::vector<Point2D> &path, Point2D &outputPID,
 
     RobotKinematic::getInstance()->inverseKinematics(
         outInvers, outputPID.x, outputPID.y, outputPID.theta);
-    if (dist < 0.15 && fabs(errTheta) < 3) {
-        mot->position_pid->reset();
-        mot->yaw_pid->reset();
-        count1++;
-        IC(count1);
-    }
+
+    // if (dist < 0.15 && fabs(errTheta) < 3) {
+    //     mot->position_pid->reset();
+    //     mot->yaw_pid->reset();
+    //     count1++;
+    //     IC(count1);
+    // }
     if (count1 > path.size() - 1) {
         count1 = path.size() - 1;
     }
