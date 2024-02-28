@@ -361,25 +361,31 @@ void plan(double runTime, double A, double B, std::vector<Point2D> &obs,
 
         // tk::spline s(x_values,y_values,tk::spline::cspline);
 
-        T[0] = 0;
-        for (int i = 1; i < x_values.size(); i++) {
-            T[i] = T[i - 1] + sqrt((x_values[i] - x_values[i - 1]) *
-                                       (x_values[i] - x_values[i - 1]) +
-                                   (y_values[i] - y_values[i - 1]) *
-                                       (y_values[i] - y_values[i - 1]));
-        }
-        // setup splines for x and y coordinate
-        tk::spline sx(T, x_values), sy(T, y_values);
-
         // Array to store robot positions
         std::vector<std::pair<double, double>> robot_positions;
 
-        double n = 200, diff = T.back() / n;
-        for (int i = 0; i < n; i++) {
-            double t = diff * i;
-            robot_positions.push_back({sx(t), sy(t)});
+        if (x_values.size() > 2) {
+            T[0] = 0;
+            for (int i = 1; i < x_values.size(); i++) {
+                T[i] = T[i - 1] + sqrt((x_values[i] - x_values[i - 1]) *
+                                           (x_values[i] - x_values[i - 1]) +
+                                       (y_values[i] - y_values[i - 1]) *
+                                           (y_values[i] - y_values[i - 1]));
+            }
+            // setup splines for x and y coordinate
+            tk::spline sx(T, x_values), sy(T, y_values);
+
+            double n = 200, diff = T.back() / n;
+            for (int i = 0; i < n; i++) {
+                double t = diff * i;
+                robot_positions.push_back({sx(t), sy(t)});
+            }
+            robot_positions.push_back({sx(T.back()), sy(T.back())});
+        } else {
+            for (int i = 0; i < x_values.size(); i++) {
+                robot_positions.push_back({x_values[i], y_values[i]});
+            }
         }
-        robot_positions.push_back({sx(T.back()), sy(T.back())});
 
         // Display the array of robot positions
         // std::cout << "Robot Positions:\n";

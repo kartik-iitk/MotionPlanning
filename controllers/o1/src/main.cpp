@@ -213,7 +213,7 @@ int main(int argc, char **argv) {
     std::vector<PointPair> points;  // from output.txt
 
     // OMPL Setup Parameter
-    double runTime = 0.5;
+    double runTime = 0.01;
     optimalPlanner plannerType = PLANNER_RRTSTAR;
     planningObjective objectiveType = OBJECTIVE_PATHLENGTH;
     std::string outputFile = "output.txt";
@@ -333,7 +333,7 @@ int main(int argc, char **argv) {
                     if (!isok(targetPos[idx], targetPos[idx + 1], it)) count1++;
                 }
             }
-            // if (count1 != obstacles.size()) flag = 1;
+            if (count1 != obstacles.size()) flag = 1;
             std::cout << count1 << std::endl;
             count1 = 0;
         }
