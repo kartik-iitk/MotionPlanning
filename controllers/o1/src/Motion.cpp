@@ -6,11 +6,11 @@ PID::PID() {
     prev_error = 0;
 }
 
-float PID::calculatePID(float error, float min_max) {
+double PID::calculatePID(double error, double min_max) {
     min_out = min_integral = -min_max;
     max_out = max_integral = min_max;
 
-    float proportional = kp * error;
+    double proportional = kp * error;
     integral += ki * error * time_pid;
     derivative = kd * (error - prev_error) / time_pid;
 
@@ -29,7 +29,7 @@ float PID::calculatePID(float error, float min_max) {
     return output_speed;
 }
 
-void PID::setParam(float kp_, float ki_, float kd_) {
+void PID::setParam(double kp_, double ki_, double kd_) {
     kp = kp_;
     ki = ki_;
     kd = kd_;
@@ -48,16 +48,16 @@ Motion::Motion() {
 
 void Motion::accelControl(Point2D *output_vel, Point2D &data) {
     // Static Velocity Buffer to store previous velocity.
-    static float v_buffer[2];
+    static double v_buffer[2];
 
     // Calculate Change in velocity
-    float delta_v[2];
+    double delta_v[2];
     delta_v[0] = data.x - v_buffer[0];
     delta_v[1] = data.y - v_buffer[1];
 
     // Convert the change to Polar Representation
-    float r = sqrt(delta_v[0] * delta_v[0] + delta_v[1] * delta_v[1]);
-    float theta = atan2(delta_v[1], delta_v[0]);
+    double r = sqrt(delta_v[0] * delta_v[0] + delta_v[1] * delta_v[1]);
+    double theta = atan2(delta_v[1], delta_v[0]);
     // limit acceleration magnitude
     if (r > 3) r = 3;
 
@@ -73,10 +73,10 @@ void Motion::accelControl(Point2D *output_vel, Point2D &data) {
     // IC(output_vel->x, output_vel->y, output_vel->theta);
 }
 
-void Motion::basicMotion(float vx, float vy, float vtheta, float thetaRobot,
+void Motion::basicMotion(double vx, double vy, double vtheta, double thetaRobot,
                          Point2D &output) {
     Point2D dataInput;
-    float velout[3];
+    double velout[3];
     velout[0] = cos(thetaRobot) * vx + sin(thetaRobot) * vy;
     velout[1] = -sin(thetaRobot) * vx + cos(thetaRobot) * vy;
     // IC(thetaRobot);
@@ -91,26 +91,47 @@ void Motion::positionAngularControl(double &errorX, double &errorY,
                                     Point2D &outMotor, double nearestX,
                                     double nearestY, double minDistance,
                                     double currentX, double currentY,
-                                    Point2D targetPos, int count, std::vector<Point2D> &path) {
-    
+                                    Point2D targetPos, int count,
+                                    std::vector<Point2D> &path) {
     double angle = M_PI, speed = 80;
     int considered_point = 10;
-    if (count+considered_point-1 >= 0 && count+considered_point+1 <= path.size()-1) 
-    {
-        angle = acos( ((path[count+considered_point+1].x-path[count+considered_point].x)*(path[count+considered_point-1].x-path[count+considered_point].x) + 
-        (path[count+considered_point+1].y-path[count+considered_point].y)*(path[count+considered_point-1].y-path[count+considered_point].y))/
-        ( std::sqrt((path[count+considered_point+1].x-path[count+considered_point].x)*(path[count+considered_point+1].x-path[count+considered_point].x) + 
-        (path[count+considered_point+1].y-path[count+considered_point].y)*(path[count+considered_point+1].y-path[count+considered_point].y)) 
-        * std::sqrt((path[count+considered_point-1].x-path[count+considered_point].x)*(path[count+considered_point-1].x-path[count+considered_point].x) + 
-        (path[count+considered_point-1].y-path[count+considered_point].y)*(path[count+considered_point-1].y-path[count+considered_point].y)) ));
+    if (count + considered_point - 1 >= 0 &&
+        count + considered_point + 1 <= path.size() - 1) {
+        angle = acos(((path[count + considered_point + 1].x -
+                       path[count + considered_point].x) *
+                          (path[count + considered_point - 1].x -
+                           path[count + considered_point].x) +
+                      (path[count + considered_point + 1].y -
+                       path[count + considered_point].y) *
+                          (path[count + considered_point - 1].y -
+                           path[count + considered_point].y)) /
+                     (std::sqrt((path[count + considered_point + 1].x -
+                                 path[count + considered_point].x) *
+                                    (path[count + considered_point + 1].x -
+                                     path[count + considered_point].x) +
+                                (path[count + considered_point + 1].y -
+                                 path[count + considered_point].y) *
+                                    (path[count + considered_point + 1].y -
+                                     path[count + considered_point].y)) *
+                      std::sqrt((path[count + considered_point - 1].x -
+                                 path[count + considered_point].x) *
+                                    (path[count + considered_point - 1].x -
+                                     path[count + considered_point].x) +
+                                (path[count + considered_point - 1].y -
+                                 path[count + considered_point].y) *
+                                    (path[count + considered_point - 1].y -
+                                     path[count + considered_point].y))));
 
         double sharpest_angle = 3, min_vel = 30, max_vel = 100;
-        speed = min_vel + (max_vel - min_vel)*((angle - sharpest_angle)/(M_PI-sharpest_angle));
+        speed = min_vel + (max_vel - min_vel) * ((angle - sharpest_angle) /
+                                                 (M_PI - sharpest_angle));
     }
-    std::cout<<angle<<std::endl;
+    std::cout << "angle = " << angle << std::endl;
 
-    
-    if (count >= path.size()-30) speed = 10;
+    if (count >= path.size() - 30) speed = 10;
+
+    std::cout << "speed = " << speed << std::endl;
+    std::cout << "minDistance = " << minDistance << std::endl;
 
     double proprotionalFactor = 80,
            normalSpeed = (speed < minDistance * proprotionalFactor)
@@ -139,11 +160,25 @@ void Motion::positionAngularControl(double &errorX, double &errorY,
     // Apply PID on Yaw Error
     output[3] = yaw_pid->calculatePID(error[3] * M_PI / 180.0, 5);
 
-    float dotProduct =
+    double dotProduct =
         (cos(M_PI / 2 + atan2(error[1], error[0])) *
-             cos(atan2(path[ (count+1<path.size()-1)?count+1:path.size()-1].y - currentY, path[ (count+1<path.size()-1)?count+1:path.size()-1].x - currentX)) +
+             cos(atan2(path[(count + 1 < path.size() - 1) ? count + 1
+                                                          : path.size() - 1]
+                               .y -
+                           currentY,
+                       path[(count + 1 < path.size() - 1) ? count + 1
+                                                          : path.size() - 1]
+                               .x -
+                           currentX)) +
          sin(M_PI / 2 + atan2(error[1], error[0])) *
-             sin(atan2(path[ (count+1<path.size()-1)?count+1:path.size()-1].y - currentY, path[ (count+1<path.size()-1)?count+1:path.size()-1].x - currentX)));
+             sin(atan2(path[(count + 1 < path.size() - 1) ? count + 1
+                                                          : path.size() - 1]
+                               .y -
+                           currentY,
+                       path[(count + 1 < path.size() - 1) ? count + 1
+                                                          : path.size() - 1]
+                               .x -
+                           currentX)));
     int dir = (dotProduct >= 0) ? 1 : -1;
 
     // Break into components

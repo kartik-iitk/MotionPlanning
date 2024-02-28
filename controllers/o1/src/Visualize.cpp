@@ -1,7 +1,7 @@
 #include "Visualize.hpp"
 
-Visualize::Visualize(float resolutionX) {
-    float fieldX = A + 2 * L, fieldY = (B + 2 * L);
+Visualize::Visualize(double resolutionX) {
+    double fieldX = A + 2 * L, fieldY = (B + 2 * L);
     resX = resolutionX;
     resY = resX * (fieldY / fieldX);
     scale = resX / fieldX;
@@ -55,12 +55,12 @@ void Visualize::visualizeGame(std::vector<Point2D> &path, Point2D &nowPos,
                               std::vector<Point2D> &obstacles, Point2D &ball) {
     cv::Mat image(resY, resX, CV_8UC3,
                   cv::Scalar(20, 170, 30));  // Official Color: (0, 150, 10)
-    float centerX = image.cols / 2.0;
-    float centerY = image.rows / 2.0;
+    double centerX = image.cols / 2.0;
+    double centerY = image.rows / 2.0;
 
     // drawing arena
-    float a = A * scale;
-    float b = B * scale;
+    double a = A * scale;
+    double b = B * scale;
     // Calculate the position of the top-left corner for center alignment
     int x = (image.cols - a) / 2;  // x-coordinate for center alignment
     int y = (image.rows - b) / 2;  // y-coordinate for center alignment
@@ -143,8 +143,8 @@ void Visualize::visualizeGame(std::vector<Point2D> &path, Point2D &nowPos,
     // adding goal post
     //  Define the dimensions of the additional rectangle
 
-    float R = r * scale;
-    float S = s * scale;
+    double R = r * scale;
+    double S = s * scale;
     // Calculate the position of the top-left corner for the additional
     // rectangle
     int newXLeft = x - R;            // To the left of the main rectangle

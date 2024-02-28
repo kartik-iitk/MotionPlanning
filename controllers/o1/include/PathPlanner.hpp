@@ -351,7 +351,7 @@ void plan(double runTime, double A, double B, std::vector<Point2D> &obs,
 
         // std::vector< std::pair<double, std::pair<double, double> > > v;
 
-        // float start_x=x_values.front(), end_x=x_values.back();
+        // double start_x=x_values.front(), end_x=x_values.back();
 
         // if (start_x > end_x)
         // {
@@ -374,9 +374,9 @@ void plan(double runTime, double A, double B, std::vector<Point2D> &obs,
         // Array to store robot positions
         std::vector<std::pair<double, double>> robot_positions;
 
-        float n = 200, diff = T.back() / n;
+        double n = 200, diff = T.back() / n;
         for (int i = 0; i < n; i++) {
-            float t = diff * i;
+            double t = diff * i;
             robot_positions.push_back({sx(t), sy(t)});
         }
         robot_positions.push_back({sx(T.back()), sy(T.back())});

@@ -83,7 +83,7 @@ void get_Trajectory(std::vector<Point2D> &path, Point2D &outputPID,
 
     double nearestX, nearestY,
         minDistance = std::numeric_limits<double>::infinity();
-    for (int j=0 ; j < path.size() ; j++) {
+    for (int j = 0; j < path.size(); j++) {
         auto i = path[j];
         double dist = std::sqrt((i.x - nowPos.x) * (i.x - nowPos.x) +
                                 (i.y - nowPos.y) * (i.y - nowPos.y));
@@ -271,8 +271,8 @@ int main(int argc, char **argv) {
 
     // std::vector<Point2D> circVec;
     // for (int i = 0; i < 360; i += 10) {
-    //     float x_ = 1 * cos((float)i * M_PI / 180);
-    //     float y_ = 1 * sin((float)i * M_PI / 180);
+    //     double x_ = 1 * cos((double)i * M_PI / 180);
+    //     double y_ = 1 * sin((double)i * M_PI / 180);
     //     circVec.push_back(Point2D(x_, y_, 0));
     // }
     // std::vector<Point2D> targetPos;
