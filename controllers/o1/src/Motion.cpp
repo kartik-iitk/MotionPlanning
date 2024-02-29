@@ -133,10 +133,16 @@ void Motion::positionAngularControl(double &errorX, double &errorY,
     std::cout << "speed = " << speed << std::endl;
     std::cout << "minDistance = " << minDistance << std::endl;
 
+    if (speed<50) position_pid->setParam(90, 0, 0);  // Set position_pid
+    else if (speed<90) position_pid->setParam(80, 0, 0);
+    else position_pid->setParam(75, 0, 0);
+
+    yaw_pid->setParam(1, 0, 0);           // Set yaw_pid
+
     double proprotionalFactor = 80,
-           normalSpeed = (speed < minDistance * proprotionalFactor)
+           normalSpeed = (speed < position_pid->calculatePID(minDistance, speed))
                              ? speed
-                             : minDistance * proprotionalFactor,
+                             : position_pid->calculatePID(minDistance, speed),
            tangentialSpeed =
                std::sqrt((0 > (speed * speed - normalSpeed * normalSpeed))
                              ? 0
@@ -144,9 +150,6 @@ void Motion::positionAngularControl(double &errorX, double &errorY,
 
     std::cout << "normalSpeed = " << normalSpeed << std::endl;
     std::cout << "tangentialSpeed = " << tangentialSpeed << std::endl;
-
-    position_pid->setParam(400, 200, 0);  // Set position_pid
-    yaw_pid->setParam(1, 0, 0);           // Set yaw_pid
 
     error[0] =
         nearestX - currentX;  // Displacement along global X axis remaining
