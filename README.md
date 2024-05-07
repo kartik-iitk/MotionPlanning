@@ -8,6 +8,18 @@ This repository includes the Webots simulation for motion planning (local and gl
 2. OMPL v1.6 (C++ Version, python bindings are not required)
 2. Webots v2023b
 3. cmake
+4. boost
+
+__Note__: Use following instructions for Ubuntu -
+
+```
+sudo apt update && sudo apt upgrade
+sudo apt install libopencv-dev
+sudo apt install libboost-all-dev
+sudo apt install libompl-dev ompl-demos
+```
+
+For MacOS, you need specific homebrew packages.
 
 ## How to Run
 

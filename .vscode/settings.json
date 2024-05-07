@@ -1,5 +1,5 @@
 {
-    "cmake.sourceDirectory": "/Users/kartik/Desktop/ERA/RobocupMSL/Simulation/3D/MotionPlanning/controllers/o1",
+    "cmake.sourceDirectory": "/Users/kartik/Desktop/Indian Institure of Technology Kanpur/ERA/RobocupMSL/Simulation/3D/MotionPlanning/controllers/o1",
     "cmake.buildDirectory": "${workspaceRoot}/controllers/o1/build/",
     "cSpell.words": [
         "Odometry",
