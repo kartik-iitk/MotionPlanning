@@ -7,28 +7,6 @@ Visualize::Visualize(double resolutionX) {
     scale = resX / fieldX;
 }
 
-// void Visualize::drawArrow(cv::Mat &image, const cv::Point &pStart,
-//                           const cv::Point &pEnd, const cv::Scalar &color,
-//                           int thickness, int line_type, int shift,
-//                           double tipLength) {
-//     const double tipSize = cv::norm(pStart - pEnd) *
-//                            tipLength;  // Factor to normalize the arrow size
-
-//     cv::line(image, pStart, pEnd, color, thickness, line_type, shift);
-
-//     const double angle =
-//         std::atan2((double)pStart.y - pEnd.y, (double)pStart.x - pEnd.x);
-//     cv::Point p1, p2;
-
-//     p1.x = static_cast<int>(pEnd.x + tipSize * std::cos(angle + CV_PI / 4));
-//     p1.y = static_cast<int>(pEnd.y + tipSize * std::sin(angle + CV_PI / 4));
-//     cv::line(image, pEnd, p1, color, thickness, line_type, shift);
-
-//     p2.x = static_cast<int>(pEnd.x + tipSize * std::cos(angle - CV_PI / 4));
-//     p2.y = static_cast<int>(pEnd.y + tipSize * std::sin(angle - CV_PI / 4));
-//     cv::line(image, pEnd, p2, color, thickness, line_type, shift);
-// }
-
 // Function to draw a V shape representing the heading on an OpenCV image
 void Visualize::drawHeadingV(cv::Mat &image, const cv::Point &center,
                              double headingAngle, const cv::Scalar &color,
@@ -220,5 +198,5 @@ void Visualize::visualizeGame(std::vector<Point2D> &path, Point2D &nowPos,
              cv::Scalar(0, 0, 0), 2);
 
     cv::imshow("Robot 4 omni visual", image);
-    cv::waitKey(1);
+    cv::waitKey(0);
 }

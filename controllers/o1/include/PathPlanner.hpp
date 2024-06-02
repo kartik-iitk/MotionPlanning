@@ -29,8 +29,10 @@
 #include <iostream>
 #include <memory>
 #include <vector>
+#include <utility>
 
 #include "spline.h"
+#include "Coordinate.hpp"
 
 namespace ob = ompl::base;
 namespace og = ompl::geometric;
@@ -73,35 +75,6 @@ std::vector<Point2D> obstacles;
 
 // Define a pair for the points
 using PointPair = std::pair<double, double>;
-
-std::vector<PointPair> readPointsFromFile() {
-    std::string filename = "output1.txt";
-    std::vector<PointPair> points;
-
-    std::ifstream file(filename);
-    if (!file.is_open()) {
-        std::cerr << "Error: Unable to open file " << filename << std::endl;
-        return points;  // Return empty vector on error
-    }
-
-    double x, y;
-    while (file >> x >> y) {
-        points.push_back({x, y});
-    }
-
-    file.close();
-
-    if (file.fail() && !file.eof()) {
-        std::cerr << "Error reading data from file " << filename << std::endl;
-        points.clear();  // Clear vector on error
-    }
-
-    // for (const auto &p : points) {
-    //     std::cout << p.first << " " << p.second << std::endl;
-    // }
-
-    return points;
-}
 
 // Parse the command-line arguments
 bool argParse(int argc, char **argv, double *runTimePtr,
@@ -250,17 +223,14 @@ ob::OptimizationObjectivePtr allocateObjective(
     }
 }
 
-void plan(double runTime, double A, double B, std::vector<Point2D> &obs,
-          optimalPlanner plannerType, planningObjective objectiveType,
-          const std::string &outputFile, Point2D &nowPos) {
+std::vector<std::pair<double, double>> plan(double runTime, double A, double B, std::vector<Point2D> &obs,
+          optimalPlanner plannerType, planningObjective objectiveType, Point2D &nowPos, Point2D &finalPos) {
     // Construct the robot state space in which we're planning. We're
     // planning in the playable field, a subset of R^2 (a rectangle of
     // dimensions A x B)
     obstacles = obs;
     auto space(std::make_shared<ob::RealVectorStateSpace>(2));
 
-    // Set the bounds of space to be in [0,1].
-    // space->setBounds(0.0, 1.0);
     // Set the bounds of space to be in [-11, 11] for both dimensions.
     ompl::base::RealVectorBounds bounds(2);
     bounds.setLow(0, -A / 2);
@@ -277,17 +247,15 @@ void plan(double runTime, double A, double B, std::vector<Point2D> &obs,
 
     si->setup();
 
-    // Set our robot's starting state to be the bottom-left corner of
-    // the environment, or (0,0).
+    // set the initial 
     ob::ScopedState<> start(space);
     start->as<ob::RealVectorStateSpace::StateType>()->values[0] = nowPos.x;
     start->as<ob::RealVectorStateSpace::StateType>()->values[1] = nowPos.y;
 
-    // Set our robot's goal state to be the top-right corner of the
-    // environment, or (1,1).
+    // set the target
     ob::ScopedState<> goal(space);
-    goal->as<ob::RealVectorStateSpace::StateType>()->values[0] = 7.0;
-    goal->as<ob::RealVectorStateSpace::StateType>()->values[1] = 5.0;
+    goal->as<ob::RealVectorStateSpace::StateType>()->values[0] = finalPos.x;
+    goal->as<ob::RealVectorStateSpace::StateType>()->values[1] = finalPos.y;
 
     // Create a problem instance
     auto pdef(std::make_shared<ob::ProblemDefinition>(si));
@@ -311,55 +279,27 @@ void plan(double runTime, double A, double B, std::vector<Point2D> &obs,
     ob::PlannerStatus solved = optimizingPlanner->solve(runTime);
 
     if (solved) {
-        // Output the length of the path found
-        // std::cout
-        // << optimizingPlanner->getName()
-        // << " found a solution of length "
-        // << pdef->getSolutionPath()->length()
-        // << " with an optimization objective value of "
-        // << pdef->getSolutionPath()->cost(pdef->getOptimizationObjective()) <<
-        // std::endl;
 
-        // If a filename was specified, output the path as a matrix to
-        // that file for visualization
-        // if (outputFile.empty()) {
-        std::ofstream outFile(outputFile);
-        std::static_pointer_cast<og::PathGeometric>(pdef->getSolutionPath())
-            ->printAsMatrix(outFile);
-        outFile.close();
-        // }
+        auto solutionPath = std::static_pointer_cast<og::PathGeometric>(pdef->getSolutionPath());
 
-        // const char* command = "python3 smooth.py";
-        // // Execute the Python script from the C++ program
-        // int result = std::system(command);
-
-        // Read waypoints from the "output.txt" file
-        std::ifstream file("output.txt");
-        if (!file.is_open()) {
-            std::cerr << "Error opening file." << std::endl;
-        }
-
+        // Vector to store points
         std::vector<double> x_values, y_values;
-        double x, y;
-        while (file >> x >> y) {
+
+        // Iterate over each state in the solution path
+        for (size_t i = 0; i < solutionPath->getStateCount(); ++i) {
+            // Get the state at index i
+            const auto* state = solutionPath->getState(i);
+
+            // Extract the coordinates from the state
+            double x = state->as<ompl::base::RealVectorStateSpace::StateType>()->values[0];
+            double y = state->as<ompl::base::RealVectorStateSpace::StateType>()->values[1];
+
+            // Store the coordinates in the vector
             x_values.push_back(x);
             y_values.push_back(y);
         }
-        file.close();
 
         std::vector<double> T(x_values.size());
-
-        // std::vector< std::pair<double, std::pair<double, double> > > v;
-
-        // double start_x=x_values.front(), end_x=x_values.back();
-
-        // if (start_x > end_x)
-        // {
-        //     std::reverse(x_values.begin(),x_values.end());
-        //     std::reverse(y_values.begin(),y_values.end());
-        // }
-
-        // tk::spline s(x_values,y_values,tk::spline::cspline);
 
         // Array to store robot positions
         std::vector<std::pair<double, double>> robot_positions;
@@ -387,24 +327,7 @@ void plan(double runTime, double A, double B, std::vector<Point2D> &obs,
             }
         }
 
-        // Display the array of robot positions
-        // std::cout << "Robot Positions:\n";
-        // for (const auto &pos : robot_positions) {
-        //     std::cout << "(" << pos.first << ", " << pos.second << ")\n";
-        // }
-
-        // Write the array to the text file
-        std::ofstream output_file("output1.txt");
-        if (!output_file.is_open()) {
-            std::cerr << "Error opening output file." << std::endl;
-        }
-
-        for (const auto &pos : robot_positions) {
-            output_file << pos.first << " " << pos.second << "\n";
-        }
-        output_file.close();
-
-        std::cout << "The array has been written to output1.txt\n";
+        return robot_positions;
 
     } else
         std::cout << "No solution found." << std::endl;
@@ -507,28 +430,6 @@ bool argParse(int argc, char **argv, double *runTimePtr,
         std::cout << desc << std::endl;
         return false;
     }
-
-    // Set the log-level
-    // unsigned int logLevel = vm["info"].as<unsigned int>();
-
-    // Switch to setting the log level:
-    // if (logLevel == 0u)
-    // {
-    // ompl::msg::setLogLevel(ompl::msg::LOG_WARN);
-    // }
-    // else if (logLevel == 1u)
-    // {
-    // ompl::msg::setLogLevel(ompl::msg::LOG_INFO);
-    // }
-    // else if (logLevel == 2u)
-    // {
-    // ompl::msg::setLogLevel(ompl::msg::LOG_DEBUG);
-    // }
-    // else
-    // {
-    // std::cout << "Invalid log-level integer." << std::endl << std::endl <<
-    // desc << std::endl; return false;
-    // }
 
     // Get the runtime as a double
     *runTimePtr = vm["runtime"].as<double>();
