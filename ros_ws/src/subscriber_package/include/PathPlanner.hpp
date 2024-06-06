@@ -329,8 +329,12 @@ std::vector<std::pair<double, double>> plan(double runTime, double A, double B, 
 
         return robot_positions;
 
-    } else
+    }
+    else
+    {
         std::cout << "No solution found." << std::endl;
+        return plan(runTime, A, B, obs, plannerType, objectiveType, nowPos, nowPos);
+    }
 }
 
 ob::OptimizationObjectivePtr getPathLengthObjective(
