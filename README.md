@@ -2,6 +2,17 @@
 
 This repository includes the Webots simulation for motion planning (local and global) of a RoboCup MSL Robot using a 4-wheel omni-drive. This repository is maintained by team ERA, IITK.
 
+## MacOS Installation
+
+Install brew version of UTM for easily autoupdating
+UTM settings: <https://docs.getutm.app/guides/ubuntu/>
+Install Ubuntu 22.04 (keep all settings defaiult and no need of hardware acceleration OpenGL as we are mostly going to use terminal only): <https://www.youtube.com/watch?v=zeBo5jK7R8Q>
+Install ROS2 Jazzy
+Install webots_ros2 package:
+<https://docs.ros.org/en/jazzy/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.html>
+Run VSCode locally by SSH onto the machine: <https://github.com/utmapp/UTM/discussions/2465#discussioncomment-6931047>
+Use UTM for visualisations or running terminal nodes
+
 ## Requirements
 
 1. OpenCV v4.8.1 (C++ Version)
