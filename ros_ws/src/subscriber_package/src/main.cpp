@@ -11,6 +11,7 @@
 
 #include "rclcpp/rclcpp.hpp"
 #include "geometry_msgs/msg/pose.hpp"
+#include "std_msgs/msg/float32_multi_array.hpp"
 
 using namespace std::chrono_literals;
 using namespace std;
@@ -159,6 +160,8 @@ public:
         target_subscriber = this->create_subscription<geometry_msgs::msg::Pose>(
             "target_pose", 10, std::bind(&ListenerNode::target_callback, this, std::placeholders::_1));
 
+        target_array_publisher = this->create_publisher<std_msgs::msg::Float32MultiArray>("target_array", 10);
+
         ang_vel_publisher = this->create_publisher<geometry_msgs::msg::Pose>("ang_vel", 10);
     }
 
@@ -281,6 +284,8 @@ public:
         
         get_Trajectory(targetPos, outputPID, nowPos, outInvers, yaw, obs, ballPos);
 
+        publish_next_point(targetPos, nowPos);
+
         // print_vel(outInvers);
 
         ang_vel->position.x = 0.0;
@@ -330,6 +335,42 @@ public:
 
     // Publisher
     rclcpp::Publisher<geometry_msgs::msg::Pose>::SharedPtr ang_vel_publisher;
+    rclcpp::Publisher<std_msgs::msg::Float32MultiArray>::SharedPtr target_array_publisher;
+
+    void publish_next_point(const std::vector<Point2D> &path, const Point2D &nowPos)
+{
+    if (!path.empty())
+    {
+        auto next_point = path[count3];  // Publishing the next point in the path
+        // auto message = std_msgs::msg::Float32MultiArray();
+        
+        // Push x, y, theta, vx, vy, omega
+        // messages.data.push_back(next_point.x);
+        // messages.data.push_back(next_point.y);
+        // messages.data.push_back(next_point.theta);
+        float x = next_point.x;
+        float y = next_point.y;
+        float theta = next_point.theta;
+
+        //angle between nowpos and next point
+        int angle = (180.0 / 3.14159) * atan2((next_point.y - nowPos.y), (next_point.x - nowPos.x));
+
+        float vx = 1 * cos(angle * 3.14159 / 180); 
+        float vy = 1 * sin(angle * 3.14159 / 180);
+        float omega = 1;
+
+        // message.data.push_back(vx);
+        // message.data.push_back(vy);
+        // message.data.push_back(omega);
+
+        // int message[6] = {x, y, theta, vx, vy, omega};
+        std_msgs::msg::Float32MultiArray message;
+        float data[6] = {x, y, theta, vx, vy, omega};
+        message.data = {data[0], data[1], data[2], data[3], data[4], data[5]};
+
+        target_array_publisher->publish(message);
+    }
+}
 };
 
 int main(int argc, char *argv[])
