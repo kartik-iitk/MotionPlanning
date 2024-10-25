@@ -315,7 +315,7 @@ std::vector<std::pair<double, double>> plan(double runTime, double A, double B, 
             // setup splines for x and y coordinate
             tk::spline sx(T, x_values), sy(T, y_values);
 
-            double n = 200, diff = T.back() / n;
+            double n = 50, diff = T.back() / n;
             for (int i = 0; i < n; i++) {
                 double t = diff * i;
                 robot_positions.push_back({sx(t), sy(t)});

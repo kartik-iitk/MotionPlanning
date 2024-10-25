@@ -1,0 +1,5 @@
+In file included from [01m[K/home/debraj/Documents/MotionPlanning/ros_ws/src/subscriber_package/src/main.cpp:8[m[K:
+[01m[K/home/debraj/Documents/MotionPlanning/ros_ws/src/subscriber_package/include/PathPlanner.hpp:[m[K In function ‘[01m[Kbool[01;32m[K argParse[m[K(int, char**, double*, optimalPlanner*, planningObjective*, std::string*)[m[K’:
+[01m[K/home/debraj/Documents/MotionPlanning/ros_ws/src/subscriber_package/include/PathPlanner.hpp:500:1:[m[K [01;35m[Kwarning: [m[Kcontrol reaches end of non-void function [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+  500 | [01;35m[K}[m[K
+      | [01;35m[K^[m[K

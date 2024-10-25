@@ -1,24 +1,3 @@
-# cmake_minimum_required(VERSION 3.5)
-# project(subscriber_package)
-
-# # Find dependencies
-# find_package(ament_cmake REQUIRED)
-# find_package(rclcpp REQUIRED)
-# find_package(geometry_msgs REQUIRED)
-
-# # Add the talker executable
-# add_executable(main src/main.cpp)
-# ament_target_dependencies(main rclcpp geometry_msgs)
-
-# # Install the talker executable
-# install(TARGETS
-#   main
-#   DESTINATION lib/${PROJECT_NAME})
-
-# # ament package
-# ament_package()
-
-
 cmake_minimum_required(VERSION 3.5)
 project(subscriber_package)
 
@@ -35,7 +14,7 @@ find_package(Boost REQUIRED COMPONENTS program_options)
 
 # Add the talker executable
 # add_executable(main src/main.cpp src/Visualize.cpp src/Motion.cpp src/Robot.cpp src/Coordinate.hpp)
-add_executable(main src/main.cpp src/Visualize.cpp src/Motion.cpp src/Robot.cpp)
+add_executable(main src/main.cpp src/Visualize.cpp)
 
 # Include directories for additional dependencies
 include_directories(
