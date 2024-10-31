@@ -21,10 +21,10 @@ planningObjective objectiveType = OBJECTIVE_PATHLENGTH;
 long long int count1 = 0;
 long long int count2 = 1;
 int count3 = 0, flag = 0;
-double obs_size = 0.45;
+double obs_size = 0.1;
 
 std::vector<Point2D> obs(10), targetPos;
-Point2D nowPos(0, 0, 0), finalPos(0,0,0), ballPos(0,0,0);
+Point2D nowPos(0, 0, 0), finalPos(7,1,0), ballPos(0,0,0);
 std::vector<pair<double, double>> points;
 
 int findclosestpoint(std::vector<Point2D> &targetPos, Point2D &nowPos) {
@@ -45,14 +45,18 @@ int findclosestpoint(std::vector<Point2D> &targetPos, Point2D &nowPos) {
 }
 
 // Function to check if a point lies within the extended region of a line
-bool isok(const Point2D &p1, const Point2D &p2, const Point2D &testPoint) {
-    // finds perpendicular distance between line joining p1 and p2 and the obstacles
-    double distance =
-        std::abs((p2.y - p1.y) * testPoint.x - (p2.x - p1.x) * testPoint.y +
-                 p2.x * p1.y - p2.y * p1.x) /
-        std::sqrt(std::pow(p2.y - p1.y, 2) + std::pow(p2.x - p1.x, 2));
+bool isok(const Point2D &p1, const Point2D &testPoint) {
+    // // finds perpendicular distance between line joining p1 and p2 and the obstacles
+    // double distance =
+    //     std::abs((p2.y - p1.y) * testPoint.x - (p2.x - p1.x) * testPoint.y +
+    //              p2.x * p1.y - p2.y * p1.x) /
+    //     std::sqrt(std::pow(p2.y - p1.y, 2) + std::pow(p2.x - p1.x, 2));
 
-    return distance < obs_size;  // Check if the distance is within the extended region
+    // distance between test point and p1
+    double dist1 = sqrt((testPoint.x - p1.x) * (testPoint.x - p1.x) + (testPoint.y - p1.y) * (testPoint.y - p1.y));
+
+
+    return (dist1 < obs_size);  // Check if the distance is within the extended region
 }
 
 class ListenerNode : public rclcpp::Node
@@ -94,32 +98,53 @@ public:
     void listening()
     {
         if (!my_pose_received || !bot1_pose_received || !bot2_pose_received || !bot2_pose_received || !bot3_pose_received || !bot4_pose_received || !bot5_pose_received || !bot6_pose_received || !bot7_pose_received || !bot8_pose_received || !bot9_pose_received || !ball_pose_received || !target_pose_received) return;
+        cout<<"Listening"<<endl;
+        // if (count2 % 5 == 0) {
+        //     int idx = findclosestpoint(targetPos, nowPos);  // excluding the last point
+        //     for (auto &it : obstacles) {
+        //         if (idx + 1 < obstacles.size() && idx - 1 > -1) {
+        //             if (!isok(targetPos[idx], targetPos[idx + 1], it) &&
+        //                 !isok(targetPos[idx - 1], targetPos[idx], it))
+        //                 count1++;
+        //         } else if (idx + 1 >= obstacles.size()) {
+        //             if (!isok(targetPos[idx - 1], targetPos[idx], it)) count1++;
+        //         } else if (idx - 1 < -1) {
+        //             if (!isok(targetPos[idx], targetPos[idx + 1], it)) count1++;
+        //         }
+        //     }
+        //     if (count1 != obstacles.size()) flag = 1;
+        //     std::cout << count1 << std::endl;
+        //     count1 = 0;
+        // }
 
-        if (count2 % 5 == 0) {
-            int idx = findclosestpoint(targetPos, nowPos);  // excluding the last point
-            for (auto &it : obstacles) {
-                if (idx + 1 < obstacles.size() && idx - 1 > -1) {
-                    if (!isok(targetPos[idx], targetPos[idx + 1], it) &&
-                        !isok(targetPos[idx - 1], targetPos[idx], it))
-                        count1++;
-                } else if (idx + 1 >= obstacles.size()) {
-                    if (!isok(targetPos[idx - 1], targetPos[idx], it)) count1++;
-                } else if (idx - 1 < -1) {
-                    if (!isok(targetPos[idx], targetPos[idx + 1], it)) count1++;
+
+        //check if isok is true for all points in planned path
+        if(count2%5==0) {
+            for (int i = 0; i < targetPos.size() - 1 && flag==0; i++) {
+                for (auto &it : obs) {
+                    if (!isok(targetPos[i], it)) {
+                        flag = 1;
+                        break;
+                    }
                 }
             }
-            if (count1 != obstacles.size()) flag = 1;
-            std::cout << count1 << std::endl;
-            count1 = 0;
         }
 
+        cout << "flag = " << flag << endl;
+        cout << "count2 = " << count2 << endl;
+
+
         if (flag || count2 == 1) {
+
+            cout<< "inside if condition" <<endl;
             try {
                 points = plan(runTime, A, B, obs, plannerType, objectiveType, nowPos, finalPos);
             }
             catch(const std::exception& e) {
+                return;
                 std::cerr << e.what() << '\n';
-                points = plan(runTime, A, B, obs, plannerType, objectiveType, nowPos, nowPos);
+
+                // points = plan(runTime, A, B, obs, plannerType, objectiveType, nowPos, nowPos);
             }
             
             targetPos.clear();
@@ -133,14 +158,16 @@ public:
 
         count2++;
         count2 = count2 % 1000000000000000000;
+
+        int idx = findclosestpoint(targetPos, nowPos);
         
-        window->visualizeGame(targetPos, nowPos, count3, nowPos.theta, obs, ballPos);
+        window->visualizeGame(targetPos, nowPos, idx, nowPos.theta, obs, ballPos);
 
         publish_next_point(targetPos, nowPos);
     }
 
     // Variables to store received messages
-    bool my_pose_received{false}, bot1_pose_received{false}, bot2_pose_received{false}, bot3_pose_received{false}, bot4_pose_received{false}, bot5_pose_received{false}, bot6_pose_received{false}, bot7_pose_received{false}, bot8_pose_received{false}, bot9_pose_received{false}, ball_pose_received{false}, target_pose_received{false};
+    bool my_pose_received{false}, bot1_pose_received{false}, bot2_pose_received{false}, bot3_pose_received{false}, bot4_pose_received{false}, bot5_pose_received{false}, bot6_pose_received{false}, bot7_pose_received{false}, bot8_pose_received{false}, bot9_pose_received{false}, ball_pose_received{false}, target_pose_received{true};
 
     // Subscribers
     rclcpp::Subscription<std_msgs::msg::Float32MultiArray>::SharedPtr o1_subscriber, o2_subscriber, o3_subscriber, o4_subscriber, o5_subscriber, b1_subscriber, b2_subscriber, b3_subscriber, b4_subscriber, b5_subscriber, ball_subscriber, decision_target_subscriber;
@@ -148,15 +175,21 @@ public:
     // Publisher
     rclcpp::Publisher<std_msgs::msg::Float32MultiArray>::SharedPtr target_array_publisher;
 
-    void publish_next_point(const std::vector<Point2D> &path, const Point2D &nowPos)
+    void publish_next_point(std::vector<Point2D> &path, Point2D &nowPos)
     {
         if (!path.empty())
         {
-            auto next_point = path[count3];  // Publishing the next point in the path
+            // if(count3 < path.size()) count3++;
+            // else count3 = path.size() - 1;
+            int idx = findclosestpoint(path, nowPos);
+
+            auto next_point = path[idx+1];
             
             float x = next_point.x;
             float y = next_point.y;
             float theta = next_point.theta;
+
+            cout<<"Next Point: "<<x<<" "<<y<<" "<<theta<<endl;
 
             //angle between nowpos and next point
             int angle = (180.0 / 3.14159) * atan2((next_point.y - nowPos.y), (next_point.x - nowPos.x));
