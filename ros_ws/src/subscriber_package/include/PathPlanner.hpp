@@ -228,6 +228,9 @@ std::vector<std::pair<double, double>> plan(double runTime, double A, double B, 
     // Construct the robot state space in which we're planning. We're
     // planning in the playable field, a subset of R^2 (a rectangle of
     // dimensions A x B)
+
+    cout<< "plan function is called"<<endl;
+
     obstacles = obs;
     auto space(std::make_shared<ob::RealVectorStateSpace>(2));
 
@@ -333,7 +336,7 @@ std::vector<std::pair<double, double>> plan(double runTime, double A, double B, 
     else
     {
         std::cout << "No solution found." << std::endl;
-        return plan(runTime, A, B, obs, plannerType, objectiveType, nowPos, nowPos);
+        // return plan(runTime, A, B, obs, plannerType, objectiveType, nowPos, nowPos);
     }
 }
 
