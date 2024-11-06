@@ -12,6 +12,8 @@
 
 using namespace std;
 
+int min(int a, int b) {return a<b?a:b;}
+
 Visualize *window = new Visualize(1600);
 double runTime = 0.01;
 double A = 22, B = 14;
@@ -27,14 +29,14 @@ Point2D nowPos(0, 0, 0), finalPos(7,1,0), ballPos(0,0,0);
 std::vector<pair<double, double>> points;
 
 int findclosestpoint(std::vector<Point2D> &targetPos, Point2D &nowPos) {
-    double min = 1000000;
+    double min_dist = 1000000;
     int idx = 0;
-    for (int i = 0; i < targetPos.size() - 1; i++)  // excluding last point and start
+    for (int i = 0; i < targetPos.size(); i++)  // excluding last point and start
     {
         if (sqrtl((targetPos[i].x - nowPos.x) * (targetPos[i].x - nowPos.x) +
                  (targetPos[i].y - nowPos.y) * (targetPos[i].y - nowPos.y)) <
-            min) {
-            min =
+            min_dist) {
+            min_dist =
                 sqrt((targetPos[i].x - nowPos.x) * (targetPos[i].x - nowPos.x) +
                      (targetPos[i].y - nowPos.y) * (targetPos[i].y - nowPos.y));
             idx = i;
@@ -88,7 +90,6 @@ public:
     void listening()
     {
         if (!my_pose_received || !bot1_pose_received || !bot2_pose_received || !bot2_pose_received || !bot3_pose_received || !bot4_pose_received || !bot5_pose_received || !bot6_pose_received || !bot7_pose_received || !bot8_pose_received || !bot9_pose_received || !ball_pose_received || !target_pose_received) return;
-        cout<<"Listening"<<endl;
         
 	//check if isok is true for all points in planned path
         for (int i = 0; i < targetPos.size() && flag == 0; i++) {
@@ -115,7 +116,8 @@ public:
             for (auto ptr : points)
             {
                 // int angle = (180.0 / 3.14159) * atan2((ballPos.y - ptr.second), (ballPos.x - ptr.first));
-                targetPos.push_back(Point2D(ptr.first, ptr.second, atan2(ballPos.y - ptr.second, ballPos.x - ptr.first)));
+                // targetPos.push_back(Point2D(ptr.first, ptr.second, atan2(ballPos.y - ptr.second, ballPos.x - ptr.first)));
+		targetPos.push_back(Point2D(ptr.first, ptr.second, 0));
             }
             flag = 0;
         }
@@ -144,7 +146,7 @@ public:
         {
             int idx = findclosestpoint(path, nowPos);
 
-            auto next_point = path[idx+1];
+            auto next_point = path[min(idx+1, path.size()-1)];
             
             float x = next_point.x;
             float y = next_point.y;
@@ -153,16 +155,16 @@ public:
             cout<<"Next Point: "<<x<<" "<<y<<" "<<theta<<endl;
 
             //angle between nowpos and next point
-            int angle = (180.0 / 3.14159) * atan2((next_point.y - nowPos.y), (next_point.x - nowPos.x));
-
-            float vx = 1 * cos(angle * 3.14159 / 180); 
-            float vy = 1 * sin(angle * 3.14159 / 180);
+            // int angle = atan2((next_point.y - nowPos.y), (next_point.x - nowPos.x));
+            
+	    // float vx = 1 * cos(angle); 
+            // float vy = 1 * sin(angle);
+	    
+	    float vx = 0, vy = 0;
             float omega = 0;
 
             std_msgs::msg::Float32MultiArray message;
-            float data[6] = {x, y, theta, vx, vy, omega};
-            message.data = {data[0], data[1], data[2], data[3], data[4], data[5]};
-
+            message.data = {x, y, theta, vx, vy, omega};
             target_array_publisher->publish(message);
         }
     }

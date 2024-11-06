@@ -1,0 +1,22 @@
+[0.023s] Invoking command in '/home/debraj/Documents/MotionPlanning/ros_ws/build/subscriber_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/debraj/Documents/MotionPlanning/ros_ws/build/subscriber_package -- -j8 -l8
+[0.151s] [ 33%] [32mBuilding CXX object CMakeFiles/main.dir/src/main.cpp.o[0m
+[8.622s] [01m[K/home/debraj/Documents/MotionPlanning/ros_ws/src/subscriber_package/src/main.cpp:[m[K In member function ‘[01m[Kvoid ListenerNode::[01;32m[Kpublish_next_point[m[K(std::vector<Point2D>&, Point2D&)[m[K’:
+[8.622s] [01m[K/home/debraj/Documents/MotionPlanning/ros_ws/src/subscriber_package/src/main.cpp:148:60:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before ‘[01m[K][m[K’ token
+[8.622s]   148 |             auto next_point = path[min(idx+1, path.size()-1[01;31m[K][m[K;
+[8.622s]       |                                                            [01;31m[K^[m[K
+[8.623s] [01m[K/home/debraj/Documents/MotionPlanning/ros_ws/src/subscriber_package/src/main.cpp:148:39:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K([m[K’
+[8.623s]   148 |             auto next_point = path[min[01;36m[K([m[Kidx+1, path.size()-1];
+[8.623s]       |                                       [01;36m[K^[m[K
+[13.242s] In file included from [01m[K/home/debraj/Documents/MotionPlanning/ros_ws/src/subscriber_package/src/main.cpp:6[m[K:
+[13.242s] [01m[K/home/debraj/Documents/MotionPlanning/ros_ws/src/subscriber_package/include/PathPlanner.hpp:[m[K In function ‘[01m[Kstd::vector<std::pair<double, double> >[01;32m[K plan[m[K(double, double, double, std::vector<Point2D>&, optimalPlanner, planningObjective, Point2D&, Point2D&)[m[K’:
+[13.242s] [01m[K/home/debraj/Documents/MotionPlanning/ros_ws/src/subscriber_package/include/PathPlanner.hpp:341:1:[m[K [01;35m[Kwarning: [m[Kcontrol reaches end of non-void function [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+[13.242s]   341 | [01;35m[K}[m[K
+[13.242s]       | [01;35m[K^[m[K
+[13.270s] [01m[K/home/debraj/Documents/MotionPlanning/ros_ws/src/subscriber_package/include/PathPlanner.hpp:[m[K In function ‘[01m[Kbool[01;32m[K argParse[m[K(int, char**, double*, optimalPlanner*, planningObjective*, std::string*)[m[K’:
+[13.270s] [01m[K/home/debraj/Documents/MotionPlanning/ros_ws/src/subscriber_package/include/PathPlanner.hpp:503:1:[m[K [01;35m[Kwarning: [m[Kcontrol reaches end of non-void function [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+[13.271s]   503 | [01;35m[K}[m[K
+[13.271s]       | [01;35m[K^[m[K
+[13.728s] gmake[2]: *** [CMakeFiles/main.dir/build.make:76: CMakeFiles/main.dir/src/main.cpp.o] Error 1
+[13.728s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/main.dir/all] Error 2
+[13.728s] gmake: *** [Makefile:146: all] Error 2
+[13.733s] Invoked command in '/home/debraj/Documents/MotionPlanning/ros_ws/build/subscriber_package' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/debraj/Documents/MotionPlanning/ros_ws/build/subscriber_package -- -j8 -l8
