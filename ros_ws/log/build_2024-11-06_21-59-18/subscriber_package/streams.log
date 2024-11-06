@@ -1,0 +1,48 @@
+[0.023s] Invoking command in '/home/debraj/Documents/MotionPlanning/ros_ws/build/subscriber_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/debraj/Documents/MotionPlanning/ros_ws/build/subscriber_package -- -j8 -l8
+[0.083s] -- Found ament_cmake: 2.5.2 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.564s] -- Found rclcpp: 28.1.5 (/opt/ros/jazzy/share/rclcpp/cmake)
+[0.637s] -- Found rosidl_generator_c: 4.6.4 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.664s] -- Found rosidl_generator_cpp: 4.6.4 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.697s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.732s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.884s] -- Found rmw_implementation_cmake: 7.3.1 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[0.889s] -- Found rmw_fastrtps_cpp: 8.4.1 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[1.041s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.225s] -- Found geometry_msgs: 5.3.5 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+[1.561s] -- Configuring done (1.5s)
+[1.617s] -- Generating done (0.0s)
+[1.623s] -- Build files have been written to: /home/debraj/Documents/MotionPlanning/ros_ws/build/subscriber_package
+[1.854s] [ 66%] [32mBuilding CXX object CMakeFiles/main.dir/src/main.cpp.o[0m
+[1.854s] [ 66%] [32mBuilding CXX object CMakeFiles/main.dir/src/Visualize.cpp.o[0m
+[15.995s] In file included from [01m[K/home/debraj/Documents/MotionPlanning/ros_ws/src/subscriber_package/src/main.cpp:6[m[K:
+[15.995s] [01m[K/home/debraj/Documents/MotionPlanning/ros_ws/src/subscriber_package/include/PathPlanner.hpp:[m[K In function ‘[01m[Kstd::vector<std::pair<double, double> >[01;32m[K plan[m[K(double, double, double, std::vector<Point2D>&, optimalPlanner, planningObjective, Point2D&, Point2D&)[m[K’:
+[15.995s] [01m[K/home/debraj/Documents/MotionPlanning/ros_ws/src/subscriber_package/include/PathPlanner.hpp:341:1:[m[K [01;35m[Kwarning: [m[Kcontrol reaches end of non-void function [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+[15.995s]   341 | [01;35m[K}[m[K
+[15.995s]       | [01;35m[K^[m[K
+[16.023s] [01m[K/home/debraj/Documents/MotionPlanning/ros_ws/src/subscriber_package/include/PathPlanner.hpp:[m[K In function ‘[01m[Kbool[01;32m[K argParse[m[K(int, char**, double*, optimalPlanner*, planningObjective*, std::string*)[m[K’:
+[16.024s] [01m[K/home/debraj/Documents/MotionPlanning/ros_ws/src/subscriber_package/include/PathPlanner.hpp:503:1:[m[K [01;35m[Kwarning: [m[Kcontrol reaches end of non-void function [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+[16.024s]   503 | [01;35m[K}[m[K
+[16.024s]       | [01;35m[K^[m[K
+[22.509s] [100%] [32m[1mLinking CXX executable main[0m
+[25.495s] [100%] Built target main
+[25.514s] Invoked command in '/home/debraj/Documents/MotionPlanning/ros_ws/build/subscriber_package' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/debraj/Documents/MotionPlanning/ros_ws/build/subscriber_package -- -j8 -l8
+[25.572s] Invoking command in '/home/debraj/Documents/MotionPlanning/ros_ws/build/subscriber_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/debraj/Documents/MotionPlanning/ros_ws/build/subscriber_package
+[25.583s] -- Install configuration: ""
+[25.584s] -- Installing: /home/debraj/Documents/MotionPlanning/ros_ws/install/subscriber_package/lib/subscriber_package/main
+[25.595s] -- Set non-toolchain portion of runtime path of "/home/debraj/Documents/MotionPlanning/ros_ws/install/subscriber_package/lib/subscriber_package/main" to ""
+[25.596s] -- Up-to-date: /home/debraj/Documents/MotionPlanning/ros_ws/install/subscriber_package/share/ament_index/resource_index/package_run_dependencies/subscriber_package
+[25.596s] -- Installing: /home/debraj/Documents/MotionPlanning/ros_ws/install/subscriber_package/share/ament_index/resource_index/parent_prefix_path/subscriber_package
+[25.597s] -- Installing: /home/debraj/Documents/MotionPlanning/ros_ws/install/subscriber_package/share/subscriber_package/environment/ament_prefix_path.sh
+[25.597s] -- Up-to-date: /home/debraj/Documents/MotionPlanning/ros_ws/install/subscriber_package/share/subscriber_package/environment/ament_prefix_path.dsv
+[25.597s] -- Installing: /home/debraj/Documents/MotionPlanning/ros_ws/install/subscriber_package/share/subscriber_package/environment/path.sh
+[25.597s] -- Up-to-date: /home/debraj/Documents/MotionPlanning/ros_ws/install/subscriber_package/share/subscriber_package/environment/path.dsv
+[25.598s] -- Up-to-date: /home/debraj/Documents/MotionPlanning/ros_ws/install/subscriber_package/share/subscriber_package/local_setup.bash
+[25.598s] -- Up-to-date: /home/debraj/Documents/MotionPlanning/ros_ws/install/subscriber_package/share/subscriber_package/local_setup.sh
+[25.598s] -- Up-to-date: /home/debraj/Documents/MotionPlanning/ros_ws/install/subscriber_package/share/subscriber_package/local_setup.zsh
+[25.598s] -- Up-to-date: /home/debraj/Documents/MotionPlanning/ros_ws/install/subscriber_package/share/subscriber_package/local_setup.dsv
+[25.598s] -- Up-to-date: /home/debraj/Documents/MotionPlanning/ros_ws/install/subscriber_package/share/subscriber_package/package.dsv
+[25.598s] -- Up-to-date: /home/debraj/Documents/MotionPlanning/ros_ws/install/subscriber_package/share/ament_index/resource_index/packages/subscriber_package
+[25.598s] -- Up-to-date: /home/debraj/Documents/MotionPlanning/ros_ws/install/subscriber_package/share/subscriber_package/cmake/subscriber_packageConfig.cmake
+[25.598s] -- Up-to-date: /home/debraj/Documents/MotionPlanning/ros_ws/install/subscriber_package/share/subscriber_package/cmake/subscriber_packageConfig-version.cmake
+[25.599s] -- Up-to-date: /home/debraj/Documents/MotionPlanning/ros_ws/install/subscriber_package/share/subscriber_package/package.xml
+[25.600s] Invoked command in '/home/debraj/Documents/MotionPlanning/ros_ws/build/subscriber_package' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/debraj/Documents/MotionPlanning/ros_ws/build/subscriber_package

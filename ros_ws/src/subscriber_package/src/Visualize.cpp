@@ -176,7 +176,7 @@ void Visualize::visualizeGame(std::vector<Point2D> &path, Point2D &nowPos,
                  40 * scale / 100);
 
     // Draw obstacles
-    for (int i = 1; i < obstacles.size(); i++) {
+    for (int i = 0; i < obstacles.size()-1; i++) {
         cv::circle(image, obs[i], 40 * scale / 100, cv::Scalar(255, 225, 0),
                    -1);
         drawHeadingV(image, obs[i], -obstacles[i].theta,
