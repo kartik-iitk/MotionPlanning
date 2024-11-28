@@ -13,6 +13,19 @@
 using namespace std;
 
 int min(int a, int b) {return a<b?a:b;}
+int max(int a, int b) {return a>b?a:b;}
+
+
+float set_angle(float theta) {
+    
+    while (theta > M_PI) {
+        theta -= 2 * M_PI;
+    }
+    while (theta < -M_PI) {
+        theta += 2 * M_PI;
+    }
+    return theta;
+}
 
 Visualize *window = new Visualize(1600);
 double runTime = 0.01;
@@ -147,24 +160,52 @@ public:
             int idx = findclosestpoint(path, nowPos);
 
             auto next_point = path[min(idx+1, path.size()-1)];
-            
-            float x = next_point.x;
-            float y = next_point.y;
-            float theta = next_point.theta;
+            auto next_to_next_point= path[min(idx+2,path.size()-1)];
 
-            cout<<"Next Point: "<<x<<" "<<y<<" "<<theta<<endl;
+            float x1 = next_point.x;
+            float y1 = next_point.y;
 
-            //angle between nowpos and next point
-            // int angle = atan2((next_point.y - nowPos.y), (next_point.x - nowPos.x));
+            float x2=next_to_next_point.x;
+            float y2=next_to_next_point.y;
+
+            float angle = atan2((y2-y1),(x2-x1));
+
+            if(idx+2==path.size()-1 && idx+1 != path.size()-1){
+                float angle = atan2((y1-path[idx].y),(x1-path[idx].x));
+            }
+            if(idx+2==path.size()-1 && idx+1 == path.size()-1){
+                float angle= next_point.theta;
+            }
+            float dist= sqrt((y2-y1)*(y2-y1)+(x2-x1)*(x2-x1));
+            float c=1;
+            float lambda=0.5;
+            float speed= c*(dist-lambda);
             
-	    // float vx = 1 * cos(angle); 
-            // float vy = 1 * sin(angle);
-	    
-	    float vx = 0, vy = 0;
+            if(idx+1==path.size()-1){
+                speed=0;
+            }
+
+            cout<<"Next Point: "<<x1<<" "<<y1<<" "<<angle<<endl;
+
+	        float vx = speed * cos(angle);
+            float vy = speed * sin(angle);
+
+
+
+            float bot_global_angle=set_angle(nowPos.theta);
+            float ball_wrto_bot= set_angle(atan2((ballPos.y-nowPos.y),(ballPos.x-nowPos.x)));
+            float rel_angle= set_angle(ball_wrto_bot-bot_global_angle);
+
+            
+
+            rel_angle=min(rel_angle,0.3);
+            rel_angle=max(rel_angle,-0.3);
+
+            float theta= set_angle(rel_angle+bot_global_angle);
             float omega = 0;
 
             std_msgs::msg::Float32MultiArray message;
-            message.data = {x, y, theta, vx, vy, omega};
+            message.data = {x1, y1, theta, vx, vy, omega};
             target_array_publisher->publish(message);
         }
     }

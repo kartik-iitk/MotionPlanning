@@ -1,0 +1,124 @@
+[0.000000] (-) TimerEvent: {}
+[0.000156] (subscriber_package) JobQueued: {'identifier': 'subscriber_package', 'dependencies': OrderedDict()}
+[0.000195] (subscriber_package) JobStarted: {'identifier': 'subscriber_package'}
+[0.005871] (subscriber_package) JobProgress: {'identifier': 'subscriber_package', 'progress': 'cmake'}
+[0.006062] (subscriber_package) JobProgress: {'identifier': 'subscriber_package', 'progress': 'build'}
+[0.006452] (subscriber_package) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/aruz/Final_Motion/MotionPlanning/ros_ws/build/subscriber_package', '--', '-j24', '-l24'], 'cwd': '/home/aruz/Final_Motion/MotionPlanning/ros_ws/build/subscriber_package', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'aruz', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/aruz/webots_ws/install/my_package/lib:/home/aruz/ros2_ws/install/turtlesim/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib:/home/aruz/.ros/webotsR2023b/webots/lib/controller:/opt/ros/jazzy/lib/controller', 'HOME': '/home/aruz', 'OLDPWD': '/home/aruz/Final_Motion/MotionPlanning', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '3269', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GNOME_KEYRING_CONTROL': '/run/user/1000/keyring', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'COLCON_PREFIX_PATH': '/home/aruz/webots_ws/install:/home/aruz/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'aruz', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.SettingsDaemon.MediaKeys.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'aruz', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'WINDOWPATH': '2', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/aruz-OMEN-by-HP-Gaming-Laptop-16-wf1xxx:@/tmp/.ICE-unix/3118,unix/aruz-OMEN-by-HP-Gaming-Laptop-16-wf1xxx:/tmp/.ICE-unix/3118', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/bdc1c8e6_eafb_4417_abb7_2080dfd6794d', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':1', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.112', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/aruz/webots_ws/install/my_package:/home/aruz/ros2_ws/install/turtlesim:/home/aruz/ros2_ws/install/trial_pkg:/home/aruz/ros2_ws/install/my_package:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'WEBOTS_HOME': '/home/aruz/.ros/webotsR2023b/webots/', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/aruz/Final_Motion/MotionPlanning/ros_ws/build/subscriber_package', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/aruz/ros2_ws/install/turtlesim/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/aruz/webots_ws/install/my_package:/home/aruz/ros2_ws/install/turtlesim:/home/aruz/ros2_ws/install/trial_pkg:/home/aruz/ros2_ws/install/my_package:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.099396] (subscriber_package) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/main.dir/src/main.cpp.o\x1b[0m\n'}
+[0.099946] (-) TimerEvent: {}
+[0.200281] (-) TimerEvent: {}
+[0.300664] (-) TimerEvent: {}
+[0.401010] (-) TimerEvent: {}
+[0.501398] (-) TimerEvent: {}
+[0.601792] (-) TimerEvent: {}
+[0.702178] (-) TimerEvent: {}
+[0.802583] (-) TimerEvent: {}
+[0.902965] (-) TimerEvent: {}
+[1.003335] (-) TimerEvent: {}
+[1.103712] (-) TimerEvent: {}
+[1.204093] (-) TimerEvent: {}
+[1.304456] (-) TimerEvent: {}
+[1.404840] (-) TimerEvent: {}
+[1.505255] (-) TimerEvent: {}
+[1.605629] (-) TimerEvent: {}
+[1.706016] (-) TimerEvent: {}
+[1.806384] (-) TimerEvent: {}
+[1.906759] (-) TimerEvent: {}
+[2.007138] (-) TimerEvent: {}
+[2.107515] (-) TimerEvent: {}
+[2.207941] (-) TimerEvent: {}
+[2.308308] (-) TimerEvent: {}
+[2.408682] (-) TimerEvent: {}
+[2.509068] (-) TimerEvent: {}
+[2.609457] (-) TimerEvent: {}
+[2.709872] (-) TimerEvent: {}
+[2.810086] (-) TimerEvent: {}
+[2.910373] (-) TimerEvent: {}
+[3.010663] (-) TimerEvent: {}
+[3.110870] (-) TimerEvent: {}
+[3.211173] (-) TimerEvent: {}
+[3.311473] (-) TimerEvent: {}
+[3.411703] (-) TimerEvent: {}
+[3.511932] (-) TimerEvent: {}
+[3.612239] (-) TimerEvent: {}
+[3.670083] (subscriber_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aruz/Final_Motion/MotionPlanning/ros_ws/src/subscriber_package/src/main.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid ListenerNode::\x1b[01;32m\x1b[Kpublish_next_point\x1b[m\x1b[K(std::vector<Point2D>&, Point2D&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.670258] (subscriber_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aruz/Final_Motion/MotionPlanning/ros_ws/src/subscriber_package/src/main.cpp:169:13:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K,\x1b[m\x1b[K\xe2\x80\x99 or \xe2\x80\x98\x1b[01m\x1b[K;\x1b[m\x1b[K\xe2\x80\x99 before \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99\n'}
+[3.670310] (subscriber_package) StderrLine: {'line': b'  169 |             \x1b[01;31m\x1b[Kfloat\x1b[m\x1b[K speed= c*(dist-lambda);\n'}
+[3.670353] (subscriber_package) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K^~~~~\x1b[m\x1b[K\n'}
+[3.676310] (subscriber_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aruz/Final_Motion/MotionPlanning/ros_ws/src/subscriber_package/src/main.cpp:171:35:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kx\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[3.676430] (subscriber_package) StderrLine: {'line': b'  171 |             cout<<"Next Point: "<<\x1b[01;31m\x1b[Kx\x1b[m\x1b[K<<" "<<y<<" "<<angle<<endl;\n'}
+[3.676476] (subscriber_package) StderrLine: {'line': b'      |                                   \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[3.681949] (subscriber_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aruz/Final_Motion/MotionPlanning/ros_ws/src/subscriber_package/src/main.cpp:171:43:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Ky\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kyn\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[3.682051] (subscriber_package) StderrLine: {'line': b'  171 |             cout<<"Next Point: "<<x<<" "<<\x1b[01;31m\x1b[Ky\x1b[m\x1b[K<<" "<<angle<<endl;\n'}
+[3.682096] (subscriber_package) StderrLine: {'line': b'      |                                           \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[3.682138] (subscriber_package) StderrLine: {'line': b'      |                                           \x1b[32m\x1b[Kyn\x1b[m\x1b[K\n'}
+[3.687292] (subscriber_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aruz/Final_Motion/MotionPlanning/ros_ws/src/subscriber_package/src/main.cpp:173:28:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kspeed\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[3.687397] (subscriber_package) StderrLine: {'line': b'  173 |                 float vx = \x1b[01;31m\x1b[Kspeed\x1b[m\x1b[K * cos(angle);\n'}
+[3.687443] (subscriber_package) StderrLine: {'line': b'      |                            \x1b[01;31m\x1b[K^~~~~\x1b[m\x1b[K\n'}
+[3.687483] (subscriber_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aruz/Final_Motion/MotionPlanning/ros_ws/src/subscriber_package/src/main.cpp:180:13:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K,\x1b[m\x1b[K\xe2\x80\x99 or \xe2\x80\x98\x1b[01m\x1b[K;\x1b[m\x1b[K\xe2\x80\x99 before \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99\n'}
+[3.687525] (subscriber_package) StderrLine: {'line': b'  180 |             \x1b[01;31m\x1b[Kfloat\x1b[m\x1b[K rel_angle= ball_wrto_bot-bot_global_angle;\n'}
+[3.687571] (subscriber_package) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K^~~~~\x1b[m\x1b[K\n'}
+[3.693856] (subscriber_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aruz/Final_Motion/MotionPlanning/ros_ws/src/subscriber_package/src/main.cpp:182:13:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Krel_angle\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[3.694056] (subscriber_package) StderrLine: {'line': b'  182 |             \x1b[01;31m\x1b[Krel_angle\x1b[m\x1b[K=min(rel_angle,0.3);\n'}
+[3.694103] (subscriber_package) StderrLine: {'line': b'      |             \x1b[01;31m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[3.694143] (subscriber_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aruz/Final_Motion/MotionPlanning/ros_ws/src/subscriber_package/src/main.cpp:189:55:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno match for \xe2\x80\x98\x1b[01m\x1b[Koperator=\x1b[m\x1b[K\xe2\x80\x99 (operand types are \xe2\x80\x98\x1b[01m\x1b[Kstd_msgs::msg::Float32MultiArray_<std::allocator<void> >::_data_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<float>\x1b[m\x1b[K\xe2\x80\x99} and \xe2\x80\x98\x1b[01m\x1b[K<brace-enclosed initializer list>\x1b[m\x1b[K\xe2\x80\x99)\n'}
+[3.694186] (subscriber_package) StderrLine: {'line': b'  189 |             message.data = {x, y, theta, vx, vy, omega\x1b[01;31m\x1b[K}\x1b[m\x1b[K;\n'}
+[3.694227] (subscriber_package) StderrLine: {'line': b'      |                                                       \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[3.694263] (subscriber_package) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/13/vector:72\x1b[m\x1b[K,\n'}
+[3.694305] (subscriber_package) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/aruz/Final_Motion/MotionPlanning/ros_ws/src/subscriber_package/src/main.cpp:3\x1b[m\x1b[K:\n'}
+[3.694343] (subscriber_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/13/bits/vector.tcc:210:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<_Tp, _Alloc>& std::vector<_Tp, _Alloc>::\x1b[01;32m\x1b[Koperator=\x1b[m\x1b[K(const std::vector<_Tp, _Alloc>&) \x1b[35m\x1b[K[with _Tp = float; _Alloc = std::allocator<float>]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99\n'}
+[3.694386] (subscriber_package) StderrLine: {'line': b'  210 |     \x1b[01;36m\x1b[Kvector<_Tp, _Alloc>\x1b[m\x1b[K::\n'}
+[3.694422] (subscriber_package) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.694456] (subscriber_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/13/bits/vector.tcc:211:42:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  no known conversion for argument 1 from \xe2\x80\x98\x1b[01m\x1b[K<brace-enclosed initializer list>\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kconst std::vector<float>&\x1b[m\x1b[K\xe2\x80\x99\n'}
+[3.694496] (subscriber_package) StderrLine: {'line': b'  211 |     operator=(\x1b[01;36m\x1b[Kconst vector<_Tp, _Alloc>& __x\x1b[m\x1b[K)\n'}
+[3.694529] (subscriber_package) StderrLine: {'line': b'      |               \x1b[01;36m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~\x1b[m\x1b[K\n'}
+[3.694571] (subscriber_package) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/13/vector:66\x1b[m\x1b[K:\n'}
+[3.694605] (subscriber_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/13/bits/stl_vector.h:766:7:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<_Tp, _Alloc>& std::vector<_Tp, _Alloc>::\x1b[01;32m\x1b[Koperator=\x1b[m\x1b[K(std::vector<_Tp, _Alloc>&&) \x1b[35m\x1b[K[with _Tp = float; _Alloc = std::allocator<float>]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99\n'}
+[3.694649] (subscriber_package) StderrLine: {'line': b'  766 |       \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K=(vector&& __x) noexcept(_Alloc_traits::_S_nothrow_move())\n'}
+[3.694683] (subscriber_package) StderrLine: {'line': b'      |       \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[3.694718] (subscriber_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/13/bits/stl_vector.h:766:26:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  no known conversion for argument 1 from \xe2\x80\x98\x1b[01m\x1b[K<brace-enclosed initializer list>\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<float>&&\x1b[m\x1b[K\xe2\x80\x99\n'}
+[3.694752] (subscriber_package) StderrLine: {'line': b'  766 |       operator=(\x1b[01;36m\x1b[Kvector&& __x\x1b[m\x1b[K) noexcept(_Alloc_traits::_S_nothrow_move())\n'}
+[3.694783] (subscriber_package) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K~~~~~~~~~^~~\x1b[m\x1b[K\n'}
+[3.694816] (subscriber_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/13/bits/stl_vector.h:788:7:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<_Tp, _Alloc>& std::vector<_Tp, _Alloc>::\x1b[01;32m\x1b[Koperator=\x1b[m\x1b[K(std::initializer_list<_Tp>) \x1b[35m\x1b[K[with _Tp = float; _Alloc = std::allocator<float>]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99\n'}
+[3.694850] (subscriber_package) StderrLine: {'line': b'  788 |       \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K=(initializer_list<value_type> __l)\n'}
+[3.694885] (subscriber_package) StderrLine: {'line': b'      |       \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[3.694919] (subscriber_package) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/13/bits/stl_vector.h:788:46:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  no known conversion for argument 1 from \xe2\x80\x98\x1b[01m\x1b[K<brace-enclosed initializer list>\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kstd::initializer_list<float>\x1b[m\x1b[K\xe2\x80\x99\n'}
+[3.694955] (subscriber_package) StderrLine: {'line': b'  788 |       operator=(\x1b[01;36m\x1b[Kinitializer_list<value_type> __l\x1b[m\x1b[K)\n'}
+[3.694987] (subscriber_package) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~\x1b[m\x1b[K\n'}
+[3.712502] (-) TimerEvent: {}
+[3.812848] (-) TimerEvent: {}
+[3.913080] (-) TimerEvent: {}
+[4.013374] (-) TimerEvent: {}
+[4.113731] (-) TimerEvent: {}
+[4.213963] (-) TimerEvent: {}
+[4.314256] (-) TimerEvent: {}
+[4.414514] (-) TimerEvent: {}
+[4.514749] (-) TimerEvent: {}
+[4.615049] (-) TimerEvent: {}
+[4.715330] (-) TimerEvent: {}
+[4.815656] (-) TimerEvent: {}
+[4.916000] (-) TimerEvent: {}
+[5.016261] (-) TimerEvent: {}
+[5.116617] (-) TimerEvent: {}
+[5.216956] (-) TimerEvent: {}
+[5.317290] (-) TimerEvent: {}
+[5.417611] (-) TimerEvent: {}
+[5.517913] (-) TimerEvent: {}
+[5.618224] (-) TimerEvent: {}
+[5.651374] (subscriber_package) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/aruz/Final_Motion/MotionPlanning/ros_ws/src/subscriber_package/src/main.cpp:6\x1b[m\x1b[K:\n'}
+[5.651556] (subscriber_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aruz/Final_Motion/MotionPlanning/ros_ws/src/subscriber_package/include/PathPlanner.hpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<std::pair<double, double> >\x1b[01;32m\x1b[K plan\x1b[m\x1b[K(double, double, double, std::vector<Point2D>&, optimalPlanner, planningObjective, Point2D&, Point2D&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[5.651610] (subscriber_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aruz/Final_Motion/MotionPlanning/ros_ws/src/subscriber_package/include/PathPlanner.hpp:343:1:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcontrol reaches end of non-void function [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type\x07-Wreturn-type\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[5.651654] (subscriber_package) StderrLine: {'line': b'  343 | \x1b[01;35m\x1b[K}\x1b[m\x1b[K\n'}
+[5.651692] (subscriber_package) StderrLine: {'line': b'      | \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[5.665720] (subscriber_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aruz/Final_Motion/MotionPlanning/ros_ws/src/subscriber_package/include/PathPlanner.hpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kbool\x1b[01;32m\x1b[K argParse\x1b[m\x1b[K(int, char**, double*, optimalPlanner*, planningObjective*, std::string*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[5.665831] (subscriber_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aruz/Final_Motion/MotionPlanning/ros_ws/src/subscriber_package/include/PathPlanner.hpp:505:1:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcontrol reaches end of non-void function [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type\x07-Wreturn-type\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[5.665887] (subscriber_package) StderrLine: {'line': b'  505 | \x1b[01;35m\x1b[K}\x1b[m\x1b[K\n'}
+[5.665926] (subscriber_package) StderrLine: {'line': b'      | \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[5.718309] (-) TimerEvent: {}
+[5.818601] (-) TimerEvent: {}
+[5.835168] (subscriber_package) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/main.dir/build.make:76: CMakeFiles/main.dir/src/main.cpp.o] Error 1\n'}
+[5.835408] (subscriber_package) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/main.dir/all] Error 2\n'}
+[5.835605] (subscriber_package) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[5.837069] (subscriber_package) CommandEnded: {'returncode': 2}
+[5.873482] (subscriber_package) JobEnded: {'identifier': 'subscriber_package', 'rc': 2}
+[5.884054] (-) EventReactorShutdown: {}
