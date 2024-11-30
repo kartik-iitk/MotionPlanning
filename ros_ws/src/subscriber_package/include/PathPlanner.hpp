@@ -319,10 +319,12 @@ std::vector<std::pair<double, double>> plan(double runTime, double A, double B, 
             tk::spline sx(T, x_values), sy(T, y_values);
 
             double n = 50, diff = T.back() / n;
-            for (int i = 0; i < n; i++) {
-                double t = diff * i;
-                robot_positions.push_back({sx(t), sy(t)});
+            double t0=0.1,t=0;
+            while(t<x_values.size()){
+                robot_positions.push_back({sx(t),sy(t)});
+                t+=t0;
             }
+            
             robot_positions.push_back({sx(T.back()), sy(T.back())});
         } else {
             for (int i = 0; i < x_values.size(); i++) {

@@ -1,0 +1,143 @@
+[0.000000] (-) TimerEvent: {}
+[0.000383] (subscriber_package) JobQueued: {'identifier': 'subscriber_package', 'dependencies': OrderedDict()}
+[0.000649] (subscriber_package) JobStarted: {'identifier': 'subscriber_package'}
+[0.008542] (subscriber_package) JobProgress: {'identifier': 'subscriber_package', 'progress': 'cmake'}
+[0.009261] (subscriber_package) JobProgress: {'identifier': 'subscriber_package', 'progress': 'build'}
+[0.009940] (subscriber_package) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/aruz/Final_Motion/MotionPlanning/ros_ws/build/subscriber_package', '--', '-j24', '-l24'], 'cwd': '/home/aruz/Final_Motion/MotionPlanning/ros_ws/build/subscriber_package', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'aruz', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/aruz/webots_ws/install/my_package/lib:/home/aruz/ros2_ws/install/turtlesim/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib:/home/aruz/.ros/webotsR2023b/webots/lib/controller:/opt/ros/jazzy/lib/controller', 'HOME': '/home/aruz', 'OLDPWD': '/home/aruz', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '3036', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GNOME_KEYRING_CONTROL': '/run/user/1000/keyring', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'COLCON_PREFIX_PATH': '/home/aruz/webots_ws/install:/home/aruz/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'aruz', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.SettingsDaemon.MediaKeys.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'aruz', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'WINDOWPATH': '2', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/aruz-OMEN-by-HP-Gaming-Laptop-16-wf1xxx:@/tmp/.ICE-unix/2835,unix/aruz-OMEN-by-HP-Gaming-Laptop-16-wf1xxx:/tmp/.ICE-unix/2835', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/dc136ff4_8db3_4cce_9f6b_608eebc61ee2', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':1', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.173', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/aruz/webots_ws/install/my_package:/home/aruz/ros2_ws/install/turtlesim:/home/aruz/ros2_ws/install/trial_pkg:/home/aruz/ros2_ws/install/my_package:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'WEBOTS_HOME': '/home/aruz/.ros/webotsR2023b/webots/', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/aruz/Final_Motion/MotionPlanning/ros_ws/build/subscriber_package', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/aruz/ros2_ws/install/turtlesim/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/aruz/webots_ws/install/my_package:/home/aruz/ros2_ws/install/turtlesim:/home/aruz/ros2_ws/install/trial_pkg:/home/aruz/ros2_ws/install/my_package:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.099930] (-) TimerEvent: {}
+[0.125251] (subscriber_package) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/main.dir/src/main.cpp.o\x1b[0m\n'}
+[0.200038] (-) TimerEvent: {}
+[0.300433] (-) TimerEvent: {}
+[0.400821] (-) TimerEvent: {}
+[0.501161] (-) TimerEvent: {}
+[0.601447] (-) TimerEvent: {}
+[0.701831] (-) TimerEvent: {}
+[0.802173] (-) TimerEvent: {}
+[0.902562] (-) TimerEvent: {}
+[1.002853] (-) TimerEvent: {}
+[1.103241] (-) TimerEvent: {}
+[1.203629] (-) TimerEvent: {}
+[1.303965] (-) TimerEvent: {}
+[1.404334] (-) TimerEvent: {}
+[1.504723] (-) TimerEvent: {}
+[1.605118] (-) TimerEvent: {}
+[1.705489] (-) TimerEvent: {}
+[1.805857] (-) TimerEvent: {}
+[1.906195] (-) TimerEvent: {}
+[2.006560] (-) TimerEvent: {}
+[2.106872] (-) TimerEvent: {}
+[2.207204] (-) TimerEvent: {}
+[2.307433] (-) TimerEvent: {}
+[2.407657] (-) TimerEvent: {}
+[2.507946] (-) TimerEvent: {}
+[2.608251] (-) TimerEvent: {}
+[2.708567] (-) TimerEvent: {}
+[2.808871] (-) TimerEvent: {}
+[2.909163] (-) TimerEvent: {}
+[3.009490] (-) TimerEvent: {}
+[3.109773] (-) TimerEvent: {}
+[3.210101] (-) TimerEvent: {}
+[3.310339] (-) TimerEvent: {}
+[3.410543] (-) TimerEvent: {}
+[3.510778] (-) TimerEvent: {}
+[3.610978] (-) TimerEvent: {}
+[3.711221] (-) TimerEvent: {}
+[3.811441] (-) TimerEvent: {}
+[3.911690] (-) TimerEvent: {}
+[4.012009] (-) TimerEvent: {}
+[4.112327] (-) TimerEvent: {}
+[4.212627] (-) TimerEvent: {}
+[4.312873] (-) TimerEvent: {}
+[4.413175] (-) TimerEvent: {}
+[4.513379] (-) TimerEvent: {}
+[4.613669] (-) TimerEvent: {}
+[4.714038] (-) TimerEvent: {}
+[4.814345] (-) TimerEvent: {}
+[4.914568] (-) TimerEvent: {}
+[5.014827] (-) TimerEvent: {}
+[5.115135] (-) TimerEvent: {}
+[5.215377] (-) TimerEvent: {}
+[5.315682] (-) TimerEvent: {}
+[5.415995] (-) TimerEvent: {}
+[5.516296] (-) TimerEvent: {}
+[5.616628] (-) TimerEvent: {}
+[5.716927] (-) TimerEvent: {}
+[5.817167] (-) TimerEvent: {}
+[5.889985] (subscriber_package) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/aruz/Final_Motion/MotionPlanning/ros_ws/src/subscriber_package/src/main.cpp:6\x1b[m\x1b[K:\n'}
+[5.890148] (subscriber_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aruz/Final_Motion/MotionPlanning/ros_ws/src/subscriber_package/include/PathPlanner.hpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<std::pair<double, double> >\x1b[01;32m\x1b[K plan\x1b[m\x1b[K(double, double, double, std::vector<Point2D>&, optimalPlanner, planningObjective, Point2D&, Point2D&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[5.890211] (subscriber_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aruz/Final_Motion/MotionPlanning/ros_ws/src/subscriber_package/include/PathPlanner.hpp:343:1:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcontrol reaches end of non-void function [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type\x07-Wreturn-type\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[5.890267] (subscriber_package) StderrLine: {'line': b'  343 | \x1b[01;35m\x1b[K}\x1b[m\x1b[K\n'}
+[5.890308] (subscriber_package) StderrLine: {'line': b'      | \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[5.904705] (subscriber_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aruz/Final_Motion/MotionPlanning/ros_ws/src/subscriber_package/include/PathPlanner.hpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kbool\x1b[01;32m\x1b[K argParse\x1b[m\x1b[K(int, char**, double*, optimalPlanner*, planningObjective*, std::string*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[5.904811] (subscriber_package) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aruz/Final_Motion/MotionPlanning/ros_ws/src/subscriber_package/include/PathPlanner.hpp:505:1:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcontrol reaches end of non-void function [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type\x07-Wreturn-type\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[5.904857] (subscriber_package) StderrLine: {'line': b'  505 | \x1b[01;35m\x1b[K}\x1b[m\x1b[K\n'}
+[5.904897] (subscriber_package) StderrLine: {'line': b'      | \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[5.917336] (-) TimerEvent: {}
+[6.017522] (-) TimerEvent: {}
+[6.117771] (-) TimerEvent: {}
+[6.218005] (-) TimerEvent: {}
+[6.318362] (-) TimerEvent: {}
+[6.418659] (-) TimerEvent: {}
+[6.518935] (-) TimerEvent: {}
+[6.619202] (-) TimerEvent: {}
+[6.719499] (-) TimerEvent: {}
+[6.819719] (-) TimerEvent: {}
+[6.920002] (-) TimerEvent: {}
+[7.020279] (-) TimerEvent: {}
+[7.120557] (-) TimerEvent: {}
+[7.220865] (-) TimerEvent: {}
+[7.321170] (-) TimerEvent: {}
+[7.421483] (-) TimerEvent: {}
+[7.521793] (-) TimerEvent: {}
+[7.622077] (-) TimerEvent: {}
+[7.722404] (-) TimerEvent: {}
+[7.822652] (-) TimerEvent: {}
+[7.922952] (-) TimerEvent: {}
+[8.023264] (-) TimerEvent: {}
+[8.123555] (-) TimerEvent: {}
+[8.223879] (-) TimerEvent: {}
+[8.324152] (-) TimerEvent: {}
+[8.424464] (-) TimerEvent: {}
+[8.524715] (-) TimerEvent: {}
+[8.624992] (-) TimerEvent: {}
+[8.725306] (-) TimerEvent: {}
+[8.825608] (-) TimerEvent: {}
+[8.925933] (-) TimerEvent: {}
+[9.026242] (-) TimerEvent: {}
+[9.126541] (-) TimerEvent: {}
+[9.226857] (-) TimerEvent: {}
+[9.327161] (-) TimerEvent: {}
+[9.327708] (subscriber_package) StdoutLine: {'line': b'[ 66%] \x1b[32m\x1b[1mLinking CXX executable main\x1b[0m\n'}
+[9.427346] (-) TimerEvent: {}
+[9.527589] (-) TimerEvent: {}
+[9.627814] (-) TimerEvent: {}
+[9.728061] (-) TimerEvent: {}
+[9.828371] (-) TimerEvent: {}
+[9.928595] (-) TimerEvent: {}
+[10.014513] (subscriber_package) StdoutLine: {'line': b'[100%] Built target main\n'}
+[10.025521] (subscriber_package) CommandEnded: {'returncode': 0}
+[10.028656] (-) TimerEvent: {}
+[10.062956] (subscriber_package) JobProgress: {'identifier': 'subscriber_package', 'progress': 'install'}
+[10.074149] (subscriber_package) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/aruz/Final_Motion/MotionPlanning/ros_ws/build/subscriber_package'], 'cwd': '/home/aruz/Final_Motion/MotionPlanning/ros_ws/build/subscriber_package', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'aruz', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/aruz/webots_ws/install/my_package/lib:/home/aruz/ros2_ws/install/turtlesim/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib:/home/aruz/.ros/webotsR2023b/webots/lib/controller:/opt/ros/jazzy/lib/controller', 'HOME': '/home/aruz', 'OLDPWD': '/home/aruz', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '3036', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GNOME_KEYRING_CONTROL': '/run/user/1000/keyring', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'COLCON_PREFIX_PATH': '/home/aruz/webots_ws/install:/home/aruz/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'aruz', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.SettingsDaemon.MediaKeys.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'aruz', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'WINDOWPATH': '2', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/aruz-OMEN-by-HP-Gaming-Laptop-16-wf1xxx:@/tmp/.ICE-unix/2835,unix/aruz-OMEN-by-HP-Gaming-Laptop-16-wf1xxx:/tmp/.ICE-unix/2835', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/dc136ff4_8db3_4cce_9f6b_608eebc61ee2', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':1', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.173', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/aruz/webots_ws/install/my_package:/home/aruz/ros2_ws/install/turtlesim:/home/aruz/ros2_ws/install/trial_pkg:/home/aruz/ros2_ws/install/my_package:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'WEBOTS_HOME': '/home/aruz/.ros/webotsR2023b/webots/', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/aruz/Final_Motion/MotionPlanning/ros_ws/build/subscriber_package', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/aruz/ros2_ws/install/turtlesim/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/aruz/webots_ws/install/my_package:/home/aruz/ros2_ws/install/turtlesim:/home/aruz/ros2_ws/install/trial_pkg:/home/aruz/ros2_ws/install/my_package:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[10.094438] (subscriber_package) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[10.095891] (subscriber_package) StdoutLine: {'line': b'-- Installing: /home/aruz/Final_Motion/MotionPlanning/ros_ws/install/subscriber_package/lib/subscriber_package/main\n'}
+[10.102464] (subscriber_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/aruz/Final_Motion/MotionPlanning/ros_ws/install/subscriber_package/lib/subscriber_package/main" to ""\n'}
+[10.102671] (subscriber_package) StdoutLine: {'line': b'-- Up-to-date: /home/aruz/Final_Motion/MotionPlanning/ros_ws/install/subscriber_package/share/ament_index/resource_index/package_run_dependencies/subscriber_package\n'}
+[10.102774] (subscriber_package) StdoutLine: {'line': b'-- Up-to-date: /home/aruz/Final_Motion/MotionPlanning/ros_ws/install/subscriber_package/share/ament_index/resource_index/parent_prefix_path/subscriber_package\n'}
+[10.102862] (subscriber_package) StdoutLine: {'line': b'-- Up-to-date: /home/aruz/Final_Motion/MotionPlanning/ros_ws/install/subscriber_package/share/subscriber_package/environment/ament_prefix_path.sh\n'}
+[10.103009] (subscriber_package) StdoutLine: {'line': b'-- Up-to-date: /home/aruz/Final_Motion/MotionPlanning/ros_ws/install/subscriber_package/share/subscriber_package/environment/ament_prefix_path.dsv\n'}
+[10.103098] (subscriber_package) StdoutLine: {'line': b'-- Up-to-date: /home/aruz/Final_Motion/MotionPlanning/ros_ws/install/subscriber_package/share/subscriber_package/environment/path.sh\n'}
+[10.103263] (subscriber_package) StdoutLine: {'line': b'-- Up-to-date: /home/aruz/Final_Motion/MotionPlanning/ros_ws/install/subscriber_package/share/subscriber_package/environment/path.dsv\n'}
+[10.103351] (subscriber_package) StdoutLine: {'line': b'-- Up-to-date: /home/aruz/Final_Motion/MotionPlanning/ros_ws/install/subscriber_package/share/subscriber_package/local_setup.bash\n'}
+[10.103429] (subscriber_package) StdoutLine: {'line': b'-- Up-to-date: /home/aruz/Final_Motion/MotionPlanning/ros_ws/install/subscriber_package/share/subscriber_package/local_setup.sh\n'}
+[10.103520] (subscriber_package) StdoutLine: {'line': b'-- Up-to-date: /home/aruz/Final_Motion/MotionPlanning/ros_ws/install/subscriber_package/share/subscriber_package/local_setup.zsh\n'}
+[10.103598] (subscriber_package) StdoutLine: {'line': b'-- Up-to-date: /home/aruz/Final_Motion/MotionPlanning/ros_ws/install/subscriber_package/share/subscriber_package/local_setup.dsv\n'}
+[10.103673] (subscriber_package) StdoutLine: {'line': b'-- Installing: /home/aruz/Final_Motion/MotionPlanning/ros_ws/install/subscriber_package/share/subscriber_package/package.dsv\n'}
+[10.103749] (subscriber_package) StdoutLine: {'line': b'-- Up-to-date: /home/aruz/Final_Motion/MotionPlanning/ros_ws/install/subscriber_package/share/ament_index/resource_index/packages/subscriber_package\n'}
+[10.103825] (subscriber_package) StdoutLine: {'line': b'-- Up-to-date: /home/aruz/Final_Motion/MotionPlanning/ros_ws/install/subscriber_package/share/subscriber_package/cmake/subscriber_packageConfig.cmake\n'}
+[10.103896] (subscriber_package) StdoutLine: {'line': b'-- Up-to-date: /home/aruz/Final_Motion/MotionPlanning/ros_ws/install/subscriber_package/share/subscriber_package/cmake/subscriber_packageConfig-version.cmake\n'}
+[10.103968] (subscriber_package) StdoutLine: {'line': b'-- Up-to-date: /home/aruz/Final_Motion/MotionPlanning/ros_ws/install/subscriber_package/share/subscriber_package/package.xml\n'}
+[10.104923] (subscriber_package) CommandEnded: {'returncode': 0}
+[10.128858] (-) TimerEvent: {}
+[10.150531] (subscriber_package) JobEnded: {'identifier': 'subscriber_package', 'rc': 0}
+[10.151135] (-) EventReactorShutdown: {}
