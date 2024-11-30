@@ -39,13 +39,15 @@ namespace og = ompl::geometric;
 
 using namespace std;
 
-bool sortbysec(const pair<int, int> &a, const pair<int, int> &b) {
+bool sortbysec(const pair<int, int> &a, const pair<int, int> &b)
+{
     return (a.second > b.second);
 }
 
 // OMPL Code uptil main
 // An enum of supported optimal planners, alphabetical order
-enum optimalPlanner {
+enum optimalPlanner
+{
     PLANNER_AITSTAR,
     PLANNER_BFMTSTAR,
     PLANNER_BITSTAR,
@@ -58,17 +60,19 @@ enum optimalPlanner {
 };
 
 // An enum of the supported optimization objectives, alphabetical order
-enum planningObjective {
+enum planningObjective
+{
     OBJECTIVE_PATHCLEARANCE,
     OBJECTIVE_PATHLENGTH,
     OBJECTIVE_THRESHOLDPATHLENGTH,
     OBJECTIVE_WEIGHTEDCOMBO
 };
 
-struct PointWithRadius {
-    double x;  // x-coordinate
-    double y;  // y-coordinate
-    double R;  // radius
+struct PointWithRadius
+{
+    double x; // x-coordinate
+    double y; // y-coordinate
+    double R; // radius
 };
 
 std::vector<Point2D> obstacles;
@@ -85,20 +89,23 @@ bool argParse(int argc, char **argv, double *runTimePtr,
 // lies in [0,1]x[0,1], with a circular obstacle of radius 0.25
 // centered at (0.5,0.5). Any states lying in this circular region are
 // considered "in collision".
-class ValidityChecker : public ob::StateValidityChecker {
-   public:
+class ValidityChecker : public ob::StateValidityChecker
+{
+public:
     ValidityChecker(const ob::SpaceInformationPtr &si)
         : ob::StateValidityChecker(si) {}
 
     // Returns whether the given state's position overlaps the
     // circular obstacle
-    bool isValid(const ob::State *state) const override {
+    bool isValid(const ob::State *state) const override
+    {
         return this->clearance(state) > 0.0;
     }
 
     // Returns the distance from the given state's position to the
     // boundary of the circular obstacle.
-    double clearance(const ob::State *state) const override {
+    double clearance(const ob::State *state) const override
+    {
         // We know we're working with a RealVectorStateSpace in this
         // example, so we downcast state into the specific type.
         const auto *state2D = state->as<ob::RealVectorStateSpace::StateType>();
@@ -114,12 +121,14 @@ class ValidityChecker : public ob::StateValidityChecker {
         // Dynamically allocate an array of PointWithRadius
         std::vector<PointWithRadius> v;
 
-        for (int i = 0; i < obstacles.size(); i++) {
+        for (int i = 0; i < obstacles.size(); i++)
+        {
             v.push_back({obstacles[i].x, obstacles[i].y, r});
         }
 
         int count = 0;
-        for (auto &ptr : v) {
+        for (auto &ptr : v)
+        {
             if (sqrt((x - ptr.x) * (x - ptr.x) + (y - ptr.y) * (y - ptr.y)) -
                     ptr.R >
                 0.0)
@@ -151,85 +160,100 @@ ob::OptimizationObjectivePtr getPathLengthObjWithCostToGo(
     const ob::SpaceInformationPtr &si);
 
 ob::PlannerPtr allocatePlanner(ob::SpaceInformationPtr si,
-                               optimalPlanner plannerType) {
-    switch (plannerType) {
-        case PLANNER_AITSTAR: {
-            return std::make_shared<og::AITstar>(si);
-            break;
-        }
-        case PLANNER_BFMTSTAR: {
-            return std::make_shared<og::BFMT>(si);
-            break;
-        }
-        case PLANNER_BITSTAR: {
-            return std::make_shared<og::BITstar>(si);
-            break;
-        }
-        case PLANNER_CFOREST: {
-            return std::make_shared<og::CForest>(si);
-            break;
-        }
-        case PLANNER_FMTSTAR: {
-            return std::make_shared<og::FMT>(si);
-            break;
-        }
-        case PLANNER_INF_RRTSTAR: {
-            return std::make_shared<og::InformedRRTstar>(si);
-            break;
-        }
-        case PLANNER_PRMSTAR: {
-            return std::make_shared<og::PRMstar>(si);
-            break;
-        }
-        case PLANNER_RRTSTAR: {
-            return std::make_shared<og::RRTstar>(si);
-            break;
-        }
-        case PLANNER_SORRTSTAR: {
-            return std::make_shared<og::SORRTstar>(si);
-            break;
-        }
-        default: {
-            OMPL_ERROR(
-                "Planner-type enum is not implemented in allocation function.");
-            return ob::PlannerPtr();  // Address compiler warning re: no return
-                                      // value.
-            break;
-        }
+                               optimalPlanner plannerType)
+{
+    switch (plannerType)
+    {
+    case PLANNER_AITSTAR:
+    {
+        return std::make_shared<og::AITstar>(si);
+        break;
+    }
+    case PLANNER_BFMTSTAR:
+    {
+        return std::make_shared<og::BFMT>(si);
+        break;
+    }
+    case PLANNER_BITSTAR:
+    {
+        return std::make_shared<og::BITstar>(si);
+        break;
+    }
+    case PLANNER_CFOREST:
+    {
+        return std::make_shared<og::CForest>(si);
+        break;
+    }
+    case PLANNER_FMTSTAR:
+    {
+        return std::make_shared<og::FMT>(si);
+        break;
+    }
+    case PLANNER_INF_RRTSTAR:
+    {
+        return std::make_shared<og::InformedRRTstar>(si);
+        break;
+    }
+    case PLANNER_PRMSTAR:
+    {
+        return std::make_shared<og::PRMstar>(si);
+        break;
+    }
+    case PLANNER_RRTSTAR:
+    {
+        return std::make_shared<og::RRTstar>(si);
+        break;
+    }
+    case PLANNER_SORRTSTAR:
+    {
+        return std::make_shared<og::SORRTstar>(si);
+        break;
+    }
+    default:
+    {
+        OMPL_ERROR(
+            "Planner-type enum is not implemented in allocation function.");
+        return ob::PlannerPtr(); // Address compiler warning re: no return
+                                 // value.
+        break;
+    }
     }
 }
 
 ob::OptimizationObjectivePtr allocateObjective(
-    const ob::SpaceInformationPtr &si, planningObjective objectiveType) {
-    switch (objectiveType) {
-        case OBJECTIVE_PATHCLEARANCE:
-            return getClearanceObjective(si);
-            break;
-        case OBJECTIVE_PATHLENGTH:
-            return getPathLengthObjective(si);
-            break;
-        case OBJECTIVE_THRESHOLDPATHLENGTH:
-            return getThresholdPathLengthObj(si);
-            break;
-        case OBJECTIVE_WEIGHTEDCOMBO:
-            return getBalancedObjective1(si);
-            break;
-        default:
-            OMPL_ERROR(
-                "Optimization-objective enum is not implemented in allocation "
-                "function.");
-            return ob::OptimizationObjectivePtr();
-            break;
+    const ob::SpaceInformationPtr &si, planningObjective objectiveType)
+{
+    switch (objectiveType)
+    {
+    case OBJECTIVE_PATHCLEARANCE:
+        return getClearanceObjective(si);
+        break;
+    case OBJECTIVE_PATHLENGTH:
+        return getPathLengthObjective(si);
+        break;
+    case OBJECTIVE_THRESHOLDPATHLENGTH:
+        return getThresholdPathLengthObj(si);
+        break;
+    case OBJECTIVE_WEIGHTEDCOMBO:
+        return getBalancedObjective1(si);
+        break;
+    default:
+        OMPL_ERROR(
+            "Optimization-objective enum is not implemented in allocation "
+            "function.");
+        return ob::OptimizationObjectivePtr();
+        break;
     }
 }
 
-std::vector<std::pair<double, double>> plan(double runTime, double A, double B, std::vector<Point2D> &obs,
-          optimalPlanner plannerType, planningObjective objectiveType, Point2D &nowPos, Point2D &finalPos) {
+std::vector<Point2D> plan(double runTime, double A, double B, std::vector<Point2D> &obs,
+                                            optimalPlanner plannerType, planningObjective objectiveType, Point2D &nowPos, Point2D &finalPos)
+{
     // Construct the robot state space in which we're planning. We're
     // planning in the playable field, a subset of R^2 (a rectangle of
     // dimensions A x B)
 
-    cout<< "plan function is called"<<endl;
+    cout << "plan function is called" << endl;
 
     obstacles = obs;
     auto space(std::make_shared<ob::RealVectorStateSpace>(2));
@@ -250,7 +274,7 @@ std::vector<std::pair<double, double>> plan(double runTime, double A, double B, 
 
     si->setup();
 
-    // set the initial 
+    // set the initial
     ob::ScopedState<> start(space);
     start->as<ob::RealVectorStateSpace::StateType>()->values[0] = nowPos.x;
     start->as<ob::RealVectorStateSpace::StateType>()->values[1] = nowPos.y;
@@ -281,7 +305,8 @@ std::vector<std::pair<double, double>> plan(double runTime, double A, double B, 
     // attempt to solve the planning problem in the given runtime
     ob::PlannerStatus solved = optimizingPlanner->solve(runTime);
 
-    if (solved) {
+    if (solved)
+    {
 
         auto solutionPath = std::static_pointer_cast<og::PathGeometric>(pdef->getSolutionPath());
 
@@ -289,9 +314,10 @@ std::vector<std::pair<double, double>> plan(double runTime, double A, double B, 
         std::vector<double> x_values, y_values;
 
         // Iterate over each state in the solution path
-        for (size_t i = 0; i < solutionPath->getStateCount(); ++i) {
+        for (size_t i = 0; i < solutionPath->getStateCount(); ++i)
+        {
             // Get the state at index i
-            const auto* state = solutionPath->getState(i);
+            const auto *state = solutionPath->getState(i);
 
             // Extract the coordinates from the state
             double x = state->as<ompl::base::RealVectorStateSpace::StateType>()->values[0];
@@ -305,11 +331,13 @@ std::vector<std::pair<double, double>> plan(double runTime, double A, double B, 
         std::vector<double> T(x_values.size());
 
         // Array to store robot positions
-        std::vector<std::pair<double, double>> robot_positions;
+        std::vector<Point2D> robot_positions;
 
-        if (x_values.size() > 2) {
+        if (x_values.size() > 2)
+        {
             T[0] = 0;
-            for (int i = 1; i < x_values.size(); i++) {
+            for (int i = 1; i < x_values.size(); i++)
+            {
                 T[i] = T[i - 1] + sqrt((x_values[i] - x_values[i - 1]) *
                                            (x_values[i] - x_values[i - 1]) +
                                        (y_values[i] - y_values[i - 1]) *
@@ -318,22 +346,32 @@ std::vector<std::pair<double, double>> plan(double runTime, double A, double B, 
             // setup splines for x and y coordinate
             tk::spline sx(T, x_values), sy(T, y_values);
 
-            double n = 50, diff = T.back() / n;
-            double t0=0.1,t=0;
-            while(t<x_values.size()){
-                robot_positions.push_back({sx(t),sy(t)});
-                t+=t0;
+            double dt = 0.2, t = 0;
+            while (t < T.back())
+            {
+                robot_positions.push_back(Point2D(sx(t), sy(t), 0));
+                t += dt;
             }
-            
-            robot_positions.push_back({sx(T.back()), sy(T.back())});
-        } else {
-            for (int i = 0; i < x_values.size(); i++) {
-                robot_positions.push_back({x_values[i], y_values[i]});
+            robot_positions.push_back(Point2D(sx(T.back()), sy(T.back()), 0));
+        }
+        else
+        {
+            robot_positions.push_back(Point2D(x_values[0], y_values[0], 0));
+
+            double dist = 0.2;
+            double angle = atan2(y_values[1] - y_values[0], x_values[1] - x_values[0]);
+            for (double i = 1; ; i+=1) 
+            {
+                if (dist * i > sqrt((x_values[1] - x_values[0]) * (x_values[1] - x_values[0]) + (y_values[1] - y_values[0]) * (y_values[1] - y_values[0])))
+                    break;
+                robot_positions.push_back(Point2D(x_values[0] + i * dist * cos(angle), y_values[0] + i * dist * sin(angle), 0));
             }
+
+            robot_positions.push_back(Point2D(x_values[1], y_values[1], 0));
+
         }
 
         return robot_positions;
-
     }
     else
     {
@@ -343,19 +381,22 @@ std::vector<std::pair<double, double>> plan(double runTime, double A, double B, 
 }
 
 ob::OptimizationObjectivePtr getPathLengthObjective(
-    const ob::SpaceInformationPtr &si) {
+    const ob::SpaceInformationPtr &si)
+{
     return std::make_shared<ob::PathLengthOptimizationObjective>(si);
 }
 
 ob::OptimizationObjectivePtr getThresholdPathLengthObj(
-    const ob::SpaceInformationPtr &si) {
+    const ob::SpaceInformationPtr &si)
+{
     auto obj(std::make_shared<ob::PathLengthOptimizationObjective>(si));
     obj->setCostThreshold(ob::Cost(1.51));
     return obj;
 }
 
-class ClearanceObjective : public ob::StateCostIntegralObjective {
-   public:
+class ClearanceObjective : public ob::StateCostIntegralObjective
+{
+public:
     ClearanceObjective(const ob::SpaceInformationPtr &si)
         : ob::StateCostIntegralObjective(si, true) {}
 
@@ -364,19 +405,22 @@ class ClearanceObjective : public ob::StateCostIntegralObjective {
     // minimization. Therefore, we set each state's cost to be the
     // reciprocal of its clearance, so that as state clearance
     // increases, the state cost decreases.
-    ob::Cost stateCost(const ob::State *s) const override {
+    ob::Cost stateCost(const ob::State *s) const override
+    {
         return ob::Cost(1 / (si_->getStateValidityChecker()->clearance(s) +
                              std::numeric_limits<double>::min()));
     }
 };
 
 ob::OptimizationObjectivePtr getClearanceObjective(
-    const ob::SpaceInformationPtr &si) {
+    const ob::SpaceInformationPtr &si)
+{
     return std::make_shared<ClearanceObjective>(si);
 }
 
 ob::OptimizationObjectivePtr getBalancedObjective1(
-    const ob::SpaceInformationPtr &si) {
+    const ob::SpaceInformationPtr &si)
+{
     auto lengthObj(std::make_shared<ob::PathLengthOptimizationObjective>(si));
     auto clearObj(std::make_shared<ClearanceObjective>(si));
     auto opt(std::make_shared<ob::MultiOptimizationObjective>(si));
@@ -387,7 +431,8 @@ ob::OptimizationObjectivePtr getBalancedObjective1(
 }
 
 ob::OptimizationObjectivePtr getBalancedObjective2(
-    const ob::SpaceInformationPtr &si) {
+    const ob::SpaceInformationPtr &si)
+{
     auto lengthObj(std::make_shared<ob::PathLengthOptimizationObjective>(si));
     auto clearObj(std::make_shared<ClearanceObjective>(si));
 
@@ -395,7 +440,8 @@ ob::OptimizationObjectivePtr getBalancedObjective2(
 }
 
 ob::OptimizationObjectivePtr getPathLengthObjWithCostToGo(
-    const ob::SpaceInformationPtr &si) {
+    const ob::SpaceInformationPtr &si)
+{
     auto obj(std::make_shared<ob::PathLengthOptimizationObjective>(si));
     obj->setCostToGoHeuristic(&ob::goalRegionCostToGo);
     return obj;
@@ -403,7 +449,8 @@ ob::OptimizationObjectivePtr getPathLengthObjWithCostToGo(
 
 bool argParse(int argc, char **argv, double *runTimePtr,
               optimalPlanner *plannerPtr, planningObjective *objectivePtr,
-              std::string *outputFilePtr) {
+              std::string *outputFilePtr)
+{
     namespace bpo = boost::program_options;
 
     // Declare the supported options.
@@ -418,13 +465,13 @@ bool argParse(int argc, char **argv, double *runTimePtr,
                            "not given. Valid options are AITstar, BFMTstar, "
                            "BITstar, CForest, "
                            "FMTstar, InformedRRTstar, PRMstar, RRTstar, and "
-                           "SORRTstar.")  // Alphabetical
-                                          // order
+                           "SORRTstar.") // Alphabetical
+                                         // order
         ("objective,o", bpo::value<std::string>()->default_value("PathLength"),
          "(Optional) Specify the optimization objective, defaults to "
          "PathLength if not given. Valid options are PathClearance, "
          "PathLength, ThresholdPathLength, and "
-         "WeightedLengthAndClearanceCombo.")  // Alphabetical order
+         "WeightedLengthAndClearanceCombo.") // Alphabetical order
         ("file,f", bpo::value<std::string>()->default_value("output.txt"),
          "(Optional) Specify an output path for the found solution path.");
     // ("info,i", bpo::value<unsigned int>()->default_value(0u), "(Optional) Set
@@ -435,7 +482,8 @@ bool argParse(int argc, char **argv, double *runTimePtr,
     bpo::notify(vm);
 
     // Check if the help flag has been given:
-    if (vm.count("help") != 0u) {
+    if (vm.count("help") != 0u)
+    {
         std::cout << desc << std::endl;
         return false;
     }
@@ -444,7 +492,8 @@ bool argParse(int argc, char **argv, double *runTimePtr,
     *runTimePtr = vm["runtime"].as<double>();
 
     // Sanity check
-    if (*runTimePtr <= 0.0) {
+    if (*runTimePtr <= 0.0)
+    {
         std::cout << "Invalid runtime." << std::endl
                   << std::endl
                   << desc << std::endl;
@@ -455,25 +504,44 @@ bool argParse(int argc, char **argv, double *runTimePtr,
     std::string plannerStr = vm["planner"].as<std::string>();
 
     // Map the string to the enum
-    if (boost::iequals("AITstar", plannerStr)) {
+    if (boost::iequals("AITstar", plannerStr))
+    {
         *plannerPtr = PLANNER_AITSTAR;
-    } else if (boost::iequals("BFMTstar", plannerStr)) {
+    }
+    else if (boost::iequals("BFMTstar", plannerStr))
+    {
         *plannerPtr = PLANNER_BFMTSTAR;
-    } else if (boost::iequals("BITstar", plannerStr)) {
+    }
+    else if (boost::iequals("BITstar", plannerStr))
+    {
         *plannerPtr = PLANNER_BITSTAR;
-    } else if (boost::iequals("CForest", plannerStr)) {
+    }
+    else if (boost::iequals("CForest", plannerStr))
+    {
         *plannerPtr = PLANNER_CFOREST;
-    } else if (boost::iequals("FMTstar", plannerStr)) {
+    }
+    else if (boost::iequals("FMTstar", plannerStr))
+    {
         *plannerPtr = PLANNER_FMTSTAR;
-    } else if (boost::iequals("InformedRRTstar", plannerStr)) {
+    }
+    else if (boost::iequals("InformedRRTstar", plannerStr))
+    {
         *plannerPtr = PLANNER_INF_RRTSTAR;
-    } else if (boost::iequals("PRMstar", plannerStr)) {
+    }
+    else if (boost::iequals("PRMstar", plannerStr))
+    {
         *plannerPtr = PLANNER_PRMSTAR;
-    } else if (boost::iequals("RRTstar", plannerStr)) {
+    }
+    else if (boost::iequals("RRTstar", plannerStr))
+    {
         *plannerPtr = PLANNER_RRTSTAR;
-    } else if (boost::iequals("SORRTstar", plannerStr)) {
+    }
+    else if (boost::iequals("SORRTstar", plannerStr))
+    {
         *plannerPtr = PLANNER_SORRTSTAR;
-    } else {
+    }
+    else
+    {
         std::cout << "Invalid planner string." << std::endl
                   << std::endl
                   << desc << std::endl;
@@ -484,16 +552,25 @@ bool argParse(int argc, char **argv, double *runTimePtr,
     std::string objectiveStr = vm["objective"].as<std::string>();
 
     // Map the string to the enum
-    if (boost::iequals("PathClearance", objectiveStr)) {
+    if (boost::iequals("PathClearance", objectiveStr))
+    {
         *objectivePtr = OBJECTIVE_PATHCLEARANCE;
-    } else if (boost::iequals("PathLength", objectiveStr)) {
+    }
+    else if (boost::iequals("PathLength", objectiveStr))
+    {
         *objectivePtr = OBJECTIVE_PATHLENGTH;
-    } else if (boost::iequals("ThresholdPathLength", objectiveStr)) {
+    }
+    else if (boost::iequals("ThresholdPathLength", objectiveStr))
+    {
         *objectivePtr = OBJECTIVE_THRESHOLDPATHLENGTH;
-    } else if (boost::iequals("WeightedLengthAndClearanceCombo",
-                              objectiveStr)) {
+    }
+    else if (boost::iequals("WeightedLengthAndClearanceCombo",
+                            objectiveStr))
+    {
         *objectivePtr = OBJECTIVE_WEIGHTEDCOMBO;
-    } else {
+    }
+    else
+    {
         std::cout << "Invalid objective string." << std::endl
                   << std::endl
                   << desc << std::endl;

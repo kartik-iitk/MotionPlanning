@@ -24,13 +24,12 @@ For MacOS, you need specific homebrew packages.
 ## How to Run
 
 - Install Webots and OpenCV
-- Clone the repository and `% cd controllers/o1`
-- Create a `build` directory and navigate to it: `% mkdir build && cd build`
-- Configure using cmake with `% cmake ..`
-- Build the project with `% make`
-- Open the world in Webots and run the simulation
+- Clone the repository and `% cd ros_ws`
+- Build the directory `% colcon build`
+- Source the directory `% source install/local_setup.bash`
+- Launch the package by `% ros2 launch my_package main`
 
-Note: To use the repository with Visual Studio Code Intellisense, change the necessary include paths in the `.vscode` folder.
+- You can test the final target point (to be given by decision module) by `% ros2 topic pub decision_target_data std_msgs/msg/Float32MultiArray "{data: [0.0, 0.0, 0.0]}"`, where the array has data in format [x, y, theta]
 
 ## Code Organisation
 

@@ -1,5 +1,5 @@
 CMakeFiles/main.dir/src/main.cpp.o: \
- /home/aruz/Final_Motion/MotionPlanning/ros_ws/src/subscriber_package/src/main.cpp \
+ /home/debraj/Documents/MotionPlanning/ros_ws/src/subscriber_package/src/main.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/13/iostream \
  /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -176,10 +176,10 @@ CMakeFiles/main.dir/src/main.cpp.o: \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc \
- /home/aruz/Final_Motion/MotionPlanning/ros_ws/src/subscriber_package/include/Coordinate.hpp \
- /home/aruz/Final_Motion/MotionPlanning/ros_ws/src/subscriber_package/include/PathPlanner.hpp \
- /usr/include/ompl-1.5/ompl/base/SpaceInformation.h \
- /usr/include/ompl-1.5/ompl/base/State.h \
+ /home/debraj/Documents/MotionPlanning/ros_ws/src/subscriber_package/include/Coordinate.hpp \
+ /home/debraj/Documents/MotionPlanning/ros_ws/src/subscriber_package/include/PathPlanner.hpp \
+ /usr/local/include/ompl-1.6/ompl/base/SpaceInformation.h \
+ /usr/local/include/ompl-1.6/ompl/base/State.h \
  /usr/include/boost/concept_check.hpp \
  /usr/include/boost/concept/assert.hpp /usr/include/boost/config.hpp \
  /usr/include/boost/config/user.hpp \
@@ -283,8 +283,8 @@ CMakeFiles/main.dir/src/main.cpp.o: \
  /usr/include/boost/preprocessor/punctuation/comma_if.hpp \
  /usr/include/boost/preprocessor/punctuation/comma.hpp \
  /usr/include/boost/concept/detail/concept_undef.hpp \
- /usr/include/ompl-1.5/ompl/base/StateValidityChecker.h \
- /usr/include/ompl-1.5/ompl/util/ClassForward.h \
+ /usr/local/include/ompl-1.6/ompl/base/StateValidityChecker.h \
+ /usr/local/include/ompl-1.6/ompl/util/ClassForward.h \
  /usr/include/c++/13/memory /usr/include/c++/13/bits/stl_tempbuf.h \
  /usr/include/c++/13/bits/stl_raw_storage_iter.h \
  /usr/include/c++/13/bits/align.h \
@@ -303,11 +303,11 @@ CMakeFiles/main.dir/src/main.cpp.o: \
  /usr/include/c++/13/backward/auto_ptr.h \
  /usr/include/c++/13/pstl/glue_memory_defs.h \
  /usr/include/c++/13/pstl/execution_defs.h \
- /usr/include/ompl-1.5/ompl/base/MotionValidator.h \
- /usr/include/ompl-1.5/ompl/base/StateSpace.h \
- /usr/include/ompl-1.5/ompl/base/StateSpaceTypes.h \
- /usr/include/ompl-1.5/ompl/base/StateSampler.h \
- /usr/include/ompl-1.5/ompl/util/RandomNumbers.h \
+ /usr/local/include/ompl-1.6/ompl/base/MotionValidator.h \
+ /usr/local/include/ompl-1.6/ompl/base/StateSpace.h \
+ /usr/local/include/ompl-1.6/ompl/base/StateSpaceTypes.h \
+ /usr/local/include/ompl-1.6/ompl/base/StateSampler.h \
+ /usr/local/include/ompl-1.6/ompl/util/RandomNumbers.h \
  /usr/include/c++/13/random /usr/include/c++/13/cstdint \
  /usr/include/c++/13/bits/random.h \
  /usr/include/c++/13/bits/uniform_int_dist.h \
@@ -320,8 +320,8 @@ CMakeFiles/main.dir/src/main.cpp.o: \
  /usr/include/c++/13/bits/algorithmfwd.h \
  /usr/include/c++/13/bits/stl_heap.h \
  /usr/include/c++/13/pstl/glue_algorithm_defs.h \
- /usr/include/ompl-1.5/ompl/config.h \
- /usr/include/ompl-1.5/ompl/util/ProlateHyperspheroid.h \
+ /usr/local/include/ompl-1.6/ompl/config.h \
+ /usr/local/include/ompl-1.6/ompl/util/ProlateHyperspheroid.h \
  /usr/include/c++/13/functional /usr/include/c++/13/bits/std_function.h \
  /usr/include/c++/13/unordered_map \
  /usr/include/c++/13/bits/unordered_map.h \
@@ -331,14 +331,15 @@ CMakeFiles/main.dir/src/main.cpp.o: \
  /usr/include/c++/13/bits/node_handle.h \
  /usr/include/c++/13/bits/erase_if.h /usr/include/c++/13/array \
  /usr/include/c++/13/compare \
- /usr/include/ompl-1.5/ompl/base/ProjectionEvaluator.h \
- /usr/include/ompl-1.5/ompl/util/Console.h \
- /usr/include/ompl-1.5/ompl/base/GenericParam.h \
- /usr/include/ompl-1.5/ompl/util/String.h /usr/include/c++/13/sstream \
- /usr/include/c++/13/bits/sstream.tcc /usr/include/c++/13/map \
- /usr/include/c++/13/bits/stl_tree.h /usr/include/c++/13/bits/stl_map.h \
+ /usr/local/include/ompl-1.6/ompl/base/ProjectionEvaluator.h \
+ /usr/local/include/ompl-1.6/ompl/util/Console.h \
+ /usr/local/include/ompl-1.6/ompl/base/GenericParam.h \
+ /usr/local/include/ompl-1.6/ompl/util/String.h \
+ /usr/include/c++/13/sstream /usr/include/c++/13/bits/sstream.tcc \
+ /usr/include/c++/13/map /usr/include/c++/13/bits/stl_tree.h \
+ /usr/include/c++/13/bits/stl_map.h \
  /usr/include/c++/13/bits/stl_multimap.h \
- /usr/include/ompl-1.5/ompl/base/spaces/RealVectorBounds.h \
+ /usr/local/include/ompl-1.6/ompl/base/spaces/RealVectorBounds.h \
  /usr/include/c++/13/valarray /usr/include/c++/13/bits/valarray_array.h \
  /usr/include/c++/13/bits/valarray_array.tcc \
  /usr/include/c++/13/bits/valarray_before.h \
@@ -491,38 +492,39 @@ CMakeFiles/main.dir/src/main.cpp.o: \
  /usr/include/eigen3/Eigen/src/Core/StlIterators.h \
  /usr/include/eigen3/Eigen/src/Core/GlobalFunctions.h \
  /usr/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h \
- /usr/include/ompl-1.5/ompl/base/ValidStateSampler.h \
- /usr/include/ompl-1.5/ompl/util/Exception.h \
- /usr/include/ompl-1.5/ompl/base/objectives/MaximizeMinClearanceObjective.h \
- /usr/include/ompl-1.5/ompl/base/objectives/MinimaxObjective.h \
- /usr/include/ompl-1.5/ompl/base/OptimizationObjective.h \
- /usr/include/ompl-1.5/ompl/base/Cost.h \
- /usr/include/ompl-1.5/ompl/base/ProblemDefinition.h \
- /usr/include/ompl-1.5/ompl/base/Goal.h \
- /usr/include/ompl-1.5/ompl/base/GoalTypes.h \
- /usr/include/ompl-1.5/ompl/base/Path.h \
- /usr/include/ompl-1.5/ompl/base/SolutionNonExistenceProof.h \
- /usr/include/ompl-1.5/ompl/base/ScopedState.h \
- /usr/include/ompl-1.5/ompl/base/samplers/InformedStateSampler.h \
- /usr/include/ompl-1.5/ompl/base/objectives/PathLengthOptimizationObjective.h \
- /usr/include/ompl-1.5/ompl/base/objectives/StateCostIntegralObjective.h \
- /usr/include/ompl-1.5/ompl/base/spaces/RealVectorStateSpace.h \
- /usr/include/ompl-1.5/ompl/geometric/planners/cforest/CForest.h \
- /usr/include/ompl-1.5/ompl/geometric/planners/cforest/CForestStateSpaceWrapper.h \
- /usr/include/ompl-1.5/ompl/geometric/planners/cforest/CForestStateSampler.h \
+ /usr/local/include/ompl-1.6/ompl/base/ValidStateSampler.h \
+ /usr/local/include/ompl-1.6/ompl/util/Exception.h \
+ /usr/local/include/ompl-1.6/ompl/base/objectives/MaximizeMinClearanceObjective.h \
+ /usr/local/include/ompl-1.6/ompl/base/objectives/MinimaxObjective.h \
+ /usr/local/include/ompl-1.6/ompl/base/OptimizationObjective.h \
+ /usr/local/include/ompl-1.6/ompl/base/Cost.h \
+ /usr/local/include/ompl-1.6/ompl/base/ProblemDefinition.h \
+ /usr/local/include/ompl-1.6/ompl/base/Goal.h \
+ /usr/local/include/ompl-1.6/ompl/base/GoalTypes.h \
+ /usr/local/include/ompl-1.6/ompl/base/Path.h \
+ /usr/local/include/ompl-1.6/ompl/base/SolutionNonExistenceProof.h \
+ /usr/local/include/ompl-1.6/ompl/base/ScopedState.h \
+ /usr/local/include/ompl-1.6/ompl/base/samplers/InformedStateSampler.h \
+ /usr/local/include/ompl-1.6/ompl/control/Control.h \
+ /usr/local/include/ompl-1.6/ompl/base/objectives/PathLengthOptimizationObjective.h \
+ /usr/local/include/ompl-1.6/ompl/base/objectives/StateCostIntegralObjective.h \
+ /usr/local/include/ompl-1.6/ompl/base/spaces/RealVectorStateSpace.h \
+ /usr/local/include/ompl-1.6/ompl/geometric/planners/cforest/CForest.h \
+ /usr/local/include/ompl-1.6/ompl/geometric/planners/cforest/CForestStateSpaceWrapper.h \
+ /usr/local/include/ompl-1.6/ompl/geometric/planners/cforest/CForestStateSampler.h \
  /usr/include/c++/13/mutex /usr/include/c++/13/bits/chrono.h \
  /usr/include/c++/13/ratio /usr/include/c++/13/ctime \
  /usr/include/c++/13/bits/parse_numbers.h \
  /usr/include/c++/13/bits/std_mutex.h \
  /usr/include/c++/13/bits/unique_lock.h \
- /usr/include/ompl-1.5/ompl/base/Planner.h \
- /usr/include/ompl-1.5/ompl/base/PlannerData.h /usr/include/c++/13/set \
- /usr/include/c++/13/bits/stl_set.h \
+ /usr/local/include/ompl-1.6/ompl/base/Planner.h \
+ /usr/local/include/ompl-1.6/ompl/base/PlannerData.h \
+ /usr/include/c++/13/set /usr/include/c++/13/bits/stl_set.h \
  /usr/include/c++/13/bits/stl_multiset.h \
  /usr/include/boost/serialization/access.hpp \
- /usr/include/ompl-1.5/ompl/base/PlannerStatus.h \
- /usr/include/ompl-1.5/ompl/base/PlannerTerminationCondition.h \
- /usr/include/ompl-1.5/ompl/util/Time.h /usr/include/c++/13/chrono \
+ /usr/local/include/ompl-1.6/ompl/base/PlannerStatus.h \
+ /usr/local/include/ompl-1.6/ompl/base/PlannerTerminationCondition.h \
+ /usr/local/include/ompl-1.6/ompl/util/Time.h /usr/include/c++/13/chrono \
  /usr/include/c++/13/iomanip /usr/include/c++/13/locale \
  /usr/include/c++/13/bits/locale_facets_nonio.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
@@ -531,32 +533,33 @@ CMakeFiles/main.dir/src/main.cpp.o: \
  /usr/include/c++/13/bits/locale_facets_nonio.tcc \
  /usr/include/c++/13/bits/locale_conv.h \
  /usr/include/c++/13/bits/quoted_string.h \
- /usr/include/ompl-1.5/ompl/geometric/planners/PlannerIncludes.h \
- /usr/include/ompl-1.5/ompl/geometric/PathGeometric.h \
- /usr/include/ompl-1.5/ompl/tools/config/SelfConfig.h \
- /usr/include/ompl-1.5/ompl/datastructures/NearestNeighborsSqrtApprox.h \
- /usr/include/ompl-1.5/ompl/datastructures/NearestNeighborsLinear.h \
- /usr/include/ompl-1.5/ompl/datastructures/NearestNeighbors.h \
- /usr/include/ompl-1.5/ompl/datastructures/NearestNeighborsGNAT.h \
- /usr/include/ompl-1.5/ompl/datastructures/GreedyKCenters.h \
+ /usr/local/include/ompl-1.6/ompl/geometric/planners/PlannerIncludes.h \
+ /usr/local/include/ompl-1.6/ompl/geometric/PathGeometric.h \
+ /usr/local/include/ompl-1.6/ompl/tools/config/SelfConfig.h \
+ /usr/local/include/ompl-1.6/ompl/datastructures/NearestNeighborsSqrtApprox.h \
+ /usr/local/include/ompl-1.6/ompl/datastructures/NearestNeighborsLinear.h \
+ /usr/local/include/ompl-1.6/ompl/datastructures/NearestNeighbors.h \
+ /usr/local/include/ompl-1.6/ompl/datastructures/NearestNeighborsGNAT.h \
+ /usr/local/include/ompl-1.6/ompl/datastructures/GreedyKCenters.h \
  /usr/include/c++/13/queue /usr/include/c++/13/deque \
  /usr/include/c++/13/bits/stl_deque.h /usr/include/c++/13/bits/deque.tcc \
  /usr/include/c++/13/bits/stl_queue.h /usr/include/c++/13/unordered_set \
  /usr/include/c++/13/bits/unordered_set.h \
- /usr/include/ompl-1.5/ompl/datastructures/NearestNeighborsGNATNoThreadSafety.h \
- /usr/include/ompl-1.5/ompl/datastructures/Permutation.h \
- /usr/include/ompl-1.5/ompl/geometric/planners/fmt/BFMT.h \
- /usr/include/ompl-1.5/ompl/base/goals/GoalSampleableRegion.h \
- /usr/include/ompl-1.5/ompl/base/goals/GoalRegion.h \
- /usr/include/ompl-1.5/ompl/datastructures/BinaryHeap.h \
- /usr/include/ompl-1.5/ompl/geometric/planners/fmt/FMT.h \
- /usr/include/ompl-1.5/ompl/geometric/planners/informedtrees/AITstar.h \
- /usr/include/ompl-1.5/ompl/geometric/planners/informedtrees/aitstar/Edge.h \
- /usr/include/ompl-1.5/ompl/geometric/planners/informedtrees/aitstar/ImplicitGraph.h \
- /usr/include/ompl-1.5/ompl/geometric/planners/informedtrees/aitstar/Vertex.h \
- /usr/include/ompl-1.5/ompl/geometric/planners/informedtrees/BITstar.h \
- /usr/include/ompl-1.5/ompl/geometric/planners/prm/PRMstar.h \
- /usr/include/ompl-1.5/ompl/geometric/planners/prm/PRM.h \
+ /usr/local/include/ompl-1.6/ompl/datastructures/NearestNeighborsGNATNoThreadSafety.h \
+ /usr/local/include/ompl-1.6/ompl/datastructures/Permutation.h \
+ /usr/local/include/ompl-1.6/ompl/geometric/planners/fmt/BFMT.h \
+ /usr/local/include/ompl-1.6/ompl/base/goals/GoalSampleableRegion.h \
+ /usr/local/include/ompl-1.6/ompl/base/goals/GoalRegion.h \
+ /usr/local/include/ompl-1.6/ompl/datastructures/BinaryHeap.h \
+ /usr/local/include/ompl-1.6/ompl/geometric/planners/fmt/FMT.h \
+ /usr/local/include/ompl-1.6/ompl/geometric/planners/informedtrees/AITstar.h \
+ /usr/local/include/ompl-1.6/ompl/geometric/planners/informedtrees/aitstar/Edge.h \
+ /usr/local/include/ompl-1.6/ompl/geometric/planners/informedtrees/aitstar/ImplicitGraph.h \
+ /usr/local/include/ompl-1.6/ompl/geometric/planners/informedtrees/aitstar/Vertex.h \
+ /usr/local/include/ompl-1.6/ompl/geometric/planners/informedtrees/aitstar/Queuetypes.h \
+ /usr/local/include/ompl-1.6/ompl/geometric/planners/informedtrees/BITstar.h \
+ /usr/local/include/ompl-1.6/ompl/geometric/planners/prm/PRMstar.h \
+ /usr/local/include/ompl-1.6/ompl/geometric/planners/prm/PRM.h \
  /usr/include/boost/graph/graph_traits.hpp \
  /usr/include/boost/tuple/tuple.hpp /usr/include/boost/ref.hpp \
  /usr/include/boost/core/ref.hpp /usr/include/boost/core/addressof.hpp \
@@ -1398,9 +1401,9 @@ CMakeFiles/main.dir/src/main.cpp.o: \
  /usr/include/boost/graph/adjacency_iterator.hpp \
  /usr/include/boost/pending/disjoint_sets.hpp \
  /usr/include/boost/pending/detail/disjoint_sets.hpp \
- /usr/include/ompl-1.5/ompl/geometric/planners/rrt/InformedRRTstar.h \
- /usr/include/ompl-1.5/ompl/geometric/planners/rrt/RRTstar.h \
- /usr/include/ompl-1.5/ompl/geometric/planners/rrt/SORRTstar.h \
+ /usr/local/include/ompl-1.6/ompl/geometric/planners/rrt/InformedRRTstar.h \
+ /usr/local/include/ompl-1.6/ompl/geometric/planners/rrt/RRTstar.h \
+ /usr/local/include/ompl-1.6/ompl/geometric/planners/rrt/SORRTstar.h \
  /usr/include/boost/program_options.hpp \
  /usr/include/boost/program_options/options_description.hpp \
  /usr/include/boost/program_options/config.hpp \
@@ -1548,9 +1551,9 @@ CMakeFiles/main.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
  /usr/include/c++/13/bits/fstream.tcc \
- /home/aruz/Final_Motion/MotionPlanning/ros_ws/src/subscriber_package/include/spline.h \
- /home/aruz/Final_Motion/MotionPlanning/ros_ws/src/subscriber_package/include/Coordinate.hpp \
- /home/aruz/Final_Motion/MotionPlanning/ros_ws/src/subscriber_package/include/Visualize.hpp \
+ /home/debraj/Documents/MotionPlanning/ros_ws/src/subscriber_package/include/spline.h \
+ /home/debraj/Documents/MotionPlanning/ros_ws/src/subscriber_package/include/Coordinate.hpp \
+ /home/debraj/Documents/MotionPlanning/ros_ws/src/subscriber_package/include/Visualize.hpp \
  /usr/include/opencv4/opencv2/highgui/highgui.hpp \
  /usr/include/opencv4/opencv2/highgui.hpp \
  /usr/include/opencv4/opencv2/core.hpp \

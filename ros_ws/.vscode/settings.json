@@ -1,6 +1,6 @@
 {
     "files.associations": {
-        "iostream": "cpp",
-        "cmath": "cpp"
+        "span": "cpp",
+        "chrono": "cpp"
     }
 }
