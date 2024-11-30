@@ -24,12 +24,12 @@ For MacOS, you need specific homebrew packages.
 ## How to Run
 
 - Install Webots and OpenCV
-- Clone the repository and `% cd ros_ws`
-- Build the directory `% colcon build`
-- Source the directory `% source install/local_setup.bash`
-- Launch the package by `% ros2 launch my_package main`
+- Clone the repository and `cd ros_ws`
+- Build the directory `colcon build`
+- Source the directory `source install/local_setup.bash`
+- Launch the package by `ros2 launch my_package main`
 
-- You can test the final target point (to be given by decision module) by `% ros2 topic pub decision_target_data std_msgs/msg/Float32MultiArray "{data: [0.0, 0.0, 0.0]}"`, where the array has data in format [x, y, theta]
+- You can test the final target point (to be given by decision module) by `ros2 topic pub decision_target_data std_msgs/msg/Float32MultiArray "{data: [0.0, 0.0, 0.0]}"`, where the array has data in format [x, y, theta]
 
 ## Code Organisation
 
