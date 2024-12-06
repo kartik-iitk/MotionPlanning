@@ -346,7 +346,7 @@ std::vector<Point2D> plan(double runTime, double A, double B, std::vector<Point2
             // setup splines for x and y coordinate
             tk::spline sx(T, x_values), sy(T, y_values);
 
-            double dt = 0.2, t = 0;
+            double dt = 0.6, t = 0;
             while (t < T.back())
             {
                 robot_positions.push_back(Point2D(sx(t), sy(t), 0));
@@ -376,6 +376,7 @@ std::vector<Point2D> plan(double runTime, double A, double B, std::vector<Point2
     else
     {
         std::cout << "No solution found." << std::endl;
+	return {};
         // return plan(runTime, A, B, obs, plannerType, objectiveType, nowPos, nowPos);
     }
 }

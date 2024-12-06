@@ -37,7 +37,8 @@ planningObjective objectiveType = OBJECTIVE_PATHLENGTH;
 
 long long int iteration_count = 0;
 int flag = 0;
-double obs_size = 0.5;
+double obs_size = 0.7;
+double max_angle = 0.5;
 
 std::vector<Point2D> obs(10), targetPos;
 Point2D nowPos(0, 0, 0), finalPos(7, 1, 0), ballPos(0, 0, 0);
@@ -228,23 +229,20 @@ public:
             {
                 double angle = atan2((y1 - path[idx].y), (x1 - path[idx].x));
             }
-            if (idx + 2 == path.size() - 1 && idx + 1 == path.size() - 1)
-            {
-                double angle = next_point.theta;
-            }
-            double dist = sqrt((y2 - y1) * (y2 - y1) + (x2 - x1) * (x2 - x1));
-            double c = 1;
-            double lambda = 0.5;
+            
+	    double dist = sqrt((y2 - y1) * (y2 - y1) + (x2 - x1) * (x2 - x1));
+            double c = 2;
+	    if (idx >= path.size()-1) c = 1;
+            double lambda = 0.0;
             double speed = c * (dist - lambda);
 
             cout << "distance between next points: " << dist << endl;
 
             if (idx + 1 == path.size() - 1)
             {
-                speed = 0;
+                speed = 0.1;
             }
-
-            cout << "Next Point: " << x1 << " " << y1 << " " << angle << endl;
+	    else if (idx >= path.size() - 6) speed = 0.2;
 
             double vx = speed * cos(angle);
             double vy = speed * sin(angle);
@@ -253,14 +251,17 @@ public:
             double ball_wrto_bot = set_angle(atan2((ballPos.y - nowPos.y), (ballPos.x - nowPos.x)));
             double rel_angle = set_angle(ball_wrto_bot - bot_global_angle);
 
-            rel_angle = min(rel_angle, 0.3);
-            rel_angle = max(rel_angle, -0.3);
+            rel_angle = min(rel_angle, max_angle);
+            rel_angle = max(rel_angle, -max_angle);
 
-            double theta = set_angle(rel_angle + bot_global_angle);
+            double theta = rel_angle + bot_global_angle;
             double omega = 0;
 
+            cout << "Next Point: " << x1 << " " << y1 << " " << theta << endl;
+	    cout << "Next velocity: " << vx << " " << vy << " " << omega << " " << speed << endl;
+
             std_msgs::msg::Float32MultiArray message;
-            message.data = {x1, y1, theta, vx, vy, omega};
+            message.data = {x1, y1, theta, vx, vy, omega, speed, idx, path.size()};
             target_array_publisher->publish(message);
         }
     }
