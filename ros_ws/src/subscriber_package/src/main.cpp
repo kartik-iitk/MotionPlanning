@@ -160,7 +160,34 @@ public:
     {
         if (!my_pose_received || !bot1_pose_received || !bot2_pose_received || !bot2_pose_received || !bot3_pose_received || !bot4_pose_received || !bot5_pose_received || !bot6_pose_received || !bot7_pose_received || !bot8_pose_received || !bot9_pose_received || !ball_pose_received || !target_pose_received)
             return;
-       
+        
+        for (const auto &bot_pose : obs)
+        {
+            if (finalPos.x == bot_pose.x && finalPos.y == bot_pose.y)
+            {
+                std::cerr << "Target pose conflicts with an existing bot's pose. Shifting target randomly." << std::endl;
+
+                // Generate random r and theta within specified ranges
+                double min_r = 0.5, max_r = 2.0; // Minimum and maximum radius for shifting
+                double min_theta = 0.0, max_theta = 2 * M_PI; // Full circular range for theta
+
+                std::random_device rd;
+                std::mt19937 gen(rd());
+                std::uniform_real_distribution<> dist_r(min_r, max_r);
+                std::uniform_real_distribution<> dist_theta(min_theta, max_theta);
+
+                double r = dist_r(gen);
+                double theta = dist_theta(gen);
+
+                // Shift the target pose
+                finalPos.x += r * cos(theta);
+                finalPos.y += r * sin(theta);
+
+                std::cout << "New target position: (" << finalPos.x << ", " << finalPos.y << ")" << std::endl;
+                break; // Exit the loop as we've shifted the target
+            }
+        }
+
         // check if isok is true for all points in planned path
         for (int i = 0; i < targetPos.size() && flag == 0; i++)
         {
