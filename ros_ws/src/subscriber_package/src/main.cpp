@@ -232,7 +232,6 @@ public:
                 targetPos.push_back(nowPos);
                 targetPos.push_back(finalPos);
             }
-            }
 
             flag = 0;
         }
