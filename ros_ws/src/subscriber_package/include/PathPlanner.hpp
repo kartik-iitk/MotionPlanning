@@ -368,7 +368,7 @@ std::vector<Point2D> plan(double runTime, double A, double B, std::vector<Point2
             double dist = 0.2;
             float dist_now_fin = sqrt((nowPos.x - finalPos.x) * (nowPos.x - finalPos.x) + (nowPos.y - finalPos.y) * (nowPos.y - finalPos.y));
             if(dist_now_fin<=5.2){
-                dist = 1;
+                dist = 0.8;
             }
             double angle = atan2(y_values[1] - y_values[0], x_values[1] - x_values[0]);
             for (double i = 1; ; i+=1) 
