@@ -247,7 +247,7 @@ ob::OptimizationObjectivePtr allocateObjective(
 }
 
 std::vector<Point2D> plan(double runTime, double A, double B, std::vector<Point2D> &obs,
-                                            optimalPlanner plannerType, planningObjective objectiveType, Point2D &nowPos, Point2D &finalPos)
+                          optimalPlanner plannerType, planningObjective objectiveType, Point2D &nowPos, Point2D &finalPos, Point2D &ballPos)
 {
     // Construct the robot state space in which we're planning. We're
     // planning in the playable field, a subset of R^2 (a rectangle of
@@ -335,7 +335,6 @@ std::vector<Point2D> plan(double runTime, double A, double B, std::vector<Point2
 
         if (x_values.size() > 2)
         {
-            cout<<"HERE"<<endl;
             T[0] = 0;
             for (int i = 1; i < x_values.size(); i++)
             {
@@ -349,10 +348,7 @@ std::vector<Point2D> plan(double runTime, double A, double B, std::vector<Point2
 
             double dt = 0.6, t = 0;
             float dist_now_fin = sqrt((nowPos.x - finalPos.x) * (nowPos.x - finalPos.x) + (nowPos.y - finalPos.y) * (nowPos.y - finalPos.y));
-            if(dist_now_fin<=5.2){
-                dt = 10;
-            }
-            cout<<"nowPos: "<<nowPos.x<<" "<<nowPos.y<<endl;
+
             while (t < T.back())
             {
                 robot_positions.push_back(Point2D(sx(t), sy(t), 0));
@@ -362,16 +358,11 @@ std::vector<Point2D> plan(double runTime, double A, double B, std::vector<Point2
         }
         else
         {
-            cout<<"HERE2"<<endl;
             robot_positions.push_back(Point2D(x_values[0], y_values[0], 0));
 
-            double dist = 0.2;
-            float dist_now_fin = sqrt((nowPos.x - finalPos.x) * (nowPos.x - finalPos.x) + (nowPos.y - finalPos.y) * (nowPos.y - finalPos.y));
-            if(dist_now_fin<=5.2){
-                dist = 0.8;
-            }
+            double dist = 0.6;
             double angle = atan2(y_values[1] - y_values[0], x_values[1] - x_values[0]);
-            for (double i = 1; ; i+=1) 
+            for (double i = 1;; i += 1)
             {
                 if (dist * i > sqrt((x_values[1] - x_values[0]) * (x_values[1] - x_values[0]) + (y_values[1] - y_values[0]) * (y_values[1] - y_values[0])))
                     break;
@@ -379,7 +370,6 @@ std::vector<Point2D> plan(double runTime, double A, double B, std::vector<Point2
             }
 
             robot_positions.push_back(Point2D(x_values[1], y_values[1], 0));
-
         }
 
         return robot_positions;
@@ -387,8 +377,7 @@ std::vector<Point2D> plan(double runTime, double A, double B, std::vector<Point2
     else
     {
         std::cout << "No solution found." << std::endl;
-	return {};
-        // return plan(runTime, A, B, obs, plannerType, objectiveType, nowPos, nowPos);
+        return {Point2D(nowPos.x, nowPos.y, 0)};
     }
 }
 

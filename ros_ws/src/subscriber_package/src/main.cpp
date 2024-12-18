@@ -40,7 +40,7 @@ int flag = 0;
 double obs_size = 0.7;
 double max_angle = 0.5;
 
-std::vector<Point2D> obs(10), targetPos;
+std::vector<Point2D> obs(9), targetPos;
 Point2D nowPos(0, 0, 0), finalPos(7, 1, 0), ballPos(0, 0, 0);
 std::vector<pair<double, double>> points;
 
@@ -146,7 +146,6 @@ public:
     void ball_callback(const std_msgs::msg::Float32MultiArray::SharedPtr msg)
     {
         ballPos = Point2D(msg->data[0], msg->data[1], 0);
-        obs[9] = Point2D(msg->data[0], msg->data[1], 0);
         ball_pose_received = true;
     }
     void decision_target_callback(const std_msgs::msg::Float32MultiArray::SharedPtr msg)
@@ -160,8 +159,8 @@ public:
     {
         if (!my_pose_received || !bot1_pose_received || !bot2_pose_received || !bot2_pose_received || !bot3_pose_received || !bot4_pose_received || !bot5_pose_received || !bot6_pose_received || !bot7_pose_received || !bot8_pose_received || !bot9_pose_received || !ball_pose_received || !target_pose_received)
             return;
-        
-        for (const auto &bot_pose : obs)
+
+        /*for (const auto &bot_pose : obs)
         {
             if (finalPos.x == bot_pose.x && finalPos.y == bot_pose.y)
             {
@@ -186,7 +185,7 @@ public:
                 std::cout << "New target position: (" << finalPos.x << ", " << finalPos.y << ")" << std::endl;
                 break; // Exit the loop as we've shifted the target
             }
-        }
+        }*/
 
         // check if isok is true for all points in planned path
         for (int i = 0; i < targetPos.size() && flag == 0; i++)
@@ -201,11 +200,24 @@ public:
             }
         }
 
+        /*for (int i = 0; i < 9; i++ ) {
+            double dist_from_target = sqrt((obs[i].x - finalPos.x)*(obs[i].x - finalPos.x) + (obs[i].y - finalPos.y)*(obs[i].y - finalPos.y));
+            if (dist_from_target < obs_size) {
+                targetPos.clear();
+                targetPos.push_back(nowPos);
+                iteration_count++;
+                window->visualizeGame(targetPos, nowPos, findclosestpoint(targetPos, nowPos), nowPos.theta, obs, ballPos);
+                publish_next_point(targetPos, nowPos);
+                return;
+            }
+        }*/
+
         if (flag || iteration_count == 0 || (targetPos.size() > 0 && (finalPos.x != targetPos.back().x || finalPos.y != targetPos.back().y)))
         {
             try
             {
-                targetPos = plan(runTime, A, B, obs, plannerType, objectiveType, nowPos, finalPos);
+                targetPos.clear();
+                targetPos = plan(runTime, A, B, obs, plannerType, objectiveType, nowPos, finalPos, ballPos);
             }
             catch (const std::exception &e)
             {
@@ -213,9 +225,10 @@ public:
                 std::cout << "Could not find path" << std::endl;
 
                 targetPos.clear();
-                
-                double min_r = 0.5, max_r = 2.0; 
-                double min_theta = 0.0, max_theta = 2 * M_PI; 
+                targetPos.push_back(nowPos);
+
+                /*double min_r = 0.5, max_r = 2.0;
+                double min_theta = 0.0, max_theta = 2 * M_PI;
 
                 std::random_device rd;
                 std::mt19937 gen(rd());
@@ -230,18 +243,20 @@ public:
 
                 std::cout << "New target position: (" << finalPos.x << ", " << finalPos.y << ")" << std::endl;
                 targetPos.push_back(nowPos);
-                targetPos.push_back(finalPos);
+                targetPos.push_back(finalPos);*/
             }
 
             flag = 0;
         }
 
+        if (sqrt((targetPos.back().x - finalPos.x) * (targetPos.back().x - finalPos.x) + (targetPos.back().y - finalPos.y) * (targetPos.back().y - finalPos.y)) > 0.1)
+        {
+            targetPos.clear();
+            targetPos.push_back(nowPos);
+        }
+
         iteration_count++;
-
-        int idx = findclosestpoint(targetPos, nowPos);
-
-        window->visualizeGame(targetPos, nowPos, idx, nowPos.theta, obs, ballPos);
-
+        window->visualizeGame(targetPos, nowPos, findclosestpoint(targetPos, nowPos), nowPos.theta, obs, ballPos);
         publish_next_point(targetPos, nowPos);
     }
 
@@ -275,10 +290,11 @@ public:
             {
                 double angle = atan2((y1 - path[idx].y), (x1 - path[idx].x));
             }
-            
-	    double dist = sqrt((y2 - y1) * (y2 - y1) + (x2 - x1) * (x2 - x1));
+
+            double dist = sqrt((y2 - y1) * (y2 - y1) + (x2 - x1) * (x2 - x1));
             double c = 2;
-	    if (idx >= path.size()-1) c = 1;
+            if (idx >= path.size() - 1)
+                c = 1;
             double lambda = 0.0;
             double speed = c * (dist - lambda);
 
@@ -288,7 +304,8 @@ public:
             {
                 speed = 0.1;
             }
-	    else if (idx >= path.size() - 6) speed = 0.2;
+            else if (idx >= path.size() - 6)
+                speed = 0.2;
 
             double vx = speed * cos(angle);
             double vy = speed * sin(angle);
@@ -304,7 +321,7 @@ public:
             double omega = 0;
 
             cout << "Next Point: " << x1 << " " << y1 << " " << theta << endl;
-	    cout << "Next velocity: " << vx << " " << vy << " " << omega << " " << speed << endl;
+            cout << "Next velocity: " << vx << " " << vy << " " << omega << " " << speed << endl;
 
             std_msgs::msg::Float32MultiArray message;
             message.data = {x1, y1, theta, vx, vy, omega, speed, idx, path.size()};
