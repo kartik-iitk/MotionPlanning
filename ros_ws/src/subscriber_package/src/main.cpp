@@ -292,20 +292,9 @@ public:
             }
 
             double dist = sqrt((y2 - y1) * (y2 - y1) + (x2 - x1) * (x2 - x1));
-            double c = 2;
-            if (idx >= path.size() - 1)
-                c = 1;
-            double lambda = 0.0;
-            double speed = c * (dist - lambda);
-
-            cout << "distance between next points: " << dist << endl;
-
-            if (idx + 1 == path.size() - 1)
-            {
-                speed = 0.1;
-            }
-            else if (idx >= path.size() - 6)
-                speed = 0.2;
+            
+	    double c = 2.0, lambda = 0.3;
+	    double speed = c * (dist - lambda);
 
             double vx = speed * cos(angle);
             double vy = speed * sin(angle);
