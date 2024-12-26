@@ -41,7 +41,7 @@ double obs_size = 0.7;
 double max_angle = 0.5;
 
 std::vector<Point2D> obs(9), targetPos;
-Point2D nowPos(0, 0, 0), finalPos(7, 1, 0), ballPos(0, 0, 0);
+Point2D nowPos(0, 0, 0), finalPos(0, 0, 0), ballPos(0, 0, 0);
 std::vector<pair<double, double>> points;
 
 int findclosestpoint(std::vector<Point2D> &targetPos, Point2D &nowPos)
@@ -87,8 +87,8 @@ public:
         b4_subscriber = this->create_subscription<std_msgs::msg::Float32MultiArray>("b4_data", 10, std::bind(&ListenerNode::b4_callback, this, std::placeholders::_1));
         b5_subscriber = this->create_subscription<std_msgs::msg::Float32MultiArray>("b5_data", 10, std::bind(&ListenerNode::b5_callback, this, std::placeholders::_1));
         ball_subscriber = this->create_subscription<std_msgs::msg::Float32MultiArray>("ball_data", 10, std::bind(&ListenerNode::ball_callback, this, std::placeholders::_1));
-        decision_target_subscriber = this->create_subscription<std_msgs::msg::Float32MultiArray>("decision_target_data", 10, std::bind(&ListenerNode::decision_target_callback, this, std::placeholders::_1));
-        target_array_publisher = this->create_publisher<std_msgs::msg::Float32MultiArray>("target_pos", 10);
+        decision_target_subscriber = this->create_subscription<std_msgs::msg::Float32MultiArray>("/o1/decision_target_data", 10, std::bind(&ListenerNode::decision_target_callback, this, std::placeholders::_1));
+        target_array_publisher = this->create_publisher<std_msgs::msg::Float32MultiArray>("/o1/target_pos", 10);
     }
 
     // Callback funtions
@@ -261,7 +261,7 @@ public:
     }
 
     // Variables to store received messages
-    bool my_pose_received{false}, bot1_pose_received{false}, bot2_pose_received{false}, bot3_pose_received{false}, bot4_pose_received{false}, bot5_pose_received{false}, bot6_pose_received{false}, bot7_pose_received{false}, bot8_pose_received{false}, bot9_pose_received{false}, ball_pose_received{false}, target_pose_received{true};
+    bool my_pose_received{false}, bot1_pose_received{false}, bot2_pose_received{false}, bot3_pose_received{false}, bot4_pose_received{false}, bot5_pose_received{false}, bot6_pose_received{false}, bot7_pose_received{false}, bot8_pose_received{false}, bot9_pose_received{false}, ball_pose_received{false}, target_pose_received{false};
 
     // Subscribers
     rclcpp::Subscription<std_msgs::msg::Float32MultiArray>::SharedPtr o1_subscriber, o2_subscriber, o3_subscriber, o4_subscriber, o5_subscriber, b1_subscriber, b2_subscriber, b3_subscriber, b4_subscriber, b5_subscriber, ball_subscriber, decision_target_subscriber;
