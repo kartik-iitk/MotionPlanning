@@ -117,7 +117,7 @@ public:
         // Distance formula between two points, offset by the circle's
         // radius r
 
-        double r = 0.9;
+        double r = 1.2;
         // Dynamically allocate an array of PointWithRadius
         std::vector<PointWithRadius> v;
 
