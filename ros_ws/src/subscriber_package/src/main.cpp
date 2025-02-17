@@ -307,6 +307,7 @@ public:
             rel_angle = max(rel_angle, -max_angle);
 
             double theta = rel_angle + bot_global_angle;
+            // theta = finalPos.theta;
             double omega = 0;
 
             cout << "Next Point: " << x1 << " " << y1 << " " << theta << endl;
