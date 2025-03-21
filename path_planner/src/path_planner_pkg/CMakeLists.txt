@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(subscriber_package)
+project(path_planner_pkg)
 
 # Find dependencies
 find_package(ament_cmake REQUIRED)
