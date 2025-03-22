@@ -1,0 +1,25 @@
+[0.026s] Invoking command in '/home/debraj/Documents/MotionPlanning/controller/build/controller_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/debraj/Documents/MotionPlanning/controller/build/controller_pkg -- -j8 -l8
+[0.210s] [ 50%] [32mBuilding CXX object CMakeFiles/controller.dir/src/controller.cpp.o[0m
+[30.236s] [100%] [32m[1mLinking CXX executable controller[0m
+[34.672s] [100%] Built target controller
+[34.742s] Invoked command in '/home/debraj/Documents/MotionPlanning/controller/build/controller_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/debraj/Documents/MotionPlanning/controller/build/controller_pkg -- -j8 -l8
+[34.799s] Invoking command in '/home/debraj/Documents/MotionPlanning/controller/build/controller_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/debraj/Documents/MotionPlanning/controller/build/controller_pkg
+[34.826s] -- Install configuration: ""
+[34.827s] -- Installing: /home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/lib/controller_pkg/controller
+[34.854s] -- Set non-toolchain portion of runtime path of "/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/lib/controller_pkg/controller" to ""
+[34.854s] -- Up-to-date: /home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/ament_index/resource_index/package_run_dependencies/controller_pkg
+[34.854s] -- Up-to-date: /home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/ament_index/resource_index/parent_prefix_path/controller_pkg
+[34.854s] -- Up-to-date: /home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/controller_pkg/environment/ament_prefix_path.sh
+[34.854s] -- Up-to-date: /home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/controller_pkg/environment/ament_prefix_path.dsv
+[34.855s] -- Up-to-date: /home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/controller_pkg/environment/path.sh
+[34.855s] -- Up-to-date: /home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/controller_pkg/environment/path.dsv
+[34.855s] -- Up-to-date: /home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/controller_pkg/local_setup.bash
+[34.855s] -- Up-to-date: /home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/controller_pkg/local_setup.sh
+[34.855s] -- Up-to-date: /home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/controller_pkg/local_setup.zsh
+[34.855s] -- Up-to-date: /home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/controller_pkg/local_setup.dsv
+[34.855s] -- Installing: /home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/controller_pkg/package.dsv
+[34.855s] -- Up-to-date: /home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/ament_index/resource_index/packages/controller_pkg
+[34.856s] -- Up-to-date: /home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/controller_pkg/cmake/controller_pkgConfig.cmake
+[34.856s] -- Up-to-date: /home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/controller_pkg/cmake/controller_pkgConfig-version.cmake
+[34.856s] -- Up-to-date: /home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/controller_pkg/package.xml
+[34.865s] Invoked command in '/home/debraj/Documents/MotionPlanning/controller/build/controller_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/debraj/Documents/MotionPlanning/controller/build/controller_pkg

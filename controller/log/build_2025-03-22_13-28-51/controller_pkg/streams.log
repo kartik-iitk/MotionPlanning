@@ -1,0 +1,294 @@
+[0.021s] Invoking command in '/home/debraj/Documents/MotionPlanning/controller/build/controller_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/debraj/Documents/MotionPlanning/controller/build/controller_pkg -- -j8 -l8
+[0.118s] [ 50%] [32mBuilding CXX object CMakeFiles/controller.dir/src/controller.cpp.o[0m
+[3.878s] [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:[m[K In constructor ‘[01m[KMyRobotNode::[01;32m[KMyRobotNode[m[K()[m[K’:
+[3.878s] [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:50:11:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator<<[m[K’ (operand types are ‘[01m[KACADO::DifferentialEquation()[m[K’ and ‘[01m[KACADO::Expression[m[K’)
+[3.878s]    50 |         [32m[Kf[m[K [01;31m[K<<[m[K [34m[Kdot(x)[m[K == vx;
+[3.878s]       |         [32m[K~[m[K [01;31m[K^~[m[K [34m[K~~~~~~[m[K
+[3.879s]       |         [32m[K|[m[K       [34m[K|[m[K
+[3.879s]       |         [32m[K|[m[K       [34m[KACADO::Expression[m[K
+[3.879s]       |         [32m[KACADO::DifferentialEquation()[m[K
+[3.879s] In file included from [01m[K/usr/local/include/acado/symbolic_expression/acado_syntax.hpp:37[m[K,
+[3.879s]                  from [01m[K/usr/local/include/acado/function/function.hpp:39[m[K,
+[3.880s]                  from [01m[K/usr/local/include/acado/curve/curve.hpp:37[m[K,
+[3.880s]                  from [01m[K/usr/local/include/acado/acado_integrators.hpp:37[m[K,
+[3.880s]                  from [01m[K/usr/local/include/acado/acado_optimal_control.hpp:35[m[K,
+[3.880s]                  from [01m[K/usr/local/include/acado/acado_toolkit.hpp:35[m[K,
+[3.880s]                  from [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:1[m[K:
+[3.880s] [01m[K/usr/local/include/acado/symbolic_expression/expression.hpp:148:30:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const Expression&)[m[K’
+[3.880s]   148 |         friend std::ostream& [01;36m[Koperator[m[K<<( std::ostream& stream, const Expression &arg );
+[3.880s]       |                              [01;36m[K^~~~~~~~[m[K
+[3.880s] [01m[K/usr/local/include/acado/symbolic_expression/expression.hpp:148:56:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[KACADO::DifferentialEquation()[m[K’ to ‘[01m[Kstd::ostream&[m[K’ {aka ‘[01m[Kstd::basic_ostream<char>&[m[K’}
+[3.880s]   148 |         friend std::ostream& operator<<( [01;36m[Kstd::ostream& stream[m[K, const Expression &arg );
+[3.880s]       |                                          [01;36m[K~~~~~~~~~~~~~~^~~~~~[m[K
+[3.880s] In file included from [01m[K/usr/local/include/acado/function/t_evaluation_point.hpp:168[m[K,
+[3.880s]                  from [01m[K/usr/local/include/acado/function/function.hpp:43[m[K:
+[3.881s] [01m[K/usr/local/include/acado/function/function_.hpp:444:26:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const Function&)[m[K’
+[3.881s]   444 |     friend std::ostream& [01;36m[Koperator[m[K<<( std::ostream& stream, const Function &arg);
+[3.881s]       |                          [01;36m[K^~~~~~~~[m[K
+[3.881s] [01m[K/usr/local/include/acado/function/function_.hpp:444:52:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[KACADO::DifferentialEquation()[m[K’ to ‘[01m[Kstd::ostream&[m[K’ {aka ‘[01m[Kstd::basic_ostream<char>&[m[K’}
+[3.881s]   444 |     friend std::ostream& operator<<( [01;36m[Kstd::ostream& stream[m[K, const Function &arg);
+[3.881s]       |                                      [01;36m[K~~~~~~~~~~~~~~^~~~~~[m[K
+[3.881s] In file included from [01m[K/usr/local/include/acado/matrix_vector/matrix_vector.hpp:37[m[K,
+[3.881s]                  from [01m[K/usr/local/include/acado/variables_grid/grid.hpp:38[m[K,
+[3.882s]                  from [01m[K/usr/local/include/acado/variables_grid/matrix_variables_grid.hpp:36[m[K,
+[3.882s]                  from [01m[K/usr/local/include/acado/variables_grid/variables_grid.hpp:36[m[K,
+[3.882s]                  from [01m[K/usr/local/include/acado/curve/curve.hpp:36[m[K:
+[3.882s] [01m[K/usr/local/include/acado/matrix_vector/vector.hpp:306:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> std::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const GenericVector<T>&)[m[K’
+[3.882s]   306 | std::ostream& [01;36m[Koperator[m[K<<(       std::ostream& _stream,
+[3.882s]       |               [01;36m[K^~~~~~~~[m[K
+[3.882s] [01m[K/usr/local/include/acado/matrix_vector/vector.hpp:306:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.882s] [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:50:19:[m[K [01;36m[Knote: [m[K  ‘[01m[KACADO::Expression[m[K’ is not derived from ‘[01m[Kconst ACADO::GenericVector<T>[m[K’
+[3.882s]    50 |         f << dot(x[01;36m[K)[m[K == vx;
+[3.882s]       |                   [01;36m[K^[m[K
+[3.882s] In file included from [01m[K/usr/local/include/acado/matrix_vector/matrix_vector.hpp:38[m[K:
+[3.882s] [01m[K/usr/local/include/acado/matrix_vector/matrix.hpp:414:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> std::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const GenericMatrix<T>&)[m[K’
+[3.882s]   414 | std::ostream& [01;36m[Koperator[m[K<<(       std::ostream& _stream,
+[3.883s]       |               [01;36m[K^~~~~~~~[m[K
+[3.883s] [01m[K/usr/local/include/acado/matrix_vector/matrix.hpp:414:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.883s] [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:50:19:[m[K [01;36m[Knote: [m[K  ‘[01m[KACADO::Expression[m[K’ is not derived from ‘[01m[Kconst ACADO::GenericMatrix<T>[m[K’
+[3.883s]    50 |         f << dot(x[01;36m[K)[m[K == vx;
+[3.883s]       |                   [01;36m[K^[m[K
+[3.883s] In file included from [01m[K/usr/local/include/acado/matrix_vector/matrix_vector.hpp:41[m[K:
+[3.883s] [01m[K/usr/local/include/acado/matrix_vector/t_matrix.hpp:578:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> std::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const Tmatrix<T>&)[m[K’
+[3.883s]   578 | [01;36m[Koperator[m[K<<
+[3.883s]       | [01;36m[K^~~~~~~~[m[K
+[3.883s] [01m[K/usr/local/include/acado/matrix_vector/t_matrix.hpp:578:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.883s] [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:50:19:[m[K [01;36m[Knote: [m[K  ‘[01m[KACADO::Expression[m[K’ is not derived from ‘[01m[Kconst ACADO::Tmatrix<T>[m[K’
+[3.883s]    50 |         f << dot(x[01;36m[K)[m[K == vx;
+[3.883s]       |                   [01;36m[K^[m[K
+[3.884s] [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:51:11:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator<<[m[K’ (operand types are ‘[01m[KACADO::DifferentialEquation()[m[K’ and ‘[01m[KACADO::Expression[m[K’)
+[3.884s]    51 |         [32m[Kf[m[K [01;31m[K<<[m[K [34m[Kdot(y)[m[K == vy;
+[3.884s]       |         [32m[K~[m[K [01;31m[K^~[m[K [34m[K~~~~~~[m[K
+[3.884s]       |         [32m[K|[m[K       [34m[K|[m[K
+[3.884s]       |         [32m[K|[m[K       [34m[KACADO::Expression[m[K
+[3.884s]       |         [32m[KACADO::DifferentialEquation()[m[K
+[3.884s] [01m[K/usr/local/include/acado/symbolic_expression/expression.hpp:148:30:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const Expression&)[m[K’
+[3.884s]   148 |         friend std::ostream& [01;36m[Koperator[m[K<<( std::ostream& stream, const Expression &arg );
+[3.884s]       |                              [01;36m[K^~~~~~~~[m[K
+[3.884s] [01m[K/usr/local/include/acado/symbolic_expression/expression.hpp:148:56:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[KACADO::DifferentialEquation()[m[K’ to ‘[01m[Kstd::ostream&[m[K’ {aka ‘[01m[Kstd::basic_ostream<char>&[m[K’}
+[3.884s]   148 |         friend std::ostream& operator<<( [01;36m[Kstd::ostream& stream[m[K, const Expression &arg );
+[3.884s]       |                                          [01;36m[K~~~~~~~~~~~~~~^~~~~~[m[K
+[3.884s] [01m[K/usr/local/include/acado/function/function_.hpp:444:26:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const Function&)[m[K’
+[3.885s]   444 |     friend std::ostream& [01;36m[Koperator[m[K<<( std::ostream& stream, const Function &arg);
+[3.885s]       |                          [01;36m[K^~~~~~~~[m[K
+[3.885s] [01m[K/usr/local/include/acado/function/function_.hpp:444:52:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[KACADO::DifferentialEquation()[m[K’ to ‘[01m[Kstd::ostream&[m[K’ {aka ‘[01m[Kstd::basic_ostream<char>&[m[K’}
+[3.885s]   444 |     friend std::ostream& operator<<( [01;36m[Kstd::ostream& stream[m[K, const Function &arg);
+[3.885s]       |                                      [01;36m[K~~~~~~~~~~~~~~^~~~~~[m[K
+[3.885s] [01m[K/usr/local/include/acado/matrix_vector/vector.hpp:306:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> std::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const GenericVector<T>&)[m[K’
+[3.885s]   306 | std::ostream& [01;36m[Koperator[m[K<<(       std::ostream& _stream,
+[3.885s]       |               [01;36m[K^~~~~~~~[m[K
+[3.885s] [01m[K/usr/local/include/acado/matrix_vector/vector.hpp:306:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.885s] [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:51:19:[m[K [01;36m[Knote: [m[K  ‘[01m[KACADO::Expression[m[K’ is not derived from ‘[01m[Kconst ACADO::GenericVector<T>[m[K’
+[3.885s]    51 |         f << dot(y[01;36m[K)[m[K == vy;
+[3.885s]       |                   [01;36m[K^[m[K
+[3.885s] [01m[K/usr/local/include/acado/matrix_vector/matrix.hpp:414:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> std::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const GenericMatrix<T>&)[m[K’
+[3.886s]   414 | std::ostream& [01;36m[Koperator[m[K<<(       std::ostream& _stream,
+[3.886s]       |               [01;36m[K^~~~~~~~[m[K
+[3.886s] [01m[K/usr/local/include/acado/matrix_vector/matrix.hpp:414:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.886s] [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:51:19:[m[K [01;36m[Knote: [m[K  ‘[01m[KACADO::Expression[m[K’ is not derived from ‘[01m[Kconst ACADO::GenericMatrix<T>[m[K’
+[3.886s]    51 |         f << dot(y[01;36m[K)[m[K == vy;
+[3.886s]       |                   [01;36m[K^[m[K
+[3.886s] [01m[K/usr/local/include/acado/matrix_vector/t_matrix.hpp:578:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> std::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const Tmatrix<T>&)[m[K’
+[3.886s]   578 | [01;36m[Koperator[m[K<<
+[3.886s]       | [01;36m[K^~~~~~~~[m[K
+[3.886s] [01m[K/usr/local/include/acado/matrix_vector/t_matrix.hpp:578:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.886s] [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:51:19:[m[K [01;36m[Knote: [m[K  ‘[01m[KACADO::Expression[m[K’ is not derived from ‘[01m[Kconst ACADO::Tmatrix<T>[m[K’
+[3.886s]    51 |         f << dot(y[01;36m[K)[m[K == vy;
+[3.886s]       |                   [01;36m[K^[m[K
+[3.887s] [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:52:11:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator<<[m[K’ (operand types are ‘[01m[KACADO::DifferentialEquation()[m[K’ and ‘[01m[KACADO::Expression[m[K’)
+[3.887s]    52 |         [32m[Kf[m[K [01;31m[K<<[m[K [34m[Kdot(theta)[m[K == omega;
+[3.887s]       |         [32m[K~[m[K [01;31m[K^~[m[K [34m[K~~~~~~~~~~[m[K
+[3.887s]       |         [32m[K|[m[K       [34m[K|[m[K
+[3.887s]       |         [32m[K|[m[K       [34m[KACADO::Expression[m[K
+[3.887s]       |         [32m[KACADO::DifferentialEquation()[m[K
+[3.887s] [01m[K/usr/local/include/acado/symbolic_expression/expression.hpp:148:30:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const Expression&)[m[K’
+[3.887s]   148 |         friend std::ostream& [01;36m[Koperator[m[K<<( std::ostream& stream, const Expression &arg );
+[3.887s]       |                              [01;36m[K^~~~~~~~[m[K
+[3.887s] [01m[K/usr/local/include/acado/symbolic_expression/expression.hpp:148:56:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[KACADO::DifferentialEquation()[m[K’ to ‘[01m[Kstd::ostream&[m[K’ {aka ‘[01m[Kstd::basic_ostream<char>&[m[K’}
+[3.887s]   148 |         friend std::ostream& operator<<( [01;36m[Kstd::ostream& stream[m[K, const Expression &arg );
+[3.887s]       |                                          [01;36m[K~~~~~~~~~~~~~~^~~~~~[m[K
+[3.888s] [01m[K/usr/local/include/acado/function/function_.hpp:444:26:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const Function&)[m[K’
+[3.888s]   444 |     friend std::ostream& [01;36m[Koperator[m[K<<( std::ostream& stream, const Function &arg);
+[3.888s]       |                          [01;36m[K^~~~~~~~[m[K
+[3.888s] [01m[K/usr/local/include/acado/function/function_.hpp:444:52:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[KACADO::DifferentialEquation()[m[K’ to ‘[01m[Kstd::ostream&[m[K’ {aka ‘[01m[Kstd::basic_ostream<char>&[m[K’}
+[3.888s]   444 |     friend std::ostream& operator<<( [01;36m[Kstd::ostream& stream[m[K, const Function &arg);
+[3.888s]       |                                      [01;36m[K~~~~~~~~~~~~~~^~~~~~[m[K
+[3.888s] [01m[K/usr/local/include/acado/matrix_vector/vector.hpp:306:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> std::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const GenericVector<T>&)[m[K’
+[3.888s]   306 | std::ostream& [01;36m[Koperator[m[K<<(       std::ostream& _stream,
+[3.888s]       |               [01;36m[K^~~~~~~~[m[K
+[3.888s] [01m[K/usr/local/include/acado/matrix_vector/vector.hpp:306:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.888s] [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:52:23:[m[K [01;36m[Knote: [m[K  ‘[01m[KACADO::Expression[m[K’ is not derived from ‘[01m[Kconst ACADO::GenericVector<T>[m[K’
+[3.888s]    52 |         f << dot(theta[01;36m[K)[m[K == omega;
+[3.888s]       |                       [01;36m[K^[m[K
+[3.889s] [01m[K/usr/local/include/acado/matrix_vector/matrix.hpp:414:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> std::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const GenericMatrix<T>&)[m[K’
+[3.889s]   414 | std::ostream& [01;36m[Koperator[m[K<<(       std::ostream& _stream,
+[3.889s]       |               [01;36m[K^~~~~~~~[m[K
+[3.889s] [01m[K/usr/local/include/acado/matrix_vector/matrix.hpp:414:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.889s] [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:52:23:[m[K [01;36m[Knote: [m[K  ‘[01m[KACADO::Expression[m[K’ is not derived from ‘[01m[Kconst ACADO::GenericMatrix<T>[m[K’
+[3.889s]    52 |         f << dot(theta[01;36m[K)[m[K == omega;
+[3.889s]       |                       [01;36m[K^[m[K
+[3.889s] [01m[K/usr/local/include/acado/matrix_vector/t_matrix.hpp:578:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> std::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const Tmatrix<T>&)[m[K’
+[3.889s]   578 | [01;36m[Koperator[m[K<<
+[3.889s]       | [01;36m[K^~~~~~~~[m[K
+[3.889s] [01m[K/usr/local/include/acado/matrix_vector/t_matrix.hpp:578:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.889s] [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:52:23:[m[K [01;36m[Knote: [m[K  ‘[01m[KACADO::Expression[m[K’ is not derived from ‘[01m[Kconst ACADO::Tmatrix<T>[m[K’
+[3.889s]    52 |         f << dot(theta[01;36m[K)[m[K == omega;
+[3.890s]       |                       [01;36m[K^[m[K
+[3.890s] [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:53:11:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator<<[m[K’ (operand types are ‘[01m[KACADO::DifferentialEquation()[m[K’ and ‘[01m[KACADO::Expression[m[K’)
+[3.890s]    53 |         [32m[Kf[m[K [01;31m[K<<[m[K [34m[Kdot(vx)[m[K == ax;
+[3.890s]       |         [32m[K~[m[K [01;31m[K^~[m[K [34m[K~~~~~~~[m[K
+[3.890s]       |         [32m[K|[m[K       [34m[K|[m[K
+[3.890s]       |         [32m[K|[m[K       [34m[KACADO::Expression[m[K
+[3.890s]       |         [32m[KACADO::DifferentialEquation()[m[K
+[3.890s] [01m[K/usr/local/include/acado/symbolic_expression/expression.hpp:148:30:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const Expression&)[m[K’
+[3.890s]   148 |         friend std::ostream& [01;36m[Koperator[m[K<<( std::ostream& stream, const Expression &arg );
+[3.890s]       |                              [01;36m[K^~~~~~~~[m[K
+[3.890s] [01m[K/usr/local/include/acado/symbolic_expression/expression.hpp:148:56:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[KACADO::DifferentialEquation()[m[K’ to ‘[01m[Kstd::ostream&[m[K’ {aka ‘[01m[Kstd::basic_ostream<char>&[m[K’}
+[3.890s]   148 |         friend std::ostream& operator<<( [01;36m[Kstd::ostream& stream[m[K, const Expression &arg );
+[3.890s]       |                                          [01;36m[K~~~~~~~~~~~~~~^~~~~~[m[K
+[3.891s] [01m[K/usr/local/include/acado/function/function_.hpp:444:26:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const Function&)[m[K’
+[3.891s]   444 |     friend std::ostream& [01;36m[Koperator[m[K<<( std::ostream& stream, const Function &arg);
+[3.891s]       |                          [01;36m[K^~~~~~~~[m[K
+[3.891s] [01m[K/usr/local/include/acado/function/function_.hpp:444:52:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[KACADO::DifferentialEquation()[m[K’ to ‘[01m[Kstd::ostream&[m[K’ {aka ‘[01m[Kstd::basic_ostream<char>&[m[K’}
+[3.891s]   444 |     friend std::ostream& operator<<( [01;36m[Kstd::ostream& stream[m[K, const Function &arg);
+[3.891s]       |                                      [01;36m[K~~~~~~~~~~~~~~^~~~~~[m[K
+[3.891s] [01m[K/usr/local/include/acado/matrix_vector/vector.hpp:306:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> std::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const GenericVector<T>&)[m[K’
+[3.891s]   306 | std::ostream& [01;36m[Koperator[m[K<<(       std::ostream& _stream,
+[3.891s]       |               [01;36m[K^~~~~~~~[m[K
+[3.891s] [01m[K/usr/local/include/acado/matrix_vector/vector.hpp:306:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.891s] [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:53:20:[m[K [01;36m[Knote: [m[K  ‘[01m[KACADO::Expression[m[K’ is not derived from ‘[01m[Kconst ACADO::GenericVector<T>[m[K’
+[3.891s]    53 |         f << dot(vx[01;36m[K)[m[K == ax;
+[3.891s]       |                    [01;36m[K^[m[K
+[3.892s] [01m[K/usr/local/include/acado/matrix_vector/matrix.hpp:414:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> std::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const GenericMatrix<T>&)[m[K’
+[3.892s]   414 | std::ostream& [01;36m[Koperator[m[K<<(       std::ostream& _stream,
+[3.892s]       |               [01;36m[K^~~~~~~~[m[K
+[3.892s] [01m[K/usr/local/include/acado/matrix_vector/matrix.hpp:414:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.892s] [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:53:20:[m[K [01;36m[Knote: [m[K  ‘[01m[KACADO::Expression[m[K’ is not derived from ‘[01m[Kconst ACADO::GenericMatrix<T>[m[K’
+[3.892s]    53 |         f << dot(vx[01;36m[K)[m[K == ax;
+[3.892s]       |                    [01;36m[K^[m[K
+[3.892s] [01m[K/usr/local/include/acado/matrix_vector/t_matrix.hpp:578:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> std::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const Tmatrix<T>&)[m[K’
+[3.892s]   578 | [01;36m[Koperator[m[K<<
+[3.892s]       | [01;36m[K^~~~~~~~[m[K
+[3.892s] [01m[K/usr/local/include/acado/matrix_vector/t_matrix.hpp:578:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.892s] [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:53:20:[m[K [01;36m[Knote: [m[K  ‘[01m[KACADO::Expression[m[K’ is not derived from ‘[01m[Kconst ACADO::Tmatrix<T>[m[K’
+[3.892s]    53 |         f << dot(vx[01;36m[K)[m[K == ax;
+[3.893s]       |                    [01;36m[K^[m[K
+[3.893s] [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:54:11:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator<<[m[K’ (operand types are ‘[01m[KACADO::DifferentialEquation()[m[K’ and ‘[01m[KACADO::Expression[m[K’)
+[3.893s]    54 |         [32m[Kf[m[K [01;31m[K<<[m[K [34m[Kdot(vy)[m[K == ay;
+[3.893s]       |         [32m[K~[m[K [01;31m[K^~[m[K [34m[K~~~~~~~[m[K
+[3.893s]       |         [32m[K|[m[K       [34m[K|[m[K
+[3.893s]       |         [32m[K|[m[K       [34m[KACADO::Expression[m[K
+[3.893s]       |         [32m[KACADO::DifferentialEquation()[m[K
+[3.893s] [01m[K/usr/local/include/acado/symbolic_expression/expression.hpp:148:30:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const Expression&)[m[K’
+[3.893s]   148 |         friend std::ostream& [01;36m[Koperator[m[K<<( std::ostream& stream, const Expression &arg );
+[3.893s]       |                              [01;36m[K^~~~~~~~[m[K
+[3.893s] [01m[K/usr/local/include/acado/symbolic_expression/expression.hpp:148:56:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[KACADO::DifferentialEquation()[m[K’ to ‘[01m[Kstd::ostream&[m[K’ {aka ‘[01m[Kstd::basic_ostream<char>&[m[K’}
+[3.893s]   148 |         friend std::ostream& operator<<( [01;36m[Kstd::ostream& stream[m[K, const Expression &arg );
+[3.893s]       |                                          [01;36m[K~~~~~~~~~~~~~~^~~~~~[m[K
+[3.894s] [01m[K/usr/local/include/acado/function/function_.hpp:444:26:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const Function&)[m[K’
+[3.894s]   444 |     friend std::ostream& [01;36m[Koperator[m[K<<( std::ostream& stream, const Function &arg);
+[3.894s]       |                          [01;36m[K^~~~~~~~[m[K
+[3.894s] [01m[K/usr/local/include/acado/function/function_.hpp:444:52:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[KACADO::DifferentialEquation()[m[K’ to ‘[01m[Kstd::ostream&[m[K’ {aka ‘[01m[Kstd::basic_ostream<char>&[m[K’}
+[3.894s]   444 |     friend std::ostream& operator<<( [01;36m[Kstd::ostream& stream[m[K, const Function &arg);
+[3.894s]       |                                      [01;36m[K~~~~~~~~~~~~~~^~~~~~[m[K
+[3.894s] [01m[K/usr/local/include/acado/matrix_vector/vector.hpp:306:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> std::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const GenericVector<T>&)[m[K’
+[3.894s]   306 | std::ostream& [01;36m[Koperator[m[K<<(       std::ostream& _stream,
+[3.894s]       |               [01;36m[K^~~~~~~~[m[K
+[3.894s] [01m[K/usr/local/include/acado/matrix_vector/vector.hpp:306:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.894s] [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:54:20:[m[K [01;36m[Knote: [m[K  ‘[01m[KACADO::Expression[m[K’ is not derived from ‘[01m[Kconst ACADO::GenericVector<T>[m[K’
+[3.894s]    54 |         f << dot(vy[01;36m[K)[m[K == ay;
+[3.894s]       |                    [01;36m[K^[m[K
+[3.895s] [01m[K/usr/local/include/acado/matrix_vector/matrix.hpp:414:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> std::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const GenericMatrix<T>&)[m[K’
+[3.895s]   414 | std::ostream& [01;36m[Koperator[m[K<<(       std::ostream& _stream,
+[3.895s]       |               [01;36m[K^~~~~~~~[m[K
+[3.895s] [01m[K/usr/local/include/acado/matrix_vector/matrix.hpp:414:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.895s] [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:54:20:[m[K [01;36m[Knote: [m[K  ‘[01m[KACADO::Expression[m[K’ is not derived from ‘[01m[Kconst ACADO::GenericMatrix<T>[m[K’
+[3.895s]    54 |         f << dot(vy[01;36m[K)[m[K == ay;
+[3.895s]       |                    [01;36m[K^[m[K
+[3.895s] [01m[K/usr/local/include/acado/matrix_vector/t_matrix.hpp:578:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> std::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const Tmatrix<T>&)[m[K’
+[3.895s]   578 | [01;36m[Koperator[m[K<<
+[3.895s]       | [01;36m[K^~~~~~~~[m[K
+[3.895s] [01m[K/usr/local/include/acado/matrix_vector/t_matrix.hpp:578:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.895s] [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:54:20:[m[K [01;36m[Knote: [m[K  ‘[01m[KACADO::Expression[m[K’ is not derived from ‘[01m[Kconst ACADO::Tmatrix<T>[m[K’
+[3.895s]    54 |         f << dot(vy[01;36m[K)[m[K == ay;
+[3.896s]       |                    [01;36m[K^[m[K
+[3.896s] [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:55:11:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator<<[m[K’ (operand types are ‘[01m[KACADO::DifferentialEquation()[m[K’ and ‘[01m[KACADO::Expression[m[K’)
+[3.896s]    55 |         [32m[Kf[m[K [01;31m[K<<[m[K [34m[Kdot(omega)[m[K == alpha;
+[3.896s]       |         [32m[K~[m[K [01;31m[K^~[m[K [34m[K~~~~~~~~~~[m[K
+[3.896s]       |         [32m[K|[m[K       [34m[K|[m[K
+[3.896s]       |         [32m[K|[m[K       [34m[KACADO::Expression[m[K
+[3.896s]       |         [32m[KACADO::DifferentialEquation()[m[K
+[3.896s] [01m[K/usr/local/include/acado/symbolic_expression/expression.hpp:148:30:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const Expression&)[m[K’
+[3.896s]   148 |         friend std::ostream& [01;36m[Koperator[m[K<<( std::ostream& stream, const Expression &arg );
+[3.896s]       |                              [01;36m[K^~~~~~~~[m[K
+[3.896s] [01m[K/usr/local/include/acado/symbolic_expression/expression.hpp:148:56:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[KACADO::DifferentialEquation()[m[K’ to ‘[01m[Kstd::ostream&[m[K’ {aka ‘[01m[Kstd::basic_ostream<char>&[m[K’}
+[3.896s]   148 |         friend std::ostream& operator<<( [01;36m[Kstd::ostream& stream[m[K, const Expression &arg );
+[3.896s]       |                                          [01;36m[K~~~~~~~~~~~~~~^~~~~~[m[K
+[3.897s] [01m[K/usr/local/include/acado/function/function_.hpp:444:26:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const Function&)[m[K’
+[3.897s]   444 |     friend std::ostream& [01;36m[Koperator[m[K<<( std::ostream& stream, const Function &arg);
+[3.897s]       |                          [01;36m[K^~~~~~~~[m[K
+[3.897s] [01m[K/usr/local/include/acado/function/function_.hpp:444:52:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[KACADO::DifferentialEquation()[m[K’ to ‘[01m[Kstd::ostream&[m[K’ {aka ‘[01m[Kstd::basic_ostream<char>&[m[K’}
+[3.897s]   444 |     friend std::ostream& operator<<( [01;36m[Kstd::ostream& stream[m[K, const Function &arg);
+[3.897s]       |                                      [01;36m[K~~~~~~~~~~~~~~^~~~~~[m[K
+[3.897s] [01m[K/usr/local/include/acado/matrix_vector/vector.hpp:306:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> std::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const GenericVector<T>&)[m[K’
+[3.897s]   306 | std::ostream& [01;36m[Koperator[m[K<<(       std::ostream& _stream,
+[3.897s]       |               [01;36m[K^~~~~~~~[m[K
+[3.897s] [01m[K/usr/local/include/acado/matrix_vector/vector.hpp:306:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.897s] [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:55:23:[m[K [01;36m[Knote: [m[K  ‘[01m[KACADO::Expression[m[K’ is not derived from ‘[01m[Kconst ACADO::GenericVector<T>[m[K’
+[3.897s]    55 |         f << dot(omega[01;36m[K)[m[K == alpha;
+[3.898s]       |                       [01;36m[K^[m[K
+[3.898s] [01m[K/usr/local/include/acado/matrix_vector/matrix.hpp:414:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> std::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const GenericMatrix<T>&)[m[K’
+[3.898s]   414 | std::ostream& [01;36m[Koperator[m[K<<(       std::ostream& _stream,
+[3.898s]       |               [01;36m[K^~~~~~~~[m[K
+[3.898s] [01m[K/usr/local/include/acado/matrix_vector/matrix.hpp:414:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.898s] [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:55:23:[m[K [01;36m[Knote: [m[K  ‘[01m[KACADO::Expression[m[K’ is not derived from ‘[01m[Kconst ACADO::GenericMatrix<T>[m[K’
+[3.898s]    55 |         f << dot(omega[01;36m[K)[m[K == alpha;
+[3.898s]       |                       [01;36m[K^[m[K
+[3.898s] [01m[K/usr/local/include/acado/matrix_vector/t_matrix.hpp:578:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> std::ostream& ACADO::[01;32m[Koperator<<[m[K(std::ostream&, const Tmatrix<T>&)[m[K’
+[3.898s]   578 | [01;36m[Koperator[m[K<<
+[3.898s]       | [01;36m[K^~~~~~~~[m[K
+[3.898s] [01m[K/usr/local/include/acado/matrix_vector/t_matrix.hpp:578:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[3.898s] [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:55:23:[m[K [01;36m[Knote: [m[K  ‘[01m[KACADO::Expression[m[K’ is not derived from ‘[01m[Kconst ACADO::Tmatrix<T>[m[K’
+[3.899s]    55 |         f << dot(omega[01;36m[K)[m[K == alpha;
+[3.899s]       |                       [01;36m[K^[m[K
+[3.899s] [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:[m[K In member function ‘[01m[Kvoid MyRobotNode::[01;32m[Kcallback_1[m[K(std_msgs::msg::Float32MultiArray_<std::allocator<void> >::SharedPtr)[m[K’:
+[3.899s] [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:72:22:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[KACADO::OCP::subjectTo(ACADO::DifferentialEquation (&)())[m[K’
+[3.899s]    72 |         [01;31m[Kocp.subjectTo(f)[m[K;
+[3.899s]       |         [01;31m[K~~~~~~~~~~~~~^~~[m[K
+[3.899s] In file included from [01m[K/usr/local/include/acado/acado_optimal_control.hpp:42[m[K:
+[3.899s] [01m[K/usr/local/include/acado/ocp/ocp.hpp:290:21:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[KACADO::returnValue ACADO::OCP::[01;32m[KsubjectTo[m[K(const ACADO::DifferentialEquation&)[m[K’
+[3.899s]   290 |         returnValue [01;36m[KsubjectTo[m[K( const DifferentialEquation& differentialEquation_ );
+[3.899s]       |                     [01;36m[K^~~~~~~~~[m[K
+[3.899s] [01m[K/usr/local/include/acado/ocp/ocp.hpp:290:60:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[KACADO::DifferentialEquation()[m[K’ to ‘[01m[Kconst ACADO::DifferentialEquation&[m[K’
+[3.899s]   290 |         returnValue subjectTo( [01;36m[Kconst DifferentialEquation& differentialEquation_[m[K );
+[3.899s]       |                                [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~[m[K
+[3.900s] [01m[K/usr/local/include/acado/ocp/ocp.hpp:297:21:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[KACADO::returnValue ACADO::OCP::[01;32m[KsubjectTo[m[K(const ACADO::ConstraintComponent&)[m[K’
+[3.900s]   297 |         returnValue [01;36m[KsubjectTo[m[K( const ConstraintComponent& component );
+[3.900s]       |                     [01;36m[K^~~~~~~~~[m[K
+[3.900s] [01m[K/usr/local/include/acado/ocp/ocp.hpp:297:59:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[KACADO::DifferentialEquation()[m[K’ to ‘[01m[Kconst ACADO::ConstraintComponent&[m[K’
+[3.900s]   297 |         returnValue subjectTo( [01;36m[Kconst ConstraintComponent& component[m[K );
+[3.900s]       |                                [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~[m[K
+[3.900s] [01m[K/usr/local/include/acado/ocp/ocp.hpp:304:21:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[KACADO::returnValue ACADO::OCP::[01;32m[KsubjectTo[m[K(int, const ACADO::ConstraintComponent&)[m[K’
+[3.900s]   304 |         returnValue [01;36m[KsubjectTo[m[K( int index_, const ConstraintComponent& component );
+[3.900s]       |                     [01;36m[K^~~~~~~~~[m[K
+[3.900s] [01m[K/usr/local/include/acado/ocp/ocp.hpp:304:21:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[3.900s] [01m[K/usr/local/include/acado/ocp/ocp.hpp:322:21:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[KACADO::returnValue ACADO::OCP::[01;32m[KsubjectTo[m[K(double, const ACADO::Expression&, const ACADO::Expression&, double)[m[K’
+[3.900s]   322 |         returnValue [01;36m[KsubjectTo[m[K(  const double lb_,
+[3.900s]       |                     [01;36m[K^~~~~~~~~[m[K
+[3.901s] [01m[K/usr/local/include/acado/ocp/ocp.hpp:322:21:[m[K [01;36m[Knote: [m[K  candidate expects 4 arguments, 1 provided
+[3.901s] [01m[K/usr/local/include/acado/ocp/ocp.hpp:343:21:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[KACADO::returnValue ACADO::OCP::[01;32m[KsubjectTo[m[K(double, const ACADO::Expression*, double)[m[K’
+[3.901s]   343 |         returnValue [01;36m[KsubjectTo[m[K( const double lb_, const Expression *arguments, const double ub_ );
+[3.901s]       |                     [01;36m[K^~~~~~~~~[m[K
+[3.901s] [01m[K/usr/local/include/acado/ocp/ocp.hpp:343:21:[m[K [01;36m[Knote: [m[K  candidate expects 3 arguments, 1 provided
+[3.901s] [01m[K/usr/local/include/acado/ocp/ocp.hpp:357:21:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[KACADO::returnValue ACADO::OCP::[01;32m[KsubjectTo[m[K(const ACADO::DVector&, const ACADO::Expression&, const ACADO::DVector&)[m[K’
+[3.901s]   357 |         returnValue [01;36m[KsubjectTo[m[K( const DVector& _lb, const Expression& _expr, const DVector& _ub );
+[3.901s]       |                     [01;36m[K^~~~~~~~~[m[K
+[3.901s] [01m[K/usr/local/include/acado/ocp/ocp.hpp:357:21:[m[K [01;36m[Knote: [m[K  candidate expects 3 arguments, 1 provided
+[3.901s] [01m[K/usr/local/include/acado/ocp/ocp.hpp:359:21:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[KACADO::returnValue ACADO::OCP::[01;32m[KsubjectTo[m[K(int, const ACADO::DVector&, const ACADO::Expression&, const ACADO::DVector&)[m[K’
+[3.901s]   359 |         returnValue [01;36m[KsubjectTo[m[K( int _index, const DVector& _lb, const Expression& _expr, const DVector& _ub );
+[3.901s]       |                     [01;36m[K^~~~~~~~~[m[K
+[3.901s] [01m[K/usr/local/include/acado/ocp/ocp.hpp:359:21:[m[K [01;36m[Knote: [m[K  candidate expects 4 arguments, 1 provided
+[6.357s] gmake[2]: *** [CMakeFiles/controller.dir/build.make:76: CMakeFiles/controller.dir/src/controller.cpp.o] Error 1
+[6.357s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/controller.dir/all] Error 2
+[6.357s] gmake: *** [Makefile:146: all] Error 2
+[6.361s] Invoked command in '/home/debraj/Documents/MotionPlanning/controller/build/controller_pkg' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/debraj/Documents/MotionPlanning/controller/build/controller_pkg -- -j8 -l8

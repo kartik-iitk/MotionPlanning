@@ -1,0 +1,38 @@
+[01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:32:27:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[KACADO::DifferentialEquation::DifferentialEquation(double)[m[K’
+   32 | DifferentialEquation f(0.0[01;31m[K)[m[K;
+      |                           [01;31m[K^[m[K
+In file included from [01m[K/usr/local/include/acado/function/function.hpp:46[m[K,
+                 from [01m[K/usr/local/include/acado/curve/curve.hpp:37[m[K,
+                 from [01m[K/usr/local/include/acado/acado_integrators.hpp:37[m[K,
+                 from [01m[K/usr/local/include/acado/acado_optimal_control.hpp:35[m[K,
+                 from [01m[K/usr/local/include/acado/acado_toolkit.hpp:35[m[K,
+                 from [01m[K/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg/src/controller.cpp:1[m[K:
+[01m[K/usr/local/include/acado/function/differential_equation.hpp:80:17:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[KACADO::DifferentialEquation::[01;32m[KDifferentialEquation[m[K(const ACADO::DifferentialEquation&)[m[K’
+   80 |                 [01;36m[KDifferentialEquation[m[K( const DifferentialEquation& arg );
+      |                 [01;36m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/usr/local/include/acado/function/differential_equation.hpp:80:67:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kdouble[m[K’ to ‘[01m[Kconst ACADO::DifferentialEquation&[m[K’
+   80 |                 DifferentialEquation( [01;36m[Kconst DifferentialEquation& arg[m[K );
+      |                                       [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/usr/local/include/acado/function/differential_equation.hpp:76:17:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[KACADO::DifferentialEquation::[01;32m[KDifferentialEquation[m[K(const ACADO::Parameter&, const ACADO::Parameter&)[m[K’
+   76 |                 [01;36m[KDifferentialEquation[m[K( const Parameter &tStart, const Parameter &tEnd  );
+      |                 [01;36m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/usr/local/include/acado/function/differential_equation.hpp:76:17:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[01m[K/usr/local/include/acado/function/differential_equation.hpp:73:17:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[KACADO::DifferentialEquation::[01;32m[KDifferentialEquation[m[K(const ACADO::Parameter&, const double&)[m[K’
+   73 |                 [01;36m[KDifferentialEquation[m[K( const Parameter &tStart, const double &tEnd  );
+      |                 [01;36m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/usr/local/include/acado/function/differential_equation.hpp:73:17:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[01m[K/usr/local/include/acado/function/differential_equation.hpp:70:17:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[KACADO::DifferentialEquation::[01;32m[KDifferentialEquation[m[K(const double&, const ACADO::Parameter&)[m[K’
+   70 |                 [01;36m[KDifferentialEquation[m[K( const double &tStart, const Parameter &tEnd );
+      |                 [01;36m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/usr/local/include/acado/function/differential_equation.hpp:70:17:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[01m[K/usr/local/include/acado/function/differential_equation.hpp:67:17:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[KACADO::DifferentialEquation::[01;32m[KDifferentialEquation[m[K(const double&, const double&)[m[K’
+   67 |                 [01;36m[KDifferentialEquation[m[K( const double &tStart, const double &tEnd );
+      |                 [01;36m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/usr/local/include/acado/function/differential_equation.hpp:67:17:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[01m[K/usr/local/include/acado/function/differential_equation.hpp:64:17:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[KACADO::DifferentialEquation::[01;32m[KDifferentialEquation[m[K()[m[K’
+   64 |                 [01;36m[KDifferentialEquation[m[K( );
+      |                 [01;36m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/usr/local/include/acado/function/differential_equation.hpp:64:17:[m[K [01;36m[Knote: [m[K  candidate expects 0 arguments, 1 provided
+gmake[2]: *** [CMakeFiles/controller.dir/build.make:76: CMakeFiles/controller.dir/src/controller.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/controller.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

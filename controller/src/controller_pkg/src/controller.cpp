@@ -21,14 +21,13 @@ double path_size = 0.0;
 // Differential States and Controls
 DifferentialState x, y, theta, vx, vy, omega;
 Control ax, ay, alpha;
-Parameter T;
+TIME t;
 
 // Parameters for robot model
 double R = 0.05;
 double d = 0.5;
-double dt = 2.0; // time step for each iteration
 
-DifferentialEquation f(0.0, T);
+DifferentialEquation f;
 
 class MyRobotNode : public rclcpp::Node
 {
@@ -65,19 +64,23 @@ public:
 	current_vy = next_vy;
 	current_omega = next_omega;
 
-	// Set up the OCP for one iteration
-        OCP ocp(0.0, T);
-        ocp.minimizeMayerTerm(T);
+	// (start_time, end_time, steps)
+        OCP ocp(0.0, 2.0, 20);
+
+        double Q_pos = 100.0; // Loss function weights
+        double Q_theta = 300.0;
+
+        ocp.minimizeMayerTerm( Q_pos*(x - target_x)*(x - target_x) + Q_pos*(y - target_y)*(y - target_y) + Q_theta*(theta - target_theta)*(theta - target_theta)); // Loss function
+
         ocp.subjectTo(f);
 
         // State and control constraints
-        ocp.subjectTo(-0.5 <= vx <= 0.5);
-        ocp.subjectTo(-0.5 <= vy <= 0.5);
-        ocp.subjectTo(-1.0 <= omega <= 1.0);  // for python
-        ocp.subjectTo(-1.0 <= ax <= 1.0);
-        ocp.subjectTo(-1.0 <= ay <= 1.0);
-        ocp.subjectTo(-0.5 <= alpha <= 0.5);
-        ocp.subjectTo(0.1 <= T <= 4.0); // Relaxed T bounds
+        ocp.subjectTo(-7.0 <= vx <= 7.0);
+        ocp.subjectTo(-7.0 <= vy <= 7.0);
+        ocp.subjectTo(-4.0 <= omega <= 4.0);
+        ocp.subjectTo(-6.0 <= ax <= 6.0);
+        ocp.subjectTo(-6.0 <= ay <= 6.0);
+        ocp.subjectTo(-5.0 <= alpha <= 5.0);
 
         // Initial conditions
         ocp.subjectTo(AT_START, x == current_x);
@@ -92,12 +95,12 @@ public:
                   << ", Vy: " << current_vy << ", Omega: " << current_omega << std::endl;
 
         // Final state constraints towards target (moving only in x-direction)
-        ocp.subjectTo(AT_END, x == target_x);   // Target position in x
-        ocp.subjectTo(AT_END, y == target_y);       // Stop at the target
-        ocp.subjectTo(AT_END, theta == target_theta);
-	ocp.subjectTo(AT_END, vx == 0);
-        ocp.subjectTo(AT_END, vy == 0);
-        ocp.subjectTo(AT_END, omega == 0);
+        // ocp.subjectTo(AT_END, x == target_x);   // Target position in x
+        // ocp.subjectTo(AT_END, y == target_y);       // Stop at the target
+        // ocp.subjectTo(AT_END, theta == target_theta);
+	// ocp.subjectTo(AT_END, vx == 0);
+        // ocp.subjectTo(AT_END, vy == 0);
+        // ocp.subjectTo(AT_END, omega == 0);
 	
 	std::cout << "Target State -> X: " << target_x << ", Y: " << target_y
                   << ", Theta: " << target_theta << ", Vx: " << target_vx
@@ -126,27 +129,6 @@ public:
         next_vx = next_state(3);
         next_vy = next_state(4);
 	next_omega = next_state(5);
-
-	if (speed < 0.4) {
-		next_vx *= (5.0/6.0);
-		next_vy *= (5.0/6.0);
-	} else if (speed < 0.5) {
-		next_vx *= (5.5/6.0);
-		next_vy *= (5.5/6.0);
-	}
-	
-	
-	if (idx >= path_size - 1) {
-		next_vx /= 1.5;
-		next_vy /= 1.5;
-	} else if (idx >= path_size - 2) {
-		next_vx /= 1.2;
-		next_vx /= 1.2;
-	}
-	else if (idx >= path_size - 3) {
-		next_vx /= 1.1;
-		next_vx /= 1.1;
-	}
 
 	// Log the state
         std::cout << "Next State -> X: " << next_x << ", Y: " << next_y
@@ -205,4 +187,3 @@ int main(int argc, char *argv[])
     rclcpp::shutdown();
     return 0;
 }
-

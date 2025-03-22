@@ -346,7 +346,7 @@ std::vector<Point2D> plan(double runTime, double A, double B, std::vector<Point2
             // setup splines for x and y coordinate
             tk::spline sx(T, x_values), sy(T, y_values);
 
-            double dt = 0.6, t = 0;
+            double dt = 1.5, t = 0;
             float dist_now_fin = sqrt((nowPos.x - finalPos.x) * (nowPos.x - finalPos.x) + (nowPos.y - finalPos.y) * (nowPos.y - finalPos.y));
 
             while (t < T.back())
@@ -360,7 +360,7 @@ std::vector<Point2D> plan(double runTime, double A, double B, std::vector<Point2
         {
             robot_positions.push_back(Point2D(x_values[0], y_values[0], 0));
 
-            double dist = 0.6;
+            double dist = 1.5;
             double angle = atan2(y_values[1] - y_values[0], x_values[1] - x_values[0]);
             for (double i = 1;; i += 1)
             {

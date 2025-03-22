@@ -1,0 +1,141 @@
+[0.229s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.229s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x704aff69ee40>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x704aff69e660>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x704aff69e660>>, mixin_verb=('build',))
+[0.302s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.303s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.303s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.303s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.303s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.303s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.303s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/debraj/Documents/MotionPlanning/controller'
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.303s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.304s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.350s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.350s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.350s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.350s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.350s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.351s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.351s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.351s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.351s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.351s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.351s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.351s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src/controller_pkg) by extensions ['ignore', 'ignore_ament_install']
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src/controller_pkg) by extension 'ignore'
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src/controller_pkg) by extension 'ignore_ament_install'
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src/controller_pkg) by extensions ['colcon_pkg']
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src/controller_pkg) by extension 'colcon_pkg'
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src/controller_pkg) by extensions ['colcon_meta']
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src/controller_pkg) by extension 'colcon_meta'
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src/controller_pkg) by extensions ['ros']
+[0.354s] Level 1:colcon.colcon_core.package_identification:_identify(src/controller_pkg) by extension 'ros'
+[0.358s] DEBUG:colcon.colcon_core.package_identification:Package 'src/controller_pkg' with type 'ros.ament_cmake' and name 'controller_pkg'
+[0.358s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.358s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.358s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.358s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.358s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.389s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.389s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.392s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /home/debraj/Documents/MotionPlanning/controller/install
+[0.396s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 388 installed packages in /opt/ros/jazzy
+[0.399s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.498s] Level 5:colcon.colcon_core.verb:set package 'controller_pkg' build argument 'cmake_args' from command line to 'None'
+[0.499s] Level 5:colcon.colcon_core.verb:set package 'controller_pkg' build argument 'cmake_target' from command line to 'None'
+[0.499s] Level 5:colcon.colcon_core.verb:set package 'controller_pkg' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.499s] Level 5:colcon.colcon_core.verb:set package 'controller_pkg' build argument 'cmake_clean_cache' from command line to 'False'
+[0.499s] Level 5:colcon.colcon_core.verb:set package 'controller_pkg' build argument 'cmake_clean_first' from command line to 'False'
+[0.499s] Level 5:colcon.colcon_core.verb:set package 'controller_pkg' build argument 'cmake_force_configure' from command line to 'False'
+[0.499s] Level 5:colcon.colcon_core.verb:set package 'controller_pkg' build argument 'ament_cmake_args' from command line to 'None'
+[0.499s] Level 5:colcon.colcon_core.verb:set package 'controller_pkg' build argument 'catkin_cmake_args' from command line to 'None'
+[0.499s] Level 5:colcon.colcon_core.verb:set package 'controller_pkg' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.499s] DEBUG:colcon.colcon_core.verb:Building package 'controller_pkg' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/debraj/Documents/MotionPlanning/controller/build/controller_pkg', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg', 'merge_install': False, 'path': '/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg', 'symlink_install': False, 'test_result_base': None}
+[0.499s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.501s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.501s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg' with build type 'ament_cmake'
+[0.501s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/debraj/Documents/MotionPlanning/controller/src/controller_pkg'
+[0.505s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.505s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.505s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.528s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/debraj/Documents/MotionPlanning/controller/build/controller_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/debraj/Documents/MotionPlanning/controller/build/controller_pkg -- -j8 -l8
+[14.660s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/debraj/Documents/MotionPlanning/controller/build/controller_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/debraj/Documents/MotionPlanning/controller/build/controller_pkg -- -j8 -l8
+[14.675s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/debraj/Documents/MotionPlanning/controller/build/controller_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/debraj/Documents/MotionPlanning/controller/build/controller_pkg
+[14.700s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(controller_pkg)
+[14.701s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/debraj/Documents/MotionPlanning/controller/build/controller_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/debraj/Documents/MotionPlanning/controller/build/controller_pkg
+[14.702s] Level 1:colcon.colcon_core.environment:checking '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg' for CMake module files
+[14.703s] Level 1:colcon.colcon_core.environment:checking '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg' for CMake config files
+[14.703s] Level 1:colcon.colcon_core.shell:create_environment_hook('controller_pkg', 'cmake_prefix_path')
+[14.703s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/controller_pkg/hook/cmake_prefix_path.ps1'
+[14.704s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/controller_pkg/hook/cmake_prefix_path.dsv'
+[14.704s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/controller_pkg/hook/cmake_prefix_path.sh'
+[14.705s] Level 1:colcon.colcon_core.environment:checking '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/lib'
+[14.705s] Level 1:colcon.colcon_core.environment:checking '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/bin'
+[14.705s] Level 1:colcon.colcon_core.environment:checking '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/lib/pkgconfig/controller_pkg.pc'
+[14.705s] Level 1:colcon.colcon_core.environment:checking '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/lib/python3.12/site-packages'
+[14.705s] Level 1:colcon.colcon_core.environment:checking '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/bin'
+[14.706s] INFO:colcon.colcon_core.shell:Creating package script '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/controller_pkg/package.ps1'
+[14.706s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/controller_pkg/package.dsv'
+[14.707s] INFO:colcon.colcon_core.shell:Creating package script '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/controller_pkg/package.sh'
+[14.707s] INFO:colcon.colcon_core.shell:Creating package script '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/controller_pkg/package.bash'
+[14.708s] INFO:colcon.colcon_core.shell:Creating package script '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/controller_pkg/package.zsh'
+[14.708s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/colcon-core/packages/controller_pkg)
+[14.709s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(controller_pkg)
+[14.709s] Level 1:colcon.colcon_core.environment:checking '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg' for CMake module files
+[14.709s] Level 1:colcon.colcon_core.environment:checking '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg' for CMake config files
+[14.709s] Level 1:colcon.colcon_core.shell:create_environment_hook('controller_pkg', 'cmake_prefix_path')
+[14.710s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/controller_pkg/hook/cmake_prefix_path.ps1'
+[14.710s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/controller_pkg/hook/cmake_prefix_path.dsv'
+[14.710s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/controller_pkg/hook/cmake_prefix_path.sh'
+[14.711s] Level 1:colcon.colcon_core.environment:checking '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/lib'
+[14.711s] Level 1:colcon.colcon_core.environment:checking '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/bin'
+[14.711s] Level 1:colcon.colcon_core.environment:checking '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/lib/pkgconfig/controller_pkg.pc'
+[14.711s] Level 1:colcon.colcon_core.environment:checking '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/lib/python3.12/site-packages'
+[14.711s] Level 1:colcon.colcon_core.environment:checking '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/bin'
+[14.711s] INFO:colcon.colcon_core.shell:Creating package script '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/controller_pkg/package.ps1'
+[14.712s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/controller_pkg/package.dsv'
+[14.712s] INFO:colcon.colcon_core.shell:Creating package script '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/controller_pkg/package.sh'
+[14.712s] INFO:colcon.colcon_core.shell:Creating package script '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/controller_pkg/package.bash'
+[14.713s] INFO:colcon.colcon_core.shell:Creating package script '/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/controller_pkg/package.zsh'
+[14.713s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/debraj/Documents/MotionPlanning/controller/install/controller_pkg/share/colcon-core/packages/controller_pkg)
+[14.714s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[14.714s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[14.714s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[14.715s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[14.720s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[14.720s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[14.720s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[14.743s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[14.743s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/debraj/Documents/MotionPlanning/controller/install/local_setup.ps1'
+[14.744s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/debraj/Documents/MotionPlanning/controller/install/_local_setup_util_ps1.py'
+[14.746s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/debraj/Documents/MotionPlanning/controller/install/setup.ps1'
+[14.748s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/debraj/Documents/MotionPlanning/controller/install/local_setup.sh'
+[14.749s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/debraj/Documents/MotionPlanning/controller/install/_local_setup_util_sh.py'
+[14.750s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/debraj/Documents/MotionPlanning/controller/install/setup.sh'
+[14.752s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/debraj/Documents/MotionPlanning/controller/install/local_setup.bash'
+[14.753s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/debraj/Documents/MotionPlanning/controller/install/setup.bash'
+[14.755s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/debraj/Documents/MotionPlanning/controller/install/local_setup.zsh'
+[14.757s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/debraj/Documents/MotionPlanning/controller/install/setup.zsh'

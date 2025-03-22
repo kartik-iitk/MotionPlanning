@@ -1,0 +1,443 @@
+[0.000000] (-) TimerEvent: {}
+[0.000880] (webots_pkg) JobQueued: {'identifier': 'webots_pkg', 'dependencies': OrderedDict()}
+[0.000926] (webots_pkg) JobStarted: {'identifier': 'webots_pkg'}
+[0.018566] (webots_pkg) JobProgress: {'identifier': 'webots_pkg', 'progress': 'cmake'}
+[0.019613] (webots_pkg) Command: {'cmd': ['/usr/bin/cmake', '/home/debraj/Documents/MotionPlanning/webots_sim/src/webots_pkg', '-DCMAKE_INSTALL_PREFIX=/home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg'], 'cwd': '/home/debraj/Documents/MotionPlanning/webots_sim/build/webots_pkg', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'debraj', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'wayland', 'ACADO_ENV_QPOASES_EMBEDDED_INC_DIRS': '/home/debraj/acado/external_packages/qpoases/;/home/debraj/acado/external_packages/qpoases/INCLUDE;/home/debraj/acado/external_packages/qpoases/SRC', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/usr/local/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/debraj', 'OLDPWD': '/home/debraj/Documents/MotionPlanning', 'DESKTOP_SESSION': 'ubuntu', 'ACADO_ENV_SHARED_LIBRARIES': 'acado_toolkit_s', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '2355', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'ACADO_ENV_LIBRARY_DIRS': '/home/debraj/acado/build/lib', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'ACADO_ENV_QPOASES_EMBEDDED_SOURCES': '/home/debraj/acado/external_packages/qpoases/SRC/Bounds.cpp;/home/debraj/acado/external_packages/qpoases/SRC/CyclingManager.cpp;/home/debraj/acado/external_packages/qpoases/SRC/MessageHandling.cpp;/home/debraj/acado/external_packages/qpoases/SRC/QProblem.cpp;/home/debraj/acado/external_packages/qpoases/SRC/Utils.cpp;/home/debraj/acado/external_packages/qpoases/SRC/Constraints.cpp;/home/debraj/acado/external_packages/qpoases/SRC/Indexlist.cpp;/home/debraj/acado/external_packages/qpoases/SRC/QProblemB.cpp;/home/debraj/acado/external_packages/qpoases/SRC/SubjectTo.cpp;/home/debraj/acado/external_packages/qpoases/SRC/EXTRAS/SolutionAnalysis.cpp', 'ACADO_ENV_EXTERNAL_PACKAGES_DIR': '/home/debraj/acado/external_packages', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'debraj', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'debraj', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/debraj/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:~/processing-4.3.4', 'SESSION_MANAGER': 'local/debraj-Lenovo-V15-G2-ALC-Ua:@/tmp/.ICE-unix/2323,unix/debraj-Lenovo-V15-G2-ALC-Ua:/tmp/.ICE-unix/2323', 'ACADO_ENV_CMAKE_DIR': '/home/debraj/acado/cmake', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/4fafbbe7_d889_46b8_81ab_3b3d1081ba75', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'ACADO_ENV_STATIC_LIBRARIES': '', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.FPDM32', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.222', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/debraj/Documents/MotionPlanning/webots_sim/build/webots_pkg', 'ACADO_ENV_INCLUDE_DIRS': '/home/debraj/acado;/home/debraj/acado/acado;/home/debraj/acado/external_packages;/home/debraj/acado/external_packages/qpOASES-3.2.0/include;/home/debraj/acado/build', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.099701] (-) TimerEvent: {}
+[0.157218] (webots_pkg) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[0.199858] (-) TimerEvent: {}
+[0.271325] (webots_pkg) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[0.300020] (-) TimerEvent: {}
+[0.300291] (webots_pkg) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.400179] (-) TimerEvent: {}
+[0.433815] (webots_pkg) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.443045] (webots_pkg) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.443500] (webots_pkg) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.444103] (webots_pkg) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.458899] (webots_pkg) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.500346] (-) TimerEvent: {}
+[0.597060] (webots_pkg) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.600490] (-) TimerEvent: {}
+[0.607367] (webots_pkg) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.607899] (webots_pkg) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.608204] (webots_pkg) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.615608] (webots_pkg) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.3 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.700659] (-) TimerEvent: {}
+[0.799767] (webots_pkg) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[0.800782] (-) TimerEvent: {}
+[0.901115] (-) TimerEvent: {}
+[0.969625] (webots_pkg) StdoutLine: {'line': b'-- Found rclcpp: 28.1.6 (/opt/ros/jazzy/share/rclcpp/cmake)\n'}
+[1.001280] (-) TimerEvent: {}
+[1.049729] (webots_pkg) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[1.074228] (webots_pkg) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[1.101456] (-) TimerEvent: {}
+[1.104626] (webots_pkg) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.138184] (webots_pkg) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.201616] (-) TimerEvent: {}
+[1.264046] (webots_pkg) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.1 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[1.270579] (webots_pkg) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 8.4.1 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)\n'}
+[1.301782] (-) TimerEvent: {}
+[1.402128] (-) TimerEvent: {}
+[1.424726] (webots_pkg) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  \n'}
+[1.450682] (webots_pkg) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") \n'}
+[1.478136] (webots_pkg) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[1.502300] (-) TimerEvent: {}
+[1.592722] (webots_pkg) StdoutLine: {'line': b'-- Found std_msgs: 5.3.5 (/opt/ros/jazzy/share/std_msgs/cmake)\n'}
+[1.602482] (-) TimerEvent: {}
+[1.619432] (webots_pkg) StdoutLine: {'line': b'-- Found geometry_msgs: 5.3.5 (/opt/ros/jazzy/share/geometry_msgs/cmake)\n'}
+[1.643690] (webots_pkg) StdoutLine: {'line': b'-- Found pluginlib: 5.4.2 (/opt/ros/jazzy/share/pluginlib/cmake)\n'}
+[1.674468] (webots_pkg) StdoutLine: {'line': b'-- Found webots_ros2_driver: 2025.0.0 (/opt/ros/jazzy/share/webots_ros2_driver/cmake)\n'}
+[1.702645] (-) TimerEvent: {}
+[1.758948] (webots_pkg) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.3.0 (/opt/ros/jazzy/share/eigen3_cmake_module/cmake)\n'}
+[1.760530] (webots_pkg) StdoutLine: {'line': b'-- Found Eigen3: TRUE (found version "3.4.0") \n'}
+[1.760667] (webots_pkg) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[1.802803] (-) TimerEvent: {}
+[1.903191] (-) TimerEvent: {}
+[2.003555] (-) TimerEvent: {}
+[2.103914] (-) TimerEvent: {}
+[2.165055] (webots_pkg) StdoutLine: {'line': b'-- Configuring done (2.1s)\n'}
+[2.204078] (-) TimerEvent: {}
+[2.240563] (webots_pkg) StdoutLine: {'line': b'-- Generating done (0.1s)\n'}
+[2.246085] (webots_pkg) StdoutLine: {'line': b'-- Build files have been written to: /home/debraj/Documents/MotionPlanning/webots_sim/build/webots_pkg\n'}
+[2.259718] (webots_pkg) CommandEnded: {'returncode': 0}
+[2.260448] (webots_pkg) JobProgress: {'identifier': 'webots_pkg', 'progress': 'build'}
+[2.261333] (webots_pkg) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/debraj/Documents/MotionPlanning/webots_sim/build/webots_pkg', '--', '-j8', '-l8'], 'cwd': '/home/debraj/Documents/MotionPlanning/webots_sim/build/webots_pkg', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'debraj', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'wayland', 'ACADO_ENV_QPOASES_EMBEDDED_INC_DIRS': '/home/debraj/acado/external_packages/qpoases/;/home/debraj/acado/external_packages/qpoases/INCLUDE;/home/debraj/acado/external_packages/qpoases/SRC', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/usr/local/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/debraj', 'OLDPWD': '/home/debraj/Documents/MotionPlanning', 'DESKTOP_SESSION': 'ubuntu', 'ACADO_ENV_SHARED_LIBRARIES': 'acado_toolkit_s', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '2355', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'ACADO_ENV_LIBRARY_DIRS': '/home/debraj/acado/build/lib', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'ACADO_ENV_QPOASES_EMBEDDED_SOURCES': '/home/debraj/acado/external_packages/qpoases/SRC/Bounds.cpp;/home/debraj/acado/external_packages/qpoases/SRC/CyclingManager.cpp;/home/debraj/acado/external_packages/qpoases/SRC/MessageHandling.cpp;/home/debraj/acado/external_packages/qpoases/SRC/QProblem.cpp;/home/debraj/acado/external_packages/qpoases/SRC/Utils.cpp;/home/debraj/acado/external_packages/qpoases/SRC/Constraints.cpp;/home/debraj/acado/external_packages/qpoases/SRC/Indexlist.cpp;/home/debraj/acado/external_packages/qpoases/SRC/QProblemB.cpp;/home/debraj/acado/external_packages/qpoases/SRC/SubjectTo.cpp;/home/debraj/acado/external_packages/qpoases/SRC/EXTRAS/SolutionAnalysis.cpp', 'ACADO_ENV_EXTERNAL_PACKAGES_DIR': '/home/debraj/acado/external_packages', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'debraj', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'debraj', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/debraj/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:~/processing-4.3.4', 'SESSION_MANAGER': 'local/debraj-Lenovo-V15-G2-ALC-Ua:@/tmp/.ICE-unix/2323,unix/debraj-Lenovo-V15-G2-ALC-Ua:/tmp/.ICE-unix/2323', 'ACADO_ENV_CMAKE_DIR': '/home/debraj/acado/cmake', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/4fafbbe7_d889_46b8_81ab_3b3d1081ba75', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'ACADO_ENV_STATIC_LIBRARIES': '', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.FPDM32', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.222', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/debraj/Documents/MotionPlanning/webots_sim/build/webots_pkg', 'ACADO_ENV_INCLUDE_DIRS': '/home/debraj/acado;/home/debraj/acado/acado;/home/debraj/acado/external_packages;/home/debraj/acado/external_packages/qpOASES-3.2.0/include;/home/debraj/acado/build', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[2.304596] (-) TimerEvent: {}
+[2.345812] (webots_pkg) StdoutLine: {'line': b'[ 58%] \x1b[32mBuilding CXX object CMakeFiles/webots_pkg.dir/src/MyRobotDriver_O3.cpp.o\x1b[0m\n'}
+[2.346125] (webots_pkg) StdoutLine: {'line': b'[ 58%] \x1b[32mBuilding CXX object CMakeFiles/webots_pkg.dir/src/MyRobotDriver_O5.cpp.o\x1b[0m\n'}
+[2.346227] (webots_pkg) StdoutLine: {'line': b'[ 58%] \x1b[32mBuilding CXX object CMakeFiles/webots_pkg.dir/src/MyRobotDriver_O4.cpp.o\x1b[0m\n'}
+[2.346321] (webots_pkg) StdoutLine: {'line': b'[ 58%] \x1b[32mBuilding CXX object CMakeFiles/webots_pkg.dir/src/MyRobotDriver_O2.cpp.o\x1b[0m\n'}
+[2.346440] (webots_pkg) StdoutLine: {'line': b'[ 58%] \x1b[32mBuilding CXX object CMakeFiles/webots_pkg.dir/src/MyRobotDriver_B1.cpp.o\x1b[0m\n'}
+[2.346545] (webots_pkg) StdoutLine: {'line': b'[ 58%] \x1b[32mBuilding CXX object CMakeFiles/webots_pkg.dir/src/MyRobotDriver_B2.cpp.o\x1b[0m\n'}
+[2.346664] (webots_pkg) StdoutLine: {'line': b'[ 58%] \x1b[32mBuilding CXX object CMakeFiles/webots_pkg.dir/src/MyRobotDriver_O1.cpp.o\x1b[0m\n'}
+[2.348325] (webots_pkg) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/webots_pkg.dir/src/MyRobotDriver_B3.cpp.o\x1b[0m\n'}
+[2.405343] (-) TimerEvent: {}
+[2.505706] (-) TimerEvent: {}
+[2.606138] (-) TimerEvent: {}
+[2.707211] (-) TimerEvent: {}
+[2.808387] (-) TimerEvent: {}
+[2.908754] (-) TimerEvent: {}
+[3.009137] (-) TimerEvent: {}
+[3.109749] (-) TimerEvent: {}
+[3.211603] (-) TimerEvent: {}
+[3.312165] (-) TimerEvent: {}
+[3.412776] (-) TimerEvent: {}
+[3.516344] (-) TimerEvent: {}
+[3.616874] (-) TimerEvent: {}
+[3.717431] (-) TimerEvent: {}
+[3.817978] (-) TimerEvent: {}
+[3.919584] (-) TimerEvent: {}
+[4.023541] (-) TimerEvent: {}
+[4.124027] (-) TimerEvent: {}
+[4.226603] (-) TimerEvent: {}
+[4.328575] (-) TimerEvent: {}
+[4.429113] (-) TimerEvent: {}
+[4.529698] (-) TimerEvent: {}
+[4.630329] (-) TimerEvent: {}
+[4.730908] (-) TimerEvent: {}
+[4.831447] (-) TimerEvent: {}
+[4.934859] (-) TimerEvent: {}
+[5.035398] (-) TimerEvent: {}
+[5.140569] (-) TimerEvent: {}
+[5.241118] (-) TimerEvent: {}
+[5.343463] (-) TimerEvent: {}
+[5.443981] (-) TimerEvent: {}
+[5.544546] (-) TimerEvent: {}
+[5.645077] (-) TimerEvent: {}
+[5.749592] (-) TimerEvent: {}
+[5.850175] (-) TimerEvent: {}
+[5.950719] (-) TimerEvent: {}
+[6.051563] (-) TimerEvent: {}
+[6.152196] (-) TimerEvent: {}
+[6.252836] (-) TimerEvent: {}
+[6.353395] (-) TimerEvent: {}
+[6.459405] (-) TimerEvent: {}
+[6.560017] (-) TimerEvent: {}
+[6.665817] (-) TimerEvent: {}
+[6.767111] (-) TimerEvent: {}
+[6.868157] (-) TimerEvent: {}
+[6.969182] (-) TimerEvent: {}
+[7.071756] (-) TimerEvent: {}
+[7.172239] (-) TimerEvent: {}
+[7.272713] (-) TimerEvent: {}
+[7.373195] (-) TimerEvent: {}
+[7.474556] (-) TimerEvent: {}
+[7.575052] (-) TimerEvent: {}
+[7.679808] (-) TimerEvent: {}
+[7.780312] (-) TimerEvent: {}
+[7.881092] (-) TimerEvent: {}
+[7.982149] (-) TimerEvent: {}
+[8.082676] (-) TimerEvent: {}
+[8.183191] (-) TimerEvent: {}
+[8.287836] (-) TimerEvent: {}
+[8.388394] (-) TimerEvent: {}
+[8.488986] (-) TimerEvent: {}
+[8.589502] (-) TimerEvent: {}
+[8.690007] (-) TimerEvent: {}
+[8.792499] (-) TimerEvent: {}
+[8.893003] (-) TimerEvent: {}
+[8.993536] (-) TimerEvent: {}
+[9.094029] (-) TimerEvent: {}
+[9.194554] (-) TimerEvent: {}
+[9.296558] (-) TimerEvent: {}
+[9.397771] (-) TimerEvent: {}
+[9.498626] (-) TimerEvent: {}
+[9.600537] (-) TimerEvent: {}
+[9.701037] (-) TimerEvent: {}
+[9.801561] (-) TimerEvent: {}
+[9.902054] (-) TimerEvent: {}
+[10.005554] (-) TimerEvent: {}
+[10.106077] (-) TimerEvent: {}
+[10.206614] (-) TimerEvent: {}
+[10.308461] (-) TimerEvent: {}
+[10.408979] (-) TimerEvent: {}
+[10.509535] (-) TimerEvent: {}
+[10.610070] (-) TimerEvent: {}
+[10.710592] (-) TimerEvent: {}
+[10.812835] (-) TimerEvent: {}
+[10.913346] (-) TimerEvent: {}
+[11.013823] (-) TimerEvent: {}
+[11.117556] (-) TimerEvent: {}
+[11.218033] (-) TimerEvent: {}
+[11.318525] (-) TimerEvent: {}
+[11.419051] (-) TimerEvent: {}
+[11.519566] (-) TimerEvent: {}
+[11.620063] (-) TimerEvent: {}
+[11.720572] (-) TimerEvent: {}
+[11.821098] (-) TimerEvent: {}
+[11.950571] (-) TimerEvent: {}
+[12.051067] (-) TimerEvent: {}
+[12.151619] (-) TimerEvent: {}
+[12.252099] (-) TimerEvent: {}
+[12.352545] (-) TimerEvent: {}
+[12.454829] (-) TimerEvent: {}
+[12.555375] (-) TimerEvent: {}
+[12.655907] (-) TimerEvent: {}
+[12.759832] (-) TimerEvent: {}
+[12.860378] (-) TimerEvent: {}
+[12.960918] (-) TimerEvent: {}
+[13.061941] (-) TimerEvent: {}
+[13.166896] (-) TimerEvent: {}
+[13.267389] (-) TimerEvent: {}
+[13.367858] (-) TimerEvent: {}
+[13.468345] (-) TimerEvent: {}
+[13.568900] (-) TimerEvent: {}
+[13.669429] (-) TimerEvent: {}
+[13.772827] (-) TimerEvent: {}
+[13.875736] (-) TimerEvent: {}
+[13.976513] (-) TimerEvent: {}
+[14.077072] (-) TimerEvent: {}
+[14.181599] (-) TimerEvent: {}
+[14.282151] (-) TimerEvent: {}
+[14.382574] (-) TimerEvent: {}
+[14.483069] (-) TimerEvent: {}
+[14.583615] (-) TimerEvent: {}
+[14.684124] (-) TimerEvent: {}
+[14.784651] (-) TimerEvent: {}
+[14.904575] (-) TimerEvent: {}
+[15.008874] (-) TimerEvent: {}
+[15.111656] (-) TimerEvent: {}
+[15.212290] (-) TimerEvent: {}
+[15.312806] (-) TimerEvent: {}
+[15.413441] (-) TimerEvent: {}
+[15.516103] (-) TimerEvent: {}
+[15.617072] (-) TimerEvent: {}
+[15.718511] (-) TimerEvent: {}
+[15.821863] (-) TimerEvent: {}
+[15.922610] (-) TimerEvent: {}
+[16.023256] (-) TimerEvent: {}
+[16.123923] (-) TimerEvent: {}
+[16.226979] (-) TimerEvent: {}
+[16.327544] (-) TimerEvent: {}
+[16.428067] (-) TimerEvent: {}
+[16.530557] (-) TimerEvent: {}
+[16.631546] (-) TimerEvent: {}
+[16.732091] (-) TimerEvent: {}
+[16.833585] (-) TimerEvent: {}
+[16.934090] (-) TimerEvent: {}
+[17.036656] (-) TimerEvent: {}
+[17.137359] (-) TimerEvent: {}
+[17.237880] (-) TimerEvent: {}
+[17.338365] (-) TimerEvent: {}
+[17.443666] (-) TimerEvent: {}
+[17.544327] (-) TimerEvent: {}
+[17.644892] (-) TimerEvent: {}
+[17.745443] (-) TimerEvent: {}
+[17.847584] (-) TimerEvent: {}
+[17.956610] (-) TimerEvent: {}
+[18.062552] (-) TimerEvent: {}
+[18.163018] (-) TimerEvent: {}
+[18.263552] (-) TimerEvent: {}
+[18.364074] (-) TimerEvent: {}
+[18.464565] (-) TimerEvent: {}
+[18.565069] (-) TimerEvent: {}
+[18.665547] (-) TimerEvent: {}
+[18.769573] (-) TimerEvent: {}
+[18.870103] (-) TimerEvent: {}
+[18.974748] (-) TimerEvent: {}
+[19.075249] (-) TimerEvent: {}
+[19.177560] (-) TimerEvent: {}
+[19.281270] (-) TimerEvent: {}
+[19.381971] (-) TimerEvent: {}
+[19.482536] (-) TimerEvent: {}
+[19.583341] (-) TimerEvent: {}
+[19.683824] (-) TimerEvent: {}
+[19.784347] (-) TimerEvent: {}
+[19.884846] (-) TimerEvent: {}
+[19.986588] (-) TimerEvent: {}
+[20.087094] (-) TimerEvent: {}
+[20.188869] (-) TimerEvent: {}
+[20.292980] (-) TimerEvent: {}
+[20.393502] (-) TimerEvent: {}
+[20.493973] (-) TimerEvent: {}
+[20.597588] (-) TimerEvent: {}
+[20.698066] (-) TimerEvent: {}
+[20.798601] (-) TimerEvent: {}
+[20.899121] (-) TimerEvent: {}
+[21.007573] (-) TimerEvent: {}
+[21.118808] (-) TimerEvent: {}
+[21.224630] (-) TimerEvent: {}
+[21.325341] (-) TimerEvent: {}
+[21.427249] (-) TimerEvent: {}
+[21.528243] (-) TimerEvent: {}
+[21.632028] (-) TimerEvent: {}
+[21.733309] (-) TimerEvent: {}
+[21.834363] (-) TimerEvent: {}
+[21.937657] (-) TimerEvent: {}
+[22.038689] (-) TimerEvent: {}
+[22.151779] (-) TimerEvent: {}
+[22.161476] (webots_pkg) StdoutLine: {'line': b'[ 83%] \x1b[32mBuilding CXX object CMakeFiles/webots_pkg.dir/src/MyRobotDriver_B4.cpp.o\x1b[0m\n'}
+[22.210907] (webots_pkg) StdoutLine: {'line': b'[ 83%] \x1b[32mBuilding CXX object CMakeFiles/webots_pkg.dir/src/MyRobotDriver_B5.cpp.o\x1b[0m\n'}
+[22.216698] (webots_pkg) StdoutLine: {'line': b'[ 91%] \x1b[32mBuilding CXX object CMakeFiles/webots_pkg.dir/src/ball_driver.cpp.o\x1b[0m\n'}
+[22.253864] (-) TimerEvent: {}
+[22.354471] (-) TimerEvent: {}
+[22.454853] (-) TimerEvent: {}
+[22.555276] (-) TimerEvent: {}
+[22.655632] (-) TimerEvent: {}
+[22.755989] (-) TimerEvent: {}
+[22.856443] (-) TimerEvent: {}
+[22.956894] (-) TimerEvent: {}
+[23.057373] (-) TimerEvent: {}
+[23.157891] (-) TimerEvent: {}
+[23.258436] (-) TimerEvent: {}
+[23.358904] (-) TimerEvent: {}
+[23.459388] (-) TimerEvent: {}
+[23.559879] (-) TimerEvent: {}
+[23.660345] (-) TimerEvent: {}
+[23.760831] (-) TimerEvent: {}
+[23.861268] (-) TimerEvent: {}
+[23.961764] (-) TimerEvent: {}
+[24.062177] (-) TimerEvent: {}
+[24.162638] (-) TimerEvent: {}
+[24.263122] (-) TimerEvent: {}
+[24.363575] (-) TimerEvent: {}
+[24.464042] (-) TimerEvent: {}
+[24.564537] (-) TimerEvent: {}
+[24.664974] (-) TimerEvent: {}
+[24.765381] (-) TimerEvent: {}
+[24.865844] (-) TimerEvent: {}
+[24.966324] (-) TimerEvent: {}
+[25.066817] (-) TimerEvent: {}
+[25.167290] (-) TimerEvent: {}
+[25.267772] (-) TimerEvent: {}
+[25.368254] (-) TimerEvent: {}
+[25.468745] (-) TimerEvent: {}
+[25.569222] (-) TimerEvent: {}
+[25.669721] (-) TimerEvent: {}
+[25.770219] (-) TimerEvent: {}
+[25.870684] (-) TimerEvent: {}
+[25.971142] (-) TimerEvent: {}
+[26.071637] (-) TimerEvent: {}
+[26.172108] (-) TimerEvent: {}
+[26.272569] (-) TimerEvent: {}
+[26.373033] (-) TimerEvent: {}
+[26.473514] (-) TimerEvent: {}
+[26.573990] (-) TimerEvent: {}
+[26.674470] (-) TimerEvent: {}
+[26.774865] (-) TimerEvent: {}
+[26.875338] (-) TimerEvent: {}
+[26.975783] (-) TimerEvent: {}
+[27.076330] (-) TimerEvent: {}
+[27.177251] (-) TimerEvent: {}
+[27.277906] (-) TimerEvent: {}
+[27.378376] (-) TimerEvent: {}
+[27.478879] (-) TimerEvent: {}
+[27.579355] (-) TimerEvent: {}
+[27.679859] (-) TimerEvent: {}
+[27.780336] (-) TimerEvent: {}
+[27.880906] (-) TimerEvent: {}
+[27.981455] (-) TimerEvent: {}
+[28.081937] (-) TimerEvent: {}
+[28.182451] (-) TimerEvent: {}
+[28.282934] (-) TimerEvent: {}
+[28.383469] (-) TimerEvent: {}
+[28.483935] (-) TimerEvent: {}
+[28.584447] (-) TimerEvent: {}
+[28.684959] (-) TimerEvent: {}
+[28.785505] (-) TimerEvent: {}
+[28.885939] (-) TimerEvent: {}
+[28.986298] (-) TimerEvent: {}
+[29.086765] (-) TimerEvent: {}
+[29.187195] (-) TimerEvent: {}
+[29.287690] (-) TimerEvent: {}
+[29.388179] (-) TimerEvent: {}
+[29.488696] (-) TimerEvent: {}
+[29.589102] (-) TimerEvent: {}
+[29.689484] (-) TimerEvent: {}
+[29.789828] (-) TimerEvent: {}
+[29.890167] (-) TimerEvent: {}
+[29.990551] (-) TimerEvent: {}
+[30.091015] (-) TimerEvent: {}
+[30.191495] (-) TimerEvent: {}
+[30.291940] (-) TimerEvent: {}
+[30.392359] (-) TimerEvent: {}
+[30.492742] (-) TimerEvent: {}
+[30.593209] (-) TimerEvent: {}
+[30.693698] (-) TimerEvent: {}
+[30.794145] (-) TimerEvent: {}
+[30.894605] (-) TimerEvent: {}
+[30.994953] (-) TimerEvent: {}
+[31.095340] (-) TimerEvent: {}
+[31.195756] (-) TimerEvent: {}
+[31.296206] (-) TimerEvent: {}
+[31.396709] (-) TimerEvent: {}
+[31.497169] (-) TimerEvent: {}
+[31.597637] (-) TimerEvent: {}
+[31.698052] (-) TimerEvent: {}
+[31.798500] (-) TimerEvent: {}
+[31.898968] (-) TimerEvent: {}
+[31.999482] (-) TimerEvent: {}
+[32.099987] (-) TimerEvent: {}
+[32.200498] (-) TimerEvent: {}
+[32.277389] (webots_pkg) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX shared library libwebots_pkg.so\x1b[0m\n'}
+[32.300615] (-) TimerEvent: {}
+[32.400969] (-) TimerEvent: {}
+[32.501445] (-) TimerEvent: {}
+[32.601899] (-) TimerEvent: {}
+[32.702366] (-) TimerEvent: {}
+[32.802856] (-) TimerEvent: {}
+[32.903368] (-) TimerEvent: {}
+[33.003893] (-) TimerEvent: {}
+[33.104375] (-) TimerEvent: {}
+[33.204905] (-) TimerEvent: {}
+[33.305388] (-) TimerEvent: {}
+[33.405939] (-) TimerEvent: {}
+[33.506452] (-) TimerEvent: {}
+[33.606889] (-) TimerEvent: {}
+[33.707335] (-) TimerEvent: {}
+[33.738561] (webots_pkg) StdoutLine: {'line': b'[100%] Built target webots_pkg\n'}
+[33.808479] (webots_pkg) CommandEnded: {'returncode': 0}
+[33.839273] (-) TimerEvent: {}
+[33.851658] (webots_pkg) JobProgress: {'identifier': 'webots_pkg', 'progress': 'install'}
+[33.881852] (webots_pkg) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/debraj/Documents/MotionPlanning/webots_sim/build/webots_pkg'], 'cwd': '/home/debraj/Documents/MotionPlanning/webots_sim/build/webots_pkg', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'debraj', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'wayland', 'ACADO_ENV_QPOASES_EMBEDDED_INC_DIRS': '/home/debraj/acado/external_packages/qpoases/;/home/debraj/acado/external_packages/qpoases/INCLUDE;/home/debraj/acado/external_packages/qpoases/SRC', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/usr/local/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/debraj', 'OLDPWD': '/home/debraj/Documents/MotionPlanning', 'DESKTOP_SESSION': 'ubuntu', 'ACADO_ENV_SHARED_LIBRARIES': 'acado_toolkit_s', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '2355', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'ACADO_ENV_LIBRARY_DIRS': '/home/debraj/acado/build/lib', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'ACADO_ENV_QPOASES_EMBEDDED_SOURCES': '/home/debraj/acado/external_packages/qpoases/SRC/Bounds.cpp;/home/debraj/acado/external_packages/qpoases/SRC/CyclingManager.cpp;/home/debraj/acado/external_packages/qpoases/SRC/MessageHandling.cpp;/home/debraj/acado/external_packages/qpoases/SRC/QProblem.cpp;/home/debraj/acado/external_packages/qpoases/SRC/Utils.cpp;/home/debraj/acado/external_packages/qpoases/SRC/Constraints.cpp;/home/debraj/acado/external_packages/qpoases/SRC/Indexlist.cpp;/home/debraj/acado/external_packages/qpoases/SRC/QProblemB.cpp;/home/debraj/acado/external_packages/qpoases/SRC/SubjectTo.cpp;/home/debraj/acado/external_packages/qpoases/SRC/EXTRAS/SolutionAnalysis.cpp', 'ACADO_ENV_EXTERNAL_PACKAGES_DIR': '/home/debraj/acado/external_packages', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'debraj', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'debraj', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/debraj/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:~/processing-4.3.4', 'SESSION_MANAGER': 'local/debraj-Lenovo-V15-G2-ALC-Ua:@/tmp/.ICE-unix/2323,unix/debraj-Lenovo-V15-G2-ALC-Ua:/tmp/.ICE-unix/2323', 'ACADO_ENV_CMAKE_DIR': '/home/debraj/acado/cmake', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/4fafbbe7_d889_46b8_81ab_3b3d1081ba75', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'ACADO_ENV_STATIC_LIBRARIES': '', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.FPDM32', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.222', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/debraj/Documents/MotionPlanning/webots_sim/build/webots_pkg', 'ACADO_ENV_INCLUDE_DIRS': '/home/debraj/acado;/home/debraj/acado/acado;/home/debraj/acado/external_packages;/home/debraj/acado/external_packages/qpOASES-3.2.0/include;/home/debraj/acado/build', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[33.893001] (webots_pkg) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[33.894173] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/my_robot_driver.xml\n'}
+[33.894699] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/lib/libwebots_pkg.so\n'}
+[33.903042] (webots_pkg) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/lib/libwebots_pkg.so" to ""\n'}
+[33.903368] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//launch\n'}
+[33.903866] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//launch/robot_launch.py\n'}
+[33.904177] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//resource\n'}
+[33.904435] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//resource/my_robot_O2.urdf\n'}
+[33.904729] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//resource/my_robot_B1.urdf\n'}
+[33.904969] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//resource/my_robot_B5.urdf\n'}
+[33.905139] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//resource/my_robot_O3.urdf\n'}
+[33.905381] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//resource/ball.urdf\n'}
+[33.905563] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//resource/my_robot_O1.urdf\n'}
+[33.905800] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//resource/my_robot_B4.urdf\n'}
+[33.905997] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//resource/my_robot_O4.urdf\n'}
+[33.906191] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//resource/my_robot_B2.urdf\n'}
+[33.906477] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//resource/my_robot_O5.urdf\n'}
+[33.906669] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//resource/my_robot_B3.urdf\n'}
+[33.906864] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//worlds\n'}
+[33.907085] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//worlds/.RoboCupMSL.wbproj\n'}
+[33.907352] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//worlds/RobocupSoccerField.proto\n'}
+[33.907714] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//worlds/BluePlayer.proto\n'}
+[33.908002] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//worlds/OrangePlayer.proto\n'}
+[33.908385] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//worlds/.RoboCupMSL.jpg\n'}
+[33.908772] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//worlds/sphereball.proto\n'}
+[33.909031] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//worlds/RoboCupMSL.wbt\n'}
+[33.909365] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//worlds/RobocupSoccerBall.proto\n'}
+[33.911230] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/environment/library_path.sh\n'}
+[33.911757] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/environment/library_path.dsv\n'}
+[33.912993] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/ament_index/resource_index/package_run_dependencies/webots_pkg\n'}
+[33.913491] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/ament_index/resource_index/parent_prefix_path/webots_pkg\n'}
+[33.915281] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/environment/ament_prefix_path.sh\n'}
+[33.915921] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/environment/ament_prefix_path.dsv\n'}
+[33.916282] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/environment/path.sh\n'}
+[33.916655] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/environment/path.dsv\n'}
+[33.916958] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/local_setup.bash\n'}
+[33.917256] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/local_setup.sh\n'}
+[33.917601] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/local_setup.zsh\n'}
+[33.917919] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/local_setup.dsv\n'}
+[33.918223] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/package.dsv\n'}
+[33.918733] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/ament_index/resource_index/packages/webots_pkg\n'}
+[33.919135] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/ament_index/resource_index/webots_ros2_driver__pluginlib__plugin/webots_pkg\n'}
+[33.919629] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[33.920047] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[33.920548] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/cmake/webots_pkgConfig.cmake\n'}
+[33.920825] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/cmake/webots_pkgConfig-version.cmake\n'}
+[33.921124] (webots_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/package.xml\n'}
+[33.931631] (webots_pkg) CommandEnded: {'returncode': 0}
+[33.943730] (-) TimerEvent: {}
+[34.028974] (webots_pkg) JobEnded: {'identifier': 'webots_pkg', 'rc': 0}
+[34.032963] (-) EventReactorShutdown: {}

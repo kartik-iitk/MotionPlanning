@@ -1,0 +1,572 @@
+[0.000000] (-) TimerEvent: {}
+[0.001667] (path_planner_pkg) JobQueued: {'identifier': 'path_planner_pkg', 'dependencies': OrderedDict()}
+[0.001802] (path_planner_pkg) JobStarted: {'identifier': 'path_planner_pkg'}
+[0.027850] (path_planner_pkg) JobProgress: {'identifier': 'path_planner_pkg', 'progress': 'cmake'}
+[0.031292] (path_planner_pkg) JobProgress: {'identifier': 'path_planner_pkg', 'progress': 'build'}
+[0.033321] (path_planner_pkg) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/debraj/Documents/MotionPlanning/path_planner/build/path_planner_pkg', '--', '-j8', '-l8'], 'cwd': '/home/debraj/Documents/MotionPlanning/path_planner/build/path_planner_pkg', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'debraj', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'wayland', 'ACADO_ENV_QPOASES_EMBEDDED_INC_DIRS': '/home/debraj/acado/external_packages/qpoases/;/home/debraj/acado/external_packages/qpoases/INCLUDE;/home/debraj/acado/external_packages/qpoases/SRC', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/usr/local/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/debraj', 'OLDPWD': '/home/debraj/Documents/MotionPlanning', 'DESKTOP_SESSION': 'ubuntu', 'ACADO_ENV_SHARED_LIBRARIES': 'acado_toolkit_s', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '2518', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'ACADO_ENV_LIBRARY_DIRS': '/home/debraj/acado/build/lib', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'ACADO_ENV_QPOASES_EMBEDDED_SOURCES': '/home/debraj/acado/external_packages/qpoases/SRC/Bounds.cpp;/home/debraj/acado/external_packages/qpoases/SRC/CyclingManager.cpp;/home/debraj/acado/external_packages/qpoases/SRC/MessageHandling.cpp;/home/debraj/acado/external_packages/qpoases/SRC/QProblem.cpp;/home/debraj/acado/external_packages/qpoases/SRC/Utils.cpp;/home/debraj/acado/external_packages/qpoases/SRC/Constraints.cpp;/home/debraj/acado/external_packages/qpoases/SRC/Indexlist.cpp;/home/debraj/acado/external_packages/qpoases/SRC/QProblemB.cpp;/home/debraj/acado/external_packages/qpoases/SRC/SubjectTo.cpp;/home/debraj/acado/external_packages/qpoases/SRC/EXTRAS/SolutionAnalysis.cpp', 'GNOME_KEYRING_CONTROL': '/run/user/1000/keyring', 'ACADO_ENV_EXTERNAL_PACKAGES_DIR': '/home/debraj/acado/external_packages', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/debraj/Documents/MotionPlanning/path_planner/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'debraj', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.SettingsDaemon.MediaKeys.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'debraj', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/debraj/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:~/processing-4.3.4', 'SESSION_MANAGER': 'local/debraj-Lenovo-V15-G2-ALC-Ua:@/tmp/.ICE-unix/2323,unix/debraj-Lenovo-V15-G2-ALC-Ua:/tmp/.ICE-unix/2323', 'ACADO_ENV_CMAKE_DIR': '/home/debraj/acado/cmake', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/717e9138_1de7_4e58_bea6_e9ebabfcf418', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'ACADO_ENV_STATIC_LIBRARIES': '', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.FPDM32', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.347', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/debraj/Documents/MotionPlanning/path_planner/install/path_planner_pkg:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/debraj/Documents/MotionPlanning/path_planner/build/path_planner_pkg', 'ACADO_ENV_INCLUDE_DIRS': '/home/debraj/acado;/home/debraj/acado/acado;/home/debraj/acado/external_packages;/home/debraj/acado/external_packages/qpOASES-3.2.0/include;/home/debraj/acado/build', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/debraj/Documents/MotionPlanning/path_planner/install/path_planner_pkg:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.099813] (-) TimerEvent: {}
+[0.200677] (-) TimerEvent: {}
+[0.259409] (path_planner_pkg) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/main.dir/src/main.cpp.o\x1b[0m\n'}
+[0.300937] (-) TimerEvent: {}
+[0.401673] (-) TimerEvent: {}
+[0.502482] (-) TimerEvent: {}
+[0.603276] (-) TimerEvent: {}
+[0.704275] (-) TimerEvent: {}
+[0.805046] (-) TimerEvent: {}
+[0.905705] (-) TimerEvent: {}
+[1.006306] (-) TimerEvent: {}
+[1.106892] (-) TimerEvent: {}
+[1.207693] (-) TimerEvent: {}
+[1.308368] (-) TimerEvent: {}
+[1.408745] (-) TimerEvent: {}
+[1.509228] (-) TimerEvent: {}
+[1.610031] (-) TimerEvent: {}
+[1.711025] (-) TimerEvent: {}
+[1.811708] (-) TimerEvent: {}
+[1.912627] (-) TimerEvent: {}
+[2.013495] (-) TimerEvent: {}
+[2.114215] (-) TimerEvent: {}
+[2.214917] (-) TimerEvent: {}
+[2.315479] (-) TimerEvent: {}
+[2.416007] (-) TimerEvent: {}
+[2.516719] (-) TimerEvent: {}
+[2.617433] (-) TimerEvent: {}
+[2.718366] (-) TimerEvent: {}
+[2.819205] (-) TimerEvent: {}
+[2.920050] (-) TimerEvent: {}
+[3.020797] (-) TimerEvent: {}
+[3.121821] (-) TimerEvent: {}
+[3.222542] (-) TimerEvent: {}
+[3.323238] (-) TimerEvent: {}
+[3.423963] (-) TimerEvent: {}
+[3.524801] (-) TimerEvent: {}
+[3.625654] (-) TimerEvent: {}
+[3.726544] (-) TimerEvent: {}
+[3.827282] (-) TimerEvent: {}
+[3.928051] (-) TimerEvent: {}
+[4.028968] (-) TimerEvent: {}
+[4.129941] (-) TimerEvent: {}
+[4.230513] (-) TimerEvent: {}
+[4.331395] (-) TimerEvent: {}
+[4.432309] (-) TimerEvent: {}
+[4.533314] (-) TimerEvent: {}
+[4.634100] (-) TimerEvent: {}
+[4.734938] (-) TimerEvent: {}
+[4.835872] (-) TimerEvent: {}
+[4.936649] (-) TimerEvent: {}
+[5.037160] (-) TimerEvent: {}
+[5.137876] (-) TimerEvent: {}
+[5.238861] (-) TimerEvent: {}
+[5.345331] (-) TimerEvent: {}
+[5.446433] (-) TimerEvent: {}
+[5.547676] (-) TimerEvent: {}
+[5.648634] (-) TimerEvent: {}
+[5.751233] (-) TimerEvent: {}
+[5.852418] (-) TimerEvent: {}
+[5.953393] (-) TimerEvent: {}
+[6.054863] (-) TimerEvent: {}
+[6.155725] (-) TimerEvent: {}
+[6.256203] (-) TimerEvent: {}
+[6.356771] (-) TimerEvent: {}
+[6.457682] (-) TimerEvent: {}
+[6.558410] (-) TimerEvent: {}
+[6.659268] (-) TimerEvent: {}
+[6.759814] (-) TimerEvent: {}
+[6.860308] (-) TimerEvent: {}
+[6.960997] (-) TimerEvent: {}
+[7.061973] (-) TimerEvent: {}
+[7.162828] (-) TimerEvent: {}
+[7.263691] (-) TimerEvent: {}
+[7.364298] (-) TimerEvent: {}
+[7.465236] (-) TimerEvent: {}
+[7.566043] (-) TimerEvent: {}
+[7.666807] (-) TimerEvent: {}
+[7.767776] (-) TimerEvent: {}
+[7.868379] (-) TimerEvent: {}
+[7.969232] (-) TimerEvent: {}
+[8.070022] (-) TimerEvent: {}
+[8.171884] (-) TimerEvent: {}
+[8.273218] (-) TimerEvent: {}
+[8.374387] (-) TimerEvent: {}
+[8.475589] (-) TimerEvent: {}
+[8.576371] (-) TimerEvent: {}
+[8.677018] (-) TimerEvent: {}
+[8.777616] (-) TimerEvent: {}
+[8.878316] (-) TimerEvent: {}
+[8.979073] (-) TimerEvent: {}
+[9.079878] (-) TimerEvent: {}
+[9.180800] (-) TimerEvent: {}
+[9.281649] (-) TimerEvent: {}
+[9.382662] (-) TimerEvent: {}
+[9.483580] (-) TimerEvent: {}
+[9.584265] (-) TimerEvent: {}
+[9.684957] (-) TimerEvent: {}
+[9.785697] (-) TimerEvent: {}
+[9.886641] (-) TimerEvent: {}
+[9.987342] (-) TimerEvent: {}
+[10.088001] (-) TimerEvent: {}
+[10.188827] (-) TimerEvent: {}
+[10.289648] (-) TimerEvent: {}
+[10.390823] (-) TimerEvent: {}
+[10.492019] (-) TimerEvent: {}
+[10.593297] (-) TimerEvent: {}
+[10.695744] (-) TimerEvent: {}
+[10.797170] (-) TimerEvent: {}
+[10.897907] (-) TimerEvent: {}
+[10.999326] (-) TimerEvent: {}
+[11.101049] (-) TimerEvent: {}
+[11.205853] (-) TimerEvent: {}
+[11.306872] (-) TimerEvent: {}
+[11.407687] (-) TimerEvent: {}
+[11.508644] (-) TimerEvent: {}
+[11.609626] (-) TimerEvent: {}
+[11.712331] (-) TimerEvent: {}
+[11.815581] (-) TimerEvent: {}
+[11.917110] (-) TimerEvent: {}
+[12.022917] (-) TimerEvent: {}
+[12.124816] (-) TimerEvent: {}
+[12.233249] (-) TimerEvent: {}
+[12.334439] (-) TimerEvent: {}
+[12.436854] (-) TimerEvent: {}
+[12.537635] (-) TimerEvent: {}
+[12.643015] (-) TimerEvent: {}
+[12.743636] (-) TimerEvent: {}
+[12.844307] (-) TimerEvent: {}
+[12.946920] (-) TimerEvent: {}
+[13.048281] (-) TimerEvent: {}
+[13.149186] (-) TimerEvent: {}
+[13.251567] (-) TimerEvent: {}
+[13.352394] (-) TimerEvent: {}
+[13.455929] (-) TimerEvent: {}
+[13.556768] (-) TimerEvent: {}
+[13.657576] (-) TimerEvent: {}
+[13.759808] (-) TimerEvent: {}
+[13.863825] (-) TimerEvent: {}
+[13.870268] (path_planner_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/debraj/Documents/MotionPlanning/path_planner/src/path_planner_pkg/src/main.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid ListenerNode::\x1b[01;32m\x1b[Kpublish_next_point\x1b[m\x1b[K(std::vector<Point2D>&, Point2D&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[13.871425] (path_planner_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/debraj/Documents/MotionPlanning/path_planner/src/path_planner_pkg/src/main.cpp:317:29:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Knarrowing conversion of \xe2\x80\x98\x1b[01m\x1b[Kx1\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wnarrowing\x07-Wnarrowing\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[13.871884] (path_planner_pkg) StderrLine: {'line': b'  317 |             message.data = {\x1b[01;35m\x1b[Kx1\x1b[m\x1b[K, y1, theta, vx, vy, omega, speed, idx, path.size()};\n'}
+[13.872015] (path_planner_pkg) StderrLine: {'line': b'      |                             \x1b[01;35m\x1b[K^~\x1b[m\x1b[K\n'}
+[13.872126] (path_planner_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/debraj/Documents/MotionPlanning/path_planner/src/path_planner_pkg/src/main.cpp:317:29:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Knarrowing conversion of \xe2\x80\x98\x1b[01m\x1b[Kx1\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wnarrowing\x07-Wnarrowing\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[13.872260] (path_planner_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/debraj/Documents/MotionPlanning/path_planner/src/path_planner_pkg/src/main.cpp:317:33:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Knarrowing conversion of \xe2\x80\x98\x1b[01m\x1b[Ky1\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wnarrowing\x07-Wnarrowing\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[13.872378] (path_planner_pkg) StderrLine: {'line': b'  317 |             message.data = {x1, \x1b[01;35m\x1b[Ky1\x1b[m\x1b[K, theta, vx, vy, omega, speed, idx, path.size()};\n'}
+[13.872551] (path_planner_pkg) StderrLine: {'line': b'      |                                 \x1b[01;35m\x1b[K^~\x1b[m\x1b[K\n'}
+[13.872663] (path_planner_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/debraj/Documents/MotionPlanning/path_planner/src/path_planner_pkg/src/main.cpp:317:33:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Knarrowing conversion of \xe2\x80\x98\x1b[01m\x1b[Ky1\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wnarrowing\x07-Wnarrowing\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[13.872792] (path_planner_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/debraj/Documents/MotionPlanning/path_planner/src/path_planner_pkg/src/main.cpp:317:37:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Knarrowing conversion of \xe2\x80\x98\x1b[01m\x1b[Ktheta\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wnarrowing\x07-Wnarrowing\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[13.872941] (path_planner_pkg) StderrLine: {'line': b'  317 |             message.data = {x1, y1, \x1b[01;35m\x1b[Ktheta\x1b[m\x1b[K, vx, vy, omega, speed, idx, path.size()};\n'}
+[13.873040] (path_planner_pkg) StderrLine: {'line': b'      |                                     \x1b[01;35m\x1b[K^~~~~\x1b[m\x1b[K\n'}
+[13.873150] (path_planner_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/debraj/Documents/MotionPlanning/path_planner/src/path_planner_pkg/src/main.cpp:317:37:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Knarrowing conversion of \xe2\x80\x98\x1b[01m\x1b[Ktheta\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wnarrowing\x07-Wnarrowing\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[13.873255] (path_planner_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/debraj/Documents/MotionPlanning/path_planner/src/path_planner_pkg/src/main.cpp:317:44:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Knarrowing conversion of \xe2\x80\x98\x1b[01m\x1b[Kvx\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wnarrowing\x07-Wnarrowing\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[13.873352] (path_planner_pkg) StderrLine: {'line': b'  317 |             message.data = {x1, y1, theta, \x1b[01;35m\x1b[Kvx\x1b[m\x1b[K, vy, omega, speed, idx, path.size()};\n'}
+[13.873486] (path_planner_pkg) StderrLine: {'line': b'      |                                            \x1b[01;35m\x1b[K^~\x1b[m\x1b[K\n'}
+[13.873601] (path_planner_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/debraj/Documents/MotionPlanning/path_planner/src/path_planner_pkg/src/main.cpp:317:44:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Knarrowing conversion of \xe2\x80\x98\x1b[01m\x1b[Kvx\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wnarrowing\x07-Wnarrowing\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[13.873755] (path_planner_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/debraj/Documents/MotionPlanning/path_planner/src/path_planner_pkg/src/main.cpp:317:48:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Knarrowing conversion of \xe2\x80\x98\x1b[01m\x1b[Kvy\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wnarrowing\x07-Wnarrowing\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[13.873880] (path_planner_pkg) StderrLine: {'line': b'  317 |             message.data = {x1, y1, theta, vx, \x1b[01;35m\x1b[Kvy\x1b[m\x1b[K, omega, speed, idx, path.size()};\n'}
+[13.873975] (path_planner_pkg) StderrLine: {'line': b'      |                                                \x1b[01;35m\x1b[K^~\x1b[m\x1b[K\n'}
+[13.874067] (path_planner_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/debraj/Documents/MotionPlanning/path_planner/src/path_planner_pkg/src/main.cpp:317:48:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Knarrowing conversion of \xe2\x80\x98\x1b[01m\x1b[Kvy\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wnarrowing\x07-Wnarrowing\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[13.874167] (path_planner_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/debraj/Documents/MotionPlanning/path_planner/src/path_planner_pkg/src/main.cpp:317:52:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Knarrowing conversion of \xe2\x80\x98\x1b[01m\x1b[Komega\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wnarrowing\x07-Wnarrowing\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[13.874279] (path_planner_pkg) StderrLine: {'line': b'  317 |             message.data = {x1, y1, theta, vx, vy, \x1b[01;35m\x1b[Komega\x1b[m\x1b[K, speed, idx, path.size()};\n'}
+[13.874374] (path_planner_pkg) StderrLine: {'line': b'      |                                                    \x1b[01;35m\x1b[K^~~~~\x1b[m\x1b[K\n'}
+[13.874518] (path_planner_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/debraj/Documents/MotionPlanning/path_planner/src/path_planner_pkg/src/main.cpp:317:52:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Knarrowing conversion of \xe2\x80\x98\x1b[01m\x1b[Komega\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wnarrowing\x07-Wnarrowing\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[13.874832] (path_planner_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/debraj/Documents/MotionPlanning/path_planner/src/path_planner_pkg/src/main.cpp:317:59:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Knarrowing conversion of \xe2\x80\x98\x1b[01m\x1b[Kspeed\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wnarrowing\x07-Wnarrowing\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[13.874974] (path_planner_pkg) StderrLine: {'line': b'  317 |             message.data = {x1, y1, theta, vx, vy, omega, \x1b[01;35m\x1b[Kspeed\x1b[m\x1b[K, idx, path.size()};\n'}
+[13.875103] (path_planner_pkg) StderrLine: {'line': b'      |                                                           \x1b[01;35m\x1b[K^~~~~\x1b[m\x1b[K\n'}
+[13.875212] (path_planner_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/debraj/Documents/MotionPlanning/path_planner/src/path_planner_pkg/src/main.cpp:317:59:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Knarrowing conversion of \xe2\x80\x98\x1b[01m\x1b[Kspeed\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Kdouble\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wnarrowing\x07-Wnarrowing\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[13.875318] (path_planner_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/debraj/Documents/MotionPlanning/path_planner/src/path_planner_pkg/src/main.cpp:317:66:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Knarrowing conversion of \xe2\x80\x98\x1b[01m\x1b[Kidx\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wnarrowing\x07-Wnarrowing\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[13.875421] (path_planner_pkg) StderrLine: {'line': b'  317 |             message.data = {x1, y1, theta, vx, vy, omega, speed, \x1b[01;35m\x1b[Kidx\x1b[m\x1b[K, path.size()};\n'}
+[13.875570] (path_planner_pkg) StderrLine: {'line': b'      |                                                                  \x1b[01;35m\x1b[K^~~\x1b[m\x1b[K\n'}
+[13.875668] (path_planner_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/debraj/Documents/MotionPlanning/path_planner/src/path_planner_pkg/src/main.cpp:317:66:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Knarrowing conversion of \xe2\x80\x98\x1b[01m\x1b[Kidx\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wnarrowing\x07-Wnarrowing\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[13.875829] (path_planner_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/debraj/Documents/MotionPlanning/path_planner/src/path_planner_pkg/src/main.cpp:317:80:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Knarrowing conversion of \xe2\x80\x98\x1b[01m\x1b[K(& path)->std::vector<Point2D>::size()\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<Point2D>::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} to \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wnarrowing\x07-Wnarrowing\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[13.875963] (path_planner_pkg) StderrLine: {'line': b'  317 |             message.data = {x1, y1, theta, vx, vy, omega, speed, idx, \x1b[01;35m\x1b[Kpath.size()\x1b[m\x1b[K};\n'}
+[13.876055] (path_planner_pkg) StderrLine: {'line': b'      |                                                                       \x1b[01;35m\x1b[K~~~~~~~~~^~\x1b[m\x1b[K\n'}
+[13.876147] (path_planner_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/debraj/Documents/MotionPlanning/path_planner/src/path_planner_pkg/src/main.cpp:317:80:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Knarrowing conversion of \xe2\x80\x98\x1b[01m\x1b[K(& path)->std::vector<Point2D>::size()\x1b[m\x1b[K\xe2\x80\x99 from \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<Point2D>::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} to \xe2\x80\x98\x1b[01m\x1b[Kfloat\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wnarrowing\x07-Wnarrowing\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[13.964012] (-) TimerEvent: {}
+[14.068356] (-) TimerEvent: {}
+[14.172253] (-) TimerEvent: {}
+[14.276663] (-) TimerEvent: {}
+[14.377693] (-) TimerEvent: {}
+[14.479004] (-) TimerEvent: {}
+[14.582693] (-) TimerEvent: {}
+[14.683772] (-) TimerEvent: {}
+[14.788258] (-) TimerEvent: {}
+[14.890733] (-) TimerEvent: {}
+[14.991529] (-) TimerEvent: {}
+[15.092040] (-) TimerEvent: {}
+[15.193307] (-) TimerEvent: {}
+[15.294728] (-) TimerEvent: {}
+[15.395776] (-) TimerEvent: {}
+[15.497336] (-) TimerEvent: {}
+[15.599042] (-) TimerEvent: {}
+[15.701668] (-) TimerEvent: {}
+[15.802686] (-) TimerEvent: {}
+[15.903726] (-) TimerEvent: {}
+[16.004517] (-) TimerEvent: {}
+[16.108682] (-) TimerEvent: {}
+[16.211012] (-) TimerEvent: {}
+[16.312276] (-) TimerEvent: {}
+[16.413205] (-) TimerEvent: {}
+[16.513948] (-) TimerEvent: {}
+[16.616074] (-) TimerEvent: {}
+[16.716844] (-) TimerEvent: {}
+[16.817696] (-) TimerEvent: {}
+[16.919052] (-) TimerEvent: {}
+[17.022047] (-) TimerEvent: {}
+[17.125619] (-) TimerEvent: {}
+[17.226526] (-) TimerEvent: {}
+[17.326996] (-) TimerEvent: {}
+[17.433085] (-) TimerEvent: {}
+[17.535259] (-) TimerEvent: {}
+[17.636529] (-) TimerEvent: {}
+[17.744190] (-) TimerEvent: {}
+[17.845047] (-) TimerEvent: {}
+[17.948047] (-) TimerEvent: {}
+[18.049929] (-) TimerEvent: {}
+[18.150823] (-) TimerEvent: {}
+[18.251940] (-) TimerEvent: {}
+[18.353163] (-) TimerEvent: {}
+[18.453987] (-) TimerEvent: {}
+[18.554909] (-) TimerEvent: {}
+[18.655834] (-) TimerEvent: {}
+[18.756330] (-) TimerEvent: {}
+[18.857629] (-) TimerEvent: {}
+[18.959263] (-) TimerEvent: {}
+[19.061699] (-) TimerEvent: {}
+[19.163535] (-) TimerEvent: {}
+[19.264550] (-) TimerEvent: {}
+[19.365714] (-) TimerEvent: {}
+[19.466236] (-) TimerEvent: {}
+[19.568380] (-) TimerEvent: {}
+[19.669571] (-) TimerEvent: {}
+[19.770207] (-) TimerEvent: {}
+[19.871266] (-) TimerEvent: {}
+[19.972396] (-) TimerEvent: {}
+[20.075004] (-) TimerEvent: {}
+[20.176920] (-) TimerEvent: {}
+[20.279998] (-) TimerEvent: {}
+[20.384537] (-) TimerEvent: {}
+[20.486669] (-) TimerEvent: {}
+[20.587853] (-) TimerEvent: {}
+[20.689235] (-) TimerEvent: {}
+[20.796060] (-) TimerEvent: {}
+[20.897873] (-) TimerEvent: {}
+[20.998696] (-) TimerEvent: {}
+[21.099499] (-) TimerEvent: {}
+[21.199944] (-) TimerEvent: {}
+[21.300449] (-) TimerEvent: {}
+[21.401373] (-) TimerEvent: {}
+[21.503093] (-) TimerEvent: {}
+[21.605009] (-) TimerEvent: {}
+[21.705768] (-) TimerEvent: {}
+[21.808901] (-) TimerEvent: {}
+[21.909893] (-) TimerEvent: {}
+[22.010485] (-) TimerEvent: {}
+[22.111378] (-) TimerEvent: {}
+[22.212363] (-) TimerEvent: {}
+[22.313525] (-) TimerEvent: {}
+[22.414071] (-) TimerEvent: {}
+[22.514547] (-) TimerEvent: {}
+[22.615736] (-) TimerEvent: {}
+[22.719042] (-) TimerEvent: {}
+[22.820656] (-) TimerEvent: {}
+[22.921919] (-) TimerEvent: {}
+[23.023886] (-) TimerEvent: {}
+[23.130707] (-) TimerEvent: {}
+[23.231236] (-) TimerEvent: {}
+[23.331834] (-) TimerEvent: {}
+[23.437999] (-) TimerEvent: {}
+[23.545601] (-) TimerEvent: {}
+[23.646403] (-) TimerEvent: {}
+[23.747177] (-) TimerEvent: {}
+[23.848197] (-) TimerEvent: {}
+[23.951252] (-) TimerEvent: {}
+[24.034255] (path_planner_pkg) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/debraj/Documents/MotionPlanning/path_planner/src/path_planner_pkg/src/main.cpp:6\x1b[m\x1b[K:\n'}
+[24.035023] (path_planner_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/debraj/Documents/MotionPlanning/path_planner/src/path_planner_pkg/include/PathPlanner.hpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kbool\x1b[01;32m\x1b[K argParse\x1b[m\x1b[K(int, char**, double*, optimalPlanner*, planningObjective*, std::string*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[24.035184] (path_planner_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/debraj/Documents/MotionPlanning/path_planner/src/path_planner_pkg/include/PathPlanner.hpp:583:1:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcontrol reaches end of non-void function [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type\x07-Wreturn-type\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[24.035330] (path_planner_pkg) StderrLine: {'line': b'  583 | \x1b[01;35m\x1b[K}\x1b[m\x1b[K\n'}
+[24.035557] (path_planner_pkg) StderrLine: {'line': b'      | \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[24.051586] (-) TimerEvent: {}
+[24.156920] (-) TimerEvent: {}
+[24.259524] (-) TimerEvent: {}
+[24.362145] (-) TimerEvent: {}
+[24.463362] (-) TimerEvent: {}
+[24.564350] (-) TimerEvent: {}
+[24.664893] (-) TimerEvent: {}
+[24.765500] (-) TimerEvent: {}
+[24.866816] (-) TimerEvent: {}
+[24.967840] (-) TimerEvent: {}
+[25.069009] (-) TimerEvent: {}
+[25.171758] (-) TimerEvent: {}
+[25.273595] (-) TimerEvent: {}
+[25.374306] (-) TimerEvent: {}
+[25.475293] (-) TimerEvent: {}
+[25.576275] (-) TimerEvent: {}
+[25.679610] (-) TimerEvent: {}
+[25.783099] (-) TimerEvent: {}
+[25.886335] (-) TimerEvent: {}
+[25.987094] (-) TimerEvent: {}
+[26.090126] (-) TimerEvent: {}
+[26.191194] (-) TimerEvent: {}
+[26.292658] (-) TimerEvent: {}
+[26.394655] (-) TimerEvent: {}
+[26.495277] (-) TimerEvent: {}
+[26.595885] (-) TimerEvent: {}
+[26.696674] (-) TimerEvent: {}
+[26.797685] (-) TimerEvent: {}
+[26.898537] (-) TimerEvent: {}
+[27.000590] (-) TimerEvent: {}
+[27.102240] (-) TimerEvent: {}
+[27.204875] (-) TimerEvent: {}
+[27.312169] (-) TimerEvent: {}
+[27.417175] (-) TimerEvent: {}
+[27.518613] (-) TimerEvent: {}
+[27.631538] (-) TimerEvent: {}
+[27.732450] (-) TimerEvent: {}
+[27.833614] (-) TimerEvent: {}
+[27.936023] (-) TimerEvent: {}
+[28.036868] (-) TimerEvent: {}
+[28.138040] (-) TimerEvent: {}
+[28.239508] (-) TimerEvent: {}
+[28.340339] (-) TimerEvent: {}
+[28.441159] (-) TimerEvent: {}
+[28.548845] (-) TimerEvent: {}
+[28.650014] (-) TimerEvent: {}
+[28.753870] (-) TimerEvent: {}
+[28.855522] (-) TimerEvent: {}
+[28.956713] (-) TimerEvent: {}
+[29.058410] (-) TimerEvent: {}
+[29.160621] (-) TimerEvent: {}
+[29.263805] (-) TimerEvent: {}
+[29.364800] (-) TimerEvent: {}
+[29.466602] (-) TimerEvent: {}
+[29.568513] (-) TimerEvent: {}
+[29.672216] (-) TimerEvent: {}
+[29.773627] (-) TimerEvent: {}
+[29.874755] (-) TimerEvent: {}
+[29.975834] (-) TimerEvent: {}
+[30.076852] (-) TimerEvent: {}
+[30.177386] (-) TimerEvent: {}
+[30.278232] (-) TimerEvent: {}
+[30.379370] (-) TimerEvent: {}
+[30.480083] (-) TimerEvent: {}
+[30.580740] (-) TimerEvent: {}
+[30.681849] (-) TimerEvent: {}
+[30.783019] (-) TimerEvent: {}
+[30.888887] (-) TimerEvent: {}
+[30.990290] (-) TimerEvent: {}
+[31.091677] (-) TimerEvent: {}
+[31.193921] (-) TimerEvent: {}
+[31.295374] (-) TimerEvent: {}
+[31.396408] (-) TimerEvent: {}
+[31.497242] (-) TimerEvent: {}
+[31.597747] (-) TimerEvent: {}
+[31.699068] (-) TimerEvent: {}
+[31.800635] (-) TimerEvent: {}
+[31.902979] (-) TimerEvent: {}
+[32.003899] (-) TimerEvent: {}
+[32.104510] (-) TimerEvent: {}
+[32.205219] (-) TimerEvent: {}
+[32.306145] (-) TimerEvent: {}
+[32.411564] (-) TimerEvent: {}
+[32.512368] (-) TimerEvent: {}
+[32.615038] (-) TimerEvent: {}
+[32.716646] (-) TimerEvent: {}
+[32.817334] (-) TimerEvent: {}
+[32.918118] (-) TimerEvent: {}
+[33.018813] (-) TimerEvent: {}
+[33.119237] (-) TimerEvent: {}
+[33.219858] (-) TimerEvent: {}
+[33.323128] (-) TimerEvent: {}
+[33.424400] (-) TimerEvent: {}
+[33.525329] (-) TimerEvent: {}
+[33.625976] (-) TimerEvent: {}
+[33.726626] (-) TimerEvent: {}
+[33.829853] (-) TimerEvent: {}
+[33.930765] (-) TimerEvent: {}
+[34.031134] (-) TimerEvent: {}
+[34.131661] (-) TimerEvent: {}
+[34.232634] (-) TimerEvent: {}
+[34.333589] (-) TimerEvent: {}
+[34.434252] (-) TimerEvent: {}
+[34.535150] (-) TimerEvent: {}
+[34.637476] (-) TimerEvent: {}
+[34.738177] (-) TimerEvent: {}
+[34.839304] (-) TimerEvent: {}
+[34.940669] (-) TimerEvent: {}
+[35.041953] (-) TimerEvent: {}
+[35.142922] (-) TimerEvent: {}
+[35.244248] (-) TimerEvent: {}
+[35.348428] (-) TimerEvent: {}
+[35.449786] (-) TimerEvent: {}
+[35.550404] (-) TimerEvent: {}
+[35.652852] (-) TimerEvent: {}
+[35.753981] (-) TimerEvent: {}
+[35.857636] (-) TimerEvent: {}
+[35.958527] (-) TimerEvent: {}
+[36.059071] (-) TimerEvent: {}
+[36.161839] (-) TimerEvent: {}
+[36.263046] (-) TimerEvent: {}
+[36.365274] (-) TimerEvent: {}
+[36.467572] (-) TimerEvent: {}
+[36.568192] (-) TimerEvent: {}
+[36.670752] (-) TimerEvent: {}
+[36.773129] (-) TimerEvent: {}
+[36.873727] (-) TimerEvent: {}
+[36.974585] (-) TimerEvent: {}
+[37.076312] (-) TimerEvent: {}
+[37.177025] (-) TimerEvent: {}
+[37.278904] (-) TimerEvent: {}
+[37.383422] (-) TimerEvent: {}
+[37.484576] (-) TimerEvent: {}
+[37.585424] (-) TimerEvent: {}
+[37.686268] (-) TimerEvent: {}
+[37.792889] (-) TimerEvent: {}
+[37.893881] (-) TimerEvent: {}
+[37.995973] (-) TimerEvent: {}
+[38.097247] (-) TimerEvent: {}
+[38.198035] (-) TimerEvent: {}
+[38.299194] (-) TimerEvent: {}
+[38.400064] (-) TimerEvent: {}
+[38.501716] (-) TimerEvent: {}
+[38.602798] (-) TimerEvent: {}
+[38.705007] (-) TimerEvent: {}
+[38.806075] (-) TimerEvent: {}
+[38.915718] (-) TimerEvent: {}
+[39.018710] (-) TimerEvent: {}
+[39.122101] (-) TimerEvent: {}
+[39.223327] (-) TimerEvent: {}
+[39.324495] (-) TimerEvent: {}
+[39.425200] (-) TimerEvent: {}
+[39.526224] (-) TimerEvent: {}
+[39.628436] (-) TimerEvent: {}
+[39.729783] (-) TimerEvent: {}
+[39.830302] (-) TimerEvent: {}
+[39.931871] (-) TimerEvent: {}
+[40.033834] (-) TimerEvent: {}
+[40.136205] (-) TimerEvent: {}
+[40.237607] (-) TimerEvent: {}
+[40.338093] (-) TimerEvent: {}
+[40.438648] (-) TimerEvent: {}
+[40.539397] (-) TimerEvent: {}
+[40.640247] (-) TimerEvent: {}
+[40.741559] (-) TimerEvent: {}
+[40.845205] (-) TimerEvent: {}
+[40.945911] (-) TimerEvent: {}
+[41.046676] (-) TimerEvent: {}
+[41.147384] (-) TimerEvent: {}
+[41.248074] (-) TimerEvent: {}
+[41.349074] (-) TimerEvent: {}
+[41.450750] (-) TimerEvent: {}
+[41.553420] (-) TimerEvent: {}
+[41.655373] (-) TimerEvent: {}
+[41.756053] (-) TimerEvent: {}
+[41.858973] (-) TimerEvent: {}
+[41.962830] (-) TimerEvent: {}
+[42.066337] (-) TimerEvent: {}
+[42.166974] (-) TimerEvent: {}
+[42.268190] (-) TimerEvent: {}
+[42.369170] (-) TimerEvent: {}
+[42.378280] (path_planner_pkg) StdoutLine: {'line': b'[ 66%] \x1b[32m\x1b[1mLinking CXX executable main\x1b[0m\n'}
+[42.469571] (-) TimerEvent: {}
+[42.570483] (-) TimerEvent: {}
+[42.671268] (-) TimerEvent: {}
+[42.772332] (-) TimerEvent: {}
+[42.873533] (-) TimerEvent: {}
+[42.974654] (-) TimerEvent: {}
+[43.075384] (-) TimerEvent: {}
+[43.176294] (-) TimerEvent: {}
+[43.277216] (-) TimerEvent: {}
+[43.378280] (-) TimerEvent: {}
+[43.479160] (-) TimerEvent: {}
+[43.580080] (-) TimerEvent: {}
+[43.681079] (-) TimerEvent: {}
+[43.781966] (-) TimerEvent: {}
+[43.885665] (-) TimerEvent: {}
+[43.986823] (-) TimerEvent: {}
+[44.087868] (-) TimerEvent: {}
+[44.192718] (-) TimerEvent: {}
+[44.293618] (-) TimerEvent: {}
+[44.394503] (-) TimerEvent: {}
+[44.498011] (-) TimerEvent: {}
+[44.599470] (-) TimerEvent: {}
+[44.701144] (-) TimerEvent: {}
+[44.802420] (-) TimerEvent: {}
+[44.903537] (-) TimerEvent: {}
+[45.004534] (-) TimerEvent: {}
+[45.105733] (-) TimerEvent: {}
+[45.206636] (-) TimerEvent: {}
+[45.307246] (-) TimerEvent: {}
+[45.408428] (-) TimerEvent: {}
+[45.509824] (-) TimerEvent: {}
+[45.611720] (-) TimerEvent: {}
+[45.713610] (-) TimerEvent: {}
+[45.815293] (-) TimerEvent: {}
+[45.916776] (-) TimerEvent: {}
+[46.019996] (-) TimerEvent: {}
+[46.123859] (-) TimerEvent: {}
+[46.225189] (-) TimerEvent: {}
+[46.326293] (-) TimerEvent: {}
+[46.427823] (-) TimerEvent: {}
+[46.528581] (-) TimerEvent: {}
+[46.629515] (-) TimerEvent: {}
+[46.730562] (-) TimerEvent: {}
+[46.831678] (-) TimerEvent: {}
+[46.932846] (-) TimerEvent: {}
+[47.040891] (-) TimerEvent: {}
+[47.142315] (-) TimerEvent: {}
+[47.243275] (-) TimerEvent: {}
+[47.344203] (-) TimerEvent: {}
+[47.446575] (-) TimerEvent: {}
+[47.547940] (-) TimerEvent: {}
+[47.654516] (-) TimerEvent: {}
+[47.755608] (-) TimerEvent: {}
+[47.856574] (-) TimerEvent: {}
+[47.957585] (-) TimerEvent: {}
+[48.058438] (-) TimerEvent: {}
+[48.159354] (-) TimerEvent: {}
+[48.260218] (-) TimerEvent: {}
+[48.360969] (-) TimerEvent: {}
+[48.461952] (-) TimerEvent: {}
+[48.563876] (-) TimerEvent: {}
+[48.664819] (-) TimerEvent: {}
+[48.766412] (-) TimerEvent: {}
+[48.867822] (-) TimerEvent: {}
+[48.968687] (-) TimerEvent: {}
+[49.069153] (-) TimerEvent: {}
+[49.169926] (-) TimerEvent: {}
+[49.270744] (-) TimerEvent: {}
+[49.371761] (-) TimerEvent: {}
+[49.472691] (-) TimerEvent: {}
+[49.573703] (-) TimerEvent: {}
+[49.674967] (-) TimerEvent: {}
+[49.775695] (-) TimerEvent: {}
+[49.876440] (-) TimerEvent: {}
+[49.979725] (-) TimerEvent: {}
+[50.081083] (-) TimerEvent: {}
+[50.181856] (-) TimerEvent: {}
+[50.245633] (path_planner_pkg) StdoutLine: {'line': b'[100%] Built target main\n'}
+[50.282963] (-) TimerEvent: {}
+[50.312398] (path_planner_pkg) CommandEnded: {'returncode': 0}
+[50.315013] (path_planner_pkg) JobProgress: {'identifier': 'path_planner_pkg', 'progress': 'install'}
+[50.348171] (path_planner_pkg) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/debraj/Documents/MotionPlanning/path_planner/build/path_planner_pkg'], 'cwd': '/home/debraj/Documents/MotionPlanning/path_planner/build/path_planner_pkg', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'debraj', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'wayland', 'ACADO_ENV_QPOASES_EMBEDDED_INC_DIRS': '/home/debraj/acado/external_packages/qpoases/;/home/debraj/acado/external_packages/qpoases/INCLUDE;/home/debraj/acado/external_packages/qpoases/SRC', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/usr/local/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/debraj', 'OLDPWD': '/home/debraj/Documents/MotionPlanning', 'DESKTOP_SESSION': 'ubuntu', 'ACADO_ENV_SHARED_LIBRARIES': 'acado_toolkit_s', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '2518', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'ACADO_ENV_LIBRARY_DIRS': '/home/debraj/acado/build/lib', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'ACADO_ENV_QPOASES_EMBEDDED_SOURCES': '/home/debraj/acado/external_packages/qpoases/SRC/Bounds.cpp;/home/debraj/acado/external_packages/qpoases/SRC/CyclingManager.cpp;/home/debraj/acado/external_packages/qpoases/SRC/MessageHandling.cpp;/home/debraj/acado/external_packages/qpoases/SRC/QProblem.cpp;/home/debraj/acado/external_packages/qpoases/SRC/Utils.cpp;/home/debraj/acado/external_packages/qpoases/SRC/Constraints.cpp;/home/debraj/acado/external_packages/qpoases/SRC/Indexlist.cpp;/home/debraj/acado/external_packages/qpoases/SRC/QProblemB.cpp;/home/debraj/acado/external_packages/qpoases/SRC/SubjectTo.cpp;/home/debraj/acado/external_packages/qpoases/SRC/EXTRAS/SolutionAnalysis.cpp', 'GNOME_KEYRING_CONTROL': '/run/user/1000/keyring', 'ACADO_ENV_EXTERNAL_PACKAGES_DIR': '/home/debraj/acado/external_packages', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/debraj/Documents/MotionPlanning/path_planner/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'debraj', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.SettingsDaemon.MediaKeys.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'debraj', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/debraj/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:~/processing-4.3.4', 'SESSION_MANAGER': 'local/debraj-Lenovo-V15-G2-ALC-Ua:@/tmp/.ICE-unix/2323,unix/debraj-Lenovo-V15-G2-ALC-Ua:/tmp/.ICE-unix/2323', 'ACADO_ENV_CMAKE_DIR': '/home/debraj/acado/cmake', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/717e9138_1de7_4e58_bea6_e9ebabfcf418', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'ACADO_ENV_STATIC_LIBRARIES': '', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.FPDM32', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.347', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/debraj/Documents/MotionPlanning/path_planner/install/path_planner_pkg:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/debraj/Documents/MotionPlanning/path_planner/build/path_planner_pkg', 'ACADO_ENV_INCLUDE_DIRS': '/home/debraj/acado;/home/debraj/acado/acado;/home/debraj/acado/external_packages;/home/debraj/acado/external_packages/qpOASES-3.2.0/include;/home/debraj/acado/build', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/debraj/Documents/MotionPlanning/path_planner/install/path_planner_pkg:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[50.382590] (path_planner_pkg) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[50.383219] (-) TimerEvent: {}
+[50.387124] (path_planner_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/path_planner/install/path_planner_pkg/lib/path_planner_pkg/main\n'}
+[50.412901] (path_planner_pkg) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/debraj/Documents/MotionPlanning/path_planner/install/path_planner_pkg/lib/path_planner_pkg/main" to ""\n'}
+[50.415559] (path_planner_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/debraj/Documents/MotionPlanning/path_planner/install/path_planner_pkg/share/ament_index/resource_index/package_run_dependencies/path_planner_pkg\n'}
+[50.416860] (path_planner_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/debraj/Documents/MotionPlanning/path_planner/install/path_planner_pkg/share/ament_index/resource_index/parent_prefix_path/path_planner_pkg\n'}
+[50.416982] (path_planner_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/debraj/Documents/MotionPlanning/path_planner/install/path_planner_pkg/share/path_planner_pkg/environment/ament_prefix_path.sh\n'}
+[50.417105] (path_planner_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/debraj/Documents/MotionPlanning/path_planner/install/path_planner_pkg/share/path_planner_pkg/environment/ament_prefix_path.dsv\n'}
+[50.417229] (path_planner_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/debraj/Documents/MotionPlanning/path_planner/install/path_planner_pkg/share/path_planner_pkg/environment/path.sh\n'}
+[50.417369] (path_planner_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/debraj/Documents/MotionPlanning/path_planner/install/path_planner_pkg/share/path_planner_pkg/environment/path.dsv\n'}
+[50.417503] (path_planner_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/debraj/Documents/MotionPlanning/path_planner/install/path_planner_pkg/share/path_planner_pkg/local_setup.bash\n'}
+[50.417648] (path_planner_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/debraj/Documents/MotionPlanning/path_planner/install/path_planner_pkg/share/path_planner_pkg/local_setup.sh\n'}
+[50.417933] (path_planner_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/debraj/Documents/MotionPlanning/path_planner/install/path_planner_pkg/share/path_planner_pkg/local_setup.zsh\n'}
+[50.418036] (path_planner_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/debraj/Documents/MotionPlanning/path_planner/install/path_planner_pkg/share/path_planner_pkg/local_setup.dsv\n'}
+[50.418124] (path_planner_pkg) StdoutLine: {'line': b'-- Installing: /home/debraj/Documents/MotionPlanning/path_planner/install/path_planner_pkg/share/path_planner_pkg/package.dsv\n'}
+[50.418216] (path_planner_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/debraj/Documents/MotionPlanning/path_planner/install/path_planner_pkg/share/ament_index/resource_index/packages/path_planner_pkg\n'}
+[50.418322] (path_planner_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/debraj/Documents/MotionPlanning/path_planner/install/path_planner_pkg/share/path_planner_pkg/cmake/path_planner_pkgConfig.cmake\n'}
+[50.418444] (path_planner_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/debraj/Documents/MotionPlanning/path_planner/install/path_planner_pkg/share/path_planner_pkg/cmake/path_planner_pkgConfig-version.cmake\n'}
+[50.419082] (path_planner_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/debraj/Documents/MotionPlanning/path_planner/install/path_planner_pkg/share/path_planner_pkg/package.xml\n'}
+[50.429174] (path_planner_pkg) CommandEnded: {'returncode': 0}
+[50.485820] (-) TimerEvent: {}
+[50.558696] (path_planner_pkg) JobEnded: {'identifier': 'path_planner_pkg', 'rc': 0}
+[50.567573] (-) EventReactorShutdown: {}

@@ -1,0 +1,94 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.3 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Found rclcpp: 28.1.6 (/opt/ros/jazzy/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+-- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 7.3.1 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 8.4.1 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found std_msgs: 5.3.5 (/opt/ros/jazzy/share/std_msgs/cmake)
+-- Found geometry_msgs: 5.3.5 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+-- Found pluginlib: 5.4.2 (/opt/ros/jazzy/share/pluginlib/cmake)
+-- Found webots_ros2_driver: 2025.0.0 (/opt/ros/jazzy/share/webots_ros2_driver/cmake)
+-- Found eigen3_cmake_module: 0.3.0 (/opt/ros/jazzy/share/eigen3_cmake_module/cmake)
+-- Found Eigen3: TRUE (found version "3.4.0") 
+-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+-- Configuring done (2.1s)
+-- Generating done (0.1s)
+-- Build files have been written to: /home/debraj/Documents/MotionPlanning/webots_sim/build/webots_pkg
+[ 58%] [32mBuilding CXX object CMakeFiles/webots_pkg.dir/src/MyRobotDriver_O3.cpp.o[0m
+[ 58%] [32mBuilding CXX object CMakeFiles/webots_pkg.dir/src/MyRobotDriver_O5.cpp.o[0m
+[ 58%] [32mBuilding CXX object CMakeFiles/webots_pkg.dir/src/MyRobotDriver_O4.cpp.o[0m
+[ 58%] [32mBuilding CXX object CMakeFiles/webots_pkg.dir/src/MyRobotDriver_O2.cpp.o[0m
+[ 58%] [32mBuilding CXX object CMakeFiles/webots_pkg.dir/src/MyRobotDriver_B1.cpp.o[0m
+[ 58%] [32mBuilding CXX object CMakeFiles/webots_pkg.dir/src/MyRobotDriver_B2.cpp.o[0m
+[ 58%] [32mBuilding CXX object CMakeFiles/webots_pkg.dir/src/MyRobotDriver_O1.cpp.o[0m
+[ 66%] [32mBuilding CXX object CMakeFiles/webots_pkg.dir/src/MyRobotDriver_B3.cpp.o[0m
+[ 83%] [32mBuilding CXX object CMakeFiles/webots_pkg.dir/src/MyRobotDriver_B4.cpp.o[0m
+[ 83%] [32mBuilding CXX object CMakeFiles/webots_pkg.dir/src/MyRobotDriver_B5.cpp.o[0m
+[ 91%] [32mBuilding CXX object CMakeFiles/webots_pkg.dir/src/ball_driver.cpp.o[0m
+[100%] [32m[1mLinking CXX shared library libwebots_pkg.so[0m
+[100%] Built target webots_pkg
+-- Install configuration: ""
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/my_robot_driver.xml
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/lib/libwebots_pkg.so
+-- Set non-toolchain portion of runtime path of "/home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/lib/libwebots_pkg.so" to ""
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//launch
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//launch/robot_launch.py
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//resource
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//resource/my_robot_O2.urdf
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//resource/my_robot_B1.urdf
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//resource/my_robot_B5.urdf
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//resource/my_robot_O3.urdf
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//resource/ball.urdf
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//resource/my_robot_O1.urdf
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//resource/my_robot_B4.urdf
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//resource/my_robot_O4.urdf
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//resource/my_robot_B2.urdf
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//resource/my_robot_O5.urdf
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//resource/my_robot_B3.urdf
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//worlds
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//worlds/.RoboCupMSL.wbproj
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//worlds/RobocupSoccerField.proto
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//worlds/BluePlayer.proto
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//worlds/OrangePlayer.proto
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//worlds/.RoboCupMSL.jpg
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//worlds/sphereball.proto
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//worlds/RoboCupMSL.wbt
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg//worlds/RobocupSoccerBall.proto
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/environment/library_path.sh
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/environment/library_path.dsv
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/ament_index/resource_index/package_run_dependencies/webots_pkg
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/ament_index/resource_index/parent_prefix_path/webots_pkg
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/environment/ament_prefix_path.sh
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/environment/ament_prefix_path.dsv
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/environment/path.sh
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/environment/path.dsv
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/local_setup.bash
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/local_setup.sh
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/local_setup.zsh
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/local_setup.dsv
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/package.dsv
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/ament_index/resource_index/packages/webots_pkg
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/ament_index/resource_index/webots_ros2_driver__pluginlib__plugin/webots_pkg
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/cmake/ament_cmake_export_libraries-extras.cmake
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/cmake/webots_pkgConfig.cmake
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/cmake/webots_pkgConfig-version.cmake
+-- Installing: /home/debraj/Documents/MotionPlanning/webots_sim/install/webots_pkg/share/webots_pkg/package.xml
