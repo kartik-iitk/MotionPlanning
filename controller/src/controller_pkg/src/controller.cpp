@@ -11,10 +11,9 @@ USING_NAMESPACE_ACADO
 double current_x = 0.0, target_x =0, next_x = 0.0;
 double current_y = 0.0, target_y = 0, next_y = 0.0;
 double current_theta = 0.0, target_theta = 0.0, next_theta = 0.0;
-double current_vx = 0.0, target_vx = 0.0, next_vx = 0.0;
-double current_vy = 0.0, target_vy = 0.0, next_vy = 0.0;
-double current_omega = 0.0, target_omega = 0.0, next_omega = 0.0;
-double speed = 0.0;
+double current_vx = 0.0, next_vx = 0.0;
+double current_vy = 0.0, next_vy = 0.0;
+double current_omega = 0.0, next_omega = 0.0;
 double idx = 0.0;
 double path_size = 0.0;
 
@@ -29,21 +28,14 @@ double d = 0.5;
 
 DifferentialEquation f;
 
-class MyRobotNode : public rclcpp::Node
-{
+class MyRobotNode : public rclcpp::Node {
 public:
-    MyRobotNode() : Node("my_robot_node")
-    {
-        // Publisher for cmd_vel (Twist)
-        publisher_ = this->create_publisher<geometry_msgs::msg::Twist>("/o1/cmd_vel", 10);
-
-        // Subscriber 1 for Float32MultiArray
-        o1_subscription_ = this->create_subscription<std_msgs::msg::Float32MultiArray>(
-            "o1_data", 10, std::bind(&MyRobotNode::callback_1, this, std::placeholders::_1));
-
-        // Subscriber 2 for Float32MultiArray
-        target_subscription_ = this->create_subscription<std_msgs::msg::Float32MultiArray>(
-            "/o1/target_pos", 10, std::bind(&MyRobotNode::callback_2, this, std::placeholders::_1));
+    MyRobotNode() : Node("my_robot_node") {
+        cmd_vel_publisher = this->create_publisher<geometry_msgs::msg::Twist>("/self_cmd_vel", 10);
+        self_subscription = this->create_subscription<std_msgs::msg::Float32MultiArray>(
+            "/self_position", 10, std::bind(&MyRobotNode::mpc_callback, this, std::placeholders::_1));
+        target_subscription = this->create_subscription<std_msgs::msg::Float32MultiArray>(
+            "/target_pos", 10, std::bind(&MyRobotNode::update_target_callback, this, std::placeholders::_1));
 
 	f << dot(x) == vx;
 	f << dot(y) == vy;
@@ -53,8 +45,8 @@ public:
 	f << dot(omega) == alpha;
     }
 
-    // Callback for o1_data from simulation
-    void callback_1(const std_msgs::msg::Float32MultiArray::SharedPtr msg)
+    // Callback for running the MPC
+    void mpc_callback(const std_msgs::msg::Float32MultiArray::SharedPtr msg)
     {
 	current_x = msg->data[0];
 	current_y = msg->data[1];
@@ -103,16 +95,14 @@ public:
         // ocp.subjectTo(AT_END, omega == 0);
 	
 	std::cout << "Target State -> X: " << target_x << ", Y: " << target_y
-                  << ", Theta: " << target_theta << ", Vx: " << target_vx
-                  << ", Vy: " << target_vy << ", Omega: " << target_omega << std::endl;
+                  << ", Theta: " << target_theta << std::endl;
 
 	// Solver setup
         OptimizationAlgorithm algorithm(ocp);
         algorithm.set(PRINTLEVEL, LOW);
 	if (algorithm.solve() == SUCCESSFUL_RETURN) {
 		std::cout << "Algorithm successfully solved" << std::endl;
-	}
-	else {
+	} else {
 		std::cout << "Algorithm not solved" << std::endl;
 		return;
 	}
@@ -135,8 +125,8 @@ public:
                   << ", Theta: " << next_theta << ", Vx: " << next_vx
                   << ", Vy: " << next_vy << ", Omega: " << next_omega << std::endl;
 
-        if((target_x-current_x)*(target_x-current_x) + (target_y-current_y)*(target_y-current_y) < 0.1*0.1){
-        	geometry_msgs::msg::Twist twist_msg;
+        if((target_x-current_x)*(target_x-current_x) + (target_y-current_y)*(target_y-current_y) < 0.1*0.1) {
+                geometry_msgs::msg::Twist twist_msg;
         	twist_msg.linear.x = 0;
         	twist_msg.linear.y = 0;
 		if (abs(target_theta - current_theta) < 0.05) {
@@ -148,7 +138,7 @@ public:
 		} else {
 			twist_msg.angular.z = next_omega;
 		}
-        	publisher_->publish(twist_msg);
+        	cmd_vel_publisher->publish(twist_msg);
         	std::cout<<"Bot stopped, next_omega = "<< next_omega <<std::endl;
         	return;
     	}
@@ -158,30 +148,24 @@ public:
         twist_msg.linear.x = next_vx;
 	twist_msg.linear.y = next_vy;
         twist_msg.angular.z = next_omega;
-        publisher_->publish(twist_msg);
+        cmd_vel_publisher->publish(twist_msg);
     }
 
-    // Callback for subscriber 2
-    void callback_2(const std_msgs::msg::Float32MultiArray::SharedPtr msg)
-    {
+    // Callback for updating the target position
+    void update_target_callback(const std_msgs::msg::Float32MultiArray::SharedPtr msg) {
 	target_x = msg->data[0];
 	target_y = msg->data[1];
 	target_theta = msg->data[2];
-	target_vx = msg->data[3];
-	target_vy = msg->data[4];
-	target_omega = msg->data[5];
-	speed = msg->data[6];
-        idx = msg->data[7];
-        path_size = msg->data[8];
+        idx = msg->data[3];
+        path_size = msg->data[4];
     }
 
-    rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_;
-    rclcpp::Subscription<std_msgs::msg::Float32MultiArray>::SharedPtr o1_subscription_;
-    rclcpp::Subscription<std_msgs::msg::Float32MultiArray>::SharedPtr target_subscription_;
+    rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr cmd_vel_publisher;
+    rclcpp::Subscription<std_msgs::msg::Float32MultiArray>::SharedPtr self_subscription;
+    rclcpp::Subscription<std_msgs::msg::Float32MultiArray>::SharedPtr target_subscription;
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
     rclcpp::init(argc, argv);
     rclcpp::spin(std::make_shared<MyRobotNode>());
     rclcpp::shutdown();

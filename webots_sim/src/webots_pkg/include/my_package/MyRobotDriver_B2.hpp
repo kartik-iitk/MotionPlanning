@@ -35,10 +35,10 @@ namespace my_robot_driver_B2
 
         WbDeviceTag imu;
 
-        WbDeviceTag enc_1;
-        WbDeviceTag enc_2;
-        WbDeviceTag enc_3;
-        WbDeviceTag enc_4;
+        // WbDeviceTag enc_1;
+        // WbDeviceTag enc_2;
+        // WbDeviceTag enc_3;
+        // WbDeviceTag enc_4;
     };
 } // namespace my_robot_driver
 #endif

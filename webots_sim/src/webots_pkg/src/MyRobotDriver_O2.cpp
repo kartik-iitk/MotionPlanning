@@ -49,15 +49,15 @@ namespace my_robot_driver_O2 {
     wb_inertial_unit_enable(imu, SAMPLING_PERIOD);
 
     // Initialise encoders
-    enc_1 = wb_robot_get_device("pw1");
-    enc_2 = wb_robot_get_device("pw2");
-    enc_3 = wb_robot_get_device("pw3");
-    enc_4 = wb_robot_get_device("pw4");
+    // enc_1 = wb_robot_get_device("pw1");
+    // enc_2 = wb_robot_get_device("pw2");
+    // enc_3 = wb_robot_get_device("pw3");
+    // enc_4 = wb_robot_get_device("pw4");
 
-    wb_position_sensor_enable(enc_1, SAMPLING_PERIOD);
-    wb_position_sensor_enable(enc_2, SAMPLING_PERIOD);
-    wb_position_sensor_enable(enc_3, SAMPLING_PERIOD);
-    wb_position_sensor_enable(enc_4, SAMPLING_PERIOD);
+    // wb_position_sensor_enable(enc_1, SAMPLING_PERIOD);
+    // wb_position_sensor_enable(enc_2, SAMPLING_PERIOD);
+    // wb_position_sensor_enable(enc_3, SAMPLING_PERIOD);
+    // wb_position_sensor_enable(enc_4, SAMPLING_PERIOD);
     
     // Subscribe to cmd_vel to receive velocity commands
     cmd_vel_subscription_ = node->create_subscription<geometry_msgs::msg::Twist>(
@@ -75,13 +75,15 @@ namespace my_robot_driver_O2 {
       wb_robot_step(SAMPLING_PERIOD);                       // Step simulation in Webots
       const double *gps_position = wb_gps_get_values(gps);  // Retrieve GPS data
       const double *imu_position = wb_inertial_unit_get_roll_pitch_yaw(imu);
-      double enc_1_position = wb_position_sensor_get_value(enc_1);
-      double enc_2_position = wb_position_sensor_get_value(enc_2);
-      double enc_3_position = wb_position_sensor_get_value(enc_3);
-      double enc_4_position = wb_position_sensor_get_value(enc_4);
+      // double enc_1_position = wb_position_sensor_get_value(enc_1);
+      // double enc_2_position = wb_position_sensor_get_value(enc_2);
+      // double enc_3_position = wb_position_sensor_get_value(enc_3);
+      // double enc_4_position = wb_position_sensor_get_value(enc_4);
 
       auto msg = std_msgs::msg::Float32MultiArray();        // Fill ROS2 message
-      msg.data = {static_cast<float>(gps_position[0]), static_cast<float>(gps_position[1]), static_cast<float>(imu_position[2]), static_cast<float>(enc_1_position), static_cast<float>(enc_2_position), static_cast<float>(enc_3_position), static_cast<float>(enc_4_position)};
+      msg.data = {static_cast<float>(gps_position[0]), static_cast<float>(gps_position[1]), static_cast<float>(imu_position[2])};
+      // msg.data = {static_cast<float>(gps_position[0]), static_cast<float>(gps_position[1]), static_cast<float>(imu_position[2])};
+      // msg.data = {static_cast<float>(gps_position[0]), static_cast<float>(gps_position[1]), static_cast<float>(imu_position[2]), static_cast<float>(enc_1_position), static_cast<float>(enc_2_position), static_cast<float>(enc_3_position), static_cast<float>(enc_4_position)};
       o2_publisher_->publish(msg);                         // Publish GPS data
     });
   }
