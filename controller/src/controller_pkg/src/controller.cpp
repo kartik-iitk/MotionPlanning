@@ -1,6 +1,8 @@
 #include <acado_toolkit.hpp>
 #include <acado_gnuplot.hpp>
 #include <iostream>
+#include <thread>
+#include <mutex>
 
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/float32_multi_array.hpp"
@@ -59,8 +61,8 @@ public:
 	// (start_time, end_time, steps)
         OCP ocp(0.0, 2.0, 20);
 
-        double Q_pos = 100.0; // Loss function weights
-        double Q_theta = 300.0;
+        double Q_pos = 10.0; // Loss function weights
+        double Q_theta = 1.0e5;
 
         ocp.minimizeMayerTerm( Q_pos*(x - target_x)*(x - target_x) + Q_pos*(y - target_y)*(y - target_y) + Q_theta*(theta - target_theta)*(theta - target_theta)); // Loss function
 
@@ -125,23 +127,23 @@ public:
                   << ", Theta: " << next_theta << ", Vx: " << next_vx
                   << ", Vy: " << next_vy << ", Omega: " << next_omega << std::endl;
 
-        if((target_x-current_x)*(target_x-current_x) + (target_y-current_y)*(target_y-current_y) < 0.1*0.1) {
-                geometry_msgs::msg::Twist twist_msg;
-        	twist_msg.linear.x = 0;
-        	twist_msg.linear.y = 0;
-		if (abs(target_theta - current_theta) < 0.05) {
-			twist_msg.angular.z = 0;
-			next_omega = 0;
-		} else if (abs(target_theta - current_theta) < 0.15) {
-			twist_msg.angular.z = next_omega / 2;
-			next_omega /= 2;
-		} else {
-			twist_msg.angular.z = next_omega;
-		}
-        	cmd_vel_publisher->publish(twist_msg);
-        	std::cout<<"Bot stopped, next_omega = "<< next_omega <<std::endl;
-        	return;
-    	}
+        // if((target_x-current_x)*(target_x-current_x) + (target_y-current_y)*(target_y-current_y) < 0.1*0.1) {
+        //         geometry_msgs::msg::Twist twist_msg;
+        // 	twist_msg.linear.x = 0;
+        // 	twist_msg.linear.y = 0;
+	// 	if (abs(target_theta - current_theta) < 0.05) {
+	// 		twist_msg.angular.z = 0;
+	// 		next_omega = 0;
+	// 	} else if (abs(target_theta - current_theta) < 0.15) {
+	// 		twist_msg.angular.z = next_omega / 2;
+	// 		next_omega /= 2;
+	// 	} else {
+	// 		twist_msg.angular.z = next_omega;
+	// 	}
+        // 	cmd_vel_publisher->publish(twist_msg);
+        // 	std::cout<<"Bot stopped, next_omega = "<< next_omega <<std::endl;
+        // 	return;
+    	// }
 	
 	// Publish the Twist message
 	geometry_msgs::msg::Twist twist_msg;
@@ -153,16 +155,20 @@ public:
 
     // Callback for updating the target position
     void update_target_callback(const std_msgs::msg::Float32MultiArray::SharedPtr msg) {
+        target_mutex.lock();
 	target_x = msg->data[0];
 	target_y = msg->data[1];
 	target_theta = msg->data[2];
         idx = msg->data[3];
         path_size = msg->data[4];
+        target_mutex.unlock();
     }
 
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr cmd_vel_publisher;
     rclcpp::Subscription<std_msgs::msg::Float32MultiArray>::SharedPtr self_subscription;
     rclcpp::Subscription<std_msgs::msg::Float32MultiArray>::SharedPtr target_subscription;
+
+    std::mutex target_mutex;
 };
 
 int main(int argc, char *argv[]) {

@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+#include <thread>
+#include <mutex>
 
 #include "Coordinate.hpp"
 #include "PathPlanner.hpp"
@@ -35,13 +37,12 @@ planningObjective objectiveType = OBJECTIVE_PATHLENGTH;
 long long int iteration_count = 0;
 int flag = 0;
 double obs_size = 0.7;
-double max_angle = 0.5;
+double max_angle = 0.6;
 
 std::vector<Point2D> obs, path;
 Point2D selfPos(0, 0, 0), finalPos(0, 0, 0), ballPos(0, 0, 0);
 
-int findclosestpoint(std::vector<Point2D> &path, Point2D &selfPos)
-{
+int findclosestpoint(std::vector<Point2D> &path, Point2D &selfPos) {
     if (path.size() == 0)
         return 0;
     double min_dist = sqrtl((path[0].x - selfPos.x) * (path[0].x - selfPos.x) + (path[0].y - selfPos.y) * (path[0].y - selfPos.y));
@@ -74,26 +75,33 @@ public:
 
     // Callback funtions
     void obstacle_callback(const std_msgs::msg::Float32MultiArray::SharedPtr msg) {
+        obs_mutex.lock();
         obs.clear();
         for (int i = 1; i < 3 * msg->data[0] + 1 ; i += 3)
         {
             obs.push_back(Point2D(msg->data[i], msg->data[i + 1], msg->data[i + 2]));
         }
         obs_received = true;
+        obs_mutex.unlock();
     }
     void self_callback(const std_msgs::msg::Float32MultiArray::SharedPtr msg) {
+        self_mutex.lock();
         selfPos = Point2D(msg->data[0], msg->data[1], msg->data[2]);
         self_received = true;
+        self_mutex.unlock();
         listening();
     }
     void ball_callback(const std_msgs::msg::Float32MultiArray::SharedPtr msg) {
+        ball_mutex.lock();
         ballPos = Point2D(msg->data[0], msg->data[1], 0);
         ball_received = true;
+        ball_mutex.unlock();
     }
     void decision_target_callback(const std_msgs::msg::Float32MultiArray::SharedPtr msg) {
-        cout << "New decision terget data received" << endl;
+        target_mutex.lock();
         finalPos = Point2D(msg->data[0], msg->data[1], msg->data[2]);
         target_received = true;
+        target_mutex.unlock();
     }
 
     void listening() {
@@ -138,6 +146,7 @@ public:
     bool self_received{false}, obs_received{false}, ball_received{false}, target_received{false}; // Variables to store received messages
     rclcpp::Subscription<std_msgs::msg::Float32MultiArray>::SharedPtr self_subcriber, obs_subscriber, ball_subscriber, decision_target_subscriber; // Subscribers
     rclcpp::Publisher<std_msgs::msg::Float32MultiArray>::SharedPtr target_array_publisher; // Publisher
+    std::mutex self_mutex, obs_mutex, ball_mutex, target_mutex; // Mutexes
 
     void publish_next_point(std::vector<Point2D> &path, Point2D &selfPos) {
         if (!path.empty()) {
@@ -152,20 +161,6 @@ public:
             double x2 = next_to_next_point.x;
             double y2 = next_to_next_point.y;
 
-            double angle = atan2((y2 - y1), (x2 - x1));
-
-            if (idx + 2 == path.size() - 1 && idx + 1 != path.size() - 1) {
-                double angle = atan2((y1 - path[idx].y), (x1 - path[idx].x));
-            }
-
-            double dist = sqrt((y2 - y1) * (y2 - y1) + (x2 - x1) * (x2 - x1));
-            
-            double c = 2.0, lambda = 0.3;
-            double speed = c * (dist - lambda);
-
-            double vx = speed * cos(angle);
-            double vy = speed * sin(angle);
-
             double bot_global_angle = set_angle(selfPos.theta);
             double ball_wrto_bot = set_angle(atan2((ballPos.y - selfPos.y), (ballPos.x - selfPos.x)));
             double rel_angle = set_angle(ball_wrto_bot - bot_global_angle);
@@ -173,9 +168,8 @@ public:
             rel_angle = min(rel_angle, max_angle);
             rel_angle = max(rel_angle, -max_angle);
 
-            double theta = rel_angle + bot_global_angle;
-            // theta = finalPos.theta;
-            double omega = 0;
+            double theta = rel_angle + bot_global_angle; // to face the ball
+            // double theta = finalPos.theta; // to face the target theta from decision module
 
             // cout << "Next Point: " << x1 << " " << y1 << " " << theta << endl;
             // cout << "Next velocity: " << vx << " " << vy << " " << omega << " " << speed << endl;
