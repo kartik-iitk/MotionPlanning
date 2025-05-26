@@ -1,76 +1,146 @@
 # Motion Planning for RoboCup MSL Robots
 
-This repository includes the Webots simulation for motion planning (local and global) of a RoboCup MSL Robot using a 4-wheel omni-drive. This repository is maintained by team ERA, IITK.
+This repository includes the Motion planning codebase of a RoboCup MSL Robot using a 4-wheel omni-drive. This repository is maintained by team ERA, IITK.
+There are 4 workspaces:
+1. path\_planner
+2. controller
+3. webots\_sim
+4. python\_sim
+5. stm\_comm
 
-## MacOS Installation
-
-Install brew version of UTM for easily autoupdating
-UTM settings: <https://docs.getutm.app/guides/ubuntu/>
-Install Ubuntu 22.04 (keep all settings defaiult and no need of hardware acceleration OpenGL as we are mostly going to use terminal only): <https://www.youtube.com/watch?v=zeBo5jK7R8Q>
-Install ROS2 Jazzy
-Install webots_ros2 package:
-<https://docs.ros.org/en/jazzy/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.html>
-Run VSCode locally by SSH onto the machine: <https://github.com/utmapp/UTM/discussions/2465#discussioncomment-6931047>
-Use UTM for visualisations or running terminal nodes
-
-To run, on host: export WEBOTS_HOME=/Applications/Webots.app && python3 local_simulation_server.py
-To run, on guest, if you get permission error: sudo chown -R $USER /home/kartik/shared
-and then try running again.
-
-Follow the tutorial and documentation pages properly.
-
-## Requirements
+## Requirements and Installation Guide
 
 1. OpenCV v4.8.1 (C++ Version)
 2. OMPL v1.6 (C++ Version, python bindings are not required)
-2. Webots v2023b
+2. Webots
 3. cmake
-4. boost
-
-__Note__: Use following instructions for Ubuntu -
+4. Boost
+5. Eigen
+6. ROS 2 Jazzy Jalisco
+7. Webots-ROS2 package
+8. Pygame
+9. Pyserial
 
 ```
 sudo apt update && sudo apt upgrade
 sudo apt install libopencv-dev
 sudo apt install libboost-all-dev
 sudo apt install libompl-dev ompl-demos
+sudo apt-get install libeigen3-dev
+pip install pygame
+pip install pyserial
 ```
 
-For MacOS, you need specific homebrew packages.
+Install OMPL:
+Download the OMPL installation script from https://ompl.kavrakilab.org/install-ompl-ubuntu.sh and run:
+```
+chmod u+x install-ompl-ubuntu.sh
+./install-ompl-ubuntu.sh
+```
 
-## How to Run
+Install Acado:
+```
+git clone https://github.com/acado/acado.git
+cd acado
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+```
 
-- Install Webots and OpenCV
-- Clone the repository and `% cd controllers/o1`
-- Create a `build` directory and navigate to it: `% mkdir build && cd build`
-- Configure using cmake with `% cmake ..`
-- Build the project with `% make`
-- Open the world in Webots and run the simulation
+## Path Planner Description
 
-Note: To use the repository with Visual Studio Code Intellisense, change the necessary include paths in the `.vscode` folder.
+### Input:
+1. o1\_data to o5\_data and b5\_data to b5\_data = {x, y, theta, enc0, enc1, enc2, enc3} : state of each bot
+2. /o1/decision\_target\_data = {x, y, theta} : final state of o1 given by decision module
 
-## Code Organisation
+### Output:
+1. /o1/target\_pos = {x, y, theta, vx, vy, omega, speed, idx, path\_length} : next target state of o1
 
-- o1
+### How to Run
+Build the package:
+```
+cd path_planner
+colcon build
+source install/local_setup.bash
+```
+
+Run the module:
+```
+ros2 run path_planner_pkg main
+```
+
+- You can test the final target point (to be given by decision module) by `ros2 topic pub /decision_target_data std_msgs/msg/Float32MultiArray "{data: [0.0, 0.0, 0.0]}"`, where the array has data in format [x, y, theta]
+
+### Code Organisation
+- src
   - `Coordinate.hpp` => It has definitions of `wheel_angular_vel` struct and `Point2D` struct
   - `Motion.hpp` => Has complete description of class `PID` and the class which implements motion control of the robot.
   - `Robot.hpp` => Provides code needed for interfacing the desired motion from `Motion.hpp` to actual wheel velocities via forward and inverse kinematics with odometry information.
   - `Visualise.hpp` => All the code necessary for the visualization of the current state of the robot.
-  - `Icecream.hpp` => Template Library for Debugging.
   - `PathPlanner.hpp` => Code that needs to be imported in main for generating a set of points. Needs to be split into a corresponding PathPlanner.cpp file.
 
-## Theory
+## MPC Controller Description
 
-### Wheel Control and Local Motion Planning
+### Input:
+1. o1\_data = {x, y, theta, enc0, enc1, enc2, enc3} : current state of o1
+2. /o1/target\_pos = {x, y, theta, vx, vy, omega, speed, nearest\_point\_idx, path\_size} : next target state of o1
 
-- A simple PID controller was integrated with the system to minimize the error.
-- Maintaining Orientation:
-- Inverse Kinematic Equations:
-- Forward Kinematic Equations:
-- Control Diagram:
+### Output:
+1. /o1/cmd\_vel = {vx, vy, omega} : next predicted velocities of o1
 
-### Global Path Planning
+### How to Run
+Build the package:
+```
+cd controller
+colcon build
+source install/local_setup.bash
+```
 
+Run the module:
+```
+ros2 run controller_pkg controller
+```
+
+## Webots Simulation Description
+
+### The module publishes:
+- `/robot_data`: {x-coordiante, y-coordinate, z-orientation, encoder1, encoder2, encoder3, encoder4} in the same mentioned order
+
+### The module subscribes to:
+- `/cmd_vel`: The `linear.x`, `linear.y`, and `angular.z` values are used to control the motion of the robot.
+
+### How to Run
+Build the package:
+```
+cd webots_pkg
+colcon build
+source install/local_setup.bash
+```
+
+Run the module:
+```
+ros2 launch webots_pkg robot_launch.py
+```
+
+## Python Simulation Description
+It's working is similar to the webot simulation.
+
+### How to Run
+```
+cd python_sim/src/python_sim_pkg/python_sim_pkg
+python3 robot_sim.py
+```
+
+## STM Microcontroller Communicator Description
+It subscribes to the necessary topics and generates velocities of the individual wheels and sends them to the STM microcontroller by serial communication. Make sure that the STM is connected to the correct port in the system.
+
+### How to Run
+```
+cd stm_comm
+python3 serial_comm.py
+```
 ## References
-
 - <https://github.com/MasdikaAliman/Kinematic-4-Omniwheels-in-Webots>
