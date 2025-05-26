@@ -13,6 +13,12 @@ Install webots_ros2 package:
 Run VSCode locally by SSH onto the machine: <https://github.com/utmapp/UTM/discussions/2465#discussioncomment-6931047>
 Use UTM for visualisations or running terminal nodes
 
+To run, on host: export WEBOTS_HOME=/Applications/Webots.app && python3 local_simulation_server.py
+To run, on guest, if you get permission error: sudo chown -R $USER /home/kartik/shared
+and then try running again.
+
+Follow the tutorial and documentation pages properly.
+
 ## Requirements
 
 1. OpenCV v4.8.1 (C++ Version)
